@@ -1,0 +1,60 @@
+# T4 memory test (design doc 13.4). Heaviest input: two images, longest prompt, full-length generation.
+seed: 0
+
+model:
+  name: Qwen/Qwen3.5-9B
+  # Hugging Face commit, checked 2026-10-14
+  revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+  # "auto" splits across all visible GPUs; {"": 0} pins to one GPU
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  # T4 has no bfloat16
+  compute_dtype: float16
+  # Qwen2VLImageProcessorFast per preprocessor_config.json; image size limits stay at the preprocessor defaults
+  processor_use_fast: true
+
+generation:
+  max_new_tokens: 512
+  # equal to max_new_tokens so every run generates the full length
+  min_new_tokens: 512
+  do_sample: false
+  # <|im_end|>, <|endoftext|>; the repo has no generation_config.json and config.json lists only <|endoftext|>
+  eos_token_ids: [248046, 248044]
+  enable_thinking: false
+  # prefixes "Picture 1:", "Picture 2:" so the text can refer to each image
+  add_vision_id: true
+
+test_input:
+  num_images: 2
+  # largest image token count among original sizes of both datasets: VisA cashew 1274x1176
+  image_width: 1274
+  image_height: 1176
+  # draft B1-style prompt; real prompts are fixed in the format check stage
+  # candle has the longest candidate type list of both datasets (VisA utils/id2class.py, BACKGROUND and Other removed)
+  prompt: |
+    Picture 1 is a defect-free reference image of the product category "candle".
+    Picture 2 is the image to inspect. Compare Picture 2 with Picture 1.
+    Picture 2 is divided into a 3x3 grid. Rows are r1 (top) to r3 (bottom), columns are c1 (left) to c3 (right).
+    Candidate defect types: Chunk Of Wax Missing, Damaged Corner of Packaging, weird candle wick, Different Colour Spot, Extra Wax in Candle, Foreign Particals on Candle, Wax Melded out of the candle.
+    Answer with one JSON object only, with these keys:
+    "is_defective" (true or false),
+    "defect_type" (one candidate defect type, or null if not defective),
+    "location_cells" (list of grid cells such as "r1c3", empty if not defective),
+    "confidence" (number between 0 and 1),
+    "rationale" (one short sentence).
+  # format retry appends the last output and its parse error; a truncated output is max_new_tokens long
+  previous_output_tokens: 512
+  retry_template: |
+
+    Your previous output was:
+    {previous_output}
+    It could not be parsed: {error}
+    Answer again with one JSON object only.
+  retry_error: "Unterminated string starting at: line 6 column 16 (char 151)"
+
+pass_threshold:
+  # max_memory_reserved / total_memory, per device
+  reserved_ratio: 0.95
+
+output_dir: results/memory_test

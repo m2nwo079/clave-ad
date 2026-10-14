@@ -1,6 +1,6 @@
 # CLAUDE.md — CLAVE-AD
 
-이 파일은 저장소에 포함되는 공용 작업 규칙이다. 개인 설정(노션 링크, 로컬 경로, 인증 정보 위치, 외부 실행 ID)은 `CLAUDE.local.md`에 있으며, 그 파일은 커밋하지 않는다. 응답 방식은 사용자 전역 설정(`~/.claude/CLAUDE.md`)을 따른다.
+이 파일은 저장소에 포함되는 공용 작업 규칙이다. 개인 설정(노션 링크, 로컬 경로, 인증 정보 위치, 외부 실행 ID, 개인 작업 방식)은 `CLAUDE.local.md`에 있으며, 그 파일은 커밋하지 않는다. 응답 방식은 사용자 전역 설정(`~/.claude/CLAUDE.md`)을 따른다.
 
 ## 1. 프로젝트 개요
 
@@ -25,7 +25,7 @@ VLM이 내놓는 산업 불량 설명을 존재·위치·유형의 주장으로 
 ## 3. 저장소 구조
 
 ```
-configs/                  # yaml configs for every run
+configs/<stage>/          # yaml configs per stage
 src/clave_ad/
   data/                   # dataset loaders, grid and mask utilities
   detectors/              # CLIP-based anomaly detector wrappers
@@ -36,20 +36,23 @@ src/clave_ad/
   library/                # example library split (reads labels of library images only)
   baselines/              # B0 to B4 comparison methods
   eval/                   # ground-truth metrics (only place that reads ground truth)
-scripts/                  # entry points
-notebooks/kaggle/         # Kaggle inference notebooks
+scripts/<stage>/          # entry points per stage
+scripts/kaggle/push.sh    # shared Kaggle upload, takes the stage name
+notebooks/kaggle/<stage>.py  # Kaggle kernel per stage
 data/                     # raw datasets (not tracked)
 cache/                    # model outputs, anomaly maps, crops (not tracked)
-results/                  # metric json files (tracked)
+results/<stage>/          # metric json files per stage (tracked)
 docs/                     # local notes and fallback research log
 .claude/settings.json     # secret file read guard (not tracked)
 .claude/skills/           # reusable procedures as skills (not tracked)
 .githooks/pre-commit      # personal data and secret commit guard (tracked)
 ```
 
+실행 입구(`configs/`, `scripts/`, `notebooks/kaggle/`, `results/`)는 단계별로, 여러 단계가 함께 쓰는 코드는 역할별로(`src/clave_ad/`, `scripts/kaggle/`) 나눈다. `<stage>`는 단계 브랜치 이름의 하이픈을 밑줄로 바꾼 것이다(`stage/memory-test` → `memory_test`).
+
 ## 4. 현재 단계
 
-`CLAUDE.local.md` 6절에 둔다. 작업을 시작할 때 읽고, 끝날 때 갱신한다.
+`CLAUDE.local.md`의 "현재 단계" 절에 둔다. 작업을 시작할 때 읽고, 끝날 때 갱신한다.
 
 ## 5. 작업 절차
 
@@ -84,7 +87,7 @@ docs/                     # local notes and fallback research log
 작업이 끝나면 매번 `clave-record` 스킬 절차를 따른다. 생략하지 않는다.
 
 1. `CLAUDE.local.md`의 현재 단계와 이 파일의 바뀐 규칙을 갱신한다.
-2. 노션 연구 과정 기록을 추가하고, 설계가 바뀌었으면 설계서 해당 절과 16절 변경 이력도 고친다.
+2. 노션 연구 과정 기록과 설계서 반영은 `CLAUDE.local.md`의 노션 작업 방식이 있으면 그것을 따르고, 없으면 아래 절차대로 직접 기록한다(연구 과정 기록 추가, 설계가 바뀌었으면 설계서 해당 절과 16절 변경 이력 수정).
 3. 커밋 시점이면 파일 목록과 메시지를 추천한다.
 
 ### 5.5 이 파일과 스킬 관리
@@ -128,7 +131,7 @@ threshold = np.percentile(normal_scores, 95)  # Bad: inline comment
 - 메모리 1GB 안팎이거나 몇 분 안에 끝나는 작업은 로컬에서 `caffeinate`·`nice`로 실행하고, 크고 오래 걸리는 작업과 GPU 작업만 Kaggle로 보낸다.
 - 오래 걸리는 실행 전에는 반복을 줄인 축소판으로 저장까지 먼저 확인한다.
 - Kaggle은 비공개 데이터셋·커널로 실행하고 결과를 내려받아 로컬에서 커밋한다. `kernel-metadata.json`처럼 계정 ID가 들어가는 파일은 스크립트로 만들고 추적하지 않는다. 데이터셋 새 버전은 처리가 끝난 뒤 커널을 실행하고, 실행 기록의 커밋을 확인한다.
-- 승인된 의존성: 없음
+- 승인된 의존성: torch, transformers(Qwen3.5는 5.2.0 이상), accelerate, bitsandbytes, pyyaml, pillow, torchvision(Kaggle 기본 설치본 사용, 별도 설치·버전 고정 안 함), kaggle CLI(로컬 `.venv`)
 - 브라우저(Claude in Chrome)는 새 탭을 만들어 그 탭에서만 작업하고, 사용자가 열어 둔 탭에 접근하거나 닫지 않는다.
 - macOS에서 터미널이 다운로드 폴더 권한이 없으면 `mv`가 `Operation not permitted`로 실패한다. Finder로 옮기거나 권한을 준다.
 
@@ -139,14 +142,16 @@ threshold = np.percentile(normal_scores, 95)  # Bad: inline comment
 
 ## 9. git
 
-- **커밋은 사용자가 직접 한다.** Claude는 `git add`, `git commit`을 실행하지 않고, 커밋 시점에 성격별 파일 목록과 메시지만 추천한다(`clave-record` 4절).
+- **커밋은 사용자가 직접 한다.** Claude는 `git add`, `git commit`을 실행하지 않고, 커밋 시점에 파일 목록과 메시지만 추천한다(`clave-record` 4절).
+- 단계 안의 작은 수정은 바로 커밋하지 않고 모아 두었다가, Kaggle에 올리는 등 실행 직전에 한 번 커밋한다(실행 한 번에 커밋 한 번). 커밋은 코드와 문서(`CLAUDE.md` 등)처럼 성격이 확실히 다를 때만 나누고, 같은 코드의 여러 수정은 한 커밋으로 합친다.
 - 커밋 메시지는 Conventional Commits 형식의 영어로 쓰고, `Co-Authored-By`나 "Generated with Claude Code"를 넣지 않는다.
 - 커밋 작성자는 저장소 로컬 설정의 GitHub noreply 주소다.
 - pre-commit 훅 `.githooks/pre-commit`이 noreply가 아닌 작성자, 커밋 금지 파일, 로컬 사용자명·홈 경로·전역 git 이름과 이메일, 토큰 형태 문자열을 막는다. 클론마다 한 번 `git config core.hooksPath .githooks`로 켠다. 추가로 막을 개인 단어(Kaggle 사용자명, 노션 ID 등)는 `.git/info/forbidden-words`에 한 줄에 하나씩 적는다(추적 안 됨).
 - push는 5.3절대로 매번 묻고, 허락받으면 `git push origin main` 또는 `git push origin stage/<단계>`만 쓴다.
 - 기준 브랜치는 `main`이다. 작업은 단계마다 `stage/<단계>` 브랜치를 `main`에서 만들어 하고, 단계 브랜치는 한 번에 하나만 연다. 단계 목록은 `CLAUDE.local.md`에 있다.
 - 단계를 마치면 결과가 실패여도 `git merge --no-ff`로 `main`에 병합한다. 병합 커밋이 단계 완료 표시다. 병합하지 않은 단계 브랜치는 지우지 않는다.
-- 커밋은 rebase, amend, squash로 바꾸지 않는다. 결과 파일과 연구 과정 기록이 그 해시를 가리킨다.
+- 커밋은 rebase, amend, squash로 바꾸지 않고, 이미 만든 커밋은 합치지 않는다. 결과 파일과 연구 과정 기록이 그 해시를 가리킨다.
+- 평소 이력은 `git log --first-parent main`으로 보고, 세부 이력은 단계 브랜치에 남긴다.
 - 단계 브랜치도 원격에 올릴 수 있다. 병합한 뒤에도 원격 단계 브랜치는 지우지 않는다(지울 때는 허락을 받는다).
 - 브랜치 생성, 병합, 삭제는 사용자가 하고, Claude는 명령만 추천한다.
 

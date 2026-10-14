@@ -1,0 +1,67 @@
+{
+  "run_id": "memory_test_20261014T003401Z",
+  "git_commit": "d9a13399fb26bf9d304c3ca37e813d4ade3ff4a2",
+  "config_path": "configs/memory_test/qwen3_5_9b_1gpu.yaml",
+  "config_hash": "5d843960bef527cd24fc4b671044f18cc04f3980b92dd6ec376a88a8d2187208",
+  "dataset": "synthetic",
+  "seed": 0,
+  "created_at": "2026-10-14T00:34:01.593811+00:00",
+  "metrics": {
+    "pass": true,
+    "oom": false,
+    "error": null,
+    "devices": [
+      {
+        "device": 0,
+        "name": "Tesla T4",
+        "total_memory": 15636037632,
+        "max_memory_reserved": 11305746432,
+        "max_memory_allocated": 10740153344,
+        "mem_get_info_used": 11449270272,
+        "reserved_ratio": 0.7230569980761735,
+        "pass": true
+      },
+      {
+        "device": 1,
+        "name": "Tesla T4",
+        "total_memory": 15636037632,
+        "max_memory_reserved": 0,
+        "max_memory_allocated": 0,
+        "mem_get_info_used": 109969408,
+        "reserved_ratio": 0.0,
+        "pass": true
+      }
+    ],
+    "device_map": [
+      "cuda:0"
+    ],
+    "processor_size": {
+      "longest_edge": 16777216,
+      "shortest_edge": 65536
+    },
+    "previous_output_tokens": 512,
+    "input_tokens": 3747,
+    "image_tokens": [
+      1480,
+      1480
+    ],
+    "generate_seconds": 52.742937074999986,
+    "new_tokens": 512,
+    "full_length": true,
+    "nonfinite_logits": true,
+    "generated_text": "{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 0.95, \"rationale\": \"No visible defects detected; image appears consistent with reference.\"}\n\n{\"is_defective\": false",
+    "prefill_seconds": 7.134990850000008
+  },
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "torchvision": "0.26.0+cu128",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39"
+  }
+}
