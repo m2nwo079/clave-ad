@@ -1,0 +1,73 @@
+# Personal Claude Code settings
+CLAUDE.local.md
+.claude/
+
+# Datasets (license terms forbid redistribution)
+/data/
+
+# Derived model outputs, anomaly maps, crops
+/cache/
+
+# Temporary result files (final results/*.json are tracked)
+results/tmp/
+
+# Model weights and checkpoints
+models/
+weights/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+kaggle.json
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Experiment trackers and logs
+wandb/
+mlruns/
+logs/
+*.log
+
+# Hugging Face local cache
+.cache/
+hf_cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# VS Code (keep shared settings only)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

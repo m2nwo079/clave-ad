@@ -1,0 +1,45 @@
+#!/bin/sh
+# Block personal identifiers, secrets, and untracked data from being committed.
+# Personal values are read at run time, so this tracked file holds no personal data.
+# Enable once per clone: git config core.hooksPath .githooks
+
+fail=0
+
+# Committer identity must be a GitHub noreply address.
+email=$(git config user.email)
+case "$email" in
+  *@users.noreply.github.com) ;;
+  *) echo "pre-commit: user.email is not a GitHub noreply address"; fail=1 ;;
+esac
+
+# Forbidden files: secrets, personal settings, raw data, caches.
+bad_files=$(git diff --cached --name-only --diff-filter=ACMR \
+  | grep -E '(^|/)(\.env(\..*)?|kaggle\.json|access_token|CLAUDE\.local\.md|settings\.local\.json)$|\.pem$|\.key$|^(data|cache|\.claude)/' \
+  | grep -v '\.env\.example$')
+if [ -n "$bad_files" ]; then
+  echo "pre-commit: forbidden files staged:"; echo "$bad_files"; fail=1
+fi
+
+# Forbidden content in added lines.
+added=$(git diff --cached -U0 --diff-filter=ACMR | grep '^+' | grep -v '^+++')
+for value in "$(whoami)" "$HOME" "$(git config --global user.name)" "$(git config --global user.email)"; do
+  if [ -n "$value" ] && printf '%s\n' "$added" | grep -qiF -- "$value"; then
+    echo "pre-commit: staged content contains a local user name, home path, or personal identity"; fail=1
+  fi
+done
+
+# Extra personal words (Kaggle user name, Notion page IDs, etc.), one per line, kept outside the tracked tree.
+words_file="$(git rev-parse --git-dir)/info/forbidden-words"
+if [ -f "$words_file" ]; then
+  while IFS= read -r word; do
+    if [ -n "$word" ] && printf '%s\n' "$added" | grep -qiF -- "$word"; then
+      echo "pre-commit: staged content contains a word listed in .git/info/forbidden-words"; fail=1
+    fi
+  done < "$words_file"
+fi
+
+if printf '%s\n' "$added" | grep -qE 'ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AIza[0-9A-Za-z_-]{30,}|KGAT_[A-Za-z0-9]{16,}|gsk_[A-Za-z0-9]{20,}|hf_[A-Za-z0-9]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY'; then
+  echo "pre-commit: staged content looks like a token or private key"; fail=1
+fi
+
+[ "$fail" -eq 0 ] || { echo "pre-commit: commit blocked"; exit 1; }
