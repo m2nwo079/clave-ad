@@ -1,0 +1,10 @@
+# Detector run of the main run: AnomalyCLIP scores for train normals, and maps, verification features and type
+# embeddings for the VLM test images. Detector settings and weights stay in the frozen format check config.
+seed: 0
+detector_config: configs/format_check/anomalyclip.yaml
+rules: configs/main_run/rules.yaml
+split_result: results/main_run/library_20261014T091345Z.json
+# each worker stops cleanly after this many hours so the kernel can still save its output
+time_budget_hours: 10
+cache_dir: cache/main_run_detector
+output_dir: results/main_run

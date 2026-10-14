@@ -1,0 +1,1581 @@
+{
+ "run_id": "vlm_smoke_20261014T134726Z",
+ "git_commit": "e87ff01ce66f7e3f75c7e19cd2aa025932a13bfe",
+ "config_path": "configs/main_run/run.yaml",
+ "config_hash": "ff7e8585be61ac21ac1c1697e754370290fe0da36ac3bb443c0306094da69cbe",
+ "dataset": "mvtec_ad+visa",
+ "seed": 0,
+ "created_at": "2026-10-14T13:47:26.935317+00:00",
+ "session": {
+  "name": "smoke",
+  "kinds": {
+   "mvtec_ad": [
+    "b0",
+    "b3",
+    "b1",
+    "b2",
+    "p1"
+   ],
+   "visa": [
+    "b0",
+    "b2",
+    "p1"
+   ]
+  },
+  "categories": {
+   "mvtec_ad": [
+    "bottle"
+   ],
+   "visa": [
+    "candle"
+   ]
+  },
+  "per_category": 6
+ },
+ "detector": {
+  "result": "results/main_run/detector_20261014T115713Z.json",
+  "run_id": "detector_20261014T115713Z",
+  "kernel": "clave-ad-main-run-detector",
+  "kernel_version": 1,
+  "files": {
+   "maps.json": "b1bb98701a70f1334a335b09e584ec80eedf7f6882976343fee7e292e21fbf45",
+   "features.json": "7a40179fc9712a30ea0c21ba9a45cf2e27ab9319e0fcd1569f3fe24a403ebc24",
+   "embeddings.npz": "a87ef4013640f1cd10918f9e6406b0adae29f973afbb40137bbd90de52a0314f",
+   "prototypes.npz": "321e2aab46961473ec01e6d4fe1644c1d6a217673630d598811dc860702460f0"
+  }
+ },
+ "metrics": {
+  "complete": true,
+  "repeat_oom": false,
+  "assigned_images": 12,
+  "oom": [],
+  "missing_b0": [],
+  "compliance": {
+   "b0": {
+    "requests": 12,
+    "first_ok": 12,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 5,
+    "nonfinite_requests": 0
+   },
+   "b0/mvtec_ad": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 5,
+    "nonfinite_requests": 0
+   },
+   "b0/visa": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 0,
+    "nonfinite_requests": 0
+   },
+   "b1": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 5,
+    "nonfinite_requests": 0
+   },
+   "b1/mvtec_ad": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 5,
+    "nonfinite_requests": 0
+   },
+   "b2": {
+    "requests": 12,
+    "first_ok": 12,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 1,
+    "nonfinite_requests": 0
+   },
+   "b2/mvtec_ad": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 1,
+    "nonfinite_requests": 0
+   },
+   "b2/visa": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 0,
+    "nonfinite_requests": 0
+   },
+   "b3": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 0,
+    "nonfinite_requests": 0
+   },
+   "b3/mvtec_ad": {
+    "requests": 6,
+    "first_ok": 6,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 0,
+    "nonfinite_requests": 0
+   },
+   "requery": {
+    "requests": 3,
+    "first_ok": 3,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 1,
+    "nonfinite_requests": 0
+   },
+   "requery/mvtec_ad": {
+    "requests": 2,
+    "first_ok": 2,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 0,
+    "nonfinite_requests": 0
+   },
+   "requery/visa": {
+    "requests": 1,
+    "first_ok": 1,
+    "ok_after_retry_1": 0,
+    "ok_after_retry_2": 0,
+    "violations": 0,
+    "violations_truncated": 0,
+    "violations_think_block": 0,
+    "ok_fenced": 0,
+    "ok_control_char": 1,
+    "nonfinite_requests": 0
+   }
+  },
+  "p1": {
+   "mvtec_ad": {
+    "images": 6,
+    "skipped": {
+     "main_seed_library": 1
+    },
+    "p0_checked": 5,
+    "p0_all_pass": 3,
+    "p0_unverifiable_type": 0,
+    "requeried": 2,
+    "requery_unparsed": 0,
+    "requery_missing": 0
+   },
+   "visa": {
+    "images": 6,
+    "skipped": {
+     "main_seed_library": 2
+    },
+    "p0_checked": 4,
+    "p0_all_pass": 3,
+    "p0_unverifiable_type": 0,
+    "requeried": 1,
+    "requery_unparsed": 0,
+    "requery_missing": 0
+   }
+  },
+  "generations": 39,
+  "generation_seconds": 359.28461426299975,
+  "input_tokens": 65464,
+  "new_tokens": 2630,
+  "shards": [
+   {
+    "shard": 0,
+    "device": "cuda_visible_devices=0",
+    "gpu": "Tesla T4",
+    "kernels": {
+     "fla": false,
+     "causal_conv1d": false
+    },
+    "pytorch_cuda_alloc_conf": "expandable_segments:True",
+    "prompts": {
+     "b0": "b0_v2.txt",
+     "b1": "b1_v2.txt",
+     "b2": "b2_v1.txt",
+     "b3": "b3_v1.txt",
+     "requery": "requery_v1.txt",
+     "retry": "retry_v2.txt",
+     "output_rules": "output_rules_v1.txt"
+    },
+    "max_memory_reserved": 7944011776,
+    "max_memory_allocated": 7882949632,
+    "total_memory": 15636037632,
+    "complete": true
+   },
+   {
+    "shard": 1,
+    "device": "cuda_visible_devices=1",
+    "gpu": "Tesla T4",
+    "kernels": {
+     "fla": false,
+     "causal_conv1d": false
+    },
+    "pytorch_cuda_alloc_conf": "expandable_segments:True",
+    "prompts": {
+     "b0": "b0_v2.txt",
+     "b1": "b1_v2.txt",
+     "b2": "b2_v1.txt",
+     "b3": "b3_v1.txt",
+     "requery": "requery_v1.txt",
+     "retry": "retry_v2.txt",
+     "output_rules": "output_rules_v1.txt"
+    },
+    "max_memory_reserved": 7944011776,
+    "max_memory_allocated": 7882949632,
+    "total_memory": 15636037632,
+    "complete": true
+   }
+  ]
+ },
+ "environment": {
+  "python": "3.13.15",
+  "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "transformers": "5.19.0",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.14.0",
+  "pillow": "12.3.0",
+  "pyyaml": "6.0.3",
+  "scipy": "1.16.3",
+  "numpy": "2.1.3",
+  "tqdm": "4.67.3",
+  "setuptools": "81.0.0",
+  "packaging": "26.3",
+  "ftfy": null,
+  "wcwidth": "0.8.3",
+  "regex": "2025.11.3",
+  "cuda": "12.8"
+ },
+ "records": [
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/000.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "5fb2bd1c70bc9e0e2ea3df7fe9143ca8a7b2d17f899e46e4bdd159c9654695ff",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 81,
+     "seconds": 12.553251573000011,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/000.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+   "attempts": [
+    {
+     "input_tokens": 1021,
+     "new_tokens": 24,
+     "seconds": 3.7534393659999523,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/000.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "6376eb5aa14317f4e332904b07f27067ea167126da85cd7a73afdabf52173631",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 85,
+     "seconds": 10.35579438100001,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/000.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "2eb213ae02ee195375079177287e2d1fb66c5bb6879b43a3feac86a35ff2bda4",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 94,
+     "seconds": 11.219664104000003,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "inputs_sha256": [
+    "11a691a06a33dd78c5fcab6a822caa48c0d72f27f660e19f5abd9b5aa392b0eb",
+    "94ef1e46532c75f95ee26ba44639d5950cd029e1bb966b0527f8dfa8e9909829"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/000.png",
+   "device": "cuda_visible_devices=0",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": true,
+     "type": true
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  },
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/006.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "afb7ff6497db8cb34a57da8ce79975c43359f1569ccc000402137a14aec68c4e",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 81,
+     "seconds": 8.570464863999973,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/006.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+   "attempts": [
+    {
+     "input_tokens": 1022,
+     "new_tokens": 24,
+     "seconds": 3.782202864999931,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/006.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9754eb8c714ac73a2845e03a3e39e7585cb2790b657cb2562d55719750e6cd37",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 91,
+     "seconds": 10.764517854999895,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/006.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "0f07639e819119611065a4583b3237be564d12299d3d699f11d505793727f797",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 69,
+     "seconds": 9.03143009900009,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "3663a963886304bb1fc308bb63bdd63edb58904980662d034136f53af3124d54",
+    "60452651998726a377f5925202d38a0d1b05d27d9d5a28f5990209bcee43f75c"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/006.png",
+   "device": "cuda_visible_devices=0",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": true,
+     "type": true
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  },
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "93565c725776fbde457047dc4c8670f33d44259ce28cdf1ddac5f8dd2c6ac68e",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 67,
+     "seconds": 7.582118272000002,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+   "attempts": [
+    {
+     "input_tokens": 1013,
+     "new_tokens": 24,
+     "seconds": 3.9041133670000363,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "f3152d56015636a8517eeed810132b1ab630e83d0e1d8de97084f2c6b0442d6f",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 92,
+     "seconds": 11.03177344900007,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "014048cc2560f1ecb22d114282de2bed49275b40975b0d6747f7444168663f38",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 49,
+     "seconds": 7.267267986999968,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "29b03be4b7ff17a2e32446c60ea7d7c6dbffc2ffe091f17455fdc528fb337317",
+    "30b14a4cdc40997fe3d084a327c2c9f49a56ad0344e426d24ac152dd89c576f7"
+   ]
+  },
+  {
+   "kind": "requery",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "2a4d3be3238f2726edfcbe72aa4a126d7b91a9b852bae91583612405f90963b2",
+   "attempts": [
+    {
+     "input_tokens": 547,
+     "new_tokens": 52,
+     "seconds": 5.765394637999975,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "34e92b193da12eb7821d872a1a9e9d452e0c8d227fa33f483d00b45f71dafdc0",
+    "51ed95bd3deb69296f7c27291b1bdd29ebfaddff294a5196a09845a91003c4a5"
+   ],
+   "crop_box": [
+    248,
+    196,
+    549,
+    497
+   ],
+   "crop_size": [
+    301,
+    301
+   ],
+   "crop_shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/contamination/011.png",
+   "device": "cuda_visible_devices=0",
+   "p0": {
+    "claims": {
+     "existence": false,
+     "location": null,
+     "type": null
+    },
+    "score": 0.0,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   },
+   "requeried": true,
+   "requery_unparsed": false,
+   "p1": {
+    "claims": {
+     "existence": false,
+     "location": null,
+     "type": null
+    },
+    "score": 0.0,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   }
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c7d0313cef4cfae861992e8e01972048b20c3ffa775f6438cac6dc5bc7d65774",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 9.227650926000024,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9a6d4ab2b42c6f2f7a2f923b127f784a0c9403aa79d05f20814a93cc0bdd21c6",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 84,
+     "seconds": 13.617265879000001,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "c004dbc05698f01cf415e07d2a8cf8fef48aa19516eece6600e13f92f1f788b7",
+    "ec73ee8627c55da654a11e12f88df330b0503472fb62e4987d0c6ffdb6ec72fc"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "skipped": "main_seed_library"
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/067.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "237c26a19124348c686a65e4cb1447893a3d489cda9414448647c83159e46cb3",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 8.98944390600002,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/067.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "1326db5d6cb5c8069b16fb45a39ab247d38c93cab95f3dd089d9aa14662c803e",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 67,
+     "seconds": 11.842142369000044,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "49a207c01e7c706ac0db19285beda07a959d3d28dc185ab3b4fa6d44409f9ee8",
+    "f1782758d237a25539c23620f3e6c4922937d7ab1fd358aa01dbbcbcb20c84cd"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/067.JPG",
+   "device": "cuda_visible_devices=0",
+   "skipped": "main_seed_library"
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0402.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "fc80b026d9cbed94d4d0d1c2512adeab31a574c47e80244488c89e55b7b00856",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 8.838548354999944,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0402.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9a6d4ab2b42c6f2f7a2f923b127f784a0c9403aa79d05f20814a93cc0bdd21c6",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 84,
+     "seconds": 13.56752124500008,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "843610f6cd882f4294330341d40f6841a10626a879cf21c74baa1dfabfabed60",
+    "3164d5788fbb3e654f6c71f92279283998ae16951e4389ffe8d306e1d5dc5e0f"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0402.JPG",
+   "device": "cuda_visible_devices=0",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": null,
+     "type": null
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  },
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/013.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d80f7efce80d26f3ec3a49cf0c82dfcf36e86fec5acf926721ccdedd957c1686",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 85,
+     "seconds": 13.152722653999945,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/013.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+   "attempts": [
+    {
+     "input_tokens": 1025,
+     "new_tokens": 24,
+     "seconds": 3.878223905999903,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/013.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "dfa4c984427988334dca6d1b21a2e5ff691f8a338bf850fee45a57f07775e700",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 110,
+     "seconds": 12.871059980000041,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/013.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "548775ae6b3d0cb867ebe60dc8135af06dd677489c1aa8f1230f8b38bd658a7f",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 65,
+     "seconds": 8.90247969699999,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "cdb49dee73c2b02e2e062fe890ad5b6babc6aa5d95c84ba35486631a105f8373",
+    "a2c9f7b4aedee33c410e11e54ed8786b6b48826271843f3521c3f0943897382a"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_large/013.png",
+   "device": "cuda_visible_devices=1",
+   "skipped": "main_seed_library"
+  },
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c9eaa9cd9bf38207f7c3170ec6d5eddbe09dc6917f51bba602876c4f7191f3d1",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 84,
+     "seconds": 9.10039911900003,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+   "attempts": [
+    {
+     "input_tokens": 1024,
+     "new_tokens": 24,
+     "seconds": 4.060726762999934,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e62735036c0d399b381ca5e17fc85dce64eb644c38c4a6cd5872db590429a2d7",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 92,
+     "seconds": 11.26224955500004,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "4c81b86d64cfc5b5c2f47a7194c5efd49cae740dc2e7316b5f1c336fd6af8e74",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 75,
+     "seconds": 9.859811480000076,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "a6e0b07c9402eb7ce810955032a54d5b05cc60f30579b397e83eba6957390c34",
+    "2a8ec067b5f4d4b4e76fe3a8e6d517fa3c5e0285d1ea7c155812731ce0fcea4f"
+   ]
+  },
+  {
+   "kind": "requery",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "60bb5173d6c14eff6bf0e20a0db9669ff6d5140e2ddf01fc2df3c100e29c24ae",
+   "attempts": [
+    {
+     "input_tokens": 547,
+     "new_tokens": 78,
+     "seconds": 7.942979953999952,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "62f18765b123a05b138d259fff33d19bae99f6ff040d5c75e37de38ca7fd4f99",
+    "ac942dd24136861123d3e48af9bed2dd075a34262e8da055ed85b714b068da2b"
+   ],
+   "crop_box": [
+    115,
+    455,
+    416,
+    756
+   ],
+   "crop_size": [
+    301,
+    301
+   ],
+   "crop_shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/broken_small/019.png",
+   "device": "cuda_visible_devices=1",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": true,
+     "type": false
+    },
+    "score": 0.6666666666666666,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   },
+   "requeried": true,
+   "requery_unparsed": false,
+   "p1": {
+    "claims": {
+     "existence": true,
+     "location": true,
+     "type": false
+    },
+    "score": 0.6666666666666666,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   }
+  },
+  {
+   "kind": "b0",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/good/003.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "93565c725776fbde457047dc4c8670f33d44259ce28cdf1ddac5f8dd2c6ac68e",
+   "attempts": [
+    {
+     "input_tokens": 1002,
+     "new_tokens": 67,
+     "seconds": 7.897574609999992,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false
+  },
+  {
+   "kind": "b3",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/good/003.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+   "attempts": [
+    {
+     "input_tokens": 1013,
+     "new_tokens": 24,
+     "seconds": 4.32675347899999,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/good/003.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d4c2980c88140943ad377bd3a7036ad3289a9a436d5880cf4d75ed3194f1de6c",
+   "attempts": [
+    {
+     "input_tokens": 1819,
+     "new_tokens": 55,
+     "seconds": 8.173948777999954,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/good/003.png",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "2421fbee47be95d6aea6b99fa6ab7824081d8cdfe482da5f92c18b6d9f628e4b",
+   "attempts": [
+    {
+     "input_tokens": 1863,
+     "new_tokens": 47,
+     "seconds": 7.279490829999986,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "08c6a6cbeecb25f84c1a8a6fbc1437228980076075058550eedd2f7e1d172978",
+    "29aa77eb293a8245f0bad0baadd97357db05b9ccd33d3db854e44756cb13d65f"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "mvtec_ad",
+   "category": "bottle",
+   "path": "bottle/test/good/003.png",
+   "device": "cuda_visible_devices=1",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": null,
+     "type": null
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "47e9ccb265878fb869813c79cb6c6096035612f6e9b77c0651f06c9c8e0a799b",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 85,
+     "seconds": 10.985275806000004,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "37a3ea987522a2671dcdf9f244cd7972d53292f13acf60c3de97e59f63bcc55e",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 61,
+     "seconds": 12.029707040999938,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "4708e3eb1328f7aafa854dc7786b4b5ef1ec4d650a28eea9ebbf60889433d162",
+    "4d3bceecfe76fb8fcf9a088210e70b05459ba9e8149801b2487636d734190f61"
+   ]
+  },
+  {
+   "kind": "requery",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d3c68b08d30ccdee290aa1d88d3742cb51698cef69eb7e61274951950d7ae533",
+   "attempts": [
+    {
+     "input_tokens": 814,
+     "new_tokens": 92,
+     "seconds": 9.781571654999993,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "inputs_sha256": [
+    "8f1d0ae14a2042ff72c7415f98231516137b0d4513ba05d68169ff70227b5aec",
+    "a3af8b661e7c567a76383eacd26e15f0155a8a6e42e2bbdb525ef35703cd86f9"
+   ],
+   "crop_box": [
+    804,
+    308,
+    1233,
+    698
+   ],
+   "crop_size": [
+    429,
+    390
+   ],
+   "crop_shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=1",
+   "p0": {
+    "claims": {
+     "existence": false,
+     "location": false,
+     "type": false
+    },
+    "score": 0.0,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   },
+   "requeried": true,
+   "requery_unparsed": false,
+   "p1": {
+    "claims": {
+     "existence": false,
+     "location": false,
+     "type": false
+    },
+    "score": 0.0,
+    "all_pass": false,
+    "failed": true,
+    "unverifiable": false
+   }
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0011.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "fc80b026d9cbed94d4d0d1c2512adeab31a574c47e80244488c89e55b7b00856",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 9.290875044000018,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0011.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a1dbaa53f642bef48bdd8f9e485f5655adf7ae26bb60bf26d961b1f6e86a1c9f",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 97,
+     "seconds": 15.470302124,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "26da76bd9dbc5212bb4ae59a394aeb51a624ee42a67a318671fe02cdcb52443f",
+    "275eaecd8331b4d14d7dbb705896bf0d2c21cff783711933852d39a5806fa2d5"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0011.JPG",
+   "device": "cuda_visible_devices=1",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": null,
+     "type": null
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  },
+  {
+   "kind": "b0",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0694.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "ee16c722d04ff754428c7f0d2223643dd94a83df53c189755d8a4b1f4091c6f5",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 69,
+     "seconds": 9.806026304999932,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false
+  },
+  {
+   "kind": "b2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0694.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "09aeccd44f436146d2d1ddd3df8302476466b113de16f4827149e7cbb4b9fa42",
+   "attempts": [
+    {
+     "input_tokens": 3203,
+     "new_tokens": 56,
+     "seconds": 11.548429983000005,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "inputs_sha256": [
+    "31eb7aa27f0ce9229875fa24c1b522b82e8e0be1ee657e01149d693601edaa70",
+    "e557ab476bab6fcca738f3c415eae907bff050fddbcea88bd16572c3a96c910a"
+   ]
+  },
+  {
+   "kind": "p1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0694.JPG",
+   "device": "cuda_visible_devices=1",
+   "p0": {
+    "claims": {
+     "existence": true,
+     "location": null,
+     "type": null
+    },
+    "score": 1.0,
+    "all_pass": true,
+    "failed": false,
+    "unverifiable": false
+   },
+   "requeried": false
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+# Example library split and image lists for the main run (design doc 13, 13.1 A7 and A8).
+# Library size and seeds come from rules.yaml; data roots and type names from vlm.yaml.
+rules: configs/main_run/rules.yaml
+vlm: configs/main_run/vlm.yaml
+visa_class_ids: configs/main_run/visa_class_ids.yaml
+# format check sample images are excluded from the library and the evaluation
+format_check_samples: results/format_check/samples_20261014T035726Z.json
+output_dir: results/main_run
+# local folder of hard links packed into the private main run data dataset (images only, no masks)
+kaggle_data_dir: cache/kaggle_data/main_run

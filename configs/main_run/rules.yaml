@@ -42,6 +42,11 @@ type:
   prototype: normalized_mean
   # implementation choice: cosine similarity; ties go to the earlier type in type_names.yaml
   similarity: cosine
+  # a type claim naming a type with no library images is not verified: it is left out of the verification
+  # score denominator and counted as unverifiable; existence and location are verified as usual (design doc 10.3);
+  # an unverifiable claim does not trigger the re-query
+  # explanation status uses verifiable claims only; an explanation with an unverifiable claim is flagged as such
+  missing_library_type: unverifiable
 
 requery:
   # zoom-in crop (A3): component of the top pixels holding the peak, box scaled about its centre, at least one cell
@@ -53,6 +58,16 @@ requery:
   # implementation choice (A3 changed before freezing): move inside at the edge with the size kept
   edge: shift_inside
   max_rounds: 1
+  # not re-queried: B0 answers that never parsed, and the library images of the main seed;
+  # P1 is evaluated on the evaluation images of the main seed only
+  skip: [unparsed_b0, main_seed_library]
+  # final P1 answer: the re-query answer is always adopted (main analysis); a secondary analysis adopts it
+  # only when its re-verification score is higher than the score of the original answer
+  final_answer: always_requery
+  secondary_final_answer: requery_if_higher_score
+  # if the re-query answer still fails to parse after the format retries, the original B0 answer is kept
+  # (both analyses), and such cases are counted separately
+  unparsed_requery: keep_original
 
 format:
   # retries after a format violation, each with the latest output only

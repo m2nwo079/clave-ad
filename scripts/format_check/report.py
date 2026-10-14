@@ -10,25 +10,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from clave_ad.runinfo import environment, header
-
-
-def compliance(records: list[dict]) -> dict:
-    """Counts for regular requests: first answer ok, ok after each retry, final violations and truncations."""
-    out = {"requests": len(records), "first_ok": 0, "ok_after_retry_1": 0, "ok_after_retry_2": 0,
-           "violations": 0, "violations_truncated": 0, "violations_think_block": 0, "ok_fenced": 0,
-           "ok_control_char": 0, "nonfinite_requests": 0}
-    for r in records:
-        if r["ok"]:
-            out[["first_ok", "ok_after_retry_1", "ok_after_retry_2"][r["retries"]]] += 1
-            out["ok_fenced"] += r["fenced"]
-            # records written before the control_char rule have no such field
-            out["ok_control_char"] += r.get("control_char", False)
-        else:
-            out["violations"] += 1
-            out["violations_truncated"] += r["attempts"][-1]["truncated"]
-            out["violations_think_block"] += r["think_block"]
-        out["nonfinite_requests"] += any(a["nonfinite"] for a in r["attempts"])
-    return out
+from clave_ad.vlm.records import compliance
 
 
 def metrics(records: list[dict], shards: list[dict]) -> dict:

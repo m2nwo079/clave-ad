@@ -1,7 +1,8 @@
 #!/bin/sh
 # Upload the committed code as a private Kaggle dataset, then push the kernel of one stage.
-# Usage: KAGGLE_USERNAME=<name> sh scripts/kaggle/push.sh <stage> [data_stage]
-#   stage: notebooks/kaggle/<stage>.py; data_stage (default: stage): cache/kaggle_data/<data_stage>
+# Usage: KAGGLE_USERNAME=<name> sh scripts/kaggle/push.sh <stage> [data_stages] [kernel_slugs]
+#   stage: notebooks/kaggle/<stage>.py; data_stages (comma-separated, default: stage): cache/kaggle_data/<data_stage>
+#   kernel_slugs: comma-separated slugs of own kernels whose output is attached (latest version at push time)
 # Metadata files hold the account name, so they are generated under cache/ (not tracked).
 set -eu
 
@@ -47,13 +48,27 @@ upload() {
 
 upload "$build/dataset" "$dataset_id"
 sources="\"$dataset_id\""
-# Stage data packed by a local script (e.g. scripts/format_check/sample.py) goes up as its own private dataset
-data_stage="${2:-$stage}"
-data_dir="cache/kaggle_data/$data_stage"
-if [ -d "$data_dir" ]; then
+# Stage data packed by local scripts goes up as private datasets, one per comma-separated data stage
+for data_stage in $(printf '%s' "${2:-$stage}" | tr ',' ' '); do
+  data_dir="cache/kaggle_data/$data_stage"
+  [ -d "$data_dir" ] || continue
   data_id="$KAGGLE_USERNAME/clave-ad-data-$(echo "$data_stage" | tr _ -)"
-  upload "$data_dir" "$data_id"
+  # a listing of file names and sizes; an unchanged folder is not uploaded again (workers check image hashes)
+  stamp_dir=cache/kaggle_stamps
+  stamp="$stamp_dir/data-$data_stage.sha256"
+  listing=$(cd "$data_dir" && find . -type f ! -name dataset-metadata.json | sort | xargs stat -f '%N %z' | shasum -a 256 | cut -d' ' -f1)
+  if [ -f "$stamp" ] && [ "$(cat "$stamp")" = "$listing" ]; then
+    echo "dataset ${data_id#*/} unchanged, not uploaded"
+  else
+    upload "$data_dir" "$data_id"
+    mkdir -p "$stamp_dir"
+    echo "$listing" > "$stamp"
+  fi
   sources="$sources, \"$data_id\""
+done
+kernels=""
+if [ -n "${3:-}" ]; then
+  kernels=$(printf '%s' "$3" | tr ',' '\n' | sed "s|.*|\"$KAGGLE_USERNAME/&\"|" | paste -sd, -)
 fi
 
 cp "$kernel_file" "$build/kernel/run.py"
@@ -69,13 +84,15 @@ cat > "$build/kernel/kernel-metadata.json" <<EOF
   "enable_internet": true,
   "dataset_sources": [$sources],
   "competition_sources": [],
-  "kernel_sources": []
+  "kernel_sources": [$kernels]
 }
 EOF
 
 echo "Wait until the new dataset versions finish processing, then press Enter to push the kernel."
 read -r _
 rc=0
-kaggle kernels push -p "$build/kernel" >/dev/null 2>&1 || rc=$?
-echo "kernel push exit=$rc commit=$commit"
+push_out=$(kaggle kernels push -p "$build/kernel" 2>&1) || rc=$?
+# only the version number is shown; the rest of the output may name the account
+version=$(printf '%s' "$push_out" | grep -oiE 'version [0-9]+' | grep -oE '[0-9]+' | head -1)
+echo "kernel push exit=$rc commit=$commit version=${version:-unknown}"
 exit "$rc"

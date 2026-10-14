@@ -1,0 +1,41 @@
+# VLM run of the main run (design doc 13.3 step 6): B0 to B3 and the P1 re-query, one session per kernel run.
+seed: 0
+vlm: configs/main_run/vlm.yaml
+rules: configs/main_run/rules.yaml
+split_result: results/main_run/library_20261014T091345Z.json
+# B1 references drawn in the format check with vlm.yaml reference_seed, shared with the main run
+references: results/format_check/samples_20261014T035726Z.json
+
+# detector kernel output attached through kernel_sources; checked against the committed result before generation
+detector:
+  result: results/main_run/detector_20261014T115713Z.json
+  run_id: detector_20261014T115713Z
+  kernel: clave-ad-main-run-detector
+  kernel_version: 1
+  maps_json_sha256: b1bb98701a70f1334a335b09e584ec80eedf7f6882976343fee7e292e21fbf45
+
+# request kinds per dataset; b3 and p1 use the B0 answer, generated in the same session or taken from the cache
+sessions:
+  smoke:
+    kinds: {mvtec_ad: [b0, b3, b1, b2, p1], visa: [b0, b2, p1]}
+    categories: {mvtec_ad: [bottle], visa: [candle]}
+    # evenly spaced images in path order per category, chosen without labels
+    per_category: 6
+  s1:
+    kinds: {mvtec_ad: [b0, b3]}
+  s2:
+    kinds: {mvtec_ad: [b1, b2]}
+  s3:
+    kinds: {visa: [b0, b2]}
+  s4:
+    kinds: {mvtec_ad: [p1], visa: [p1]}
+session: s1
+
+# each worker starts no new image after this many hours, so the kernel can still save its output
+time_budget_hours: 10
+cache_dir: cache/main_run
+# cache bundle written at the end of a session (the only cache kept as kernel output)
+bundle_dir: cache/main_run_bundle
+# local folder staged for the private cache dataset (clave-ad-data-main-run-cache)
+cache_dataset_dir: cache/kaggle_data/main_run_cache
+output_dir: results/main_run

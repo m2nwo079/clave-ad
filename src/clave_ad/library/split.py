@@ -1,10 +1,12 @@
-"""Format check sample and B1 reference selection (design doc 5, 13.3).
+"""Format check sample, B1 reference selection and the example library split (design doc 5, 13, 13.3).
 
-This module may read test labels and masks to exclude combined and Other images. It outputs image path lists
-only; the operating path reads these lists, never the labels.
+This module may read test labels and masks to exclude combined and Other images and to find single-type images.
+It outputs image path lists (the library also its type names) only; the operating path reads these lists, never
+the labels.
 """
 
 import random
+from collections import defaultdict
 from pathlib import Path
 
 from PIL import Image
@@ -101,3 +103,73 @@ def check_type_names(cfg: dict, types: dict) -> list[str]:
         if found - expected or set(names.values()) - found:
             problems.append(f"{c}: test folders {sorted(found)} do not match type_names.yaml")
     return problems
+
+
+def check_visa_class_ids(types: dict, class_ids: dict) -> list[str]:
+    """Problems between configs/main_run/visa_class_ids.yaml and type_names.yaml (empty when consistent)."""
+    visa, table = types["visa"], class_ids["categories"]
+    problems = [] if set(table) == set(visa["categories"]) else ["VisA categories differ"]
+    for c, entry in table.items():
+        if set(entry["ids"].values()) != set(visa["categories"].get(c, {})):
+            problems.append(f"{c}: type names differ")
+        if entry["other"] != visa["excluded_mask_ids"].get(c):
+            problems.append(f"{c}: Other id differs from excluded_mask_ids")
+        if 0 in entry["ids"] or entry["other"] in entry["ids"]:
+            problems.append(f"{c}: background or Other id used for a type")
+    return problems
+
+
+def test_images(data: dict) -> list[dict]:
+    """Every test image (normal and defective) of both datasets, without labels."""
+    mvtec_root = Path(data["mvtec_root"])
+    rows = [{"dataset": "mvtec_ad", "category": c, "path": str(p.relative_to(mvtec_root))}
+            for c in mvtec_categories(mvtec_root) for p in sorted((mvtec_root / c / "test").glob("*/*.png"))]
+    rows += [{"dataset": "visa", "category": r["object"], "path": r["image"]}
+             for r in visa_rows(Path(data["visa_split_csv"])) if r["split"] == "test"]
+    return rows
+
+
+def single_type_pools(data: dict, types: dict, class_ids: dict, exclude: set[tuple[str, str]]) -> dict:
+    """(dataset, category, type) -> sorted test image paths showing that type only, without excluded images.
+
+    MVTec AD: images in a candidate type folder (combined is not a candidate). VisA: images whose original mask holds
+    exactly one non-background class id and that id is a candidate type (not Other). Mask ids missing from
+    visa_class_ids.yaml raise MaskValueError with the kinds of values only.
+    """
+    pools = defaultdict(list)
+    mvtec_root = Path(data["mvtec_root"])
+    for c, names in types["mvtec_ad"]["categories"].items():
+        for name, label in names.items():
+            paths = (str(p.relative_to(mvtec_root)) for p in (mvtec_root / c / "test" / label).glob("*.png"))
+            pools[("mvtec_ad", c, name)] = sorted(p for p in paths if ("mvtec_ad", p) not in exclude)
+    visa_root, table = Path(data["visa_root"]), class_ids["categories"]
+    for c, entry in table.items():
+        for name in entry["ids"].values():
+            pools[("visa", c, name)] = []
+    unexpected = set()
+    for r in visa_rows(Path(data["visa_split_csv"])):
+        if r["split"] != "test" or r["label"] != "anomaly" or ("visa", r["image"]) in exclude:
+            continue
+        entry = table[r["object"]]
+        mask = Image.open(visa_root / r["mask"])
+        colors = mask.getcolors(maxcolors=256) if mask.mode in ("L", "P") else None
+        if colors is None:
+            unexpected.add(f"mode {mask.mode}")
+            continue
+        values = {value for _, value in colors} - {0}
+        unexpected |= {f"{r['object']}: {v}" for v in values if v not in entry["ids"] and v != entry["other"]}
+        if len(values) == 1 and next(iter(values)) in entry["ids"]:
+            pools[("visa", r["object"], entry["ids"][next(iter(values))])].append(r["image"])
+    if unexpected:
+        raise MaskValueError(f"mask values not in visa_class_ids.yaml: {sorted(unexpected)}")
+    return {key: sorted(paths) for key, paths in pools.items()}
+
+
+def library_split(pools: dict, per_type: int, seeds: list[int]) -> dict[int, list[dict]]:
+    """Per seed, up to per_type images of every type: one generator per seed, types in sorted order."""
+    out = {}
+    for seed in seeds:
+        rng = random.Random(seed)
+        out[seed] = [{"dataset": d, "category": c, "type": t, "path": p} for (d, c, t) in sorted(pools)
+                     for p in rng.sample(pools[(d, c, t)], min(per_type, len(pools[(d, c, t)])))]
+    return out

@@ -1,0 +1,44 @@
+# VisA mask class id -> candidate type name (as in configs/format_check/type_names.yaml), per category.
+# Source: amazon-science/spot-diff utils/id2class.py at commit 2a692ab57500 (0 is BACKGROUND).
+# "other" is the id of the excluded Other label; null where the category has none.
+source:
+  repo: https://github.com/amazon-science/spot-diff
+  file: utils/id2class.py
+  commit: 2a692ab57500
+categories:
+  candle:
+    ids: {1: chunk of wax missing, 2: damaged corner of packaging, 3: weird candle wick, 4: different colour spot, 5: extra wax in candle, 6: foreign particles on candle, 7: wax melted out of the candle}
+    other: 8
+  capsules:
+    ids: {1: bubble, 2: discolor, 3: scratch, 4: leak, 5: misshape}
+    other: null
+  cashew:
+    ids: {1: burnt, 2: corner or edge breakage, 3: different colour spot, 4: middle breakage, 5: small holes, 6: small scratches, 7: stuck together, 8: same colour spot}
+    other: 9
+  chewinggum:
+    ids: {1: chunk of gum missing, 2: corner missing, 3: scratches, 4: similar colour spot, 5: small cracks}
+    other: 6
+  fryum:
+    ids: {1: burnt, 2: corner or edge breakage, 3: different colour spot, 4: fryum stuck together, 5: middle breakage, 6: similar colour spot, 7: small scratches}
+    other: 8
+  macaroni1:
+    ids: {1: chip around edge and corner, 2: different colour spot, 3: middle breakage, 4: similar colour spot, 5: small cracks, 6: small scratches}
+    other: 7
+  macaroni2:
+    ids: {1: breakage down the middle, 2: color spot similar to the object, 3: different color spot, 4: small chip around edge, 5: small cracks, 6: small scratches}
+    other: 7
+  pcb1:
+    ids: {1: bent, 2: melt, 3: scratch, 4: missing}
+    other: null
+  pcb2:
+    ids: {1: bent, 2: melt, 3: scratch, 4: missing}
+    other: null
+  pcb3:
+    ids: {1: bent, 2: melt, 3: scratch, 4: missing}
+    other: null
+  pcb4:
+    ids: {1: burnt, 2: scratch, 3: missing, 4: damage, 5: extra, 6: wrong place, 7: dirt}
+    other: null
+  pipe_fryum:
+    ids: {1: burnt, 2: corner and edge breakage, 3: different colour spot, 4: middle breakage, 5: similar colour spot, 6: small scratches, 7: stuck together, 8: small cracks}
+    other: 9

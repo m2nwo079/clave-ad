@@ -20,35 +20,15 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from clave_ad.data.datasets import load_image
-from clave_ad.data.maps import downscale, jet_image, zoom_box
+from clave_ad.requery.inputs import b2_inputs, requery_inputs
 from clave_ad.vlm.chat import NonFiniteHook, kernel_implementations, render, request
 from clave_ad.vlm.model import load_model
-from clave_ad.vlm.parse import has_control_char, has_think_block, parse_answer, parse_check, unwrap
+from clave_ad.vlm.parse import parse_answer, parse_check
+from clave_ad.vlm.records import summarize
 
 
 def sha256(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
-
-
-def image_sha256(image: Image.Image) -> str:
-    """Hash of a derived input image (B2 map, half-size original, crop), for the cache key and the record."""
-    return hashlib.sha256(f"{image.mode}{image.size}".encode() + image.tobytes()).hexdigest()
-
-
-def summarize(kind: str, image: dict, outcome: dict, device: str, **flags: bool) -> dict:
-    """Shard record without raw text; the final output is kept as a hash for cross-device comparison."""
-    attempts = [{k: a[k] for k in ("input_tokens", "new_tokens", "seconds", "truncated", "nonfinite", "error")}
-                for a in outcome["attempts"]]
-    final_text = outcome["attempts"][-1]["text"] if outcome["attempts"] else ""
-    return {
-        "kind": kind, "dataset": image["dataset"], "category": image["category"], "path": image["path"],
-        "device": device, "ok": outcome["parsed"] is not None, "final_error": outcome["error"],
-        "retries": len(outcome["attempts"]) - (0 if flags.get("forced_retry") else 1),
-        "output_sha256": sha256(final_text), "attempts": attempts,
-        # tolerated wrapper and the think-tag violation, counted separately
-        "fenced": unwrap(final_text)[1], "control_char": has_control_char(final_text),
-        "think_block": has_think_block(final_text), **flags,
-    }
 
 
 def main() -> None:
@@ -110,16 +90,10 @@ def main() -> None:
         [(original, original_sha)] = originals(row)
         anomaly_map, map_sha = map_of(row)
         if kind == "b2":
-            scale = scales[row["dataset"]]
-            jet = jet_image(anomaly_map, original.size, scale["low"], scale["high"])
-            inputs = [(original, original_sha), (jet, image_sha256(jet))]
-            return inputs, {"map_sha256": map_sha, "inputs_sha256": [h for _, h in inputs]}
-        rq = cfg["requery"]
-        box, shift = zoom_box(anomaly_map, original.size, rq["top_fraction"], rq["box_scale"], rq["grid"])
-        half, crop = downscale(original, rq["downscale"]), original.crop(box)
-        inputs = [(half, image_sha256(half)), (crop, image_sha256(crop))]
-        return inputs, {"map_sha256": map_sha, "inputs_sha256": [h for _, h in inputs], "crop_box": list(box),
-                        "crop_size": list(crop.size), "crop_shift": list(shift)}
+            inputs, fields = b2_inputs(original, original_sha, anomaly_map, scales[row["dataset"]])
+        else:
+            inputs, fields = requery_inputs(original, anomaly_map, cfg["requery"])
+        return inputs, {"map_sha256": map_sha, **fields}
 
     def cached(kind: str, inputs: list[tuple[Image.Image, str]], prompt: str, parse, retry: str,
                forced: str | None = None) -> dict:

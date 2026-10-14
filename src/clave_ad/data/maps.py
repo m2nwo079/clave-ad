@@ -30,6 +30,24 @@ def jet_image(anomaly_map: np.ndarray, size: tuple[int, int], low: float, high: 
     return Image.fromarray(JET[np.round(t * 255).astype(np.uint8)])
 
 
+def _fit(centre: float, side: float, full: int) -> tuple[int, int, int]:
+    """Span (first, last) of the given side about centre on an axis of length full, and how far it was moved.
+
+    A span crossing the edge is moved inside with its length kept; a span longer than the axis is cut to it (shift 0).
+    """
+    first, last = floor(centre - side / 2), ceil(centre + side / 2)
+    if last - first >= full:
+        return 0, full, 0
+    shift = -first if first < 0 else (full - last if last > full else 0)
+    return first + shift, last + shift, shift
+
+
+def peak(anomaly_map: np.ndarray) -> tuple[int, int]:
+    """(row, col) of the first maximum in row-major order."""
+    row, col = np.unravel_index(np.argmax(anomaly_map), anomaly_map.shape)
+    return int(row), int(col)
+
+
 def zoom_box(anomaly_map: np.ndarray, size: tuple[int, int], top_fraction: float, box_scale: float,
              grid: int) -> tuple[tuple[int, int, int, int], tuple[int, int]]:
     """Zoom-in crop (left, top, right, bottom) in original pixels, and how far it was moved (dx, dy) to fit the image.
@@ -40,26 +58,38 @@ def zoom_box(anomaly_map: np.ndarray, size: tuple[int, int], top_fraction: float
     """
     top = anomaly_map >= np.percentile(anomaly_map, 100 * (1 - top_fraction))
     labels, _ = ndimage.label(top, structure=np.ones((3, 3)))
-    peak = np.unravel_index(np.argmax(anomaly_map), anomaly_map.shape)
-    rows, cols = np.nonzero(labels == labels[peak])
+    rows, cols = np.nonzero(labels == labels[peak(anomaly_map)])
     (map_h, map_w), (width, height) = anomaly_map.shape, size
-    sides, shifts = [], []
+    spans = []
     for lo, hi, cells, full in ((cols.min(), cols.max() + 1, map_w, width), (rows.min(), rows.max() + 1, map_h, height)):
         start, end = lo * full / cells, hi * full / cells
-        side = max((end - start) * box_scale, full / grid)
-        centre = (start + end) / 2
-        first, last = floor(centre - side / 2), ceil(centre + side / 2)
-        shift = 0
-        if last - first >= full:
-            first, last = 0, full
-        elif first < 0:
-            shift = -first
-        elif last > full:
-            shift = full - last
-        sides.append((first + shift, last + shift))
-        shifts.append(shift)
-    (left, right), (upper, lower) = sides
-    return (left, upper, right, lower), (shifts[0], shifts[1])
+        spans.append(_fit((start + end) / 2, max((end - start) * box_scale, full / grid), full))
+    (left, right, dx), (upper, lower, dy) = spans
+    return (left, upper, right, lower), (dx, dy)
+
+
+def type_box(anomaly_map: np.ndarray, size: tuple[int, int], crop_cells: float,
+             grid: int) -> tuple[tuple[int, int, int, int], tuple[int, int]]:
+    """Type verification crop (A4): crop_cells grid cells per side, centred on the peak pixel's centre in original
+    coordinates, moved inside the image at the edge with its size kept. Returns the box and the shift (dx, dy)."""
+    row, col = peak(anomaly_map)
+    (map_h, map_w), (width, height) = anomaly_map.shape, size
+    left, right, dx = _fit((col + 0.5) * width / map_w, crop_cells * width / grid, width)
+    upper, lower, dy = _fit((row + 0.5) * height / map_h, crop_cells * height / grid, height)
+    return (left, upper, right, lower), (dx, dy)
+
+
+def cell_shares(anomaly_map: np.ndarray, top_fraction: float, grid: int) -> dict[str, float]:
+    """Share of the top map pixels in each grid cell ("r1c1" ... ), a pixel counted in the cell holding its centre."""
+    top = anomaly_map >= np.percentile(anomaly_map, 100 * (1 - top_fraction))
+    rows, cols = np.nonzero(top)
+    map_h, map_w = anomaly_map.shape
+    cell_rows = np.floor((rows + 0.5) * grid / map_h).astype(int)
+    cell_cols = np.floor((cols + 0.5) * grid / map_w).astype(int)
+    counts = np.zeros((grid, grid))
+    np.add.at(counts, (cell_rows, cell_cols), 1)
+    counts /= counts.sum()
+    return {f"r{i + 1}c{j + 1}": float(counts[i, j]) for i in range(grid) for j in range(grid)}
 
 
 def downscale(image: Image.Image, factor: int) -> Image.Image:
@@ -86,6 +116,16 @@ def _self_check() -> None:
     assert box_of(blob(slice(466, 518), slice(466, 518))) == ((599, 399, 900, 600), (-105, -70))
     # a band wider than half the image: the doubled width is cut to the whole image
     assert box_of(blob(slice(250, 268), slice(0, 518))) == ((0, 200, 900, 400), (0, 0))
+
+    # type crop: 1.5 cells about the peak pixel, moved inside at the edge
+    single = np.zeros((518, 518), dtype=np.float32)
+    single[259, 259] = 1
+    assert type_box(single, (900, 600), 1.5, 3) == ((225, 150, 676, 451), (0, 0))
+    single[:] = 0
+    single[0, 0] = 1
+    assert type_box(single, (900, 600), 1.5, 3) == ((0, 0, 451, 301), (225, 150))
+    shares = cell_shares(blob(slice(233, 285), slice(233, 285)), 0.01, 3)
+    assert shares["r2c2"] == 1.0 and sum(shares.values()) == 1.0
 
     image = jet_image(blob(slice(0, 52), slice(0, 52)), (900, 600), 0.0, 1.0)
     assert image.size == (900, 600) and image.getpixel((0, 0)) == (128, 0, 0)
