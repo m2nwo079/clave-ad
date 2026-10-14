@@ -1,0 +1,53 @@
+# VLM settings for the main run: the format check settings without the check-only items.
+# Zoom-in crop and format retry counts are in configs/main_run/rules.yaml.
+seed: 0
+
+data:
+  mvtec_root: data/mvtec_ad
+  visa_root: data/visa
+  visa_split_csv: data/visa/split_csv/1cls.csv
+  type_names: configs/format_check/type_names.yaml
+
+sampling:
+  # B1 normal reference per category, shared with the format check
+  reference_seed: 2000
+
+# same model settings as the passed memory test
+model:
+  name: Qwen/Qwen3.5-9B
+  revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: float16
+  processor_use_fast: true
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  # <|im_end|>, <|endoftext|>
+  eos_token_ids: [248046, 248044]
+  enable_thinking: false
+  add_vision_id: true
+
+prompts:
+  dir: src/clave_ad/vlm/prompts
+  b0: b0_v2.txt
+  b1: b1_v2.txt
+  b2: b2_v1.txt
+  b3: b3_v1.txt
+  requery: requery_v1.txt
+  retry: retry_v2.txt
+  # shared output instruction inserted into b0, b1, b2, requery and retry
+  output_rules: output_rules_v1.txt
+
+detector:
+  # per-dataset B2 colour scale from the train normal sample maps
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+runtime:
+  # set by the Kaggle kernel before torch is imported in each worker
+  pytorch_cuda_alloc_conf: "expandable_segments:True"
+
+cache_dir: cache/main_run
+output_dir: results/main_run

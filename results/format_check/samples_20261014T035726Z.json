@@ -1,0 +1,687 @@
+{
+  "run_id": "samples_20261014T035726Z",
+  "git_commit": "d95f4f2cbdad0e6aafeee6b4f64ad90d8239c5d2",
+  "config_path": "configs/format_check/qwen3_5_9b.yaml",
+  "config_hash": "466d6f14fd6cfac3cd5475def7bc6cc57ea6a31c1d58e48d2ca2f2889cfb5e55",
+  "dataset": "mvtec_ad+visa",
+  "seed": 1000,
+  "created_at": "2026-10-14T03:57:26.243631+00:00",
+  "metrics": {
+    "sample_images": 54,
+    "reference_images": 27,
+    "per_dataset": {
+      "mvtec_ad": 30,
+      "visa": 24
+    }
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "macOS-15.7.9-arm64-arm-64bit",
+    "torch": null,
+    "torchvision": null,
+    "transformers": null,
+    "bitsandbytes": null,
+    "accelerate": null,
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "scipy": null,
+    "numpy": null,
+    "tqdm": "4.70.1",
+    "setuptools": null,
+    "packaging": "26.3",
+    "ftfy": null,
+    "wcwidth": null,
+    "regex": null,
+    "cuda": null
+  },
+  "images": [
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "sample",
+      "split": "train",
+      "path": "bottle/train/good/199.png",
+      "sha256": "b2f9680e1c915daf3d8f705834f32382e0ddd2bf1196d228993e9644adeb7a00"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "sample",
+      "split": "test",
+      "path": "bottle/test/contamination/008.png",
+      "sha256": "35b9af10eaa1fe5525d6fb54ed3ddb069391d7dff93e8c6a6140272431115b00"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "reference",
+      "split": "train",
+      "path": "bottle/train/good/114.png",
+      "sha256": "36d4e92d88ef92c638b5dbf17667a001b98beb6213acd7eeaf411be54c930bca"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "sample",
+      "split": "train",
+      "path": "cable/train/good/109.png",
+      "sha256": "33ac0d12f22f9dbd87ac16c118703fa7e9dba4c0bd2031f80f671542fadc3015"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "sample",
+      "split": "test",
+      "path": "cable/test/bent_wire/007.png",
+      "sha256": "76b7f7a0716340f5ad7cac2030dcad418efa04cb1d58d896306235f820191971"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "reference",
+      "split": "train",
+      "path": "cable/train/good/012.png",
+      "sha256": "3d5793ce2ce8d42ec80dce86542a7775ba7d7994d6d8b5c83a73a550ef365312"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "sample",
+      "split": "train",
+      "path": "capsule/train/good/171.png",
+      "sha256": "be03da3cd88237988596c39c69392a8c3fdf0d7604de1a285635fcd0e1e0ad6f"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "sample",
+      "split": "test",
+      "path": "capsule/test/squeeze/008.png",
+      "sha256": "3c16fb6d6353c4daf656788dedbcdc0bfecc59206dd4d3fe9476c4277350c8ce"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "reference",
+      "split": "train",
+      "path": "capsule/train/good/197.png",
+      "sha256": "db8b557d5851b3af0094a972ec4a25ba0f1772eadc4d0ce0fce3b683a5d450c1"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "sample",
+      "split": "train",
+      "path": "carpet/train/good/050.png",
+      "sha256": "9636d3fa39388a899af02cbbaa5cbfdcaa203c9f1631f86bd227eb77e25544cd"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "sample",
+      "split": "test",
+      "path": "carpet/test/cut/006.png",
+      "sha256": "85bab51880df051dfbd0a68f5bf4ecac3edc811188231b9aa8ebd6d76640d1ab"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "reference",
+      "split": "train",
+      "path": "carpet/train/good/243.png",
+      "sha256": "721934df04405ec69ea4b4a273155587bdf955456477701682123bc4cbf4078f"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "sample",
+      "split": "train",
+      "path": "grid/train/good/201.png",
+      "sha256": "5edbaed54d6412e6f62734f0d0c81249e7c09b1865a4b135e7b7ffca333493e7"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "sample",
+      "split": "test",
+      "path": "grid/test/thread/009.png",
+      "sha256": "506fc26245585cb20f37e37921d2445f1f88df89b1b74d4b0259d5e7ce0ecb04"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "reference",
+      "split": "train",
+      "path": "grid/train/good/130.png",
+      "sha256": "764592563171bb6a5d2bd4dd017373fe73784cb2bb0a15428d3c9077b4cb5cf0"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "sample",
+      "split": "train",
+      "path": "hazelnut/train/good/180.png",
+      "sha256": "364c7f8b91c7871fd4afb638843d4ea5a6cfc9cbcb72ca5d1b29b2534202c044"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "sample",
+      "split": "test",
+      "path": "hazelnut/test/crack/011.png",
+      "sha256": "c83d9f85a2c0cfbaa407b41bc667ca56e4c66274f3fc2d503be2e799a12f955e"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "reference",
+      "split": "train",
+      "path": "hazelnut/train/good/361.png",
+      "sha256": "9f8178f2e1700ccbd3048d959870dd75c584b9352a826daa12d18d293e9fb8e6"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "sample",
+      "split": "train",
+      "path": "leather/train/good/016.png",
+      "sha256": "195648c444ef08b6d10a5815054f658d9442c47f415ffa3c551c7de5c6353e54"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "sample",
+      "split": "test",
+      "path": "leather/test/glue/016.png",
+      "sha256": "c32c46f9c69ab0af4759406e2e830dbdd392695f16512c893efe749e8f998b4c"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "reference",
+      "split": "train",
+      "path": "leather/train/good/204.png",
+      "sha256": "114e2ac1fac1f1316c329a7d2a9b3d17101c1df763c0f8920e2cf58dfa83c799"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "sample",
+      "split": "train",
+      "path": "metal_nut/train/good/119.png",
+      "sha256": "66123182f57e4f4119543e3bee80ce013de2499172d52926e2f5d7a03abe9ca3"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "sample",
+      "split": "test",
+      "path": "metal_nut/test/flip/001.png",
+      "sha256": "9d18b72d0a301c93682c758e91f81648576a8d27f7940894d3d6859dc31bc5cc"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "reference",
+      "split": "train",
+      "path": "metal_nut/train/good/046.png",
+      "sha256": "d31be3a27b84aa9a1418fee66a570e9e85df6205e325a72f44d79d8aefb65507"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "sample",
+      "split": "train",
+      "path": "pill/train/good/084.png",
+      "sha256": "43bfeac3bb207a80d45294c5617687750a18a48d1a0649d0ea41e656347225b4"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "sample",
+      "split": "test",
+      "path": "pill/test/scratch/000.png",
+      "sha256": "e1e5e72e0b032c96ee1c012f385e9cb78f04a63b636a24dc597f954d840c2c35"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "reference",
+      "split": "train",
+      "path": "pill/train/good/071.png",
+      "sha256": "65de7a31d4b662d573d062ec198e1e38680122a20d948b80a350d28134ecb0cf"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "sample",
+      "split": "train",
+      "path": "screw/train/good/273.png",
+      "sha256": "3753d8bbd3b8eb882de749850d85cb7afde619b400ecdcae64ea1fe7d34c9c55"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "sample",
+      "split": "test",
+      "path": "screw/test/manipulated_front/020.png",
+      "sha256": "5aa6acb6f916d1f9191092a7a0b7350cbdb0283caaae6122f6ee5e4e63377f7b"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "reference",
+      "split": "train",
+      "path": "screw/train/good/204.png",
+      "sha256": "471bad47d544bb8a23c17589d3eb426e651e7252799d492b54da256e938040f7"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "sample",
+      "split": "train",
+      "path": "tile/train/good/111.png",
+      "sha256": "8094c40dd5146681253a0828f0d8c203bd3679044dadc747d437804461e6eb53"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "sample",
+      "split": "test",
+      "path": "tile/test/oil/001.png",
+      "sha256": "8d47f96cd4437c4848454bd60b46def1a7c470b5ee9e842891f02a346de744d2"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "reference",
+      "split": "train",
+      "path": "tile/train/good/048.png",
+      "sha256": "1713c71d9336fad00129a52f5648fc4357c74f09203526fd3b078fa2e8c764b7"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "sample",
+      "split": "train",
+      "path": "toothbrush/train/good/008.png",
+      "sha256": "7f7c97e33207f59f715a8e4a593e1faceb7b5c04f167a62147a2a0acef5e1414"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "sample",
+      "split": "test",
+      "path": "toothbrush/test/defective/023.png",
+      "sha256": "93724a73ee122113a360e13517dacf9eff46ab1b660fd60440030723d6567246"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "reference",
+      "split": "train",
+      "path": "toothbrush/train/good/053.png",
+      "sha256": "c795e6c47af6147715ffbcbdac50949a8cf4da9724f0a8ebc16847ea87135559"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "sample",
+      "split": "train",
+      "path": "transistor/train/good/056.png",
+      "sha256": "72c6a318a47e873a82d2db2f249142c2e614b41dc454cbb8ebafb7fbdf9444b7"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "sample",
+      "split": "test",
+      "path": "transistor/test/damaged_case/003.png",
+      "sha256": "e8379a0728738931aa3e03af44219eea3f3bc1884495f767e35f9926ac3f05d3"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "reference",
+      "split": "train",
+      "path": "transistor/train/good/210.png",
+      "sha256": "1496f8eb11f16f28d5c38b86124a1a01c146e3f97bdd8bd0666adb1966ad641f"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "sample",
+      "split": "train",
+      "path": "wood/train/good/171.png",
+      "sha256": "85006e788cece4fa00fb2186354ab8dc7763c04e83871e527624a4ca2650db42"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "sample",
+      "split": "test",
+      "path": "wood/test/scratch/008.png",
+      "sha256": "805daa75c26d83eb10e018a250e67f2f14ab5b045c294ac125d0f9308ffda1f4"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "reference",
+      "split": "train",
+      "path": "wood/train/good/166.png",
+      "sha256": "21e656c7b9f3b3342ee12020341126c5a30d918e6d90f7ebae46d7b72da6b144"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "sample",
+      "split": "train",
+      "path": "zipper/train/good/061.png",
+      "sha256": "c71d9862bb61c5679471aea78ad4cbf744e8f7722632ce42bb0aed0ef7a243ff"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "sample",
+      "split": "test",
+      "path": "zipper/test/split_teeth/014.png",
+      "sha256": "48d54313cf26ac883ae945e3265b65f5026eba3b928ddf5d1948e30c12502b48"
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "reference",
+      "split": "train",
+      "path": "zipper/train/good/037.png",
+      "sha256": "74a2aac75ed87a9af7f0df024bf7cb41fa0700275c51be73e58c886caf6fa16a"
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "sample",
+      "split": "train",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "sha256": "e8e3d8e6d325206e702b870e1b27ec1d20d5cb190a2c350165a3edaaa82cd338"
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "sample",
+      "split": "test",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "sha256": "f0f1ba6f98a89d7f21785680d415b340842649534ca49febd946df0f75242ef3"
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "reference",
+      "split": "train",
+      "path": "candle/Data/Images/Normal/0503.JPG",
+      "sha256": "f0de7153f045d42ca067dae702c6ff96651e5456a076ddfd4cdc748304014dbc"
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "sample",
+      "split": "train",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "sha256": "fd0562c2038303c90e2233fed49c8280ea3d2102a4d905dc9efc853cf786c3dc"
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "sample",
+      "split": "test",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "sha256": "2a7b934aaf13389f95caa5b9b3244742a086785f607e7d7b64d777a7046d7f81"
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "reference",
+      "split": "train",
+      "path": "capsules/Data/Images/Normal/057.JPG",
+      "sha256": "8e9a5f3873d57ccf7195d8b1ba3bbd96fba7f79584d7e615b52fd55c14e2d7d8"
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "sample",
+      "split": "train",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "sha256": "ede443448bd5450cc73811da3881a785befa97e0f8c487113d55238104082200"
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "sample",
+      "split": "test",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "sha256": "efe707ec993500470947b4e03df45d1eb630d99452b17ba2681de2f9fc41a862"
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "reference",
+      "split": "train",
+      "path": "cashew/Data/Images/Normal/437.JPG",
+      "sha256": "3974bf4d0cb1f9fa4ea34df194ba5599ea3c4a93a21b453af0ffc8c4e9b43517"
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "sample",
+      "split": "train",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "sha256": "203926d72e4ce874489343685157538ebc865e5d04d9d5f8345b08a70b3bf5d8"
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "sample",
+      "split": "test",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "sha256": "64d56b13e3b3aaeda358c2613c74cc582f13ee1f25501d7a01b7a1f974b348dc"
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "reference",
+      "split": "train",
+      "path": "chewinggum/Data/Images/Normal/263.JPG",
+      "sha256": "b340b2b40376e1736c7fa13ef74bac8c88ed4627c967b1c33cbffa772b9af6a3"
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "sample",
+      "split": "train",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "sha256": "4f55af8a5a133cc9eb3c3c37ab7537928d67c52cd135e72d132a13b03fdc63dd"
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "sample",
+      "split": "test",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "sha256": "bc67c9c2582c17a83b159af30264bee5589e217f033285fb755e22279ad45597"
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "reference",
+      "split": "train",
+      "path": "fryum/Data/Images/Normal/437.JPG",
+      "sha256": "a093554f1257aa387f7e5e685c8c62002b4bc134cd89860d6f20c5405eb59c8a"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "sample",
+      "split": "train",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "sha256": "eeff6632d9f2d3f69ae72cf2a41d8d2c2a029f84d2d2cae81d705b9b919325b3"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "sample",
+      "split": "test",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "sha256": "2b05a04f9896cd5b5dff9ae758fc548ebe59da00abe3b1909f54de7fc90d52b7"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "reference",
+      "split": "train",
+      "path": "macaroni1/Data/Images/Normal/0947.JPG",
+      "sha256": "adf33e2226290da155d98b980a693ff70fbda6d6cc9a9202c5d9d8382ecb3fac"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "sample",
+      "split": "train",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "sha256": "33c1f31e2b8ec18a89bbb1b19c326814baa4d0a177fc014215cd7a4df72bdf7d"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "sample",
+      "split": "test",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "sha256": "d2142d2cbce2247c46b06422724779104cc1180422384960110ae44e7af1e9fe"
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "reference",
+      "split": "train",
+      "path": "macaroni2/Data/Images/Normal/0898.JPG",
+      "sha256": "173358c34aa0a53c081276fe09a9060c6c0f7d88ef2c70223f9d03a42115ca38"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "sha256": "8945e22246eed403ad24d40fed8176b2a6e1b45863adbee66da02745727e39f0"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "sha256": "4918219c1719e3dacd8a7cb62b613b5125bcb22ea8a5c3aa516261b1ff484aeb"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb1/Data/Images/Normal/0865.JPG",
+      "sha256": "e009365ccb9acd0f4555115df3d3575943121605cd18521135efe6dae4f8c1ca"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "sha256": "dc8a7f777f03d36449736ebecff9d5fb90e74eabe27b7be6c8f1eb6a76585dfd"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "sha256": "3893f03a41f7abbdddae69f852b42a61005a472581ec227af4ea6ad7976e23a7"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb2/Data/Images/Normal/0969.JPG",
+      "sha256": "7cffeea4d6f1c5bafc923cab48b2a91dc0db847b8f09d57cf04e8e450fdb7779"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "sha256": "b7c28f20457ed8b8afae7356524cf103191d87a870d7d9f6c1f24ec3834c6c31"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "sha256": "c69a0f3848395f5e0f5adc3b99c59d2ec66fc1f576d84f01686a4fdd7a92247c"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb3/Data/Images/Normal/0283.JPG",
+      "sha256": "a78775efea2de3c645494107053b594832c1ea182a3cd416b109d7ca02e8556d"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "sha256": "0b6346e1f70e2218dcd6ae8a73be88b0544a0b4a7361675a8c26296c5106d467"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "sha256": "7d90ac1b60201cf35068c0f7fd2d42f68806384911d01fbd3c76c4ba25ca90d1"
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb4/Data/Images/Normal/0803.JPG",
+      "sha256": "e2adaa13abf4d822d24e602546920e742bd04408dc7ac75fae6be8a25fe6749d"
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "sample",
+      "split": "train",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "sha256": "da2dc67d2f16aa341b74eaf66a894abba409f6f67d441173c37095e7b213bbe7"
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "sample",
+      "split": "test",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "sha256": "07d9247e49e19eb64139a56a508974a4cb7f047b61008d7fd2fd3eee9f5d7f1e"
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "reference",
+      "split": "train",
+      "path": "pipe_fryum/Data/Images/Normal/452.JPG",
+      "sha256": "552ce39cbc674e633bfc35440877e3120295141a4ff89f0a4af959a3d987d3ae"
+    }
+  ]
+}

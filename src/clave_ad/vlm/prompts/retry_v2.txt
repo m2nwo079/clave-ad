@@ -1,0 +1,4 @@
+Your previous answer could not be used: $error
+If the requested format has a "defect_type" key, choose it only from these candidate defect types: $candidates.
+Answer again in the format requested above.
+$output_rules

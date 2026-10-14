@@ -1,0 +1,79 @@
+# Format check (design doc 13.3 steps 2 and 4) on 54 sample images: round 1 ran B0, B1, B3 and the format retry,
+# round 2 runs B2 and the forced zoom-in re-query.
+seed: 0
+
+data:
+  mvtec_root: data/mvtec_ad
+  visa_root: data/visa
+  visa_split_csv: data/visa/split_csv/1cls.csv
+  type_names: configs/format_check/type_names.yaml
+
+sampling:
+  # format check sample; must differ from the library seeds 0, 1, 2
+  sample_seed: 1000
+  # B1 normal reference per category, shared with the main run
+  reference_seed: 2000
+
+# same model settings as the passed memory test
+model:
+  name: Qwen/Qwen3.5-9B
+  revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: float16
+  processor_use_fast: true
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  # <|im_end|>, <|endoftext|>
+  eos_token_ids: [248046, 248044]
+  enable_thinking: false
+  add_vision_id: true
+  # retries after a format violation, each with the latest output only
+  max_retries: 2
+
+prompts:
+  dir: src/clave_ad/vlm/prompts
+  b0: b0_v2.txt
+  b1: b1_v2.txt
+  b3: b3_v1.txt
+  b2: b2_v1.txt
+  requery: requery_v1.txt
+  retry: retry_v2.txt
+  # shared output instruction inserted into b0, b1, b2, requery and retry
+  output_rules: output_rules_v1.txt
+
+# request kinds of this run (round 1: [b0, b1, b3]; round 2: [b2, requery]; re-query rerun after the A3 edge change)
+kinds: [requery]
+
+detector:
+  # anomaly maps (packed by scripts/format_check/pack_maps.py) and the per-dataset B2 scale
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+requery:
+  # zoom-in crop: component of the top pixels holding the peak, box scaled about its centre, at least one cell,
+  # moved inside the image at the edge with its size kept
+  top_fraction: 0.01
+  box_scale: 2
+  grid: 3
+  # the whole image is shown with each side divided by this factor
+  downscale: 2
+
+runtime:
+  # set by the Kaggle kernel before torch is imported in each worker
+  pytorch_cuda_alloc_conf: "expandable_segments:True"
+
+checks:
+  # images whose B0 (round 1) or B2 and re-query (round 2) requests also get a broken previous output and one forced retry
+  forced_retry_images: 6
+  # images whose B0 (round 1) or B2 and re-query (round 2) requests run on both devices to compare outputs
+  device_consistency_images: 4
+  # broken previous output used for the forced retry
+  broken_output: '{"is_defective": true, "defect_type": "scratch", "location_cells": ["r1c'
+
+# local folder packed into the private sample dataset for Kaggle
+kaggle_data_dir: cache/kaggle_data/format_check
+cache_dir: cache/format_check
+output_dir: results/format_check

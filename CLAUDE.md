@@ -13,7 +13,7 @@ VLM이 내놓는 산업 불량 설명을 존재·위치·유형의 주장으로 
 
 ## 2. 반드시 지킬 설계 원칙
 
-1. **정답은 평가에만 쓴다.** 정답 마스크와 테스트 라벨은 `src/clave_ad/eval/`에서만 읽는다. 설명 생성, 검증, 재질의 코드가 정답에 접근하면 설계 위반이다. 운영 경로에 허용되는 입력은 정상 이미지와 유형별 예시 라이브러리뿐이다. 예외로 `src/clave_ad/library/`만 예시 라이브러리용으로 분리한 이미지의 유형 라벨과 단일 유형 여부를 읽을 수 있고, 라이브러리 크롭은 정답 마스크가 아니라 이상 맵으로 만든다.
+1. **정답은 평가에만 쓴다.** 정답 마스크와 테스트 라벨은 `src/clave_ad/eval/`에서만 읽는다. 설명 생성, 검증, 재질의 코드가 정답에 접근하면 설계 위반이다. 운영 경로에 허용되는 입력은 정상 이미지와 유형별 예시 라이브러리뿐이다. 예외로 `src/clave_ad/library/`만 형식 점검 표본 추출과 예시 라이브러리 분할을 위해 테스트 이미지의 유형 라벨과 단일 유형 여부를 읽을 수 있다. 이 모듈은 이미지 경로 목록(라이브러리는 경로와 유형 이름)만 내보내고, 운영 경로는 이 목록만 읽는다. 라이브러리 크롭은 정답 마스크가 아니라 이상 맵으로 만든다.
 2. **검증자는 VLM과 독립이다.** 검증 로직에 VLM 호출을 넣지 않는다(B3 자기 검증 비교 대상은 예외이며 `baselines/`에 둔다).
 3. **추론은 한 번, 분석은 여러 번.** VLM과 탐지기 출력은 이미지 단위로 즉시 `cache/`에 저장하고, 이미 있는 항목은 다시 계산하지 않는다. 중간에 끊겨도 이어서 실행할 수 있어야 한다.
 4. **무료 자원 안에서 수행한다.** 주 실험은 Kaggle T4 추론만으로 끝나야 한다.
@@ -33,7 +33,7 @@ src/clave_ad/
   claims/                 # claim decomposition
   verifiers/              # existence, location, type verifiers
   requery/                # zoom-in re-query
-  library/                # example library split (reads labels of library images only)
+  library/                # format-check sample and example library splits (reads labels, outputs path lists)
   baselines/              # B0 to B4 comparison methods
   eval/                   # ground-truth metrics (only place that reads ground truth)
 scripts/<stage>/          # entry points per stage
@@ -131,7 +131,8 @@ threshold = np.percentile(normal_scores, 95)  # Bad: inline comment
 - 메모리 1GB 안팎이거나 몇 분 안에 끝나는 작업은 로컬에서 `caffeinate`·`nice`로 실행하고, 크고 오래 걸리는 작업과 GPU 작업만 Kaggle로 보낸다.
 - 오래 걸리는 실행 전에는 반복을 줄인 축소판으로 저장까지 먼저 확인한다.
 - Kaggle은 비공개 데이터셋·커널로 실행하고 결과를 내려받아 로컬에서 커밋한다. `kernel-metadata.json`처럼 계정 ID가 들어가는 파일은 스크립트로 만들고 추적하지 않는다. 데이터셋 새 버전은 처리가 끝난 뒤 커널을 실행하고, 실행 기록의 커밋을 확인한다.
-- 승인된 의존성: torch, transformers(Qwen3.5는 5.2.0 이상), accelerate, bitsandbytes, pyyaml, pillow, torchvision(Kaggle 기본 설치본 사용, 별도 설치·버전 고정 안 함), kaggle CLI(로컬 `.venv`)
+- 승인된 의존성: torch, transformers(Qwen3.5는 5.2.0 이상), accelerate, bitsandbytes, pyyaml, kaggle CLI(로컬 `.venv`)
+- 승인된 의존성(Kaggle 기본 설치본 사용, 없을 때만 설치, 버전 고정 안 함, 실제 버전은 결과 파일에 기록): pillow, torchvision, scipy, numpy, tqdm, setuptools(없으면 packaging으로 대신), ftfy(+wcwidth), regex
 - 브라우저(Claude in Chrome)는 새 탭을 만들어 그 탭에서만 작업하고, 사용자가 열어 둔 탭에 접근하거나 닫지 않는다.
 - macOS에서 터미널이 다운로드 폴더 권한이 없으면 `mv`가 `Operation not permitted`로 실패한다. Finder로 옮기거나 권한을 준다.
 

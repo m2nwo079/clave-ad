@@ -1,0 +1,9 @@
+This is an image of the industrial product category "$category". Inspect it for defects.
+The image is divided into a 3x3 grid. Rows are r1 (top) to r3 (bottom), columns are c1 (left) to c3 (right).
+Candidate defect types: $candidates.
+Answer with one JSON object only, with exactly these keys:
+"is_defective" (true or false),
+"defect_type" (one candidate defect type, or null if not defective),
+"location_cells" (list of grid cells such as "r1c3" that contain the defect, empty if not defective),
+"confidence" (number between 0 and 1),
+"rationale" (one short sentence).

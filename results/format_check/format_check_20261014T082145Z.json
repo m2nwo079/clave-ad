@@ -1,0 +1,3066 @@
+{
+  "run_id": "format_check_20261014T082145Z",
+  "git_commit": "aced8fd64517ad00e3a41ae605842dac0ecffb39",
+  "config_path": "configs/format_check/qwen3_5_9b.yaml",
+  "config_hash": "d0af1a945b4023998fb0e920e3b7afaa8fc6d8e97225d85b7edeef277c86ba65",
+  "dataset": "mvtec_ad+visa",
+  "seed": 0,
+  "created_at": "2026-10-14T08:21:45.945605+00:00",
+  "detector": {
+    "result": "results/format_check/anomalyclip_20261014T045625Z.json",
+    "b2_scale": {
+      "mvtec_ad": {
+        "source": "train normal sample images",
+        "images": 15,
+        "low_percentile": 1,
+        "high_percentile": 99,
+        "low": 0.0003798103652661666,
+        "high": 0.11539059147238756,
+        "high_end_pixel_fraction": 0.010000099382338765
+      },
+      "visa": {
+        "source": "train normal sample images",
+        "images": 12,
+        "low_percentile": 1,
+        "high_percentile": 99,
+        "low": 0.0013633604359347374,
+        "high": 0.2558015984296798,
+        "high_end_pixel_fraction": 0.010000037268377037
+      }
+    },
+    "maps_sha256": {
+      "77a4464dc9291efb97f23261d76f05f5fa6953b52a7deba013975fb6c6c8fb9e": "e0da63ba647871b5f69a3ecc0e6b872904cf7e1526e2e50ff1c74f6fd005c0e9",
+      "2e1cf87a800ed293e5b2a8aaa84a4a40ff2ce5207d5240cf8e7d9dc33aca9f6b": "67f58fd220fc16266b7471d5f08342f8f02b1f0b4aed8cf7162bb451adaa8084",
+      "3a6bb9c2eb5fd67039e2de7a22f49ad50814a44314a7b0ee494526e5a82ef6ba": "3681f386f721d476c5f45d4dc056546c2ab11792bbb140c2a2b2675c20d5e58a",
+      "45318e40c6412414604089de3b48464b346aace875a4b9c7bd57933eeec69805": "5691b159abde8560d16aba6255e9a3a4bf93f50b30988d7be1b6df11b7731b60",
+      "61276933e5e228135905debd20690e68fba0a3ea6c4c1848819a0e6ff56d1b1c": "71e2e00b42ed19318f880f6348bf11d4a9ac34885ac6b4eaece0380fd224eb26",
+      "42b29addc26b0c6bf0c24e10c464898c5ee83c28c4a1221b8400ef8c1ce07edb": "7f466afb15451997fe772f8dc8313129ece8e7c3886297fb05e800be78bf3c52",
+      "a77bd65b7a28f65d0c7be3220457b3657d73020454bac208752cd3bd99e3a699": "f2d40dff9ff199642b5e00c57641aea1e22d94b76857242daffea3e2d5d1635c",
+      "0b3e076cf9317ddee116b6e9130ccb9aeefbd56961b9e359492c6e17fa9c8f7b": "095d446672876a747950b5a591b3f9472ba5ead0740a169cea6e606952deeac6",
+      "1e5d08d5152951618ecd5637e742761a103a1c544730c6bdb38688bc0afd79c7": "1ad63565207f09c018df151cc361da2dbd2b187d862613460787169938837520",
+      "e8df32992e043e41914344c578bf45d033598f11fd2e242928b9b6745d840003": "8d8c3897577c95fbc286b210f11771704fae3feea915bc513076d6f698f40aac",
+      "ca519dacdbc3843474c32b73e7749b31b18b47006a4bd4cc21c6895f28802b57": "c6111d4d6a855e0e5f066763f0873ac8a2a7b8a6596c46498f605d60a7dffc0d",
+      "a6e216ef88dd39ceb81102f7ffa8100599c0a6d6c54a280cb7d37fd8ac482251": "03424ec306f9ac31611b4d39c451da1408c5f2c7b195b1a0d392352786a1dce3",
+      "aaf78fad3138c8426270e0e03463683b4f946e3b501843a2c7e80794a6db328c": "dc29d4f3b12ceb86a9f832d2a27c4f46c3ecfc099f149d8d0be9bba51d29cd24",
+      "f7b1fd843ef065d49b79eb15d41f9522322b3f1e8f3e822f2f71df5822489ff5": "c21f4637a6e1663fd4d098479a30c758adfe5482d2d32fed18487b57f61062c4",
+      "85d066be78b42204cef4010baea0e79a192c25514e8601dd96c28c58b628f09b": "e9c2545d6930413ff874f022c417bce098352ccc7d73d7fc99261518eb8e79ca",
+      "1680d3469865efbb9b6e5d706b4a2fddf375e573febf3f71190c5a5da5864b1c": "7e94099b8175b23cba0e8ab3845d90afe071cfb7ec5737c0c52f354651cfc56b",
+      "7b1b8614d70bbb3219bb3cfd8915885fdda715099c087c0bc7d8303b201f9567": "db80b6902c405d5c6ce8987da1a6ad4afb9594b12ae0c10cd9b0dbce5495950f",
+      "e07da79c33ca7185af027651a58341e07e4e1bfca51190348033791026adc185": "d265907cfa2d6af4aa089a16a513721dd68178f5270d2a20de851890994d70c9",
+      "62df2d7ad1f87ec2e7037d0b2e07532a168bd689a40cb53860a63fe1475bacb0": "ee444d4495b7e3ab3e973899e6821b7afeadab671854cb99eaec5106ebab7c14",
+      "f7b82e89c13f1d0da9a150b52cacf49c9c0c15171421d24febd0a6ab129ea523": "874e1ca14afb1c158cf78a840713d88b255dd88ba4b5aa309231b4df04534699",
+      "8060f199c8afc0c928feff29494d06883471fed3afdbc3fd78ddd1f80296b3c9": "7cb18ea61c3ce1d31f5c1644ece9d79cee4e8708ca005660753da7c1aaac1303",
+      "9fa3caa7bbee17674d66b67f599b643857bed8f76e4b46f76f8b10eff186d906": "eae3cadff2e775c6f3284997c27905b4b1553b11dc58d4cb419cb1de14fe1f13",
+      "aa15087ef85870ad0a746343050f71ac31373dcfe90faff7b1bcaa73abe4c66e": "b2b2939da1b1c37b9426ded0d7bb02145b1e6c360ceaed3b37c4058d6329ae75",
+      "f44ddaaf7fc7149b42652ca2b60401f6c87209048f2187874bf7c83c1c2c7c05": "b8a23fcefe4cbb76ce31b180913d1c642f357b2d6890e2c0db6973040f11b41c",
+      "4eb1cb1807e0b8dc1d501b2b167894de7999f90986354f43d465ad35eaae2e15": "f0be6e6673b722d637d096ff2a048988e9a884ed560930fc5a8a916be66c9663",
+      "13e606b5d1edf359dcf67970245146c24560e39bc5682a4723d5fb1b88a9a741": "e5dc60655dd3265799accfd7ab9e390192f643815b3fda820a49b3a9dc982e59",
+      "2c9e8b0204aca30047bcc21bd5b8286a1356ac3d85b5f19ba312217bdd45b8b2": "3803a520677e0e217df4ab6ca149c1e26c07edc95f497a23d1ca8e64661fa823",
+      "eef89cd88ba1c37f87273b655ed9ba0564a272bedc6405b58819c2af0467cdd6": "3e0d858c0a8b8484e9bfef6eced7563fe0d11738b20fab34f3c2f999791966e0",
+      "ae97e7c4bb10a57fb3f2399c6556ac2e0659b3aa3349088aaf13eb7cf12ba2f5": "9690c57d04ae3e59621f436d82df0ac9be6844af76b8fee714b439b1d9cc0df2",
+      "eef4287a2150bacb3286d1e93976101ac70e8d93df7f522fcf80a62a85ce4eee": "d54570b44d5b4de593f94d0483ba50c0491cee32d6a9bc1da623a7b56d5d85b7",
+      "7520fa196396d47415fff9e22413ba92d52fe07b3e8708797e6adf30d54cd5e0": "0ca3a650162cde492fd514cbc6dd348d1e232444350b370ece4ea10f6e050f32",
+      "2044299ec756a85919fd11a002a434293a845f868e955fc87d545d74ec7c3491": "5695719e406a44829ab9731bfd5d724d44aa908575f23910dd1ebbfeab26e4b8",
+      "c505cecf84f09884a25c703fe6d06f25919deb09fb7efc2850a480bf68547df7": "4bd16bca9db4cb78a95a91c70704ae68e1608a93c7341f918a56291f251d5419",
+      "4a00be2b38207d8c7800d4d8ed5cf668622dda50503fabb2feae763086fe19e2": "58cb1785ab7b3e047fff4a012d01c8f2c577fd756f9d48cad6aca4e6b90c01d6",
+      "cdb30f1203ddf5c916fe372ce5e6460eababdee7ba169c43205b7d80a6dd6694": "6c6f1895f57c1a8277eef55eef7cd832d3637cd772756729d80a8125457b9c40",
+      "310bbc0405fa2e40bdc165b6c4242162bebaf3b8870f3f900a4acbfba83832af": "b0428f314def888263b5c16864a55abc0a65073de918c527b83e67c548e3ba26",
+      "e1ad611a252a49cdd17620743ca5a1072c87ba988f0f43d5eff4a6fe05a3590d": "14d1d631c631365914ccd5ac7cccd66666b95e8d437cad1788fa35d318eb3678",
+      "3158fd620e9d2d777af59238bbb018480bbaa0069b4f1487962f2913c269b0dc": "299d6ae89679590805aba9d469f1463ed46213eb27112eaf65a550855e6b645f",
+      "f9bbd87d0cc3a517d884a8a39df5da706c80b6cc706a0a3c5f974a7a1d69eab8": "cadb67d87d21498d42bd8a90dbda06c033010429837b21e8c887367de1a10960",
+      "12e190a8f5917b3733dc7e82cdb98dd6889ee77aac1f4285370f465c7df36ba9": "fe3cfeb64696932a84b1324248f99ff7f095bb3cfcd3f16a0dd7e91bde861daa",
+      "fb3df1d106b9ea8462dc07216a736f1ef93087e4294a90e7f8bdf3792138cbaf": "2fc8a3a0aa3f320fd5270dc4ee143e73552a74cafea0f62e5013c8dbe8b8899b",
+      "636d473e53ae19133dafa0c587a2e50b654b276bc28142a61235426728fa0658": "cb9e672b4ed64c7b8a66f914009fdc9a8dd15de41e4f73683015e7e2f9e3c1aa",
+      "30729a7599f7af9c9f8da2f76384a0f8bdfa7bd2583793050a0d51b14d1eda65": "6836d46d72c8e1ddf2109b2f6f7f35edb7bca14083041681d42b00de87998f68",
+      "3f05ff12705930e27f88ea7f06f73520a3f2f6b1a3cd009d4aa61460e23bc669": "b03aae70a947ddb634ed33fa882426037df307a71c94608396ce415417b1dbeb",
+      "7354040b6481e2e254c15ec3b1b8fbf0139894f5c4630bb2dd6de1b45a05256f": "a36dbe5fb1a1c81d0cf98706105dfbdeddfe35254f73d58392d16b90d3172b2e",
+      "3923a2b3e0078d94d8da4d14e737e8ea7cf8cc7caf16ae2e52cba1ad28192d32": "015bbf442fa31cf79097e03dd4297bcdb40f06dcfd9489b7859389da194d999d",
+      "94edac4ff51ba487513588d9803beb446cefa7d9dd8447d8c30521bdfa7c76c8": "cb5a548c9781660032655efc8b5206047a61b8c4b497f932ca867ae4709faf45",
+      "ae3e02ee99d3ad8f52233c6afe52502268b1f5c218803691c85ece5c42355384": "04b5b1e466e0bd95d1cadd3bfbf61a8ccb6a1d54de8a532d0c54fd79c239b56c",
+      "474d0775c18a02b3a66059a5a9af29d2c05cfb7a4d7676642eaa9739db152b98": "cc595b0e481408fad5c129a31b6a779bb3035d27b25b71fec505ffc6d9b900e1",
+      "b284b7dc7233ee24c342fefa06b2f7b0783229aa7068e3d7590dca899d81f635": "2dd53166c77cae59f5947309be24589cc3abee3f8c48039e560e0e770cc521b2",
+      "1155e5a04460276635948660f1c74fd8d921f76ddfe771a3348247bf641034f8": "45ab737e4b176d3c76c96e658cdb3d6b42e68ea5c35ca3e8e57f4ef64988b89a",
+      "2fb810a373cb6ec3a84471427a4d44461c9c41c00d184ab2fe5c41cae3c5d97a": "f7835af7258e443302761c82aa4969a4f471ba7432e76b67c9784750c2d0c6ab",
+      "c8373891aa775706ddcde2be9818887af510c08e5edbe7b81dd6c1028d60ec4f": "0816ad5ecd9ca291342a62b4205afa27f23a9ad4d74b492e82a21a985dbb43ed",
+      "2684355ffe8ca1e79c4fe49423dd5dda4245a86b488975c5a37129c957b7e8f4": "7b589ad20d67d4836b273adfbe2aac6e0b5798bebb5c926a9348e1ad4acd5d89"
+    }
+  },
+  "metrics": {
+    "compliance": {
+      "requery": {
+        "requests": 54,
+        "first_ok": 54,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "ok_control_char": 5,
+        "nonfinite_requests": 0
+      },
+      "requery/mvtec_ad": {
+        "requests": 30,
+        "first_ok": 30,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "ok_control_char": 2,
+        "nonfinite_requests": 0
+      },
+      "requery/visa": {
+        "requests": 24,
+        "first_ok": 24,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "ok_control_char": 3,
+        "nonfinite_requests": 0
+      }
+    },
+    "forced_retry": {
+      "requery": {
+        "requests": 6,
+        "ok": 6
+      }
+    },
+    "device_consistency": [
+      {
+        "kind": "requery",
+        "path": "bottle/train/good/199.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "kind": "requery",
+        "path": "bottle/test/contamination/008.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "kind": "requery",
+        "path": "cable/train/good/109.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "kind": "requery",
+        "path": "cable/test/bent_wire/007.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      }
+    ],
+    "generations": 64,
+    "generation_seconds": 455.4320368900005,
+    "input_tokens": 44765,
+    "new_tokens": 4172,
+    "shards": [
+      {
+        "shard": 0,
+        "device": "cuda_visible_devices=0",
+        "gpu": "Tesla T4",
+        "kernels": {
+          "fla": false,
+          "causal_conv1d": false
+        },
+        "pytorch_cuda_alloc_conf": "expandable_segments:True",
+        "prompts": {
+          "b0": "b0_v2.txt",
+          "b1": "b1_v2.txt",
+          "b3": "b3_v1.txt",
+          "b2": "b2_v1.txt",
+          "requery": "requery_v1.txt",
+          "retry": "retry_v2.txt",
+          "output_rules": "output_rules_v1.txt"
+        },
+        "kinds": [
+          "requery"
+        ],
+        "max_memory_reserved": 8290041856,
+        "max_memory_allocated": 8207881216,
+        "total_memory": 15636037632
+      },
+      {
+        "shard": 1,
+        "device": "cuda_visible_devices=1",
+        "gpu": "Tesla T4",
+        "kernels": {
+          "fla": false,
+          "causal_conv1d": false
+        },
+        "pytorch_cuda_alloc_conf": "expandable_segments:True",
+        "prompts": {
+          "b0": "b0_v2.txt",
+          "b1": "b1_v2.txt",
+          "b3": "b3_v1.txt",
+          "b2": "b2_v1.txt",
+          "requery": "requery_v1.txt",
+          "retry": "retry_v2.txt",
+          "output_rules": "output_rules_v1.txt"
+        },
+        "kinds": [
+          "requery"
+        ],
+        "max_memory_reserved": 8290041856,
+        "max_memory_allocated": 8207881216,
+        "total_memory": 15636037632
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "scipy": "1.16.3",
+    "numpy": "2.1.3",
+    "tqdm": "4.67.3",
+    "setuptools": "81.0.0",
+    "packaging": "26.3",
+    "ftfy": null,
+    "wcwidth": "0.8.3",
+    "regex": "2025.11.3",
+    "cuda": "12.8"
+  },
+  "records": [
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "0aa02e719d6fcbe4b33894e78b7ffad89e571435aa93dd08d815d1870648c943",
+      "attempts": [
+        {
+          "input_tokens": 547,
+          "new_tokens": 68,
+          "seconds": 10.163653388999933,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "e0da63ba647871b5f69a3ecc0e6b872904cf7e1526e2e50ff1c74f6fd005c0e9",
+      "inputs_sha256": [
+        "ca2ebd90fec700d842a0bc3dba15632981185514dc80955d2155a932e9a719c0",
+        "8bd704c7c02331bb1b34e324a08158c75d10fe8c0dae7e34f080e26c5420c317"
+      ],
+      "crop_box": [
+        230,
+        588,
+        531,
+        889
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "1e014fd0dd2a749ec8845a2372013d2193ff61dfca1382d56f558526a7c26261",
+      "attempts": [
+        {
+          "input_tokens": 681,
+          "new_tokens": 60,
+          "seconds": 6.513925308000012,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "e0da63ba647871b5f69a3ecc0e6b872904cf7e1526e2e50ff1c74f6fd005c0e9",
+      "inputs_sha256": [
+        "ca2ebd90fec700d842a0bc3dba15632981185514dc80955d2155a932e9a719c0",
+        "8bd704c7c02331bb1b34e324a08158c75d10fe8c0dae7e34f080e26c5420c317"
+      ],
+      "crop_box": [
+        230,
+        588,
+        531,
+        889
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c2062bd6e00800ec406277b90854100eddb447b20e3961c739c3d2aa0032499d",
+      "attempts": [
+        {
+          "input_tokens": 547,
+          "new_tokens": 62,
+          "seconds": 6.124999650999939,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": true,
+      "map_sha256": "67f58fd220fc16266b7471d5f08342f8f02b1f0b4aed8cf7162bb451adaa8084",
+      "inputs_sha256": [
+        "7aae00a1ef8d82f7182135b9fbc1760d4e5080dda49f38e63c40a383390ae3d8",
+        "2d2e13e09de9a6135ddaaac3b482a935b70906137bcc259b462ffa5460ed8b82"
+      ],
+      "crop_box": [
+        541,
+        216,
+        842,
+        517
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ae3c4dd4283d9d178d9f95b47acabab93f99a55dbf7fe2f5b253ea0bec6ab1e9",
+      "attempts": [
+        {
+          "input_tokens": 662,
+          "new_tokens": 57,
+          "seconds": 6.276219833000027,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "3681f386f721d476c5f45d4dc056546c2ab11792bbb140c2a2b2675c20d5e58a",
+      "inputs_sha256": [
+        "08a552155c0c9b383bd47846f57d05b9898c6c2aa4f6260079f41b37cfdb3002",
+        "3413ee9a20b9d175bd69633bc879248d95d0d8b6a092f136f94125600b77e97d"
+      ],
+      "crop_box": [
+        535,
+        444,
+        877,
+        786
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "4d7e57a5a5310e96b24650e96dd8f48df5e8c866b5125e9a06fdb3877dc504db",
+      "attempts": [
+        {
+          "input_tokens": 811,
+          "new_tokens": 53,
+          "seconds": 5.982426929999974,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "3681f386f721d476c5f45d4dc056546c2ab11792bbb140c2a2b2675c20d5e58a",
+      "inputs_sha256": [
+        "08a552155c0c9b383bd47846f57d05b9898c6c2aa4f6260079f41b37cfdb3002",
+        "3413ee9a20b9d175bd69633bc879248d95d0d8b6a092f136f94125600b77e97d"
+      ],
+      "crop_box": [
+        535,
+        444,
+        877,
+        786
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b70ded02e4576daa6eb02877b46ffbf91450e431a49d74ad27b27cc808a0bf36",
+      "attempts": [
+        {
+          "input_tokens": 662,
+          "new_tokens": 67,
+          "seconds": 6.90889955199998,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": true,
+      "map_sha256": "5691b159abde8560d16aba6255e9a3a4bf93f50b30988d7be1b6df11b7731b60",
+      "inputs_sha256": [
+        "abb8a8f8cbd263c626dd8909c52325c7a742a7546644bbf85452048e21d5078e",
+        "983cc08378c4308d468ae04193492b3f6f7906174d5b9b6f02ba5635d873f42d"
+      ],
+      "crop_box": [
+        478,
+        92,
+        821,
+        434
+      ],
+      "crop_size": [
+        343,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "66b8e38efb1a74c25e197431915d3869b386d382e7a2ff7a6c791f6c276c5b8a",
+      "attempts": [
+        {
+          "input_tokens": 629,
+          "new_tokens": 67,
+          "seconds": 7.065212835000011,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "71e2e00b42ed19318f880f6348bf11d4a9ac34885ac6b4eaece0380fd224eb26",
+      "inputs_sha256": [
+        "3000ff56f10f4aa08ceae7a6e378eda835a5b7c36d81d5ad24f1f5f73c964b61",
+        "ab149c967667675a731a7b8e10f9ece6f58e2c35815bbd365675becde7ab7531"
+      ],
+      "crop_box": [
+        665,
+        333,
+        1000,
+        667
+      ],
+      "crop_size": [
+        335,
+        334
+      ],
+      "crop_shift": [
+        -71,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "f230609c5bc59381a0d0ad3f0775e6acfcac227713a7832d9a9940ba36dad39e",
+      "attempts": [
+        {
+          "input_tokens": 766,
+          "new_tokens": 72,
+          "seconds": 7.64858176000007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "71e2e00b42ed19318f880f6348bf11d4a9ac34885ac6b4eaece0380fd224eb26",
+      "inputs_sha256": [
+        "3000ff56f10f4aa08ceae7a6e378eda835a5b7c36d81d5ad24f1f5f73c964b61",
+        "ab149c967667675a731a7b8e10f9ece6f58e2c35815bbd365675becde7ab7531"
+      ],
+      "crop_box": [
+        665,
+        333,
+        1000,
+        667
+      ],
+      "crop_size": [
+        335,
+        334
+      ],
+      "crop_shift": [
+        -71,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/train/good/050.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "86b49a38acabb25b871adf1ef6f66fedb70c77c312d06c29dacfb6eed570d5c6",
+      "attempts": [
+        {
+          "input_tokens": 650,
+          "new_tokens": 84,
+          "seconds": 8.649740565999991,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "f2d40dff9ff199642b5e00c57641aea1e22d94b76857242daffea3e2d5d1635c",
+      "inputs_sha256": [
+        "8f07313cf41e030a03f365653abe712d752008f6ce4bb4fad91e9a30715371b4",
+        "97c917cad9655fa8b0878be6e682830ab9fdf831398e88398dbdcba63d8400e7"
+      ],
+      "crop_box": [
+        147,
+        0,
+        489,
+        342
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        102
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/train/good/201.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b059b4583f4a60f524a0a8f8b9f03ed016c272f3bce4e6c35e71a8e5c805cd46",
+      "attempts": [
+        {
+          "input_tokens": 649,
+          "new_tokens": 62,
+          "seconds": 6.921104111000091,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "1ad63565207f09c018df151cc361da2dbd2b187d862613460787169938837520",
+      "inputs_sha256": [
+        "94f5ec896c7d32f2f2affa697efe105940a9b0a610a0bf5b32c2993f561c9ca1",
+        "bc2e289b72a071fc23ede3d0733e6c5d2e782cb5fd3168728db641ee1d66d148"
+      ],
+      "crop_box": [
+        0,
+        301,
+        342,
+        644
+      ],
+      "crop_size": [
+        342,
+        343
+      ],
+      "crop_shift": [
+        143,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/train/good/180.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e9c71028f5e16ea24faf1859c864c152a6d8e4c1391af967f31dd3d4a61379f0",
+      "attempts": [
+        {
+          "input_tokens": 649,
+          "new_tokens": 55,
+          "seconds": 6.037323732999994,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "c6111d4d6a855e0e5f066763f0873ac8a2a7b8a6596c46498f605d60a7dffc0d",
+      "inputs_sha256": [
+        "ce17adf9638855044d121a7a7ad8e5205a6f8d85d75f13dcd1f7ab18217fd869",
+        "a931264775b50b926a0c2f9ea19f99563ac7fd88f0f2245ea7ab3247bbee9c7b"
+      ],
+      "crop_box": [
+        404,
+        88,
+        746,
+        430
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/train/good/016.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "85c8ee247958dccb6858cf3938640e9a0e1f53b61ab8aafb98fcded103f97eab",
+      "attempts": [
+        {
+          "input_tokens": 649,
+          "new_tokens": 60,
+          "seconds": 6.5496824929999775,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "dc29d4f3b12ceb86a9f832d2a27c4f46c3ecfc099f149d8d0be9bba51d29cd24",
+      "inputs_sha256": [
+        "3049939414fb568f3f8826d62ff81242369452fd53f16b0a655580b9e4b366ea",
+        "39b394a17611fc12fbd192e491282e4f46cd7ebe803966a2f7ce4fc7d061a10e"
+      ],
+      "crop_box": [
+        0,
+        134,
+        342,
+        477
+      ],
+      "crop_size": [
+        342,
+        343
+      ],
+      "crop_shift": [
+        157,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/train/good/119.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d4da360695722d4b8d9551d7b5384a11ec1aaadf06bcad90c9f133238823a706",
+      "attempts": [
+        {
+          "input_tokens": 463,
+          "new_tokens": 61,
+          "seconds": 6.299471706999952,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "e9c2545d6930413ff874f022c417bce098352ccc7d73d7fc99261518eb8e79ca",
+      "inputs_sha256": [
+        "2a9e47ce508668e867824bd5918d8ca92083736db814c8784bcc26b88e8cb811",
+        "1f3f131d52fb50dafffd28438e8d2f8ace228a6ce7f84bcb86bdfb254162bc5d"
+      ],
+      "crop_box": [
+        159,
+        466,
+        394,
+        700
+      ],
+      "crop_size": [
+        235,
+        234
+      ],
+      "crop_shift": [
+        0,
+        -3
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/train/good/084.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "085d9b2d51c6061b0095921430273057da0f354e6d154d34c8de7d82caa58bff",
+      "attempts": [
+        {
+          "input_tokens": 483,
+          "new_tokens": 61,
+          "seconds": 6.383553838000012,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "db80b6902c405d5c6ce8987da1a6ad4afb9594b12ae0c10cd9b0dbce5495950f",
+      "inputs_sha256": [
+        "e610f90c9861af55b2d58752f8778176b3c2de4257bb79e36bfa55b047fd2288",
+        "7e5b2dcc6aac704389e82111e09d7cafce48795448e6cf53afa40ccc71242c67"
+      ],
+      "crop_box": [
+        352,
+        277,
+        620,
+        545
+      ],
+      "crop_size": [
+        268,
+        268
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/train/good/273.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ee8ba858607b6ae75451e620342dded538d4bc76b3ef7040e67a0c2e215cafdc",
+      "attempts": [
+        {
+          "input_tokens": 654,
+          "new_tokens": 57,
+          "seconds": 6.421934977000092,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "ee444d4495b7e3ab3e973899e6821b7afeadab671854cb99eaec5106ebab7c14",
+      "inputs_sha256": [
+        "56712834cb3016bd73eb9d78671a2cbae88d3897b36870460d6c80833a070399",
+        "0917ec7712aa116d06a1ac8c18b1851a0941a303bbfaf46fa6b07982cef58bcf"
+      ],
+      "crop_box": [
+        10,
+        28,
+        352,
+        371
+      ],
+      "crop_size": [
+        342,
+        343
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/train/good/111.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "318181caab07c6b8231c0041c01d3fd06dd44887b3f1c36295601f3e28e74cc8",
+      "attempts": [
+        {
+          "input_tokens": 523,
+          "new_tokens": 66,
+          "seconds": 6.915729490999979,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "7cb18ea61c3ce1d31f5c1644ece9d79cee4e8708ca005660753da7c1aaac1303",
+      "inputs_sha256": [
+        "a571520cb8f2cdcb1178903ee73840eb48aeb3e6f9252515e04606e86fed651e",
+        "a697fdb2fd667c639772e8863d2115837e6f0977cfddf46f3525605a24f63097"
+      ],
+      "crop_box": [
+        0,
+        211,
+        281,
+        492
+      ],
+      "crop_size": [
+        281,
+        281
+      ],
+      "crop_shift": [
+        118,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/train/good/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "aa1e7549deff0d7d4625b7e0d36ef6238a3d01c1d411d02285b306daa9c75302",
+      "attempts": [
+        {
+          "input_tokens": 642,
+          "new_tokens": 57,
+          "seconds": 6.422806144999981,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "b2b2939da1b1c37b9426ded0d7bb02145b1e6c360ceaed3b37c4058d6329ae75",
+      "inputs_sha256": [
+        "ec80ccb2bfa1919a3d3b6fd0518af883ec9fd64f48669181a6ae3af18600aefa",
+        "90d7476ef4a938f2afee37709a803a061618d879b68ca87eced9b75a805ff499"
+      ],
+      "crop_box": [
+        285,
+        0,
+        628,
+        343
+      ],
+      "crop_size": [
+        343,
+        343
+      ],
+      "crop_shift": [
+        0,
+        32
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/train/good/056.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f6c04b895e0326e792f6864d9c01ac6300d539fe986186fb5a30c333c8b63411",
+      "attempts": [
+        {
+          "input_tokens": 650,
+          "new_tokens": 52,
+          "seconds": 5.670366518000037,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "f0be6e6673b722d637d096ff2a048988e9a884ed560930fc5a8a916be66c9663",
+      "inputs_sha256": [
+        "2075775e19226352b34b5ea8adf8ffc4fed66b9d1da559771d8f96965d63ec6a",
+        "88ec7c50e019d098274df0a8b286a3863adc65a1d4e8b1285f3ed2c258eab2e2"
+      ],
+      "crop_box": [
+        368,
+        506,
+        710,
+        848
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6ec2f46031eaa2047629094f6ca786ad86c9345d2daa1a1d344f7e8c01c02084",
+      "attempts": [
+        {
+          "input_tokens": 646,
+          "new_tokens": 59,
+          "seconds": 6.4944961190000186,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "3803a520677e0e217df4ab6ca149c1e26c07edc95f497a23d1ca8e64661fa823",
+      "inputs_sha256": [
+        "9e722f5e2fc4d460ce9d2cb0eed542b99c65626261881eddf28474cf8f1b889f",
+        "fd35de9203c4b737569aa7352ccb95172640bdc0ff4273f158c612ea53214ec1"
+      ],
+      "crop_box": [
+        192,
+        0,
+        534,
+        342
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        144
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/train/good/061.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3ec9140978037c4c78cb5724486f73c1efeaae5148013e92a6e369f4a5166934",
+      "attempts": [
+        {
+          "input_tokens": 656,
+          "new_tokens": 54,
+          "seconds": 6.0588226950000035,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "9690c57d04ae3e59621f436d82df0ac9be6844af76b8fee714b439b1d9cc0df2",
+      "inputs_sha256": [
+        "0c4ac447acaa2eff3b8d83ee48ef13ee84f281c278f8a3a639ebb2fce1765419",
+        "675c184993aacb01e6fbd284c1454546c14ec531f3c491bf6f0795aa9fe82df2"
+      ],
+      "crop_box": [
+        0,
+        0,
+        342,
+        342
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        86,
+        145
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "308b2f34466ad744ec856c13c47337a83b33b2b9a36b9dfbc3b18aae03c8b4be",
+      "attempts": [
+        {
+          "input_tokens": 814,
+          "new_tokens": 55,
+          "seconds": 6.290758109999956,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "0ca3a650162cde492fd514cbc6dd348d1e232444350b370ece4ea10f6e050f32",
+      "inputs_sha256": [
+        "a6c36d234316c211ff890a5d997a4f9c4e9deb21901e28dd428afdbcd790b665",
+        "ac37edabb17080309ddb8b04faa1da11ab16a0cc1ac8fe5fe41bd8be25dc4a70"
+      ],
+      "crop_box": [
+        568,
+        579,
+        997,
+        970
+      ],
+      "crop_size": [
+        429,
+        391
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9764c20201907e9bc0f3e74ce5a8c744a38adba49ffbac00bf84a0b931db7eb4",
+      "attempts": [
+        {
+          "input_tokens": 802,
+          "new_tokens": 71,
+          "seconds": 7.687010088000079,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "4bd16bca9db4cb78a95a91c70704ae68e1608a93c7341f918a56291f251d5419",
+      "inputs_sha256": [
+        "575754ca354754a1c734fe4821db5d2a984168af7175f472e62b86b897e104bc",
+        "7e4fccba1dde45a107af7e872e231674ab33f7b316896786f3183bb30e39ebb6"
+      ],
+      "crop_box": [
+        0,
+        64,
+        501,
+        398
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        22,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f1e2607602a910cbd4103ef49cf8fd46accfb540c4b8debe97857156c2a53626",
+      "attempts": [
+        {
+          "input_tokens": 807,
+          "new_tokens": 61,
+          "seconds": 6.996720210999911,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "6c6f1895f57c1a8277eef55eef7cd832d3637cd772756729d80a8125457b9c40",
+      "inputs_sha256": [
+        "3c15dea0df451dc7ee26182cef3d161882b9d7a98d077c355cc397c940d29915",
+        "2d2b03e5ec2a268f2972d7f87658842fd6da7f65377708bb0d257807a501b9a4"
+      ],
+      "crop_box": [
+        328,
+        302,
+        754,
+        695
+      ],
+      "crop_size": [
+        426,
+        393
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9448756a8dbd93439d4fcc917bfc05666470e6d31ab737d851498c5ead3eefa6",
+      "attempts": [
+        {
+          "input_tokens": 806,
+          "new_tokens": 72,
+          "seconds": 7.887591117999932,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "14d1d631c631365914ccd5ac7cccd66666b95e8d437cad1788fa35d318eb3678",
+      "inputs_sha256": [
+        "e7157087397e9f830a6b1edcb02a98b1647216ed52732a5ef2979e5dc8d57ca0",
+        "f884ce67e2bfb356854eeacab96f82da255f43abdfa82db072530f4d98323de0"
+      ],
+      "crop_box": [
+        666,
+        0,
+        1114,
+        374
+      ],
+      "crop_size": [
+        448,
+        374
+      ],
+      "crop_shift": [
+        0,
+        20
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "37a08cfaaef5c3d84641c90c211cd17769934adacf6147503eca126ccaff2883",
+      "attempts": [
+        {
+          "input_tokens": 819,
+          "new_tokens": 74,
+          "seconds": 8.129029736999996,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "cadb67d87d21498d42bd8a90dbda06c033010429837b21e8c887367de1a10960",
+      "inputs_sha256": [
+        "f2e3ddee50653228c4eae0339bbd03a1aa71187d1c7d7e5a017f811193bea275",
+        "b24b2c9a87c8d369b5b05fd4bbe4dcb1da9fabf4677877f83c52b54a4f64bf33"
+      ],
+      "crop_box": [
+        598,
+        255,
+        1099,
+        589
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "128651c54ad1330242d1be3bf9123e7fb883b1d2a06068a4fa94d868dda3ffec",
+      "attempts": [
+        {
+          "input_tokens": 816,
+          "new_tokens": 72,
+          "seconds": 7.898238930000048,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "2fc8a3a0aa3f320fd5270dc4ee143e73552a74cafea0f62e5013c8dbe8b8899b",
+      "inputs_sha256": [
+        "f1fa7b5746d132918752c0f74ce5fa52b53382c332c2f70e34e098d462c0a702",
+        "c98ee517271d4a6679563e0f24b7c1b6c01a3fb50c957c8ffda8a717bd5213fc"
+      ],
+      "crop_box": [
+        297,
+        448,
+        798,
+        782
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "2f2f44fa32070f69a57c20a27180cde80568599482076ea3805670d5530111f8",
+      "attempts": [
+        {
+          "input_tokens": 820,
+          "new_tokens": 73,
+          "seconds": 7.85382258300001,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "6836d46d72c8e1ddf2109b2f6f7f35edb7bca14083041681d42b00de87998f68",
+      "inputs_sha256": [
+        "2a5be79b01c50ea5093861599bac0352140a4449bee2cdbf87d83be2fb9ddeab",
+        "a68131f5cd1f4ef22e126924bc1a3ea8abe778f317d847fccffe286dada3900b"
+      ],
+      "crop_box": [
+        901,
+        564,
+        1402,
+        898
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1ab2e1c562e4e8b0374f280415cbbd214bf9c05e9c93600f6f228f62caec4b33",
+      "attempts": [
+        {
+          "input_tokens": 809,
+          "new_tokens": 48,
+          "seconds": 5.630022927999903,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "a36dbe5fb1a1c81d0cf98706105dfbdeddfe35254f73d58392d16b90d3172b2e",
+      "inputs_sha256": [
+        "1738ac4313aa0bfb93496242077489d803d353e45295ad26da6f30f4d39fe9e8",
+        "3db4ba899ded3f20bc47ed6c4f5d88aa8834121fb62224d54be8715e5e1ad2a0"
+      ],
+      "crop_box": [
+        758,
+        474,
+        1227,
+        832
+      ],
+      "crop_size": [
+        469,
+        358
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "7c576c52af3b941d92cda414a382cdb62c89d96c27d940ceffe60e38d98f085b",
+      "attempts": [
+        {
+          "input_tokens": 809,
+          "new_tokens": 51,
+          "seconds": 5.801710453000055,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "cb5a548c9781660032655efc8b5206047a61b8c4b497f932ca867ae4709faf45",
+      "inputs_sha256": [
+        "9269435f5768cf879be262fecd56628415a4d4d9176b7662e6d9dbe87e7e7eab",
+        "1de0efa32b63370079a3889d754c5b16ed8b82c62d259353e99f6fd0d82ff2fe"
+      ],
+      "crop_box": [
+        507,
+        551,
+        976,
+        909
+      ],
+      "crop_size": [
+        469,
+        358
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "38b5a761e8d1f049e7fb7c1367528d88e705108a266bfff24c491f9cf13b0de7",
+      "attempts": [
+        {
+          "input_tokens": 790,
+          "new_tokens": 55,
+          "seconds": 6.453498115000002,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "cc595b0e481408fad5c129a31b6a779bb3035d27b25b71fec505ffc6d9b900e1",
+      "inputs_sha256": [
+        "fbfdb774a13b11e7e8554a648cb8834844cd6f1af4cceaaf204a697f4fda60e6",
+        "6ce458da95153355822a8b05cc2fe12a40928719aed2d723a3a43ab9ef042927"
+      ],
+      "crop_box": [
+        502,
+        370,
+        1024,
+        691
+      ],
+      "crop_size": [
+        522,
+        321
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3befb6699fc12947a5ad918d8a621c77d5b90eef6065961d9932d094ca9a1625",
+      "attempts": [
+        {
+          "input_tokens": 802,
+          "new_tokens": 63,
+          "seconds": 6.850322347000088,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "45ab737e4b176d3c76c96e658cdb3d6b42e68ea5c35ca3e8e57f4ef64988b89a",
+      "inputs_sha256": [
+        "a812dcb154288480ba9dc30e8eed85fe8fdfea04c423325fd4c65a5875d1df61",
+        "6baca44eeced18676689ac5876182fa190b21b2560bd1a7cf2468d04a434c399"
+      ],
+      "crop_box": [
+        195,
+        150,
+        649,
+        519
+      ],
+      "crop_size": [
+        454,
+        369
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a8e6fd4a9874db471485416f6116bca2dd27e93060ecbf42bbb2534e9aa8c768",
+      "attempts": [
+        {
+          "input_tokens": 820,
+          "new_tokens": 57,
+          "seconds": 6.217492198999935,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "0816ad5ecd9ca291342a62b4205afa27f23a9ad4d74b492e82a21a985dbb43ed",
+      "inputs_sha256": [
+        "e2a109eac894e576b09f453634240b20171099185ba6d590a55ff77cdd50320b",
+        "8adc900363a2e663ea1214b02081f207ea0dc5bc3f4ab2841d7e289737866ca3"
+      ],
+      "crop_box": [
+        350,
+        491,
+        784,
+        877
+      ],
+      "crop_size": [
+        434,
+        386
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "0aa02e719d6fcbe4b33894e78b7ffad89e571435aa93dd08d815d1870648c943",
+      "attempts": [
+        {
+          "input_tokens": 547,
+          "new_tokens": 68,
+          "seconds": 10.084886317000041,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": true,
+      "map_sha256": "e0da63ba647871b5f69a3ecc0e6b872904cf7e1526e2e50ff1c74f6fd005c0e9",
+      "inputs_sha256": [
+        "ca2ebd90fec700d842a0bc3dba15632981185514dc80955d2155a932e9a719c0",
+        "8bd704c7c02331bb1b34e324a08158c75d10fe8c0dae7e34f080e26c5420c317"
+      ],
+      "crop_box": [
+        230,
+        588,
+        531,
+        889
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c2062bd6e00800ec406277b90854100eddb447b20e3961c739c3d2aa0032499d",
+      "attempts": [
+        {
+          "input_tokens": 547,
+          "new_tokens": 62,
+          "seconds": 6.124999650999939,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "67f58fd220fc16266b7471d5f08342f8f02b1f0b4aed8cf7162bb451adaa8084",
+      "inputs_sha256": [
+        "7aae00a1ef8d82f7182135b9fbc1760d4e5080dda49f38e63c40a383390ae3d8",
+        "2d2e13e09de9a6135ddaaac3b482a935b70906137bcc259b462ffa5460ed8b82"
+      ],
+      "crop_box": [
+        541,
+        216,
+        842,
+        517
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "32c823de8daecc1bc9aba7c30a5e3477a4a4d031aefa3c4ca3a0f5ea8823936e",
+      "attempts": [
+        {
+          "input_tokens": 681,
+          "new_tokens": 80,
+          "seconds": 8.175561688000016,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "67f58fd220fc16266b7471d5f08342f8f02b1f0b4aed8cf7162bb451adaa8084",
+      "inputs_sha256": [
+        "7aae00a1ef8d82f7182135b9fbc1760d4e5080dda49f38e63c40a383390ae3d8",
+        "2d2e13e09de9a6135ddaaac3b482a935b70906137bcc259b462ffa5460ed8b82"
+      ],
+      "crop_box": [
+        541,
+        216,
+        842,
+        517
+      ],
+      "crop_size": [
+        301,
+        301
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ae3c4dd4283d9d178d9f95b47acabab93f99a55dbf7fe2f5b253ea0bec6ab1e9",
+      "attempts": [
+        {
+          "input_tokens": 662,
+          "new_tokens": 57,
+          "seconds": 6.276219833000027,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": true,
+      "map_sha256": "3681f386f721d476c5f45d4dc056546c2ab11792bbb140c2a2b2675c20d5e58a",
+      "inputs_sha256": [
+        "08a552155c0c9b383bd47846f57d05b9898c6c2aa4f6260079f41b37cfdb3002",
+        "3413ee9a20b9d175bd69633bc879248d95d0d8b6a092f136f94125600b77e97d"
+      ],
+      "crop_box": [
+        535,
+        444,
+        877,
+        786
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b70ded02e4576daa6eb02877b46ffbf91450e431a49d74ad27b27cc808a0bf36",
+      "attempts": [
+        {
+          "input_tokens": 662,
+          "new_tokens": 67,
+          "seconds": 7.104892496000048,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "5691b159abde8560d16aba6255e9a3a4bf93f50b30988d7be1b6df11b7731b60",
+      "inputs_sha256": [
+        "abb8a8f8cbd263c626dd8909c52325c7a742a7546644bbf85452048e21d5078e",
+        "983cc08378c4308d468ae04193492b3f6f7906174d5b9b6f02ba5635d873f42d"
+      ],
+      "crop_box": [
+        478,
+        92,
+        821,
+        434
+      ],
+      "crop_size": [
+        343,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "3cb19ac99115a29582dab6d1f6427059a69c71567b7788f80c025dddfe7c9005",
+      "attempts": [
+        {
+          "input_tokens": 811,
+          "new_tokens": 64,
+          "seconds": 7.0344614800000045,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "5691b159abde8560d16aba6255e9a3a4bf93f50b30988d7be1b6df11b7731b60",
+      "inputs_sha256": [
+        "abb8a8f8cbd263c626dd8909c52325c7a742a7546644bbf85452048e21d5078e",
+        "983cc08378c4308d468ae04193492b3f6f7906174d5b9b6f02ba5635d873f42d"
+      ],
+      "crop_box": [
+        478,
+        92,
+        821,
+        434
+      ],
+      "crop_size": [
+        343,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a73a00ac8c50b95856a0c3efd931736de9f5728d31715312fc58551e2dc3b41f",
+      "attempts": [
+        {
+          "input_tokens": 629,
+          "new_tokens": 77,
+          "seconds": 7.777556906999962,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "7f466afb15451997fe772f8dc8313129ece8e7c3886297fb05e800be78bf3c52",
+      "inputs_sha256": [
+        "b025b7361286a8c196fa2bb482ffb9679f387e6d4cd1d9c5ee384e4c335b1834",
+        "8e3bd134852be6e26df2cb02f962fc6c1337dabd48269f05f5e926ef50084eb7"
+      ],
+      "crop_box": [
+        90,
+        665,
+        424,
+        1000
+      ],
+      "crop_size": [
+        334,
+        335
+      ],
+      "crop_shift": [
+        0,
+        -19
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "087d5a3ad62584a6694901717091ea45f8d72b220ac705edaafbfe454cf6815b",
+      "attempts": [
+        {
+          "input_tokens": 766,
+          "new_tokens": 58,
+          "seconds": 6.405765172000088,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "forced_retry": true,
+      "map_sha256": "7f466afb15451997fe772f8dc8313129ece8e7c3886297fb05e800be78bf3c52",
+      "inputs_sha256": [
+        "b025b7361286a8c196fa2bb482ffb9679f387e6d4cd1d9c5ee384e4c335b1834",
+        "8e3bd134852be6e26df2cb02f962fc6c1337dabd48269f05f5e926ef50084eb7"
+      ],
+      "crop_box": [
+        90,
+        665,
+        424,
+        1000
+      ],
+      "crop_size": [
+        334,
+        335
+      ],
+      "crop_shift": [
+        0,
+        -19
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/test/cut/006.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d1c1555a89ef5be3ce608294179315819a17a8cf1703f78eb5db27a159fff61c",
+      "attempts": [
+        {
+          "input_tokens": 650,
+          "new_tokens": 72,
+          "seconds": 7.708434159000035,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "095d446672876a747950b5a591b3f9472ba5ead0740a169cea6e606952deeac6",
+      "inputs_sha256": [
+        "c2fea4b16b1e0cf52bc0054c6be803230182165ff7c8c2731bb5e2ae2445dd65",
+        "a866789a0bedc38f6a2e923266bb371b6f8a9a0af8192479317c0798eba1e547"
+      ],
+      "crop_box": [
+        559,
+        466,
+        902,
+        809
+      ],
+      "crop_size": [
+        343,
+        343
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/test/thread/009.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b059b4583f4a60f524a0a8f8b9f03ed016c272f3bce4e6c35e71a8e5c805cd46",
+      "attempts": [
+        {
+          "input_tokens": 649,
+          "new_tokens": 62,
+          "seconds": 6.753069541000059,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "8d8c3897577c95fbc286b210f11771704fae3feea915bc513076d6f698f40aac",
+      "inputs_sha256": [
+        "3da44f8df52ac3442033b86b336492ce8cee420bfa6535e68a2335a79e9e76bf",
+        "0e5aaef3f965ba5e36fe0e30b17ae5431048cffc4e267ebaebb119b91638bf01"
+      ],
+      "crop_box": [
+        0,
+        604,
+        342,
+        946
+      ],
+      "crop_size": [
+        342,
+        342
+      ],
+      "crop_shift": [
+        155,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/test/crack/011.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d38cc8019e50c7744dfada4ab5c52ba16a7fefef4027499f4f2855907ca72bdd",
+      "attempts": [
+        {
+          "input_tokens": 649,
+          "new_tokens": 71,
+          "seconds": 7.433876381999994,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "03424ec306f9ac31611b4d39c451da1408c5f2c7b195b1a0d392352786a1dce3",
+      "inputs_sha256": [
+        "b718a13a82d9a1500d29c546cd3f246622eb0271d4aab893ca9a3e059fda3d73",
+        "0847d077c75da7f0207e60a28e8b0213b3a3c34958e270f51258131cae21d37e"
+      ],
+      "crop_box": [
+        372,
+        163,
+        715,
+        505
+      ],
+      "crop_size": [
+        343,
+        342
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/test/glue/016.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a43cff3a5ca5115f9eae2a9c2cdddb1fe351c45fb4912decc445663eeafe9125",
+      "attempts": [
+        {
+          "input_tokens": 693,
+          "new_tokens": 98,
+          "seconds": 10.019231691000073,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "c21f4637a6e1663fd4d098479a30c758adfe5482d2d32fed18487b57f61062c4",
+      "inputs_sha256": [
+        "cc68a2e6bbfde0061bf4ada34c5d4476cfa5e4019c074a7676bdd42139cf29f4",
+        "1500b435cec633a62016a3f26a5fdc95b01d045ad8bfc462eaa95cbb16bd44ea"
+      ],
+      "crop_box": [
+        544,
+        491,
+        1024,
+        833
+      ],
+      "crop_size": [
+        480,
+        342
+      ],
+      "crop_shift": [
+        -71,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/test/flip/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "2f38f0c752f875828a0dc7e1ef45b043869e664be29683a36c5885ff6b5b94dd",
+      "attempts": [
+        {
+          "input_tokens": 455,
+          "new_tokens": 60,
+          "seconds": 6.217618485999992,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "7e94099b8175b23cba0e8ab3845d90afe071cfb7ec5737c0c52f354651cfc56b",
+      "inputs_sha256": [
+        "5abff5f25c19c6baed842031ed7f4c001b0347ae3a079e31c6f84487d1d4ba00",
+        "7d212ca00b150868bb9df9116943f9cdd4d7125f2634735f4655c6856cd9e43e"
+      ],
+      "crop_box": [
+        466,
+        251,
+        700,
+        485
+      ],
+      "crop_size": [
+        234,
+        234
+      ],
+      "crop_shift": [
+        -14,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/test/scratch/000.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f8ce04980b493b48b310204f5392238e82c9c8e03486cd136b9bfd838ffa613a",
+      "attempts": [
+        {
+          "input_tokens": 491,
+          "new_tokens": 60,
+          "seconds": 6.155123723000088,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "d265907cfa2d6af4aa089a16a513721dd68178f5270d2a20de851890994d70c9",
+      "inputs_sha256": [
+        "bceebbc1786ce68e8cb67fd4a0cf85586b2970a650e66d45d37e064f9d220832",
+        "1b7c4a4cfa1074100fe3b83183892ee55e14197abe4f7d2b24aa567a8354beef"
+      ],
+      "crop_box": [
+        424,
+        362,
+        697,
+        630
+      ],
+      "crop_size": [
+        273,
+        268
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/test/manipulated_front/020.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "31ae2b532c652d0242558225c777116520d6c1fce6b45d5864ea67c1e7201b29",
+      "attempts": [
+        {
+          "input_tokens": 654,
+          "new_tokens": 65,
+          "seconds": 7.0391546330000665,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "874e1ca14afb1c158cf78a840713d88b255dd88ba4b5aa309231b4df04534699",
+      "inputs_sha256": [
+        "e2d3d24fadf31bb5e7a75cb0d60e7e1aa7f85a619751ae4cd3ae4cfa6cbcd603",
+        "d935c134b1a2f651c6cb71daf423d57a7c6a244605ac9639e60881db7f9ac3e1"
+      ],
+      "crop_box": [
+        35,
+        682,
+        378,
+        1024
+      ],
+      "crop_size": [
+        343,
+        342
+      ],
+      "crop_shift": [
+        0,
+        -18
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/test/oil/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a9557f37b40646bf00299cbd2d0d1a5c7e6219b0aa74b5f3917e2c878712d5f4",
+      "attempts": [
+        {
+          "input_tokens": 523,
+          "new_tokens": 62,
+          "seconds": 6.433966819000034,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "eae3cadff2e775c6f3284997c27905b4b1553b11dc58d4cb419cb1de14fe1f13",
+      "inputs_sha256": [
+        "6d549839feb425ad61b0576267e71e6452fbc3943672acbc5d609b8bc9b621a8",
+        "41b9262228f5af33af9de3db2f808b7c79ea858133fdc51048222e9026cc14a7"
+      ],
+      "crop_box": [
+        224,
+        427,
+        505,
+        708
+      ],
+      "crop_size": [
+        281,
+        281
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/test/defective/023.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3688227be3adeb807457315afd60559ad5d642431df3cbfdf35514d757a5a1b7",
+      "attempts": [
+        {
+          "input_tokens": 697,
+          "new_tokens": 71,
+          "seconds": 7.459337734000087,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "b8a23fcefe4cbb76ce31b180913d1c642f357b2d6890e2c0db6973040f11b41c",
+      "inputs_sha256": [
+        "cf494a69ae943d8df1448d8abba84efccd2ed28304e8dc6b8edf454c8e10eee6",
+        "7783d56d9ae1a7f443d4a50123690bc86d90e5e43f065c5821e67ace5a2c6273"
+      ],
+      "crop_box": [
+        160,
+        262,
+        502,
+        762
+      ],
+      "crop_size": [
+        342,
+        500
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/test/damaged_case/003.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b347ae1c2436bf14bf1b0d7a00adaae8aa52c6298734b1b8c81f0d7dca7d6dd9",
+      "attempts": [
+        {
+          "input_tokens": 650,
+          "new_tokens": 63,
+          "seconds": 6.541456999000047,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "e5dc60655dd3265799accfd7ab9e390192f643815b3fda820a49b3a9dc982e59",
+      "inputs_sha256": [
+        "977d4def58a98a3ae7f282449b6cf24324c195a13aa25186f5bd44ba526bd52b",
+        "ee1d2ff4a98aa598f42a557e3bfd1f938febbcfa98e6286066c4c060cdd2e2c4"
+      ],
+      "crop_box": [
+        441,
+        395,
+        802,
+        738
+      ],
+      "crop_size": [
+        361,
+        343
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/test/scratch/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "0752cec035b85a9db217e9e836647a1f2c8f38b024f32e7086b93ba70944f59b",
+      "attempts": [
+        {
+          "input_tokens": 646,
+          "new_tokens": 66,
+          "seconds": 7.094889109000064,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "3e0d858c0a8b8484e9bfef6eced7563fe0d11738b20fab34f3c2f999791966e0",
+      "inputs_sha256": [
+        "f9db6c934a504864514d2c78f13762a53b243a6781c3f4d5b73e2679b15fffb4",
+        "eab2e79fa30ad3e4f63f26a718f420b4ef842e0c94bf8aaaa6a846222e55822b"
+      ],
+      "crop_box": [
+        387,
+        383,
+        730,
+        726
+      ],
+      "crop_size": [
+        343,
+        343
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/test/split_teeth/014.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "73d303cbf62d1803541e87622f4edbe44dfa79266ac5b5e258af22637c935e1e",
+      "attempts": [
+        {
+          "input_tokens": 656,
+          "new_tokens": 62,
+          "seconds": 6.829853829000058,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "d54570b44d5b4de593f94d0483ba50c0491cee32d6a9bc1da623a7b56d5d85b7",
+      "inputs_sha256": [
+        "d644b5c9ee8b75237ab0cc6c0485ac3cf7fae659a13a66b522834b923c288d7f",
+        "9148b3a935ffcfdf1d526cffaf0d6d6b820706d2f6f7b5f1559653b3d7a37c85"
+      ],
+      "crop_box": [
+        312,
+        481,
+        655,
+        824
+      ],
+      "crop_size": [
+        343,
+        343
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "33396be14ad881329219557462f229e199979d69f56bde9da754477493bc9d75",
+      "attempts": [
+        {
+          "input_tokens": 814,
+          "new_tokens": 66,
+          "seconds": 7.284635901999991,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "5695719e406a44829ab9731bfd5d724d44aa908575f23910dd1ebbfeab26e4b8",
+      "inputs_sha256": [
+        "00d7cb28d4552987d87bcd696621d0920b2c8e03c9a2947ebd7d4315b6202641",
+        "c46fc6bf0bda454e99ab57de64fd9ab999a8fa7b95c6ba4a363c4ccfbe3459d5"
+      ],
+      "crop_box": [
+        167,
+        78,
+        596,
+        468
+      ],
+      "crop_size": [
+        429,
+        390
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "df86c6e1248d43c6fd5069abb9a0d5abc117351ab1c7ab36f1149ac412f9e44a",
+      "attempts": [
+        {
+          "input_tokens": 802,
+          "new_tokens": 81,
+          "seconds": 8.654011074999971,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "58cb1785ab7b3e047fff4a012d01c8f2c577fd756f9d48cad6aca4e6b90c01d6",
+      "inputs_sha256": [
+        "a944c5bf2eb38e21e31173487a94fffd7588e8af7777b5d51f3402eb72b23d47",
+        "432d38cc8217c1ad777eae049ccf9c8aedcbdcee297b637d351316d534270004"
+      ],
+      "crop_box": [
+        621,
+        360,
+        1122,
+        694
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e96c574f5d9372946044c0cb1b62f997b9785d9f2d574b933cb0798b51f7ec55",
+      "attempts": [
+        {
+          "input_tokens": 807,
+          "new_tokens": 70,
+          "seconds": 7.5254879259999825,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "b0428f314def888263b5c16864a55abc0a65073de918c527b83e67c548e3ba26",
+      "inputs_sha256": [
+        "3725e35ef94b5c0200bf7d19c308f4526fa948f17cabc226d30f16f00fe38532",
+        "23c58edacbdcdfd45e0909ccd055d7a3bd418586c19931c51f28141449583c96"
+      ],
+      "crop_box": [
+        476,
+        742,
+        901,
+        1135
+      ],
+      "crop_size": [
+        425,
+        393
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4a9ec7e52d3152c15f44cadf6d62dbb3cefd77a16a66207b98a533c238e6812c",
+      "attempts": [
+        {
+          "input_tokens": 806,
+          "new_tokens": 68,
+          "seconds": 7.45936669699995,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "299d6ae89679590805aba9d469f1463ed46213eb27112eaf65a550855e6b645f",
+      "inputs_sha256": [
+        "77604c6dfe2c52932537ab4e1e01527ac6b4c7c0fa0d485596eb74b476e518d0",
+        "f5c303da17921d46220a439a86b820c15fd5d9e33aadacef041ac4d0d8cc736f"
+      ],
+      "crop_box": [
+        229,
+        402,
+        678,
+        776
+      ],
+      "crop_size": [
+        449,
+        374
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9e5c02c8b898bb90c1da273a43558164c517ce11b78cd839979ea08718ac07db",
+      "attempts": [
+        {
+          "input_tokens": 819,
+          "new_tokens": 80,
+          "seconds": 8.583291140000028,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "fe3cfeb64696932a84b1324248f99ff7f095bb3cfcd3f16a0dd7e91bde861daa",
+      "inputs_sha256": [
+        "5a8b4f8fb4afa2ade0363997df67d11f1a68c5e205c6c0e6d731c1e4aeb9b985",
+        "3647fdf28ebff238908112ff16c014da2e9c5752ab9ce395f7ceb1794f30fa53"
+      ],
+      "crop_box": [
+        274,
+        397,
+        775,
+        731
+      ],
+      "crop_size": [
+        501,
+        334
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "136aa544339681f687bb0906deab694e401fc781c13da4882b861287aef22194",
+      "attempts": [
+        {
+          "input_tokens": 816,
+          "new_tokens": 75,
+          "seconds": 8.05002897700001,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "cb9e672b4ed64c7b8a66f914009fdc9a8dd15de41e4f73683015e7e2f9e3c1aa",
+      "inputs_sha256": [
+        "8460457114ed376a3dbcde4aba9da9dd7a38af50ea6c3ae34ff2351d58221efb",
+        "aff42bbd61f76a002481ec6551318ea03fce0fedd7ca039f7f1b5a1c6dd41120"
+      ],
+      "crop_box": [
+        349,
+        453,
+        850,
+        788
+      ],
+      "crop_size": [
+        501,
+        335
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5b27d2599f9a373729c1fc78a73667d7420f1c7e4a28bf84754af2ee6a38f3c1",
+      "attempts": [
+        {
+          "input_tokens": 820,
+          "new_tokens": 60,
+          "seconds": 6.783939778999979,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "b03aae70a947ddb634ed33fa882426037df307a71c94608396ce415417b1dbeb",
+      "inputs_sha256": [
+        "b87d84b96f8850c3d4cac1ab861c16cc8d07e8c6eb3e33980371ec2e6793cf5a",
+        "45060e251b8b584b4fb1f3606f11b1698326895339f9509bf3d7bbd7ec7e779e"
+      ],
+      "crop_box": [
+        805,
+        593,
+        1306,
+        928
+      ],
+      "crop_size": [
+        501,
+        335
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5e584a5193c29788efd886354afd93abef111073328dec53d177afd865678156",
+      "attempts": [
+        {
+          "input_tokens": 809,
+          "new_tokens": 59,
+          "seconds": 6.6188810169999215,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "015bbf442fa31cf79097e03dd4297bcdb40f06dcfd9489b7859389da194d999d",
+      "inputs_sha256": [
+        "12a647ca7634fe038e5e1bf522440f310fd6603745c3cd1fcd12028862902c9e",
+        "6e10b990021e9fb43deacb9a77c043ad317f151e55d81b78580800e525b2ee62"
+      ],
+      "crop_box": [
+        469,
+        550,
+        938,
+        908
+      ],
+      "crop_size": [
+        469,
+        358
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "42ee49c157e2280cb08588498ef6520e74df0143bcaa2702e15bc5d67f80e767",
+      "attempts": [
+        {
+          "input_tokens": 809,
+          "new_tokens": 51,
+          "seconds": 5.675658975000033,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "04b5b1e466e0bd95d1cadd3bfbf61a8ccb6a1d54de8a532d0c54fd79c239b56c",
+      "inputs_sha256": [
+        "675b0b9e9e160e27c878010c373812678a278924fdc359e6eec943c3cde7ff6a",
+        "17ac2ebdae6a6605c590e903e1a9026afbbd09defb1eadaf0121d8ec48279d2c"
+      ],
+      "crop_box": [
+        657,
+        515,
+        1126,
+        873
+      ],
+      "crop_size": [
+        469,
+        358
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "2559c7a0617ed636a16c84fe4df7e3babc3279af70b2f4cb371e5eace7739f42",
+      "attempts": [
+        {
+          "input_tokens": 790,
+          "new_tokens": 62,
+          "seconds": 7.059125203999997,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "2dd53166c77cae59f5947309be24589cc3abee3f8c48039e560e0e770cc521b2",
+      "inputs_sha256": [
+        "6375f956e03f111dea616d2b7a3f117165b68e72bc621c62d1e360881546e71d",
+        "bb7553ee0a1c38e13b6e33320ce7c5979a96f7dfdb8544f4dd913b8f92c3287f"
+      ],
+      "crop_box": [
+        991,
+        237,
+        1512,
+        558
+      ],
+      "crop_size": [
+        521,
+        321
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "70d4d3c63a82c7c7c9fdea42664456ddf51736463aefcc47f5eb6dcb54ee3550",
+      "attempts": [
+        {
+          "input_tokens": 802,
+          "new_tokens": 72,
+          "seconds": 8.083953082999983,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": false,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "f7835af7258e443302761c82aa4969a4f471ba7432e76b67c9784750c2d0c6ab",
+      "inputs_sha256": [
+        "62dbcf7df76d94b34c15f669bbeeb5d7e4f69eb8227d6c2681e015046061ec34",
+        "340a4ade354827cc7ea808dfcc172dc35ce8723a2ecfe0ec1f7a877da401d121"
+      ],
+      "crop_box": [
+        124,
+        321,
+        578,
+        690
+      ],
+      "crop_size": [
+        454,
+        369
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "requery",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "dd2f758e66e9aeff73360a6e2e834d01365e628c5cef2c341272fbf2f4d1d00d",
+      "attempts": [
+        {
+          "input_tokens": 820,
+          "new_tokens": 97,
+          "seconds": 9.778131995999956,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "control_char": true,
+      "think_block": false,
+      "consistency": false,
+      "map_sha256": "7b589ad20d67d4836b273adfbe2aac6e0b5798bebb5c926a9348e1ad4acd5d89",
+      "inputs_sha256": [
+        "efe42338c9f9ee061f7f1ab712389ba52808f281bac0df87c85a68f81a286ade",
+        "e2fcd3d28af70398eee7d5616984a0ccb78db9f9ced0b33268bc73932109b8eb"
+      ],
+      "crop_box": [
+        286,
+        449,
+        720,
+        834
+      ],
+      "crop_size": [
+        434,
+        385
+      ],
+      "crop_shift": [
+        0,
+        0
+      ]
+    }
+  ]
+}

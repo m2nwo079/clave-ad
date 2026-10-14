@@ -1,0 +1,4245 @@
+{
+  "run_id": "format_check_20261014T020416Z",
+  "git_commit": "54c6c49a8e93a925378bfb38aa4d88e794b9a8b3",
+  "config_path": "configs/format_check/qwen3_5_9b.yaml",
+  "config_hash": "70398681e0badc00eb995e74c49c2b009adf828c059872bd76247e94dafeb7e6",
+  "dataset": "mvtec_ad+visa",
+  "seed": 0,
+  "created_at": "2026-10-14T02:04:16.051692+00:00",
+  "metrics": {
+    "compliance": {
+      "b0": {
+        "requests": 54,
+        "first_ok": 54,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 52,
+        "nonfinite_requests": 0
+      },
+      "b0/mvtec_ad": {
+        "requests": 30,
+        "first_ok": 30,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 30,
+        "nonfinite_requests": 0
+      },
+      "b0/visa": {
+        "requests": 24,
+        "first_ok": 24,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 22,
+        "nonfinite_requests": 0
+      },
+      "b1": {
+        "requests": 54,
+        "first_ok": 50,
+        "ok_after_retry_1": 4,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 50,
+        "nonfinite_requests": 0
+      },
+      "b1/mvtec_ad": {
+        "requests": 30,
+        "first_ok": 26,
+        "ok_after_retry_1": 4,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 26,
+        "nonfinite_requests": 0
+      },
+      "b1/visa": {
+        "requests": 24,
+        "first_ok": 24,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 24,
+        "nonfinite_requests": 0
+      },
+      "b3": {
+        "requests": 54,
+        "first_ok": 54,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "nonfinite_requests": 0
+      },
+      "b3/mvtec_ad": {
+        "requests": 30,
+        "first_ok": 30,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "nonfinite_requests": 0
+      },
+      "b3/visa": {
+        "requests": 24,
+        "first_ok": 24,
+        "ok_after_retry_1": 0,
+        "ok_after_retry_2": 0,
+        "violations": 0,
+        "violations_truncated": 0,
+        "violations_think_block": 0,
+        "ok_fenced": 0,
+        "nonfinite_requests": 0
+      }
+    },
+    "b3_skipped": 0,
+    "forced_retry": {
+      "requests": 6,
+      "ok": 4
+    },
+    "device_consistency": [
+      {
+        "path": "bottle/train/good/199.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "path": "bottle/test/contamination/008.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "path": "cable/train/good/109.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      },
+      {
+        "path": "cable/test/bent_wire/007.png",
+        "devices": [
+          "cuda_visible_devices=0",
+          "cuda_visible_devices=1"
+        ],
+        "same_output": true
+      }
+    ],
+    "generations": 176,
+    "generation_seconds": 1642.3217049979985,
+    "input_tokens": 305563,
+    "new_tokens": 11308,
+    "shards": [
+      {
+        "shard": 0,
+        "device": "cuda_visible_devices=0",
+        "gpu": "Tesla T4",
+        "kernels": {
+          "fla": false,
+          "causal_conv1d": false
+        },
+        "max_memory_reserved": 14208204800,
+        "total_memory": 15636037632
+      },
+      {
+        "shard": 1,
+        "device": "cuda_visible_devices=1",
+        "gpu": "Tesla T4",
+        "kernels": {
+          "fla": false,
+          "causal_conv1d": false
+        },
+        "max_memory_reserved": 14212399104,
+        "total_memory": 15636037632
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "cuda": "12.8"
+  },
+  "records": [
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6830067fe35b587cece639f3b6c08ea84dd4d3701d4228f58e4160e5bdc0d11c",
+      "attempts": [
+        {
+          "input_tokens": 966,
+          "new_tokens": 67,
+          "seconds": 11.533369477000065,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "c9666d108809631ece41bd33d78db02e3218550a6548c6eb1ca6fe1f1362f2b3",
+      "attempts": [
+        {
+          "input_tokens": 1044,
+          "new_tokens": 61,
+          "seconds": 7.2162727940000195,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6bd22740e0170fc1449868cc422b2b93c1b988ad256cc2dec67ad87da5f69ca9",
+      "attempts": [
+        {
+          "input_tokens": 1783,
+          "new_tokens": 70,
+          "seconds": 9.272973360999913,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1015,
+          "new_tokens": 24,
+          "seconds": 4.038573572000018,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "23705b53958854de4ee84f2c30adfc9151a8b63effa0229aa7b1b91f3249b2d9",
+      "attempts": [
+        {
+          "input_tokens": 966,
+          "new_tokens": 86,
+          "seconds": 9.04235867400007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": true
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a31ad65519156d96744ab9f1e29b8a54101b6b4b1f9fccb2540ac28f224e8ba6",
+      "attempts": [
+        {
+          "input_tokens": 1221,
+          "new_tokens": 70,
+          "seconds": 8.499120103999985,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "1ba70eab6adffdb27aa156032f1da02d3851df1bac5cc5d273fa2404f34981ac",
+      "attempts": [
+        {
+          "input_tokens": 1299,
+          "new_tokens": 64,
+          "seconds": 8.246246564999979,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d637aba616a24c9af0aad5d36c427a4e0f96529e413bcf1bb97ac4dfa77a20e2",
+      "attempts": [
+        {
+          "input_tokens": 2278,
+          "new_tokens": 92,
+          "seconds": 12.675689167999963,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1258,
+          "new_tokens": 24,
+          "seconds": 4.700408460999938,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "658d28facf9e00eeeab591bad55a3e1d42f25d5c02501c367aef689f8e3a0ccb",
+      "attempts": [
+        {
+          "input_tokens": 1221,
+          "new_tokens": 78,
+          "seconds": 9.289971990000026,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": true
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f4232bb824c308de8cc6a9896a37da5883bfe7431a0075100926eb30098ec8be",
+      "attempts": [
+        {
+          "input_tokens": 1146,
+          "new_tokens": 73,
+          "seconds": 8.946159282000053,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "2ae425fe0cc61fd350b961e9beca33b3c6a7914931bf69631489b64e16a8aad0",
+      "attempts": [
+        {
+          "input_tokens": 1224,
+          "new_tokens": 77,
+          "seconds": 9.200646849999998,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9fd1f9ac7a9654ef2c261a5608414794f669190abd3baafeb3584fc289b75cf9",
+      "attempts": [
+        {
+          "input_tokens": 2140,
+          "new_tokens": 81,
+          "seconds": 11.584976299000004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1192,
+          "new_tokens": 24,
+          "seconds": 4.497422491000066,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/train/good/050.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9d07877c9f423163d17e65cef0cb3de30011332c6956d1509691b6ba9f7189f9",
+      "attempts": [
+        {
+          "input_tokens": 1209,
+          "new_tokens": 66,
+          "seconds": 8.265439738000055,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/train/good/050.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "21c82e58abbedae1260939577554dae18d0bbc6073a29ae278d096d8fd8fb721",
+      "attempts": [
+        {
+          "input_tokens": 2266,
+          "new_tokens": 100,
+          "seconds": 13.499328054999978,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/train/good/050.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1254,
+          "new_tokens": 16,
+          "seconds": 3.872272045000045,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/train/good/201.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "eec041024ce266c204568c56f3ab3cd02d398bbabad24df7f5eb7ef4b8b72c10",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 66,
+          "seconds": 8.33410414900004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/train/good/201.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f31ba4e8184f6a881e123886104bae27a09de0e68f77188d6f02c38323757f69",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 70,
+          "seconds": 10.894743231999996,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/train/good/201.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1253,
+          "new_tokens": 16,
+          "seconds": 3.885856057999945,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/train/good/180.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "fe5f0a76631e12e20b71a91b854b160e093d037b0682a5330363e8141bacd4da",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 111,
+          "seconds": 11.79994294000005,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/train/good/180.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1046a9f3fe8457422ba7275dd4044c5d0566e159520021ea88446c8f9c9d9188",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 81,
+          "seconds": 11.575889486999927,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/train/good/180.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "39b62b42327b803ead89564461b73f3263bb092b4ad44b65c46b7e6fdf901aee",
+      "attempts": [
+        {
+          "input_tokens": 1292,
+          "new_tokens": 24,
+          "seconds": 4.702039868000043,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/train/good/016.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5cc2680d330db0a474152ad22a8c48253d5240bf486d749533725489cb31594e",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 71,
+          "seconds": 8.395750448999934,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/train/good/016.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "90984c5559338188307b5991056312bf717f5d3b131003e43a27af81e3b32036",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 85,
+          "seconds": 11.896009268000057,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "not a single JSON object (Unterminated string starting at at char 126)"
+        },
+        {
+          "input_tokens": 2405,
+          "new_tokens": 82,
+          "seconds": 11.812884961000009,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/train/good/016.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1259,
+          "new_tokens": 24,
+          "seconds": 4.580891898000004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/train/good/119.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5931231d6c73722fc7da31d1debbee0012532b8d5df8809e576b17e5412f94b5",
+      "attempts": [
+        {
+          "input_tokens": 666,
+          "new_tokens": 64,
+          "seconds": 7.169655220999971,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/train/good/119.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "18c12f94325a0e3edcbd52f45f212c591bf928a8b4515ecc8f3725ce66edca9f",
+      "attempts": [
+        {
+          "input_tokens": 1183,
+          "new_tokens": 113,
+          "seconds": 12.103268680000042,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/train/good/119.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 712,
+          "new_tokens": 24,
+          "seconds": 3.586654062999969,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/train/good/084.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c002c0dc1a48484981d0972a92d60a226800fd049490957012fddbb42456f769",
+      "attempts": [
+        {
+          "input_tokens": 812,
+          "new_tokens": 65,
+          "seconds": 7.461669776000008,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/train/good/084.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "da94e38334e4b79d8b97a3bc143e47378065d60357b970dd75ec2e5c9f3d6599",
+      "attempts": [
+        {
+          "input_tokens": 1470,
+          "new_tokens": 83,
+          "seconds": 10.117415309999956,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/train/good/084.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9942ab5450f88a49ee072be085fcef099e01d6f090eceeae88baa1987ad98cbe",
+      "attempts": [
+        {
+          "input_tokens": 853,
+          "new_tokens": 16,
+          "seconds": 3.1976302850000593,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/train/good/273.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "952dd6996c2ab09f68de432b6e5b89a626f40203877524a8c0dd017b33a9ead3",
+      "attempts": [
+        {
+          "input_tokens": 1213,
+          "new_tokens": 67,
+          "seconds": 8.294069677000039,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/train/good/273.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "205df4a396e108b6b1259ecf06eb95bfb1f5debd9b7fbef026bfb28480f902cb",
+      "attempts": [
+        {
+          "input_tokens": 2270,
+          "new_tokens": 77,
+          "seconds": 11.324837877999926,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/train/good/273.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1255,
+          "new_tokens": 16,
+          "seconds": 3.864552577999916,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/train/good/111.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d356d099ef1a2d6a03934c13be2d827cd8386129c4d7cc63b2ef2219d32e1f33",
+      "attempts": [
+        {
+          "input_tokens": 861,
+          "new_tokens": 75,
+          "seconds": 8.506980416000033,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/train/good/111.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4cd0462980f4e63541f6cb19bf35146b308fc35ca2dcfca57483d54970697428",
+      "attempts": [
+        {
+          "input_tokens": 1570,
+          "new_tokens": 70,
+          "seconds": 9.419935726999938,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/train/good/111.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 914,
+          "new_tokens": 24,
+          "seconds": 4.012344545000019,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/train/good/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a069d43e0cdc8c9fa2e44c22e9273eb69fb251bec7daa29580840eb3ab06c29a",
+      "attempts": [
+        {
+          "input_tokens": 1201,
+          "new_tokens": 73,
+          "seconds": 9.050058637999996,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/train/good/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b5c649488e40aaa7b42ea809faeecd9ea66a515d7958738d6743ab5314beb519",
+      "attempts": [
+        {
+          "input_tokens": 2258,
+          "new_tokens": 136,
+          "seconds": 16.91806305299997,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/train/good/008.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1262,
+          "new_tokens": 24,
+          "seconds": 4.593787749999933,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/train/good/056.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "7dd79d6b2766a3bec766a88e35b78c233a187f41f1f387d2e2eb1af4916ec19b",
+      "attempts": [
+        {
+          "input_tokens": 1209,
+          "new_tokens": 93,
+          "seconds": 10.371859911000001,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/train/good/056.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "786df6dd4b792261ce4b4f70e0380a93645d3c3768fa3c08b415a83479c22458",
+      "attempts": [
+        {
+          "input_tokens": 2266,
+          "new_tokens": 109,
+          "seconds": 14.104867431000002,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/train/good/056.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b90a209775f1292ab8a0d574eca932310356e4d8528f79b6e42357e9e3ba20bf",
+      "attempts": [
+        {
+          "input_tokens": 1267,
+          "new_tokens": 16,
+          "seconds": 3.85320669500004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "74bf4bf0266eea6b678522be16a81163d42c63cfd1a6b48dcc54943753732299",
+      "attempts": [
+        {
+          "input_tokens": 1205,
+          "new_tokens": 68,
+          "seconds": 8.401183263000007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4bc5c7f11cd32d366ff06308f6acff39f5623b7901065f473ab1bf1997d9127d",
+      "attempts": [
+        {
+          "input_tokens": 2262,
+          "new_tokens": 69,
+          "seconds": 10.667228292999994,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/train/good/171.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1255,
+          "new_tokens": 24,
+          "seconds": 4.340039875999992,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/train/good/061.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "db09fc0f48158ad0deae9ec04623738b21a10dc2addf9a6aef0ce35a1a64b554",
+      "attempts": [
+        {
+          "input_tokens": 1215,
+          "new_tokens": 63,
+          "seconds": 8.032059634000007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/train/good/061.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "050e9db7d2fb82ef6ae268358d52a54dc8ddc89a6cd71622a1b1af318716d059",
+      "attempts": [
+        {
+          "input_tokens": 2272,
+          "new_tokens": 83,
+          "seconds": 11.971145337000053,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/train/good/061.png",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1251,
+          "new_tokens": 24,
+          "seconds": 4.576570571999923,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "76dc8e0f0ceea884eeb351600ca2d545da0e52405d2b728b3aabefd83cbd0bc4",
+      "attempts": [
+        {
+          "input_tokens": 1650,
+          "new_tokens": 73,
+          "seconds": 10.00351992800006,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4c7b019f00aa127c17d8b88cb35ed5fd1a3e01c88a2f6a317c5f2c9964981f1b",
+      "attempts": [
+        {
+          "input_tokens": 3123,
+          "new_tokens": 70,
+          "seconds": 13.048157974999981,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1671,
+          "new_tokens": 16,
+          "seconds": 5.0820187619999615,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d5a36ccf215d3eb9307cb9d7936c4006e18329a5f666c00cb0e5a5c3bda39bfa",
+      "attempts": [
+        {
+          "input_tokens": 1643,
+          "new_tokens": 67,
+          "seconds": 9.496738124999979,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ac7e630afdad687071c308963b67b2bab367d7c43ef9751861e9668b679e1c3c",
+      "attempts": [
+        {
+          "input_tokens": 3133,
+          "new_tokens": 66,
+          "seconds": 12.792046766999988,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1682,
+          "new_tokens": 16,
+          "seconds": 5.114302625999926,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "8a803c01131a5ac2c86e38a1ba01ec03617ff3324f4a19d553029b184e8f6048",
+      "attempts": [
+        {
+          "input_tokens": 1683,
+          "new_tokens": 67,
+          "seconds": 9.546230321999928,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1303d233913f781adf46a8a3b2d45104544808d586a49e3c44821cc715ce1fae",
+      "attempts": [
+        {
+          "input_tokens": 3196,
+          "new_tokens": 82,
+          "seconds": 14.455259485999932,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1705,
+          "new_tokens": 16,
+          "seconds": 5.21392357600007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c9077d55b3388abbf5f9b151dc78c5fb174db841774bc50ebb0f3a5c96b9a020",
+      "attempts": [
+        {
+          "input_tokens": 1663,
+          "new_tokens": 68,
+          "seconds": 9.549380894000024,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d8a052ab04e58d16b123011771c86761b29b0fcf64432d90d74ef85e69fe7bf3",
+      "attempts": [
+        {
+          "input_tokens": 3166,
+          "new_tokens": 71,
+          "seconds": 13.341475377999814,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1698,
+          "new_tokens": 16,
+          "seconds": 5.154439795999906,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "87138f379a894a43376a915c0761252e9a051d1b7582dcaf8119aa87264a82ea",
+      "attempts": [
+        {
+          "input_tokens": 1660,
+          "new_tokens": 72,
+          "seconds": 10.05370314400011,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "073738111a4375f7c082b6bcc18688745a50b17969320dc500cdf29a6bf436f4",
+      "attempts": [
+        {
+          "input_tokens": 3150,
+          "new_tokens": 77,
+          "seconds": 13.855534128000045,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1688,
+          "new_tokens": 24,
+          "seconds": 5.862968520999857,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "7117899cb18208466fd1a7250da22c81dec2419e2f1a32e54b59fb90e16ae733",
+      "attempts": [
+        {
+          "input_tokens": 1657,
+          "new_tokens": 72,
+          "seconds": 9.986806609000041,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "59121bd9f3b0dcfae96044ce7fe88638243303de1ef0cc5c0adf694637f8a5da",
+      "attempts": [
+        {
+          "input_tokens": 3147,
+          "new_tokens": 80,
+          "seconds": 14.209660501999906,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1689,
+          "new_tokens": 24,
+          "seconds": 5.844334470999911,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c4f1718e70fb9a1bda37560679a6a721d10181e4a76084474500377265e90cb7",
+      "attempts": [
+        {
+          "input_tokens": 1661,
+          "new_tokens": 70,
+          "seconds": 9.760172597999826,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d41a15fa270a7f5ae03fb3153d82fc9388f7ded370accc96382d1da518556594",
+      "attempts": [
+        {
+          "input_tokens": 3151,
+          "new_tokens": 98,
+          "seconds": 15.816034699000056,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1693,
+          "new_tokens": 24,
+          "seconds": 5.865307504999919,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3acae8ece22c173235423243b8b798527f9c239d3788e09ee08a9ed525cb5587",
+      "attempts": [
+        {
+          "input_tokens": 1634,
+          "new_tokens": 69,
+          "seconds": 9.830945121000013,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3b776e7072127687ac266f75212580d5f57299a22bda9301ab9e57d389329bd6",
+      "attempts": [
+        {
+          "input_tokens": 3119,
+          "new_tokens": 79,
+          "seconds": 14.036478935000105,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1679,
+          "new_tokens": 16,
+          "seconds": 5.160702555000171,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3050ef398076a0addae3f71c3f07c0705c087d5b9793f3f758c18e5fad7aaeb7",
+      "attempts": [
+        {
+          "input_tokens": 1634,
+          "new_tokens": 77,
+          "seconds": 10.219139869999935,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "060115c34947b1ce7f974b970a181c76eead615bf27cd481e67df9062b1a9887",
+      "attempts": [
+        {
+          "input_tokens": 3119,
+          "new_tokens": 97,
+          "seconds": 15.428548689999843,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1687,
+          "new_tokens": 16,
+          "seconds": 5.223464413999864,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e483571c9bdb0ad25b5d0d7f87e4745243760a6b5845f0f5878b84b83ffc8a59",
+      "attempts": [
+        {
+          "input_tokens": 1652,
+          "new_tokens": 71,
+          "seconds": 9.806564711999954,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "bae2b0b3c9361f50587ccf3a76237f3e3e702d1637ae06b1389cd0f21d7610d3",
+      "attempts": [
+        {
+          "input_tokens": 3155,
+          "new_tokens": 107,
+          "seconds": 16.388675133999868,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1699,
+          "new_tokens": 16,
+          "seconds": 5.159927641999957,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a8effd09c23eeaccbfdaa05bac94f15dcf70c9b4671deb848367e51a89b68568",
+      "attempts": [
+        {
+          "input_tokens": 1617,
+          "new_tokens": 65,
+          "seconds": 9.277980059000129,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c93cd92cf7edf9baddc5cb8a4006aafd63ed76ae9123eb5535f37fe0a8073935",
+      "attempts": [
+        {
+          "input_tokens": 3078,
+          "new_tokens": 161,
+          "seconds": 21.204367234000074,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1651,
+          "new_tokens": 16,
+          "seconds": 4.964426893999871,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b440e385fb1914e355425396be78a6efb388fe956cd3990a9a0230506cfccbf0",
+      "attempts": [
+        {
+          "input_tokens": 1680,
+          "new_tokens": 69,
+          "seconds": 9.966775948000077,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "629a8c10c6f25edc4159409e9af8e75a669e9e924a204f9943a0cf420813f2e6",
+      "attempts": [
+        {
+          "input_tokens": 3189,
+          "new_tokens": 81,
+          "seconds": 14.320362270000032,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "device": "cuda_visible_devices=0",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1710,
+          "new_tokens": 24,
+          "seconds": 5.910309632000008,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/train/good/199.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6830067fe35b587cece639f3b6c08ea84dd4d3701d4228f58e4160e5bdc0d11c",
+      "attempts": [
+        {
+          "input_tokens": 966,
+          "new_tokens": 67,
+          "seconds": 11.438091654999994,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": true
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "23705b53958854de4ee84f2c30adfc9151a8b63effa0229aa7b1b91f3249b2d9",
+      "attempts": [
+        {
+          "input_tokens": 966,
+          "new_tokens": 86,
+          "seconds": 9.04235867400007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": false,
+      "final_error": "\"defect_type\" must be one of the candidate defect types",
+      "retries": 1,
+      "output_sha256": "8cbf00787e047307ed872c030909b9992bd79ea1c3322c98ac1d2d7673b26780",
+      "attempts": [
+        {
+          "input_tokens": 1044,
+          "new_tokens": 136,
+          "seconds": 13.996651079999992,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "\"defect_type\" must be one of the candidate defect types"
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "951b318e8d2a26e9660ee3684062730cbf7b5c413924f8b03bdd3bcd2ad40fe8",
+      "attempts": [
+        {
+          "input_tokens": 1783,
+          "new_tokens": 98,
+          "seconds": 11.83552870199992,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "path": "bottle/test/contamination/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1028,
+          "new_tokens": 24,
+          "seconds": 4.0807606590000205,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/train/good/109.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a31ad65519156d96744ab9f1e29b8a54101b6b4b1f9fccb2540ac28f224e8ba6",
+      "attempts": [
+        {
+          "input_tokens": 1221,
+          "new_tokens": 70,
+          "seconds": 8.499120103999985,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": true
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "658d28facf9e00eeeab591bad55a3e1d42f25d5c02501c367aef689f8e3a0ccb",
+      "attempts": [
+        {
+          "input_tokens": 1221,
+          "new_tokens": 78,
+          "seconds": 9.289971990000026,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": false,
+      "final_error": "\"defect_type\" must be one of the candidate defect types",
+      "retries": 1,
+      "output_sha256": "1a1c293345708d78b58bc5f82686c23473edf4a220b8ae395418abb2bb086a0d",
+      "attempts": [
+        {
+          "input_tokens": 1299,
+          "new_tokens": 79,
+          "seconds": 9.684294696000052,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "\"defect_type\" must be one of the candidate defect types"
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e87f8fd81c7f7ceb0b5ee1180c82714d2f39b1f0b539652ca67aaca4b47d1a0a",
+      "attempts": [
+        {
+          "input_tokens": 2278,
+          "new_tokens": 89,
+          "seconds": 12.776245131999985,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "path": "cable/test/bent_wire/007.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1262,
+          "new_tokens": 24,
+          "seconds": 4.616191013000048,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3cbf7b961516390edf7ead6ff2c3f7cf00b6f0c32863d8ce70ff7ce18c5d9d90",
+      "attempts": [
+        {
+          "input_tokens": 1146,
+          "new_tokens": 81,
+          "seconds": 9.410323095999956,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "5b58c89d8e3b8d5e4bac04c658b591a8aed2b4d1bc3b3946ed195409a3be2d12",
+      "attempts": [
+        {
+          "input_tokens": 1224,
+          "new_tokens": 68,
+          "seconds": 8.387280890000056,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "forced_retry": true
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "8ed485490421579be6efb26e4422a212ce87fecf4f9f73033d71e36e6a6bd2d9",
+      "attempts": [
+        {
+          "input_tokens": 2140,
+          "new_tokens": 92,
+          "seconds": 12.220784041000002,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "path": "capsule/test/squeeze/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1a9bc8463182e3679c1fa87767aeedd62be1f4a521d0dabf2fa74dc3d1ea05d7",
+      "attempts": [
+        {
+          "input_tokens": 1200,
+          "new_tokens": 24,
+          "seconds": 4.459696779000069,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/test/cut/006.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "be9a2b3ab5279692d323ba33c25f19b81c4fecdd19100da3d175796b7850c9fb",
+      "attempts": [
+        {
+          "input_tokens": 1209,
+          "new_tokens": 72,
+          "seconds": 8.56388872399998,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/test/cut/006.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "9a9f992dec8dd49b39666a2f969d369de690e125a899101fe0bf8fdfb86d52f7",
+      "attempts": [
+        {
+          "input_tokens": 2266,
+          "new_tokens": 92,
+          "seconds": 12.791181413000004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "not a single JSON object (Invalid control character at at char 260)"
+        },
+        {
+          "input_tokens": 2412,
+          "new_tokens": 85,
+          "seconds": 12.250139068000067,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "path": "carpet/test/cut/006.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b90a209775f1292ab8a0d574eca932310356e4d8528f79b6e42357e9e3ba20bf",
+      "attempts": [
+        {
+          "input_tokens": 1256,
+          "new_tokens": 16,
+          "seconds": 3.8562778840000647,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/test/thread/009.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "eec041024ce266c204568c56f3ab3cd02d398bbabad24df7f5eb7ef4b8b72c10",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 66,
+          "seconds": 8.21923444999993,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/test/thread/009.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "77a7c8ad2c92d7167834128826e15a4ad8f0274a4c3391d787eda896a81d0b68",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 136,
+          "seconds": 16.844540011999925,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "path": "grid/test/thread/009.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9942ab5450f88a49ee072be085fcef099e01d6f090eceeae88baa1987ad98cbe",
+      "attempts": [
+        {
+          "input_tokens": 1253,
+          "new_tokens": 16,
+          "seconds": 3.788962804999983,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/test/crack/011.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c8f64e890c8c1429e02bea3d777fbc1723ccfd5bce662be16b322510459920b7",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 75,
+          "seconds": 8.758163808999939,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/test/crack/011.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6cd74ba0d6a9d5931cf2f74f9f4f88fd1b9613ad6f3d17a167fe503827e47bab",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 82,
+          "seconds": 11.628486126999974,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "path": "hazelnut/test/crack/011.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1261,
+          "new_tokens": 24,
+          "seconds": 4.553097420999961,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/test/glue/016.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "fa1ecc77d2c9e23ebe49e72a2ac64ea7331360317104b60f993bbe2123c928e5",
+      "attempts": [
+        {
+          "input_tokens": 1208,
+          "new_tokens": 74,
+          "seconds": 8.864048720000028,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/test/glue/016.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "7abee48d0e0a03587e760f4d7f1b64adc39b68d97d0c4ab85ccbcf5a3c872768",
+      "attempts": [
+        {
+          "input_tokens": 2265,
+          "new_tokens": 86,
+          "seconds": 12.08883369900002,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "not a single JSON object (Unterminated string starting at at char 125)"
+        },
+        {
+          "input_tokens": 2406,
+          "new_tokens": 83,
+          "seconds": 12.068244160999939,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "path": "leather/test/glue/016.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1258,
+          "new_tokens": 24,
+          "seconds": 4.593987807999952,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/test/flip/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5931231d6c73722fc7da31d1debbee0012532b8d5df8809e576b17e5412f94b5",
+      "attempts": [
+        {
+          "input_tokens": 666,
+          "new_tokens": 64,
+          "seconds": 7.208981919000053,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/test/flip/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5a9fbe62eb8cf30679a3c6a2d30b91774bed87c1a633720042fe01b2d8a53b74",
+      "attempts": [
+        {
+          "input_tokens": 1183,
+          "new_tokens": 104,
+          "seconds": 11.399470511000004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "path": "metal_nut/test/flip/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9942ab5450f88a49ee072be085fcef099e01d6f090eceeae88baa1987ad98cbe",
+      "attempts": [
+        {
+          "input_tokens": 712,
+          "new_tokens": 16,
+          "seconds": 2.8864926550000973,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/test/scratch/000.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "559057e1e631fcae092d2ffaf4aa45a4e3053f40921abb106817d08bacc545d2",
+      "attempts": [
+        {
+          "input_tokens": 812,
+          "new_tokens": 130,
+          "seconds": 13.179452427000001,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/test/scratch/000.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f7be58af51b960e7dd797729c96d1cea43f02c4ba59272bd71e33d9e4ab7fb3d",
+      "attempts": [
+        {
+          "input_tokens": 1470,
+          "new_tokens": 90,
+          "seconds": 10.640217455000084,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "path": "pill/test/scratch/000.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 906,
+          "new_tokens": 24,
+          "seconds": 3.917292657999951,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/test/manipulated_front/020.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "952dd6996c2ab09f68de432b6e5b89a626f40203877524a8c0dd017b33a9ead3",
+      "attempts": [
+        {
+          "input_tokens": 1213,
+          "new_tokens": 67,
+          "seconds": 8.38395097700004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/test/manipulated_front/020.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "2809b54d5fba3aa7bd29e67184251ff137ea773edc65bbe1b644d30ffcbaa052",
+      "attempts": [
+        {
+          "input_tokens": 2270,
+          "new_tokens": 92,
+          "seconds": 12.91044652100004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "path": "screw/test/manipulated_front/020.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1255,
+          "new_tokens": 16,
+          "seconds": 3.7954828700000007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/test/oil/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "6c99db82a7e03fa4967cb3f5a78687310b61e968eac9e32c0cf9ee36ef7911a3",
+      "attempts": [
+        {
+          "input_tokens": 861,
+          "new_tokens": 80,
+          "seconds": 8.878302218000044,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/test/oil/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 1,
+      "output_sha256": "00be9cbb35eb53508ad1943eca119335f887b1f289f17e9dd561d4f564d06982",
+      "attempts": [
+        {
+          "input_tokens": 1570,
+          "new_tokens": 89,
+          "seconds": 11.085100980999982,
+          "truncated": false,
+          "nonfinite": false,
+          "error": "not a single JSON object (Unterminated string starting at at char 125)"
+        },
+        {
+          "input_tokens": 1714,
+          "new_tokens": 86,
+          "seconds": 10.845668069999988,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "path": "tile/test/oil/001.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 915,
+          "new_tokens": 24,
+          "seconds": 3.9873529850000295,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/test/defective/023.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "193d2096dd5f8b379d5b350e3aaf8fe7c81ca6aa27f8378fad176aa96d3c0b41",
+      "attempts": [
+        {
+          "input_tokens": 1201,
+          "new_tokens": 81,
+          "seconds": 9.67746661800004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/test/defective/023.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3e2f0ac0230091a7c187ec7c22e40c967aa6a935ee89a5a8c8992018bba9cbcf",
+      "attempts": [
+        {
+          "input_tokens": 2258,
+          "new_tokens": 100,
+          "seconds": 13.469165919000034,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "path": "toothbrush/test/defective/023.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1266,
+          "new_tokens": 24,
+          "seconds": 4.561760098000036,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/test/damaged_case/003.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "be2173be8ca2e887b18385d86bd59e5f1bcdc347b22471cd3a3aa46cd435ed45",
+      "attempts": [
+        {
+          "input_tokens": 1209,
+          "new_tokens": 101,
+          "seconds": 11.084817686000065,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/test/damaged_case/003.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3fad998067f01f54aebcbcfa8450f55f7a07c12a417ecb9eca931cc3c417bec4",
+      "attempts": [
+        {
+          "input_tokens": 2266,
+          "new_tokens": 107,
+          "seconds": 13.92596496300007,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "path": "transistor/test/damaged_case/003.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1273,
+          "new_tokens": 24,
+          "seconds": 4.565419025999972,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/test/scratch/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "f17b5a91f9c73c609d8c56bf0c4c9accec66188f6082dd73bb04cd229e63a47b",
+      "attempts": [
+        {
+          "input_tokens": 1205,
+          "new_tokens": 74,
+          "seconds": 8.983404333000067,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/test/scratch/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "02efe357fb91c3ef1530bb26cdea9eb768c3ea16638f29a7cf22e3141d79cd2a",
+      "attempts": [
+        {
+          "input_tokens": 2262,
+          "new_tokens": 90,
+          "seconds": 12.670737138999925,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "path": "wood/test/scratch/008.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1256,
+          "new_tokens": 24,
+          "seconds": 4.314529900000025,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/test/split_teeth/014.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "51f8d66781fd95b3c7dec0e1af8a02e9ea5a6a1eb3cbfd20d397daa2f141e6b6",
+      "attempts": [
+        {
+          "input_tokens": 1215,
+          "new_tokens": 76,
+          "seconds": 9.198522377000018,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/test/split_teeth/014.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e3dab56321e9504027d93dd29127dfa8e1e74d0037c142f5c6d23d3932d3a9d8",
+      "attempts": [
+        {
+          "input_tokens": 2272,
+          "new_tokens": 92,
+          "seconds": 12.834457340999961,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "path": "zipper/test/split_teeth/014.png",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1260,
+          "new_tokens": 24,
+          "seconds": 4.5896910929998285,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d0ddd8572e2ec1ed6e5672b9df767a7185787ab9c05f73471bf7a9ffc4f2bae4",
+      "attempts": [
+        {
+          "input_tokens": 1650,
+          "new_tokens": 86,
+          "seconds": 11.1812876219999,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "18c53fa8386faf3cde828cf883bf9273d4c822f18a6ad5a71c0b5bcc474025be",
+      "attempts": [
+        {
+          "input_tokens": 3123,
+          "new_tokens": 90,
+          "seconds": 14.712233247999848,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "candle",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b90a209775f1292ab8a0d574eca932310356e4d8528f79b6e42357e9e3ba20bf",
+      "attempts": [
+        {
+          "input_tokens": 1686,
+          "new_tokens": 16,
+          "seconds": 4.956272992999857,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "d5a36ccf215d3eb9307cb9d7936c4006e18329a5f666c00cb0e5a5c3bda39bfa",
+      "attempts": [
+        {
+          "input_tokens": 1643,
+          "new_tokens": 67,
+          "seconds": 9.534778869000093,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "453e6523b93f216a7f241974d3c78ddda2f9c391785504e9a8bc61ec216ee988",
+      "attempts": [
+        {
+          "input_tokens": 3133,
+          "new_tokens": 86,
+          "seconds": 14.552841601999944,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "capsules",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1682,
+          "new_tokens": 16,
+          "seconds": 4.973718001999941,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "abea8c5f2032c13df71e75d2b24046f7580cd87c2feffeabaec6d6adc448e309",
+      "attempts": [
+        {
+          "input_tokens": 1683,
+          "new_tokens": 85,
+          "seconds": 11.16764904799993,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "3cd549a00f694eb3ffbde0682e2a927c3544e4d95beddc556cd25d6e586189a8",
+      "attempts": [
+        {
+          "input_tokens": 3196,
+          "new_tokens": 92,
+          "seconds": 15.082707862999996,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "cashew",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1717,
+          "new_tokens": 24,
+          "seconds": 5.736569570000029,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "8fbf1c745c59f3af68c0caa57bb2a6e09ad69776be30e6bde08e35889513d92b",
+      "attempts": [
+        {
+          "input_tokens": 1663,
+          "new_tokens": 80,
+          "seconds": 10.695518924999988,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "8ed2d663039c4cf1d1e38faab48e4a0ebc345c2505900e0b9493a64c06b727c4",
+      "attempts": [
+        {
+          "input_tokens": 3166,
+          "new_tokens": 94,
+          "seconds": 15.187806658999989,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "chewinggum",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1709,
+          "new_tokens": 24,
+          "seconds": 5.701258191999841,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "a1c81fc57a1fc3e85c4a08a3067cbd6d88a058e62ba222a579ec6501318992c2",
+      "attempts": [
+        {
+          "input_tokens": 1660,
+          "new_tokens": 91,
+          "seconds": 11.451958117000004,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "21cb3d54c9d518a72b3224074d39dc6292f835a66aeac1aa19438f4ca06ec0f1",
+      "attempts": [
+        {
+          "input_tokens": 3150,
+          "new_tokens": 91,
+          "seconds": 15.036546610999949,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "fryum",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1701,
+          "new_tokens": 24,
+          "seconds": 5.667114853999919,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "1e655cfdae3b9a59913851b2bf72e33421984f11198c947d92bb9b423694c066",
+      "attempts": [
+        {
+          "input_tokens": 1657,
+          "new_tokens": 107,
+          "seconds": 12.91347589299994,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4bf6517c0f2735f076fd65f75a50650d766a12b738c60281dd30e22a5db93371",
+      "attempts": [
+        {
+          "input_tokens": 3147,
+          "new_tokens": 97,
+          "seconds": 15.353646727000068,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "macaroni1",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1712,
+          "new_tokens": 24,
+          "seconds": 5.673657897000112,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "40a650a665b198ce3b900bb35de07e132cef3de26eab774b1d64f70432bb6419",
+      "attempts": [
+        {
+          "input_tokens": 1661,
+          "new_tokens": 99,
+          "seconds": 12.309533845000033,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "2144e7266393b405c79c6bf8a01aeac22e93eabeb30845be2ed077e1f35034dd",
+      "attempts": [
+        {
+          "input_tokens": 3151,
+          "new_tokens": 83,
+          "seconds": 14.291540605999899,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "macaroni2",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1715,
+          "new_tokens": 24,
+          "seconds": 5.7239276999998765,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "38bf1b159eda2bd3e381a441546d41f0902bc15697f27c351c71818b6c8b4f8f",
+      "attempts": [
+        {
+          "input_tokens": 1634,
+          "new_tokens": 96,
+          "seconds": 12.110985464000123,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "c2147b8342d59c1fbfd00956d9930468269b3d46cbf9ca691dc455119b52d280",
+      "attempts": [
+        {
+          "input_tokens": 3119,
+          "new_tokens": 120,
+          "seconds": 17.581521436000003,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb1",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "b90a209775f1292ab8a0d574eca932310356e4d8528f79b6e42357e9e3ba20bf",
+      "attempts": [
+        {
+          "input_tokens": 1696,
+          "new_tokens": 16,
+          "seconds": 4.983035078000057,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e483571c9bdb0ad25b5d0d7f87e4745243760a6b5845f0f5878b84b83ffc8a59",
+      "attempts": [
+        {
+          "input_tokens": 1634,
+          "new_tokens": 71,
+          "seconds": 9.670121786999971,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "01a79ba7e753611b11b218ddd4f4876a7b0061fe8388a465b4fae38eccb831f2",
+      "attempts": [
+        {
+          "input_tokens": 3119,
+          "new_tokens": 91,
+          "seconds": 14.676258636000057,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb2",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1681,
+          "new_tokens": 16,
+          "seconds": 5.000338362000093,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "e483571c9bdb0ad25b5d0d7f87e4745243760a6b5845f0f5878b84b83ffc8a59",
+      "attempts": [
+        {
+          "input_tokens": 1652,
+          "new_tokens": 71,
+          "seconds": 9.847689649999893,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "4b2fb121b5bfa8ce42eb4dc0b81a070642cd7d5a7e410e2c6f5f3640a3f8ced4",
+      "attempts": [
+        {
+          "input_tokens": 3155,
+          "new_tokens": 90,
+          "seconds": 15.338924683999949,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb3",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "ed7e3485539a4108e812135cdb43a55670e1663732dd6635a70b8934f5a50083",
+      "attempts": [
+        {
+          "input_tokens": 1699,
+          "new_tokens": 16,
+          "seconds": 4.9812673670001,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "5e72681862a6aa1f08081c84063475b36bc47d840daaeed657165970d0c8a1e4",
+      "attempts": [
+        {
+          "input_tokens": 1617,
+          "new_tokens": 67,
+          "seconds": 9.371427987999823,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "46e2e1ffef26c842cb7341c5f12968baf95401d84f8e284308ee28192540e942",
+      "attempts": [
+        {
+          "input_tokens": 3078,
+          "new_tokens": 88,
+          "seconds": 14.40985613099997,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pcb4",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "9942ab5450f88a49ee072be085fcef099e01d6f090eceeae88baa1987ad98cbe",
+      "attempts": [
+        {
+          "input_tokens": 1658,
+          "new_tokens": 16,
+          "seconds": 4.858352672999899,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    },
+    {
+      "kind": "b0",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "7343265764930fa4b21704be6bff9ecb4e6747839e4b4580ee2be2ce4355cf06",
+      "attempts": [
+        {
+          "input_tokens": 1680,
+          "new_tokens": 78,
+          "seconds": 10.440943049999987,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false,
+      "consistency": false
+    },
+    {
+      "kind": "b1",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "8c00445aa3033a9738fb507a53a9556171f4bf129b891e6452cafd3b6c33a2c6",
+      "attempts": [
+        {
+          "input_tokens": 3189,
+          "new_tokens": 90,
+          "seconds": 14.877458552999997,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": true,
+      "think_block": false
+    },
+    {
+      "kind": "b3",
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "device": "cuda_visible_devices=1",
+      "ok": true,
+      "final_error": null,
+      "retries": 0,
+      "output_sha256": "175e0d16c9af421c39a589711a2b4fc7e3ba749956a5b7db5bc97361f3f2026d",
+      "attempts": [
+        {
+          "input_tokens": 1715,
+          "new_tokens": 24,
+          "seconds": 5.5198351770000045,
+          "truncated": false,
+          "nonfinite": false,
+          "error": null
+        }
+      ],
+      "fenced": false,
+      "think_block": false
+    }
+  ]
+}

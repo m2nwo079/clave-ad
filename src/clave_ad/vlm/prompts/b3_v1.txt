@@ -1,0 +1,8 @@
+This is an image of the industrial product category "$category". The image is divided into a 3x3 grid. Rows are r1 (top) to r3 (bottom), columns are c1 (left) to c3 (right).
+A previous inspection of this image produced this answer:
+$answer
+Check each claim of that answer against the image.
+Answer with one JSON object only, with exactly these keys:
+"existence" (true if the claim about whether the image is defective is correct, otherwise false),
+"location" (true if the listed grid cells contain the defect, otherwise false; null if the answer says not defective),
+"type" (true if the defect type is correct, otherwise false; null if the answer says not defective).

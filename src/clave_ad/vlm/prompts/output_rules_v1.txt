@@ -1,0 +1,2 @@
+Write only the JSON object, with no code fence, no markdown and no other text before or after it.
+Keep the "rationale" text on a single line.

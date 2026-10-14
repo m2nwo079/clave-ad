@@ -1,0 +1,11 @@
+Picture 1 is an image of the industrial product category "$category", shown at half size. Picture 2 is an enlarged crop of one region of Picture 1, shown at full resolution.
+Inspect the product for defects, using Picture 2 for detail.
+Picture 1 is divided into a 3x3 grid. Rows are r1 (top) to r3 (bottom), columns are c1 (left) to c3 (right). Report locations as cells of Picture 1.
+Candidate defect types: $candidates.
+Answer with one JSON object only, with exactly these keys:
+"is_defective" (true or false),
+"defect_type" (one candidate defect type, or null if not defective),
+"location_cells" (list of grid cells such as "r1c3" that contain the defect, empty if not defective),
+"confidence" (number between 0 and 1),
+"rationale" (one short sentence).
+$output_rules

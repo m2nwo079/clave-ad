@@ -1,0 +1,41 @@
+# Candidate defect types shown to the VLM (lower case, spaces, typos fixed) -> original dataset label.
+# Evaluation maps answers back through this table. Excluded labels never appear as candidates.
+# MVTec AD labels are test folder names; sample.py checks them against the downloaded data.
+# VisA labels are from utils/id2class.py of amazon-science/spot-diff (BACKGROUND removed).
+# Typo fixes are our own reading, not confirmed by the dataset authors: "Particals" -> "particles",
+# "Melded" -> "melted" (candle).
+mvtec_ad:
+  excluded: [combined]
+  categories:
+    bottle: {broken large: broken_large, broken small: broken_small, contamination: contamination}
+    cable: {bent wire: bent_wire, cable swap: cable_swap, cut inner insulation: cut_inner_insulation, cut outer insulation: cut_outer_insulation, missing cable: missing_cable, missing wire: missing_wire, poke insulation: poke_insulation}
+    capsule: {crack: crack, faulty imprint: faulty_imprint, poke: poke, scratch: scratch, squeeze: squeeze}
+    carpet: {color: color, cut: cut, hole: hole, metal contamination: metal_contamination, thread: thread}
+    grid: {bent: bent, broken: broken, glue: glue, metal contamination: metal_contamination, thread: thread}
+    hazelnut: {crack: crack, cut: cut, hole: hole, print: print}
+    leather: {color: color, cut: cut, fold: fold, glue: glue, poke: poke}
+    metal_nut: {bent: bent, color: color, flip: flip, scratch: scratch}
+    pill: {color: color, contamination: contamination, crack: crack, faulty imprint: faulty_imprint, pill type: pill_type, scratch: scratch}
+    screw: {manipulated front: manipulated_front, scratch head: scratch_head, scratch neck: scratch_neck, thread side: thread_side, thread top: thread_top}
+    tile: {crack: crack, glue strip: glue_strip, gray stroke: gray_stroke, oil: oil, rough: rough}
+    toothbrush: {defective: defective}
+    transistor: {bent lead: bent_lead, cut lead: cut_lead, damaged case: damaged_case, misplaced: misplaced}
+    wood: {color: color, hole: hole, liquid: liquid, scratch: scratch}
+    zipper: {broken teeth: broken_teeth, fabric border: fabric_border, fabric interior: fabric_interior, rough: rough, split teeth: split_teeth, squeezed teeth: squeezed_teeth}
+visa:
+  excluded: [Other]
+  # mask pixel value of the excluded label per category (id2class.py); categories without it have none
+  excluded_mask_ids: {candle: 8, cashew: 9, chewinggum: 6, fryum: 8, macaroni1: 7, macaroni2: 7, pipe_fryum: 9}
+  categories:
+    candle: {chunk of wax missing: Chunk Of Wax Missing, damaged corner of packaging: Damaged Corner of Packaging, weird candle wick: weird candle wick, different colour spot: Different Colour Spot, extra wax in candle: Extra Wax in Candle, foreign particles on candle: Foreign Particals on Candle, wax melted out of the candle: Wax Melded out of the candle}
+    capsules: {bubble: Bubble, discolor: Discolor, scratch: Scratch, leak: Leak, misshape: Misshape}
+    cashew: {burnt: Burnt, corner or edge breakage: Corner or Edge Breakage, different colour spot: Different Colour Spot, middle breakage: Middle Breakage, small holes: Small Holes, small scratches: Small Scratches, stuck together: Stuck Together, same colour spot: Same Colour Spot}
+    chewinggum: {chunk of gum missing: Chunk of gum missing, corner missing: Corner Missing, scratches: Scratches, similar colour spot: Similar Colour Spot, small cracks: Small Cracks}
+    fryum: {burnt: Burnt, corner or edge breakage: Corner or Edge Breakage, different colour spot: Different Colour Spot, fryum stuck together: Fryum Stuck Together, middle breakage: Middle Breakage, similar colour spot: Similar Colour Spot, small scratches: Small Scratches}
+    macaroni1: {chip around edge and corner: Chip Around Edge And Corner, different colour spot: Different Colour Spot, middle breakage: Middle Breakage, similar colour spot: Similar Colour Spot, small cracks: Small Cracks, small scratches: Small Scratches}
+    macaroni2: {breakage down the middle: Breakage down the middle, color spot similar to the object: Color spot similar to the Object, different color spot: Different Color spot, small chip around edge: Small chip around edge, small cracks: Small Cracks, small scratches: Small Scratches}
+    pcb1: {bent: Bent, melt: Melt, scratch: Scratch, missing: Missing}
+    pcb2: {bent: Bent, melt: Melt, scratch: Scratch, missing: Missing}
+    pcb3: {bent: Bent, melt: Melt, scratch: Scratch, missing: Missing}
+    pcb4: {burnt: Burnt, scratch: Scratch, missing: Missing, damage: Damage, extra: Extra, wrong place: Wrong Place, dirt: Dirt}
+    pipe_fryum: {burnt: Burnt, corner and edge breakage: Corner And Edge Breakage, different colour spot: Different Colour Spot, middle breakage: Middle Breakage, similar colour spot: Similar Colour Spot, small scratches: Small Scratches, stuck together: Stuck Together, small cracks: Small Cracks}

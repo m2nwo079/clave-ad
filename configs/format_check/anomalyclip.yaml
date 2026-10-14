@@ -1,0 +1,33 @@
+# Detector preparation (design doc 13.3 step 3): AnomalyCLIP score and map for the format check images,
+# and the fixed B2 colour scale per dataset from its train normal sample maps.
+seed: 0
+
+detector:
+  repo: https://github.com/zqhang/AnomalyCLIP
+  commit: 3911738c0867544f545a076ad78f3f11d9ecbfdf
+  # public prompt weights, each trained on the other dataset (train.sh, test.sh)
+  checkpoints:
+    mvtec_ad:
+      path: checkpoints/9_12_4_multiscale/epoch_15.pth
+      sha256: 94ce202da3e6486a864b904fdfed5057de75846c5834e446fd1d2fe7f97acb44
+    visa:
+      path: checkpoints/9_12_4_multiscale_visa/epoch_15.pth
+      sha256: 415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4
+  # settings of the official test.sh and test.py
+  settings:
+    backbone: ViT-L/14@336px
+    image_size: 518
+    features_list: [24]
+    depth: 9
+    n_ctx: 12
+    t_n_ctx: 4
+    dpam_layer: 20
+    sigma: 4
+
+b2_scale:
+  # per dataset: percentiles of its train normal sample map pixels; values outside are drawn with the end colours
+  low_percentile: 1
+  high_percentile: 99
+
+cache_dir: cache/format_check_detector
+output_dir: results/format_check

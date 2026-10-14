@@ -1,0 +1,1675 @@
+{
+  "run_id": "anomalyclip_20261014T045625Z",
+  "git_commit": "8fbeeae01a30cad55515c6f16aaab97650a7c284",
+  "config_path": "configs/format_check/anomalyclip.yaml",
+  "config_hash": "13866c32476eb155177a64c716ab8abc7ec5dc8551c2e1e5e91e65b7e57f851a",
+  "dataset": "mvtec_ad+visa",
+  "seed": 0,
+  "created_at": "2026-10-14T04:56:25.989711+00:00",
+  "detector": {
+    "repo": "https://github.com/zqhang/AnomalyCLIP",
+    "commit": "3911738c0867544f545a076ad78f3f11d9ecbfdf",
+    "settings": {
+      "backbone": "ViT-L/14@336px",
+      "image_size": 518,
+      "features_list": [
+        24
+      ],
+      "depth": 9,
+      "n_ctx": 12,
+      "t_n_ctx": 4,
+      "dpam_layer": 20,
+      "sigma": 4
+    },
+    "checkpoints": {
+      "mvtec_ad": {
+        "path": "checkpoints/9_12_4_multiscale/epoch_15.pth",
+        "sha256": "94ce202da3e6486a864b904fdfed5057de75846c5834e446fd1d2fe7f97acb44"
+      },
+      "visa": {
+        "path": "checkpoints/9_12_4_multiscale_visa/epoch_15.pth",
+        "sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4"
+      }
+    },
+    "checkpoint_sha256_verified": true,
+    "loaded": {
+      "mvtec_ad": {
+        "model_dtype": "torch.float32",
+        "checkpoint_torch_load": "weights_only=True"
+      },
+      "visa": {
+        "model_dtype": "torch.float32",
+        "checkpoint_torch_load": "weights_only=True"
+      }
+    },
+    "import_workarounds": {
+      "thop": "empty stub module",
+      "pkg_resources": "pkg_resources"
+    },
+    "clip_file_sha256": {
+      "ViT-L-14-336px.pt": "3035c92b350959924f9f00213499208652fc7ea050643e8b385c2dac08641f02"
+    }
+  },
+  "metrics": {
+    "images": 81,
+    "per_dataset": {
+      "mvtec_ad": 45,
+      "visa": 36
+    },
+    "computed": 81,
+    "nonfinite": 0,
+    "seconds_per_image": 0.4815079489506123,
+    "max_memory_allocated_gb": 2.135385088,
+    "map_values": {
+      "mvtec_ad/test": {
+        "min": 0.0002109054767061025,
+        "p1": 0.0005900819669477642,
+        "p50": 0.0018932498060166836,
+        "p99": 0.5812766551971436,
+        "max": 0.9844574928283691
+      },
+      "mvtec_ad/train": {
+        "min": 0.0001902501389849931,
+        "p1": 0.0003772331983782351,
+        "p50": 0.0014920831890776753,
+        "p99": 0.10011850297451019,
+        "max": 0.6546443700790405
+      },
+      "visa/test": {
+        "min": 0.0006191885913722217,
+        "p1": 0.0013542422093451023,
+        "p50": 0.004618071019649506,
+        "p99": 0.36184829473495483,
+        "max": 0.9779278635978699
+      },
+      "visa/train": {
+        "min": 0.000473477179184556,
+        "p1": 0.0013723220909014344,
+        "p50": 0.0041665867902338505,
+        "p99": 0.2583288550376892,
+        "max": 0.9324673414230347
+      }
+    },
+    "b2_scale": {
+      "mvtec_ad": {
+        "source": "train normal sample images",
+        "images": 15,
+        "low_percentile": 1,
+        "high_percentile": 99,
+        "low": 0.0003798103652661666,
+        "high": 0.11539059147238756,
+        "high_end_pixel_fraction": 0.010000099382338765
+      },
+      "visa": {
+        "source": "train normal sample images",
+        "images": 12,
+        "low_percentile": 1,
+        "high_percentile": 99,
+        "low": 0.0013633604359347374,
+        "high": 0.2558015984296798,
+        "high_end_pixel_fraction": 0.010000037268377037
+      }
+    }
+  },
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "5.16.1",
+    "bitsandbytes": null,
+    "accelerate": "1.14.0",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "scipy": "1.16.3",
+    "numpy": "2.1.3",
+    "tqdm": "4.67.3",
+    "setuptools": "81.0.0",
+    "packaging": "26.3",
+    "ftfy": "6.3.1",
+    "wcwidth": "0.8.3",
+    "regex": "2025.11.3",
+    "cuda": "12.8"
+  },
+  "records": [
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "sample",
+      "split": "train",
+      "path": "bottle/train/good/199.png",
+      "sha256": "b2f9680e1c915daf3d8f705834f32382e0ddd2bf1196d228993e9644adeb7a00",
+      "cache_key": "77a4464dc9291efb97f23261d76f05f5fa6953b52a7deba013975fb6c6c8fb9e",
+      "cached": false,
+      "score": 0.9944809675216675,
+      "finite": true,
+      "map": {
+        "min": 0.00032944767735898495,
+        "p1": 0.0006842236034572124,
+        "p50": 0.009852392598986626,
+        "p99": 0.2979517877101898,
+        "max": 0.6546443700790405
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "sample",
+      "split": "test",
+      "path": "bottle/test/contamination/008.png",
+      "sha256": "35b9af10eaa1fe5525d6fb54ed3ddb069391d7dff93e8c6a6140272431115b00",
+      "cache_key": "2e1cf87a800ed293e5b2a8aaa84a4a40ff2ce5207d5240cf8e7d9dc33aca9f6b",
+      "cached": false,
+      "score": 0.995900571346283,
+      "finite": true,
+      "map": {
+        "min": 0.0002921570558100939,
+        "p1": 0.0009261483792215586,
+        "p50": 0.011440461501479149,
+        "p99": 0.3766356408596039,
+        "max": 0.7588014602661133
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "bottle",
+      "role": "reference",
+      "split": "train",
+      "path": "bottle/train/good/114.png",
+      "sha256": "36d4e92d88ef92c638b5dbf17667a001b98beb6213acd7eeaf411be54c930bca",
+      "cache_key": "37f2fa168a0f1838f7bdb5d1320d309b59f4496a4ae7758dfcb2336002ee8f85",
+      "cached": false,
+      "score": 0.9916279315948486,
+      "finite": true,
+      "map": {
+        "min": 0.0005220277234911919,
+        "p1": 0.0008595332619734108,
+        "p50": 0.008579833433032036,
+        "p99": 0.16020964086055756,
+        "max": 0.31047937273979187
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "sample",
+      "split": "train",
+      "path": "cable/train/good/109.png",
+      "sha256": "33ac0d12f22f9dbd87ac16c118703fa7e9dba4c0bd2031f80f671542fadc3015",
+      "cache_key": "3a6bb9c2eb5fd67039e2de7a22f49ad50814a44314a7b0ee494526e5a82ef6ba",
+      "cached": false,
+      "score": 0.9905226826667786,
+      "finite": true,
+      "map": {
+        "min": 0.00064634601585567,
+        "p1": 0.0007720357971265912,
+        "p50": 0.007308071479201317,
+        "p99": 0.09015529602766037,
+        "max": 0.13807116448879242
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "sample",
+      "split": "test",
+      "path": "cable/test/bent_wire/007.png",
+      "sha256": "76b7f7a0716340f5ad7cac2030dcad418efa04cb1d58d896306235f820191971",
+      "cache_key": "45318e40c6412414604089de3b48464b346aace875a4b9c7bd57933eeec69805",
+      "cached": false,
+      "score": 0.9950100183486938,
+      "finite": true,
+      "map": {
+        "min": 0.00047998703666962683,
+        "p1": 0.0008874637424014509,
+        "p50": 0.010774614289402962,
+        "p99": 0.19806444644927979,
+        "max": 0.5263094305992126
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "cable",
+      "role": "reference",
+      "split": "train",
+      "path": "cable/train/good/012.png",
+      "sha256": "3d5793ce2ce8d42ec80dce86542a7775ba7d7994d6d8b5c83a73a550ef365312",
+      "cache_key": "39d849b323ce5a2b7e9cd7c4c9a9c4aa558ecdfdf136450163998d234f6ad8c7",
+      "cached": false,
+      "score": 0.9959577918052673,
+      "finite": true,
+      "map": {
+        "min": 0.0006277067586779594,
+        "p1": 0.0008461204706691206,
+        "p50": 0.012792211025953293,
+        "p99": 0.0869610607624054,
+        "max": 0.18723075091838837
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "sample",
+      "split": "train",
+      "path": "capsule/train/good/171.png",
+      "sha256": "be03da3cd88237988596c39c69392a8c3fdf0d7604de1a285635fcd0e1e0ad6f",
+      "cache_key": "61276933e5e228135905debd20690e68fba0a3ea6c4c1848819a0e6ff56d1b1c",
+      "cached": false,
+      "score": 0.9640427231788635,
+      "finite": true,
+      "map": {
+        "min": 0.0006320684333331883,
+        "p1": 0.0007868374814279377,
+        "p50": 0.0012764482526108623,
+        "p99": 0.024819331243634224,
+        "max": 0.0849197655916214
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "sample",
+      "split": "test",
+      "path": "capsule/test/squeeze/008.png",
+      "sha256": "3c16fb6d6353c4daf656788dedbcdc0bfecc59206dd4d3fe9476c4277350c8ce",
+      "cache_key": "42b29addc26b0c6bf0c24e10c464898c5ee83c28c4a1221b8400ef8c1ce07edb",
+      "cached": false,
+      "score": 0.9459829926490784,
+      "finite": true,
+      "map": {
+        "min": 0.0004439649055711925,
+        "p1": 0.0006441521691158414,
+        "p50": 0.001079426845535636,
+        "p99": 0.013517408631742,
+        "max": 0.022248078137636185
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "capsule",
+      "role": "reference",
+      "split": "train",
+      "path": "capsule/train/good/197.png",
+      "sha256": "db8b557d5851b3af0094a972ec4a25ba0f1772eadc4d0ce0fce3b683a5d450c1",
+      "cache_key": "c52846e6f622a0ebf03eafe76c963351e680a6b91662faecf27431a19100806a",
+      "cached": false,
+      "score": 0.9504768252372742,
+      "finite": true,
+      "map": {
+        "min": 0.0004821819020435214,
+        "p1": 0.0006186810787767172,
+        "p50": 0.0010826648212969303,
+        "p99": 0.021265868097543716,
+        "max": 0.09921581298112869
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "sample",
+      "split": "train",
+      "path": "carpet/train/good/050.png",
+      "sha256": "9636d3fa39388a899af02cbbaa5cbfdcaa203c9f1631f86bd227eb77e25544cd",
+      "cache_key": "a77bd65b7a28f65d0c7be3220457b3657d73020454bac208752cd3bd99e3a699",
+      "cached": false,
+      "score": 0.2166733592748642,
+      "finite": true,
+      "map": {
+        "min": 0.0002323872467968613,
+        "p1": 0.000325664906995371,
+        "p50": 0.0008011648315005004,
+        "p99": 0.050164178013801575,
+        "max": 0.35869529843330383
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "sample",
+      "split": "test",
+      "path": "carpet/test/cut/006.png",
+      "sha256": "85bab51880df051dfbd0a68f5bf4ecac3edc811188231b9aa8ebd6d76640d1ab",
+      "cache_key": "0b3e076cf9317ddee116b6e9130ccb9aeefbd56961b9e359492c6e17fa9c8f7b",
+      "cached": false,
+      "score": 0.7641570568084717,
+      "finite": true,
+      "map": {
+        "min": 0.00046246356214396656,
+        "p1": 0.0005824155523441732,
+        "p50": 0.0010684540029615164,
+        "p99": 0.4307125210762024,
+        "max": 0.707831859588623
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "carpet",
+      "role": "reference",
+      "split": "train",
+      "path": "carpet/train/good/243.png",
+      "sha256": "721934df04405ec69ea4b4a273155587bdf955456477701682123bc4cbf4078f",
+      "cache_key": "d20641760ff33b03b602389f1edcd8c0a4a99126fbbc188867576b09a09de32c",
+      "cached": false,
+      "score": 0.18276865780353546,
+      "finite": true,
+      "map": {
+        "min": 0.00031298166140913963,
+        "p1": 0.0004221042327117175,
+        "p50": 0.000984289450570941,
+        "p99": 0.005627808161079884,
+        "max": 0.021816976368427277
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "sample",
+      "split": "train",
+      "path": "grid/train/good/201.png",
+      "sha256": "5edbaed54d6412e6f62734f0d0c81249e7c09b1865a4b135e7b7ffca333493e7",
+      "cache_key": "1e5d08d5152951618ecd5637e742761a103a1c544730c6bdb38688bc0afd79c7",
+      "cached": false,
+      "score": 0.40162208676338196,
+      "finite": true,
+      "map": {
+        "min": 0.00020745345682371408,
+        "p1": 0.0002724988735280931,
+        "p50": 0.000654838397167623,
+        "p99": 0.014379052445292473,
+        "max": 0.030844809487462044
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "sample",
+      "split": "test",
+      "path": "grid/test/thread/009.png",
+      "sha256": "506fc26245585cb20f37e37921d2445f1f88df89b1b74d4b0259d5e7ce0ecb04",
+      "cache_key": "e8df32992e043e41914344c578bf45d033598f11fd2e242928b9b6745d840003",
+      "cached": false,
+      "score": 0.5322018265724182,
+      "finite": true,
+      "map": {
+        "min": 0.00043018488213419914,
+        "p1": 0.0005343458615243435,
+        "p50": 0.0011487682349979877,
+        "p99": 0.05338393151760101,
+        "max": 0.13183486461639404
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "grid",
+      "role": "reference",
+      "split": "train",
+      "path": "grid/train/good/130.png",
+      "sha256": "764592563171bb6a5d2bd4dd017373fe73784cb2bb0a15428d3c9077b4cb5cf0",
+      "cache_key": "f7943a564dcf6dde28eef0a21f2ddda74ca41e23c5ec8369762f5eab85db104e",
+      "cached": false,
+      "score": 0.39846450090408325,
+      "finite": true,
+      "map": {
+        "min": 0.00019908419926650822,
+        "p1": 0.0002584707399364561,
+        "p50": 0.0005709824035875499,
+        "p99": 0.036306045949459076,
+        "max": 0.08722975850105286
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "sample",
+      "split": "train",
+      "path": "hazelnut/train/good/180.png",
+      "sha256": "364c7f8b91c7871fd4afb638843d4ea5a6cfc9cbcb72ca5d1b29b2534202c044",
+      "cache_key": "ca519dacdbc3843474c32b73e7749b31b18b47006a4bd4cc21c6895f28802b57",
+      "cached": false,
+      "score": 0.9780519604682922,
+      "finite": true,
+      "map": {
+        "min": 0.0005400968948379159,
+        "p1": 0.0006227951962500811,
+        "p50": 0.0016634680796414614,
+        "p99": 0.07456090301275253,
+        "max": 0.16030001640319824
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "sample",
+      "split": "test",
+      "path": "hazelnut/test/crack/011.png",
+      "sha256": "c83d9f85a2c0cfbaa407b41bc667ca56e4c66274f3fc2d503be2e799a12f955e",
+      "cache_key": "a6e216ef88dd39ceb81102f7ffa8100599c0a6d6c54a280cb7d37fd8ac482251",
+      "cached": false,
+      "score": 0.9980448484420776,
+      "finite": true,
+      "map": {
+        "min": 0.0003826503816526383,
+        "p1": 0.0006283927359618247,
+        "p50": 0.0021560003515332937,
+        "p99": 0.7488945722579956,
+        "max": 0.8608474135398865
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "hazelnut",
+      "role": "reference",
+      "split": "train",
+      "path": "hazelnut/train/good/361.png",
+      "sha256": "9f8178f2e1700ccbd3048d959870dd75c584b9352a826daa12d18d293e9fb8e6",
+      "cache_key": "57dff1b0a3e1eeaa2f07d8e967966a3a6486446719d6843fdaf4b12deba0fe4c",
+      "cached": false,
+      "score": 0.9651564359664917,
+      "finite": true,
+      "map": {
+        "min": 0.000534679158590734,
+        "p1": 0.0006779057439416647,
+        "p50": 0.0013559150975197554,
+        "p99": 0.15179257094860077,
+        "max": 0.3596724271774292
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "sample",
+      "split": "train",
+      "path": "leather/train/good/016.png",
+      "sha256": "195648c444ef08b6d10a5815054f658d9442c47f415ffa3c551c7de5c6353e54",
+      "cache_key": "aaf78fad3138c8426270e0e03463683b4f946e3b501843a2c7e80794a6db328c",
+      "cached": false,
+      "score": 0.9751724600791931,
+      "finite": true,
+      "map": {
+        "min": 0.0004135809140279889,
+        "p1": 0.0006228666752576828,
+        "p50": 0.0011521049309521914,
+        "p99": 0.1208268254995346,
+        "max": 0.24887299537658691
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "sample",
+      "split": "test",
+      "path": "leather/test/glue/016.png",
+      "sha256": "c32c46f9c69ab0af4759406e2e830dbdd392695f16512c893efe749e8f998b4c",
+      "cache_key": "f7b1fd843ef065d49b79eb15d41f9522322b3f1e8f3e822f2f71df5822489ff5",
+      "cached": false,
+      "score": 0.997686505317688,
+      "finite": true,
+      "map": {
+        "min": 0.00042685464723035693,
+        "p1": 0.000638677563983947,
+        "p50": 0.0013686968013644218,
+        "p99": 0.8568896055221558,
+        "max": 0.9576449990272522
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "leather",
+      "role": "reference",
+      "split": "train",
+      "path": "leather/train/good/204.png",
+      "sha256": "114e2ac1fac1f1316c329a7d2a9b3d17101c1df763c0f8920e2cf58dfa83c799",
+      "cache_key": "b13855e742f17c372c4d34155d46350e310a13a5335a12409ae05c56ee81ec0d",
+      "cached": false,
+      "score": 0.8015624284744263,
+      "finite": true,
+      "map": {
+        "min": 0.0005602387827821076,
+        "p1": 0.0006834627711214125,
+        "p50": 0.0012057647109031677,
+        "p99": 0.06994152069091797,
+        "max": 0.21290315687656403
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "sample",
+      "split": "train",
+      "path": "metal_nut/train/good/119.png",
+      "sha256": "66123182f57e4f4119543e3bee80ce013de2499172d52926e2f5d7a03abe9ca3",
+      "cache_key": "85d066be78b42204cef4010baea0e79a192c25514e8601dd96c28c58b628f09b",
+      "cached": false,
+      "score": 0.9841343760490417,
+      "finite": true,
+      "map": {
+        "min": 0.0005232935072854161,
+        "p1": 0.0006892037345096469,
+        "p50": 0.004260270856320858,
+        "p99": 0.09583175182342529,
+        "max": 0.21954955160617828
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "sample",
+      "split": "test",
+      "path": "metal_nut/test/flip/001.png",
+      "sha256": "9d18b72d0a301c93682c758e91f81648576a8d27f7940894d3d6859dc31bc5cc",
+      "cache_key": "1680d3469865efbb9b6e5d706b4a2fddf375e573febf3f71190c5a5da5864b1c",
+      "cached": false,
+      "score": 0.9821791052818298,
+      "finite": true,
+      "map": {
+        "min": 0.0004539115761872381,
+        "p1": 0.0007832959527149796,
+        "p50": 0.006126783788204193,
+        "p99": 0.06103339046239853,
+        "max": 0.1324022263288498
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "metal_nut",
+      "role": "reference",
+      "split": "train",
+      "path": "metal_nut/train/good/046.png",
+      "sha256": "d31be3a27b84aa9a1418fee66a570e9e85df6205e325a72f44d79d8aefb65507",
+      "cache_key": "bf00eab7d42415e32f975a8c89b3bf28f1678d25ce59baa2101a94027a44edff",
+      "cached": false,
+      "score": 0.9713665843009949,
+      "finite": true,
+      "map": {
+        "min": 0.0006360572879202664,
+        "p1": 0.0007690462516620755,
+        "p50": 0.003932544961571693,
+        "p99": 0.06969315558671951,
+        "max": 0.18043096363544464
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "sample",
+      "split": "train",
+      "path": "pill/train/good/084.png",
+      "sha256": "43bfeac3bb207a80d45294c5617687750a18a48d1a0649d0ea41e656347225b4",
+      "cache_key": "7b1b8614d70bbb3219bb3cfd8915885fdda715099c087c0bc7d8303b201f9567",
+      "cached": false,
+      "score": 0.9270380735397339,
+      "finite": true,
+      "map": {
+        "min": 0.0005602549063041806,
+        "p1": 0.0007365272613242269,
+        "p50": 0.0021229758858680725,
+        "p99": 0.0921003669500351,
+        "max": 0.18023046851158142
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "sample",
+      "split": "test",
+      "path": "pill/test/scratch/000.png",
+      "sha256": "e1e5e72e0b032c96ee1c012f385e9cb78f04a63b636a24dc597f954d840c2c35",
+      "cache_key": "e07da79c33ca7185af027651a58341e07e4e1bfca51190348033791026adc185",
+      "cached": false,
+      "score": 0.9409192800521851,
+      "finite": true,
+      "map": {
+        "min": 0.0006109312525950372,
+        "p1": 0.0007467863033525646,
+        "p50": 0.0019984287209808826,
+        "p99": 0.210189089179039,
+        "max": 0.6407556533813477
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "pill",
+      "role": "reference",
+      "split": "train",
+      "path": "pill/train/good/071.png",
+      "sha256": "65de7a31d4b662d573d062ec198e1e38680122a20d948b80a350d28134ecb0cf",
+      "cache_key": "52e806d99adbd999e2c118a9daed643fa3da3f3b51868880ced2f950992d16e9",
+      "cached": false,
+      "score": 0.939032793045044,
+      "finite": true,
+      "map": {
+        "min": 0.0006874785176478326,
+        "p1": 0.000770771992392838,
+        "p50": 0.0024550980888307095,
+        "p99": 0.08197908103466034,
+        "max": 0.27400895953178406
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "sample",
+      "split": "train",
+      "path": "screw/train/good/273.png",
+      "sha256": "3753d8bbd3b8eb882de749850d85cb7afde619b400ecdcae64ea1fe7d34c9c55",
+      "cache_key": "62df2d7ad1f87ec2e7037d0b2e07532a168bd689a40cb53860a63fe1475bacb0",
+      "cached": false,
+      "score": 0.9814528226852417,
+      "finite": true,
+      "map": {
+        "min": 0.00029832011205144227,
+        "p1": 0.0003901555319316685,
+        "p50": 0.0005944112781435251,
+        "p99": 0.041175004094839096,
+        "max": 0.053683727979660034
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "sample",
+      "split": "test",
+      "path": "screw/test/manipulated_front/020.png",
+      "sha256": "5aa6acb6f916d1f9191092a7a0b7350cbdb0283caaae6122f6ee5e4e63377f7b",
+      "cache_key": "f7b82e89c13f1d0da9a150b52cacf49c9c0c15171421d24febd0a6ab129ea523",
+      "cached": false,
+      "score": 0.9814729690551758,
+      "finite": true,
+      "map": {
+        "min": 0.0004419458273332566,
+        "p1": 0.0005342335789464414,
+        "p50": 0.000842719164211303,
+        "p99": 0.02773284912109375,
+        "max": 0.04472190514206886
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "screw",
+      "role": "reference",
+      "split": "train",
+      "path": "screw/train/good/204.png",
+      "sha256": "471bad47d544bb8a23c17589d3eb426e651e7252799d492b54da256e938040f7",
+      "cache_key": "bc7ccb0813969e7db133aa8c6f04c3fc49b0990093775d35cc5237d929e644e8",
+      "cached": false,
+      "score": 0.9879629015922546,
+      "finite": true,
+      "map": {
+        "min": 0.00041269275243394077,
+        "p1": 0.000506346405018121,
+        "p50": 0.0010521927615627646,
+        "p99": 0.03391740471124649,
+        "max": 0.12589728832244873
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "sample",
+      "split": "train",
+      "path": "tile/train/good/111.png",
+      "sha256": "8094c40dd5146681253a0828f0d8c203bd3679044dadc747d437804461e6eb53",
+      "cache_key": "8060f199c8afc0c928feff29494d06883471fed3afdbc3fd78ddd1f80296b3c9",
+      "cached": false,
+      "score": 0.8276103734970093,
+      "finite": true,
+      "map": {
+        "min": 0.000602095271460712,
+        "p1": 0.0007216557278297842,
+        "p50": 0.0018475105753168464,
+        "p99": 0.024482039734721184,
+        "max": 0.07321882247924805
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "sample",
+      "split": "test",
+      "path": "tile/test/oil/001.png",
+      "sha256": "8d47f96cd4437c4848454bd60b46def1a7c470b5ee9e842891f02a346de744d2",
+      "cache_key": "9fa3caa7bbee17674d66b67f599b643857bed8f76e4b46f76f8b10eff186d906",
+      "cached": false,
+      "score": 0.9981828331947327,
+      "finite": true,
+      "map": {
+        "min": 0.0004074604657944292,
+        "p1": 0.000581392552703619,
+        "p50": 0.002303393790498376,
+        "p99": 0.6202722787857056,
+        "max": 0.7286848425865173
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "tile",
+      "role": "reference",
+      "split": "train",
+      "path": "tile/train/good/048.png",
+      "sha256": "1713c71d9336fad00129a52f5648fc4357c74f09203526fd3b078fa2e8c764b7",
+      "cache_key": "b8550fd0c8a3df991d7665918600d9858661cc44ba3eac12e6a82a1ae215abe2",
+      "cached": false,
+      "score": 0.8724512457847595,
+      "finite": true,
+      "map": {
+        "min": 0.0006448336062021554,
+        "p1": 0.0007868596003390849,
+        "p50": 0.0016482991632074118,
+        "p99": 0.03297983109951019,
+        "max": 0.08249951153993607
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "sample",
+      "split": "train",
+      "path": "toothbrush/train/good/008.png",
+      "sha256": "7f7c97e33207f59f715a8e4a593e1faceb7b5c04f167a62147a2a0acef5e1414",
+      "cache_key": "aa15087ef85870ad0a746343050f71ac31373dcfe90faff7b1bcaa73abe4c66e",
+      "cached": false,
+      "score": 0.9284692406654358,
+      "finite": true,
+      "map": {
+        "min": 0.0005825354601256549,
+        "p1": 0.0006778178503736854,
+        "p50": 0.001648745033890009,
+        "p99": 0.2543380856513977,
+        "max": 0.6489614248275757
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "sample",
+      "split": "test",
+      "path": "toothbrush/test/defective/023.png",
+      "sha256": "93724a73ee122113a360e13517dacf9eff46ab1b660fd60440030723d6567246",
+      "cache_key": "f44ddaaf7fc7149b42652ca2b60401f6c87209048f2187874bf7c83c1c2c7c05",
+      "cached": false,
+      "score": 0.9824788570404053,
+      "finite": true,
+      "map": {
+        "min": 0.0005090494523756206,
+        "p1": 0.0008354624733328819,
+        "p50": 0.005806130822747946,
+        "p99": 0.24240729212760925,
+        "max": 0.3685011863708496
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "toothbrush",
+      "role": "reference",
+      "split": "train",
+      "path": "toothbrush/train/good/053.png",
+      "sha256": "c795e6c47af6147715ffbcbdac50949a8cf4da9724f0a8ebc16847ea87135559",
+      "cache_key": "7114f26f2e236a03fe3e5791c7c8db811d58b1321f2a1ee50b47023435d185c3",
+      "cached": false,
+      "score": 0.9756338596343994,
+      "finite": true,
+      "map": {
+        "min": 0.0006220460636541247,
+        "p1": 0.0007596809300594032,
+        "p50": 0.00298684393055737,
+        "p99": 0.1743365377187729,
+        "max": 0.3619725704193115
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "sample",
+      "split": "train",
+      "path": "transistor/train/good/056.png",
+      "sha256": "72c6a318a47e873a82d2db2f249142c2e614b41dc454cbb8ebafb7fbdf9444b7",
+      "cache_key": "4eb1cb1807e0b8dc1d501b2b167894de7999f90986354f43d465ad35eaae2e15",
+      "cached": false,
+      "score": 0.8956497311592102,
+      "finite": true,
+      "map": {
+        "min": 0.0010700098937377334,
+        "p1": 0.001231932663358748,
+        "p50": 0.006337578408420086,
+        "p99": 0.1542506068944931,
+        "max": 0.441292941570282
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "sample",
+      "split": "test",
+      "path": "transistor/test/damaged_case/003.png",
+      "sha256": "e8379a0728738931aa3e03af44219eea3f3bc1884495f767e35f9926ac3f05d3",
+      "cache_key": "13e606b5d1edf359dcf67970245146c24560e39bc5682a4723d5fb1b88a9a741",
+      "cached": false,
+      "score": 0.9576479196548462,
+      "finite": true,
+      "map": {
+        "min": 0.0007769858348183334,
+        "p1": 0.0010254982626065612,
+        "p50": 0.005050264298915863,
+        "p99": 0.6797075867652893,
+        "max": 0.9844574928283691
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "transistor",
+      "role": "reference",
+      "split": "train",
+      "path": "transistor/train/good/210.png",
+      "sha256": "1496f8eb11f16f28d5c38b86124a1a01c146e3f97bdd8bd0666adb1966ad641f",
+      "cache_key": "e931e2bf854d1a32bb779fa0b0c4129bdbb472ad6d2ab03f77a3bfdc151c1516",
+      "cached": false,
+      "score": 0.9039233922958374,
+      "finite": true,
+      "map": {
+        "min": 0.000719597504939884,
+        "p1": 0.000944923551287502,
+        "p50": 0.003863581223413348,
+        "p99": 0.04163237288594246,
+        "max": 0.22495578229427338
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "sample",
+      "split": "train",
+      "path": "wood/train/good/171.png",
+      "sha256": "85006e788cece4fa00fb2186354ab8dc7763c04e83871e527624a4ca2650db42",
+      "cache_key": "2c9e8b0204aca30047bcc21bd5b8286a1356ac3d85b5f19ba312217bdd45b8b2",
+      "cached": false,
+      "score": 0.9439184665679932,
+      "finite": true,
+      "map": {
+        "min": 0.0004986754502169788,
+        "p1": 0.0006402108701877296,
+        "p50": 0.001106248702853918,
+        "p99": 0.023755919188261032,
+        "max": 0.052873704582452774
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "sample",
+      "split": "test",
+      "path": "wood/test/scratch/008.png",
+      "sha256": "805daa75c26d83eb10e018a250e67f2f14ab5b045c294ac125d0f9308ffda1f4",
+      "cache_key": "eef89cd88ba1c37f87273b655ed9ba0564a272bedc6405b58819c2af0467cdd6",
+      "cached": false,
+      "score": 0.9991492033004761,
+      "finite": true,
+      "map": {
+        "min": 0.0004371497198008001,
+        "p1": 0.0006352161290124059,
+        "p50": 0.00133177125826478,
+        "p99": 0.7943630218505859,
+        "max": 0.9186934232711792
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "wood",
+      "role": "reference",
+      "split": "train",
+      "path": "wood/train/good/166.png",
+      "sha256": "21e656c7b9f3b3342ee12020341126c5a30d918e6d90f7ebae46d7b72da6b144",
+      "cache_key": "c1bd30b6e960659c30406ce4316a4d9d12db91a7853f55109440aa9c010b3d52",
+      "cached": false,
+      "score": 0.9488503932952881,
+      "finite": true,
+      "map": {
+        "min": 0.0004939674399793148,
+        "p1": 0.0006134987925179303,
+        "p50": 0.0010440291371196508,
+        "p99": 0.03625103086233139,
+        "max": 0.0727895200252533
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "sample",
+      "split": "train",
+      "path": "zipper/train/good/061.png",
+      "sha256": "c71d9862bb61c5679471aea78ad4cbf744e8f7722632ce42bb0aed0ef7a243ff",
+      "cache_key": "ae97e7c4bb10a57fb3f2399c6556ac2e0659b3aa3349088aaf13eb7cf12ba2f5",
+      "cached": false,
+      "score": 0.6211908459663391,
+      "finite": true,
+      "map": {
+        "min": 0.0001902501389849931,
+        "p1": 0.00040045264177024364,
+        "p50": 0.00131318555213511,
+        "p99": 0.010836129076778889,
+        "max": 0.01798084005713463
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "sample",
+      "split": "test",
+      "path": "zipper/test/split_teeth/014.png",
+      "sha256": "48d54313cf26ac883ae945e3265b65f5026eba3b928ddf5d1948e30c12502b48",
+      "cache_key": "eef4287a2150bacb3286d1e93976101ac70e8d93df7f522fcf80a62a85ce4eee",
+      "cached": false,
+      "score": 0.668438732624054,
+      "finite": true,
+      "map": {
+        "min": 0.0002109054767061025,
+        "p1": 0.0004280248249415308,
+        "p50": 0.0013551414012908936,
+        "p99": 0.017280977219343185,
+        "max": 0.03523693233728409
+      }
+    },
+    {
+      "dataset": "mvtec_ad",
+      "category": "zipper",
+      "role": "reference",
+      "split": "train",
+      "path": "zipper/train/good/037.png",
+      "sha256": "74a2aac75ed87a9af7f0df024bf7cb41fa0700275c51be73e58c886caf6fa16a",
+      "cache_key": "bf2780e1c5e73eb454f29d39a2c27e8eb8759e162689af6185672e905a1d2cb4",
+      "cached": false,
+      "score": 0.6701289415359497,
+      "finite": true,
+      "map": {
+        "min": 0.0002090994967147708,
+        "p1": 0.0004331977979745716,
+        "p50": 0.0012313015758991241,
+        "p99": 0.010211557149887085,
+        "max": 0.01577875204384327
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "sample",
+      "split": "train",
+      "path": "candle/Data/Images/Normal/0883.JPG",
+      "sha256": "e8e3d8e6d325206e702b870e1b27ec1d20d5cb190a2c350165a3edaaa82cd338",
+      "cache_key": "7520fa196396d47415fff9e22413ba92d52fe07b3e8708797e6adf30d54cd5e0",
+      "cached": false,
+      "score": 0.9524499773979187,
+      "finite": true,
+      "map": {
+        "min": 0.0010527623817324638,
+        "p1": 0.0014702659100294113,
+        "p50": 0.005932278465479612,
+        "p99": 0.20872174203395844,
+        "max": 0.3752199709415436
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "sample",
+      "split": "test",
+      "path": "candle/Data/Images/Anomaly/007.JPG",
+      "sha256": "f0f1ba6f98a89d7f21785680d415b340842649534ca49febd946df0f75242ef3",
+      "cache_key": "2044299ec756a85919fd11a002a434293a845f868e955fc87d545d74ec7c3491",
+      "cached": false,
+      "score": 0.9657071232795715,
+      "finite": true,
+      "map": {
+        "min": 0.0008201900636777282,
+        "p1": 0.0011890630703419447,
+        "p50": 0.005658460780978203,
+        "p99": 0.47929033637046814,
+        "max": 0.9779278635978699
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "candle",
+      "role": "reference",
+      "split": "train",
+      "path": "candle/Data/Images/Normal/0503.JPG",
+      "sha256": "f0de7153f045d42ca067dae702c6ff96651e5456a076ddfd4cdc748304014dbc",
+      "cache_key": "4fd22a08a3813bc238f413129f90ff253ec23df76481639fe2b8f349458c61e5",
+      "cached": false,
+      "score": 0.9300248026847839,
+      "finite": true,
+      "map": {
+        "min": 0.0008603106834925711,
+        "p1": 0.0012929716613143682,
+        "p50": 0.005216947756707668,
+        "p99": 0.1542719006538391,
+        "max": 0.5642411112785339
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "sample",
+      "split": "train",
+      "path": "capsules/Data/Images/Normal/487.JPG",
+      "sha256": "fd0562c2038303c90e2233fed49c8280ea3d2102a4d905dc9efc853cf786c3dc",
+      "cache_key": "c505cecf84f09884a25c703fe6d06f25919deb09fb7efc2850a480bf68547df7",
+      "cached": false,
+      "score": 0.7831600904464722,
+      "finite": true,
+      "map": {
+        "min": 0.0019386752974241972,
+        "p1": 0.002403603633865714,
+        "p50": 0.018154988065361977,
+        "p99": 0.2286890745162964,
+        "max": 0.33934706449508667
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "sample",
+      "split": "test",
+      "path": "capsules/Data/Images/Anomaly/097.JPG",
+      "sha256": "2a7b934aaf13389f95caa5b9b3244742a086785f607e7d7b64d777a7046d7f81",
+      "cache_key": "4a00be2b38207d8c7800d4d8ed5cf668622dda50503fabb2feae763086fe19e2",
+      "cached": false,
+      "score": 0.8517400622367859,
+      "finite": true,
+      "map": {
+        "min": 0.0018119227606803179,
+        "p1": 0.0025679285172373056,
+        "p50": 0.01982957124710083,
+        "p99": 0.2629629373550415,
+        "max": 0.3785613477230072
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "capsules",
+      "role": "reference",
+      "split": "train",
+      "path": "capsules/Data/Images/Normal/057.JPG",
+      "sha256": "8e9a5f3873d57ccf7195d8b1ba3bbd96fba7f79584d7e615b52fd55c14e2d7d8",
+      "cache_key": "31044e8554fb827e67412a4995f483350dbd1b78c7a03c1c69a7b81fd05c8e9e",
+      "cached": false,
+      "score": 0.854527473449707,
+      "finite": true,
+      "map": {
+        "min": 0.002131763147190213,
+        "p1": 0.002637912519276142,
+        "p50": 0.01851995848119259,
+        "p99": 0.22298434376716614,
+        "max": 0.45418277382850647
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "sample",
+      "split": "train",
+      "path": "cashew/Data/Images/Normal/376.JPG",
+      "sha256": "ede443448bd5450cc73811da3881a785befa97e0f8c487113d55238104082200",
+      "cache_key": "cdb30f1203ddf5c916fe372ce5e6460eababdee7ba169c43205b7d80a6dd6694",
+      "cached": false,
+      "score": 0.9363227486610413,
+      "finite": true,
+      "map": {
+        "min": 0.0009264394757337868,
+        "p1": 0.0019041356863453984,
+        "p50": 0.003913919907063246,
+        "p99": 0.09164309501647949,
+        "max": 0.1520915925502777
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "sample",
+      "split": "test",
+      "path": "cashew/Data/Images/Anomaly/097.JPG",
+      "sha256": "efe707ec993500470947b4e03df45d1eb630d99452b17ba2681de2f9fc41a862",
+      "cache_key": "310bbc0405fa2e40bdc165b6c4242162bebaf3b8870f3f900a4acbfba83832af",
+      "cached": false,
+      "score": 0.9436330199241638,
+      "finite": true,
+      "map": {
+        "min": 0.001283374847844243,
+        "p1": 0.0024792877957224846,
+        "p50": 0.004715714603662491,
+        "p99": 0.21091753244400024,
+        "max": 0.5248508453369141
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "cashew",
+      "role": "reference",
+      "split": "train",
+      "path": "cashew/Data/Images/Normal/437.JPG",
+      "sha256": "3974bf4d0cb1f9fa4ea34df194ba5599ea3c4a93a21b453af0ffc8c4e9b43517",
+      "cache_key": "2f65ce3397d4862ce42e7abc2ac9b7d2d6617514bf5f365ff83925c40436a0e1",
+      "cached": false,
+      "score": 0.9490827918052673,
+      "finite": true,
+      "map": {
+        "min": 0.0008132907678373158,
+        "p1": 0.0016453608404845,
+        "p50": 0.0039009861648082733,
+        "p99": 0.08603016287088394,
+        "max": 0.13908077776432037
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "sample",
+      "split": "train",
+      "path": "chewinggum/Data/Images/Normal/430.JPG",
+      "sha256": "203926d72e4ce874489343685157538ebc865e5d04d9d5f8345b08a70b3bf5d8",
+      "cache_key": "e1ad611a252a49cdd17620743ca5a1072c87ba988f0f43d5eff4a6fe05a3590d",
+      "cached": false,
+      "score": 0.7866768836975098,
+      "finite": true,
+      "map": {
+        "min": 0.0014848915161564946,
+        "p1": 0.002423891332000494,
+        "p50": 0.006062482949346304,
+        "p99": 0.021789686754345894,
+        "max": 0.05156775936484337
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "sample",
+      "split": "test",
+      "path": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "sha256": "64d56b13e3b3aaeda358c2613c74cc582f13ee1f25501d7a01b7a1f974b348dc",
+      "cache_key": "3158fd620e9d2d777af59238bbb018480bbaa0069b4f1487962f2913c269b0dc",
+      "cached": false,
+      "score": 0.9009762406349182,
+      "finite": true,
+      "map": {
+        "min": 0.0024198503233492374,
+        "p1": 0.0033506015315651894,
+        "p50": 0.006436140276491642,
+        "p99": 0.04237071052193642,
+        "max": 0.3332682251930237
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "chewinggum",
+      "role": "reference",
+      "split": "train",
+      "path": "chewinggum/Data/Images/Normal/263.JPG",
+      "sha256": "b340b2b40376e1736c7fa13ef74bac8c88ed4627c967b1c33cbffa772b9af6a3",
+      "cache_key": "f05322ff6b331e537852e7e745a31826b5bc74246f8d6fb6922c9b6f21cda3cb",
+      "cached": false,
+      "score": 0.6864922046661377,
+      "finite": true,
+      "map": {
+        "min": 0.0013709657359868288,
+        "p1": 0.0023760588373988867,
+        "p50": 0.006365778855979443,
+        "p99": 0.02867855131626129,
+        "max": 0.07752561569213867
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "sample",
+      "split": "train",
+      "path": "fryum/Data/Images/Normal/055.JPG",
+      "sha256": "4f55af8a5a133cc9eb3c3c37ab7537928d67c52cd135e72d132a13b03fdc63dd",
+      "cache_key": "f9bbd87d0cc3a517d884a8a39df5da706c80b6cc706a0a3c5f974a7a1d69eab8",
+      "cached": false,
+      "score": 0.9663219451904297,
+      "finite": true,
+      "map": {
+        "min": 0.0011047200532630086,
+        "p1": 0.0013624585699290037,
+        "p50": 0.0022545838728547096,
+        "p99": 0.13557027280330658,
+        "max": 0.1999557912349701
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "sample",
+      "split": "test",
+      "path": "fryum/Data/Images/Anomaly/011.JPG",
+      "sha256": "bc67c9c2582c17a83b159af30264bee5589e217f033285fb755e22279ad45597",
+      "cache_key": "12e190a8f5917b3733dc7e82cdb98dd6889ee77aac1f4285370f465c7df36ba9",
+      "cached": false,
+      "score": 0.9920532703399658,
+      "finite": true,
+      "map": {
+        "min": 0.0011268126545473933,
+        "p1": 0.0013290152419358492,
+        "p50": 0.003066906938329339,
+        "p99": 0.25196748971939087,
+        "max": 0.8668524026870728
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "fryum",
+      "role": "reference",
+      "split": "train",
+      "path": "fryum/Data/Images/Normal/437.JPG",
+      "sha256": "a093554f1257aa387f7e5e685c8c62002b4bc134cd89860d6f20c5405eb59c8a",
+      "cache_key": "b00278ae5bfc94a7766a4bc0ac7595413a6df04c12f3983c41665a32bf3adfce",
+      "cached": false,
+      "score": 0.9623808264732361,
+      "finite": true,
+      "map": {
+        "min": 0.00093066570116207,
+        "p1": 0.0014112334465608,
+        "p50": 0.002573895500972867,
+        "p99": 0.16744178533554077,
+        "max": 0.2203281819820404
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "sample",
+      "split": "train",
+      "path": "macaroni1/Data/Images/Normal/0440.JPG",
+      "sha256": "eeff6632d9f2d3f69ae72cf2a41d8d2c2a029f84d2d2cae81d705b9b919325b3",
+      "cache_key": "fb3df1d106b9ea8462dc07216a736f1ef93087e4294a90e7f8bdf3792138cbaf",
+      "cached": false,
+      "score": 0.9256108999252319,
+      "finite": true,
+      "map": {
+        "min": 0.0013495770981535316,
+        "p1": 0.0016672804486006498,
+        "p50": 0.00399697944521904,
+        "p99": 0.2597508430480957,
+        "max": 0.5782649517059326
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "sample",
+      "split": "test",
+      "path": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "sha256": "2b05a04f9896cd5b5dff9ae758fc548ebe59da00abe3b1909f54de7fc90d52b7",
+      "cache_key": "636d473e53ae19133dafa0c587a2e50b654b276bc28142a61235426728fa0658",
+      "cached": false,
+      "score": 0.9575899839401245,
+      "finite": true,
+      "map": {
+        "min": 0.0014704838395118713,
+        "p1": 0.001744891982525587,
+        "p50": 0.004978696350008249,
+        "p99": 0.30574917793273926,
+        "max": 0.632628858089447
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni1",
+      "role": "reference",
+      "split": "train",
+      "path": "macaroni1/Data/Images/Normal/0947.JPG",
+      "sha256": "adf33e2226290da155d98b980a693ff70fbda6d6cc9a9202c5d9d8382ecb3fac",
+      "cache_key": "76d93b4e0ea2da3049b473d65253a88972d9f09f74121f6638e5dd1501496db6",
+      "cached": false,
+      "score": 0.9283375144004822,
+      "finite": true,
+      "map": {
+        "min": 0.0017740081530064344,
+        "p1": 0.002208397723734379,
+        "p50": 0.0059337494894862175,
+        "p99": 0.2844875454902649,
+        "max": 0.6820552945137024
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "sample",
+      "split": "train",
+      "path": "macaroni2/Data/Images/Normal/0392.JPG",
+      "sha256": "33c1f31e2b8ec18a89bbb1b19c326814baa4d0a177fc014215cd7a4df72bdf7d",
+      "cache_key": "30729a7599f7af9c9f8da2f76384a0f8bdfa7bd2583793050a0d51b14d1eda65",
+      "cached": false,
+      "score": 0.990652322769165,
+      "finite": true,
+      "map": {
+        "min": 0.0016649338649585843,
+        "p1": 0.0020539399702101946,
+        "p50": 0.00888017751276493,
+        "p99": 0.7314498424530029,
+        "max": 0.9324673414230347
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "sample",
+      "split": "test",
+      "path": "macaroni2/Data/Images/Anomaly/048.JPG",
+      "sha256": "d2142d2cbce2247c46b06422724779104cc1180422384960110ae44e7af1e9fe",
+      "cache_key": "3f05ff12705930e27f88ea7f06f73520a3f2f6b1a3cd009d4aa61460e23bc669",
+      "cached": false,
+      "score": 0.9948200583457947,
+      "finite": true,
+      "map": {
+        "min": 0.0015760364476591349,
+        "p1": 0.001902701216749847,
+        "p50": 0.007126725744456053,
+        "p99": 0.7633224129676819,
+        "max": 0.9673309326171875
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "macaroni2",
+      "role": "reference",
+      "split": "train",
+      "path": "macaroni2/Data/Images/Normal/0898.JPG",
+      "sha256": "173358c34aa0a53c081276fe09a9060c6c0f7d88ef2c70223f9d03a42115ca38",
+      "cache_key": "b479783df934fa219fd08c021d52fb457d608bdc2d27d514414255e50298c9d7",
+      "cached": false,
+      "score": 0.9946488738059998,
+      "finite": true,
+      "map": {
+        "min": 0.0019515762105584145,
+        "p1": 0.0023493911139667034,
+        "p50": 0.006405948661267757,
+        "p99": 0.6802788376808167,
+        "max": 0.8962479829788208
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb1/Data/Images/Normal/0071.JPG",
+      "sha256": "8945e22246eed403ad24d40fed8176b2a6e1b45863adbee66da02745727e39f0",
+      "cache_key": "7354040b6481e2e254c15ec3b1b8fbf0139894f5c4630bb2dd6de1b45a05256f",
+      "cached": false,
+      "score": 0.8725671768188477,
+      "finite": true,
+      "map": {
+        "min": 0.0011474651983007789,
+        "p1": 0.0016886029625311494,
+        "p50": 0.0032469069119542837,
+        "p99": 0.13983900845050812,
+        "max": 0.21682274341583252
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb1/Data/Images/Anomaly/020.JPG",
+      "sha256": "4918219c1719e3dacd8a7cb62b613b5125bcb22ea8a5c3aa516261b1ff484aeb",
+      "cache_key": "3923a2b3e0078d94d8da4d14e737e8ea7cf8cc7caf16ae2e52cba1ad28192d32",
+      "cached": false,
+      "score": 0.9102470278739929,
+      "finite": true,
+      "map": {
+        "min": 0.0011157901026308537,
+        "p1": 0.0017254962585866451,
+        "p50": 0.0030307064298540354,
+        "p99": 0.15251287817955017,
+        "max": 0.3440937399864197
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb1",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb1/Data/Images/Normal/0865.JPG",
+      "sha256": "e009365ccb9acd0f4555115df3d3575943121605cd18521135efe6dae4f8c1ca",
+      "cache_key": "9eef33343f5b0e9ca1a2d555517712db8e3718f12b3cc942394482530d66ad95",
+      "cached": false,
+      "score": 0.8686429858207703,
+      "finite": true,
+      "map": {
+        "min": 0.001185366534627974,
+        "p1": 0.0018591530388221145,
+        "p50": 0.003194672055542469,
+        "p99": 0.1616247445344925,
+        "max": 0.7261815667152405
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb2/Data/Images/Normal/0527.JPG",
+      "sha256": "dc8a7f777f03d36449736ebecff9d5fb90e74eabe27b7be6c8f1eb6a76585dfd",
+      "cache_key": "94edac4ff51ba487513588d9803beb446cefa7d9dd8447d8c30521bdfa7c76c8",
+      "cached": false,
+      "score": 0.8626996278762817,
+      "finite": true,
+      "map": {
+        "min": 0.001567520317621529,
+        "p1": 0.0020793864969164133,
+        "p50": 0.004292613826692104,
+        "p99": 0.21270258724689484,
+        "max": 0.5220211148262024
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb2/Data/Images/Anomaly/052.JPG",
+      "sha256": "3893f03a41f7abbdddae69f852b42a61005a472581ec227af4ea6ad7976e23a7",
+      "cache_key": "ae3e02ee99d3ad8f52233c6afe52502268b1f5c218803691c85ece5c42355384",
+      "cached": false,
+      "score": 0.8902320861816406,
+      "finite": true,
+      "map": {
+        "min": 0.001887176651507616,
+        "p1": 0.002228104043751955,
+        "p50": 0.004038175567984581,
+        "p99": 0.3140881359577179,
+        "max": 0.7690621614456177
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb2",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb2/Data/Images/Normal/0969.JPG",
+      "sha256": "7cffeea4d6f1c5bafc923cab48b2a91dc0db847b8f09d57cf04e8e450fdb7779",
+      "cache_key": "c781712ecd949186e1a278fff79e34d9929b103de976f942ffe7777f21a92e49",
+      "cached": false,
+      "score": 0.8932044506072998,
+      "finite": true,
+      "map": {
+        "min": 0.0016840165480971336,
+        "p1": 0.002019451465457678,
+        "p50": 0.004092147573828697,
+        "p99": 0.056999802589416504,
+        "max": 0.08513862639665604
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb3/Data/Images/Normal/0184.JPG",
+      "sha256": "b7c28f20457ed8b8afae7356524cf103191d87a870d7d9f6c1f24ec3834c6c31",
+      "cache_key": "474d0775c18a02b3a66059a5a9af29d2c05cfb7a4d7676642eaa9739db152b98",
+      "cached": false,
+      "score": 0.8734021186828613,
+      "finite": true,
+      "map": {
+        "min": 0.0005702209309674799,
+        "p1": 0.0011277698213234544,
+        "p50": 0.003088846569880843,
+        "p99": 0.17617879807949066,
+        "max": 0.4623572826385498
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb3/Data/Images/Anomaly/092.JPG",
+      "sha256": "c69a0f3848395f5e0f5adc3b99c59d2ec66fc1f576d84f01686a4fdd7a92247c",
+      "cache_key": "b284b7dc7233ee24c342fefa06b2f7b0783229aa7068e3d7590dca899d81f635",
+      "cached": false,
+      "score": 0.8862969875335693,
+      "finite": true,
+      "map": {
+        "min": 0.0008732608985155821,
+        "p1": 0.0014029823942109942,
+        "p50": 0.0037182429805397987,
+        "p99": 0.17210160195827484,
+        "max": 0.27007317543029785
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb3",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb3/Data/Images/Normal/0283.JPG",
+      "sha256": "a78775efea2de3c645494107053b594832c1ea182a3cd416b109d7ca02e8556d",
+      "cache_key": "08d10f7299b0708d7961925efb65771e508c577e5d891192c2caeda8e9ce9759",
+      "cached": false,
+      "score": 0.839621901512146,
+      "finite": true,
+      "map": {
+        "min": 0.000473477179184556,
+        "p1": 0.0008800377836450934,
+        "p50": 0.00269229244440794,
+        "p99": 0.11366573721170425,
+        "max": 0.33139050006866455
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "sample",
+      "split": "train",
+      "path": "pcb4/Data/Images/Normal/0598.JPG",
+      "sha256": "0b6346e1f70e2218dcd6ae8a73be88b0544a0b4a7361675a8c26296c5106d467",
+      "cache_key": "1155e5a04460276635948660f1c74fd8d921f76ddfe771a3348247bf641034f8",
+      "cached": false,
+      "score": 0.843708336353302,
+      "finite": true,
+      "map": {
+        "min": 0.0007490525604225695,
+        "p1": 0.0013050823472440243,
+        "p50": 0.0022765519097447395,
+        "p99": 0.1778709590435028,
+        "max": 0.5479695796966553
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "sample",
+      "split": "test",
+      "path": "pcb4/Data/Images/Anomaly/047.JPG",
+      "sha256": "7d90ac1b60201cf35068c0f7fd2d42f68806384911d01fbd3c76c4ba25ca90d1",
+      "cache_key": "2fb810a373cb6ec3a84471427a4d44461c9c41c00d184ab2fe5c41cae3c5d97a",
+      "cached": false,
+      "score": 0.9075632691383362,
+      "finite": true,
+      "map": {
+        "min": 0.00115443323738873,
+        "p1": 0.0015570726245641708,
+        "p50": 0.0024457541294395924,
+        "p99": 0.4014533758163452,
+        "max": 0.8189525008201599
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pcb4",
+      "role": "reference",
+      "split": "train",
+      "path": "pcb4/Data/Images/Normal/0803.JPG",
+      "sha256": "e2adaa13abf4d822d24e602546920e742bd04408dc7ac75fae6be8a25fe6749d",
+      "cache_key": "68e22d8a3c4f64cc23b68e651e3e63b56942f0ed927e896633581e5452224174",
+      "cached": false,
+      "score": 0.8375409245491028,
+      "finite": true,
+      "map": {
+        "min": 0.0008685354259796441,
+        "p1": 0.0012592374114319682,
+        "p50": 0.0024798002559691668,
+        "p99": 0.16901201009750366,
+        "max": 0.5098176002502441
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "sample",
+      "split": "train",
+      "path": "pipe_fryum/Data/Images/Normal/242.JPG",
+      "sha256": "da2dc67d2f16aa341b74eaf66a894abba409f6f67d441173c37095e7b213bbe7",
+      "cache_key": "c8373891aa775706ddcde2be9818887af510c08e5edbe7b81dd6c1028d60ec4f",
+      "cached": false,
+      "score": 0.9809908866882324,
+      "finite": true,
+      "map": {
+        "min": 0.0007706723990850151,
+        "p1": 0.0010200300021097064,
+        "p50": 0.001954901497811079,
+        "p99": 0.11770376563072205,
+        "max": 0.2507599890232086
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "sample",
+      "split": "test",
+      "path": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "sha256": "07d9247e49e19eb64139a56a508974a4cb7f047b61008d7fd2fd3eee9f5d7f1e",
+      "cache_key": "2684355ffe8ca1e79c4fe49423dd5dda4245a86b488975c5a37129c957b7e8f4",
+      "cached": false,
+      "score": 0.9864960312843323,
+      "finite": true,
+      "map": {
+        "min": 0.0006191885913722217,
+        "p1": 0.0010221274569630623,
+        "p50": 0.001942869508638978,
+        "p99": 0.2860477566719055,
+        "max": 0.8662401437759399
+      }
+    },
+    {
+      "dataset": "visa",
+      "category": "pipe_fryum",
+      "role": "reference",
+      "split": "train",
+      "path": "pipe_fryum/Data/Images/Normal/452.JPG",
+      "sha256": "552ce39cbc674e633bfc35440877e3120295141a4ff89f0a4af959a3d987d3ae",
+      "cache_key": "15852e9d77c91259e6dbb2132340f630b454eefc1f04048384291c44a2c87ce3",
+      "cached": false,
+      "score": 0.9845877885818481,
+      "finite": true,
+      "map": {
+        "min": 0.0008009059820324183,
+        "p1": 0.0012258043279871345,
+        "p50": 0.00221590930595994,
+        "p99": 0.12298432737588882,
+        "max": 0.18443016707897186
+      }
+    }
+  ]
+}

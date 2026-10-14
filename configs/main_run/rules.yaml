@@ -1,0 +1,76 @@
+# Fixed verification and evaluation rules for the main run (design doc 10.3, 13, 13.1).
+# Lines marked "implementation choice" are not in the design doc.
+
+existence:
+  # threshold from train-set normal image scores
+  threshold_percentile: 95
+  # implementation choice: one threshold per category
+  threshold_scope: category
+  # implementation choice: the detector says defective when score > threshold
+  defective_if: score_above_threshold
+
+location:
+  # top pixels of the anomaly map, judged at map resolution
+  top_fraction: 0.01
+  # pass when at least this share of the top pixels lies in the claimed cells
+  min_share_in_claimed: 0.5
+  grid: 3
+  # implementation choice: a map pixel belongs to the cell holding its centre
+  # implementation choice: an empty location_cells list on a defective answer fails
+
+type:
+  # crop centred on the map peak, side = this many grid cells (per axis)
+  crop_cells: 1.5
+  # implementation choice: peak = first maximum in row-major order; the centre of that map pixel in original coordinates
+  # implementation choice: a crop crossing the edge is moved inside with its size kept (same as the zoom-in crop)
+  library_per_type: 3
+  library_seeds: [0, 1, 2]
+  library_main_seed: 0
+  # implementation choice: types with fewer single-type images than library_per_type use all they have
+  embedding:
+    # implementation choice: original CLIP image encoder, not AnomalyCLIP prompts or DPAM
+    backbone: ViT-L/14@336px
+    backbone_sha256: 3035c92b350959924f9f00213499208652fc7ea050643e8b385c2dac08641f02
+    # implementation choice: CLS token after ln_post and proj, L2-normalised
+    token: cls
+    input_size: 336
+    # implementation choice: resize the crop to 336 x 336 without cropping (repository _transform)
+    resize: squash_bicubic
+    normalize_mean: [0.48145466, 0.4578275, 0.40821073]
+    normalize_std: [0.26862954, 0.26130258, 0.27577711]
+  # implementation choice: prototype = mean of normalised library embeddings, normalised again
+  prototype: normalized_mean
+  # implementation choice: cosine similarity; ties go to the earlier type in type_names.yaml
+  similarity: cosine
+
+requery:
+  # zoom-in crop (A3): component of the top pixels holding the peak, box scaled about its centre, at least one cell
+  top_fraction: 0.01
+  box_scale: 2
+  grid: 3
+  # the whole image is shown with each side divided by this factor
+  downscale: 2
+  # implementation choice (A3 changed before freezing): move inside at the edge with the size kept
+  edge: shift_inside
+  max_rounds: 1
+
+format:
+  # retries after a format violation, each with the latest output only
+  max_retries: 2
+
+evaluation:
+  # A9: location claim correct when at least half of the claimed cells are ground-truth cells
+  location_correct_share: 0.5
+  # ground-truth cell: any mask pixel in the cell
+  gt_cell_min_pixels: 1
+  # A7: types with fewer test images than library_per_type + 5 are reported separately
+  small_type_margin: 5
+  # A5: a defective answer on a normal image makes all its claims wrong
+  normal_defective_all_wrong: true
+  bootstrap:
+    resamples: 2000
+    interval: 0.95
+    method: percentile
+    stratify: category
+    # implementation choice: fixed seed for the bootstrap
+    seed: 0
