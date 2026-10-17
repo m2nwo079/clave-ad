@@ -29,7 +29,7 @@ sessions:
     kinds: {visa: [b0, b2]}
   s4:
     kinds: {mvtec_ad: [p1], visa: [p1]}
-session: s1
+session: s4
 
 # each worker starts no new image after this many hours, so the kernel can still save its output
 time_budget_hours: 10
