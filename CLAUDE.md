@@ -133,6 +133,7 @@ threshold = np.percentile(normal_scores, 95)  # Bad: inline comment
 - Kaggle은 비공개 데이터셋·커널로 실행하고 결과를 내려받아 로컬에서 커밋한다. `kernel-metadata.json`처럼 계정 ID가 들어가는 파일은 스크립트로 만들고 추적하지 않는다. 데이터셋 새 버전은 처리가 끝난 뒤 커널을 실행하고, 실행 기록의 커밋을 확인한다.
 - 승인된 의존성: torch, transformers(Qwen3.5는 5.2.0 이상), accelerate, bitsandbytes, pyyaml, kaggle CLI(로컬 `.venv`)
 - 승인된 의존성(Kaggle 기본 설치본 사용, 없을 때만 설치, 버전 고정 안 함, 실제 버전은 결과 파일에 기록): pillow, torchvision, scipy, numpy, tqdm, setuptools(없으면 packaging으로 대신), ftfy(+wcwidth), regex
+- 승인된 의존성(로컬 분석 환경, 버전은 `requirements-analysis.txt`에 고정): matplotlib(그림 생성)
 - 브라우저(Claude in Chrome)는 새 탭을 만들어 그 탭에서만 작업하고, 사용자가 열어 둔 탭에 접근하거나 닫지 않는다.
 - macOS에서 터미널이 다운로드 폴더 권한이 없으면 `mv`가 `Operation not permitted`로 실패한다. Finder로 옮기거나 권한을 준다.
 

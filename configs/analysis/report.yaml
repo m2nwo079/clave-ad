@@ -1,0 +1,27 @@
+# Korean result report (scripts/analysis/report.py): every number in the report comes from these result files.
+eval: results/analysis/eval_20261017T135021Z.json
+posthoc: results/posthoc/posthoc_20261018T004519Z.json
+# main-run sessions, used only for the allowed format items (fenced answers, control characters)
+sessions:
+  - results/main_run/vlm_s1_20261014T172135Z.json
+  - results/main_run/vlm_s2_20261015T123219Z.json
+  - results/main_run/vlm_s3_20261017T081232Z.json
+  - results/main_run/vlm_s4_20261017T125758Z.json
+# human-written source with table and figure markers, the assembled report and the generated tables and figures
+source: docs/report_ko.src.md
+output: docs/report_ko.md
+generated_dir: docs/report
+datasets: [mvtec_ad, visa]
+methods: [b0, b1, b2, b3, b4, p0, p1, p1_secondary]
+figure_dpi: 150
+# the source must not carry result numbers: decimals and percent signs are blocked, integers are allowed;
+# allowed tokens (section, question and version notation, cell names) are removed before the check
+number_check:
+  blocked: ['\d+\.\d+', '%']
+  allowed:
+    - '\d+(?:\.\d+)+절'
+    - '\b(?:BQ|SQ)\d+(?:\.\d+)*'
+    - '\bv\d+(?:\.\d+)*'
+    - '\bQwen\d+(?:\.\d+)*'
+    - '\b[A-Z]\d+\b'
+    - '\br\d+c\d+\b'

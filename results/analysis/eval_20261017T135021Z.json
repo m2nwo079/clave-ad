@@ -1,0 +1,2938 @@
+{
+ "run_id": "eval_20261017T135021Z",
+ "git_commit": "7ad33afca9e2d4a07cb2345eb647ac68d6944045",
+ "config_path": "configs/analysis/run.yaml",
+ "config_hash": "4855409c6337759d35d84ece82618ac8694d0dce652008a7ab8264e888aa281c",
+ "dataset": "mvtec_ad+visa",
+ "seed": 0,
+ "created_at": "2026-10-17T13:50:21.980072+00:00",
+ "provenance": {
+  "cache_bundle": {
+   "path": "cache/kaggle_data/main_run_cache/cache.jsonl",
+   "sha256": "87b6721f2026c3b311cbd13bfeced101881ce8b3a82b4c25a72f6812fd93cb85",
+   "entries": 12666
+  },
+  "inputs": {
+   "results/main_run/vlm_s1_20261014T172135Z.json": "3c647f61ddc7392d85c49b5fd1ec7155ac2c3fafac7c0895e3bb2e92edbffbc5",
+   "results/main_run/vlm_s2_20261015T123219Z.json": "94d9d70127da46dcd017d5b74bdf947f87f0af9a9724364963c9f0096a914c43",
+   "results/main_run/vlm_s3_20261017T081232Z.json": "2d7364e095c5295cb5f42de1dfc77a810c4c457f95c6c83d32af104582f79c67",
+   "results/main_run/vlm_s4_20261017T125758Z.json": "f8219bd2dfe3555cefa52fc78b699b6e28c7c37af7f2b0344d50081da3dad60f",
+   "results/main_run/library_20261014T091345Z.json": "ef4166291124a6c975eda177b42b9ff853d69c837a6b86c13b9166d8835c171b",
+   "results/format_check/samples_20261014T035726Z.json": "3afd5721b001100fe4989fa22bdf4b25e1f8d54cb628455fd0a467bececa04d6",
+   "results/main_run/detector_20261014T115713Z.json": "350b6c27ff59e501cfd920cc0184f5c46cec8cb75040f1a7b1bf7c30c8015ea1"
+  },
+  "eval_config": {
+   "path": "configs/analysis/eval.yaml",
+   "sha256": "ea6f0bcdd4be6cbbcd6f7cdc188e1403dc783496c227a14938130cc70807ec41"
+  },
+  "rules": {
+   "path": "configs/main_run/rules.yaml",
+   "sha256": "c899adb09a934ea2f50e79d9f0de1c37b85c088e100de536041f4e6b8e60c807"
+  }
+ },
+ "metrics": {
+  "datasets": {
+   "mvtec_ad": {
+    "images": 1448,
+    "small_type_images": 0,
+    "multi_type_ratio": {
+     "correct": 0,
+     "n": 981,
+     "rate": 0.0
+    },
+    "b0": {
+     "unparsed": 1,
+     "full_faithful": {
+      "rate": 0.4930939226519337,
+      "n": 1448,
+      "ci": [
+       0.4702866022099448,
+       0.5158839779005525
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1125,
+       "n": 1447,
+       "rate": 0.7774706288873532
+      },
+      "location": {
+       "correct": 569,
+       "n": 745,
+       "rate": 0.763758389261745
+      },
+      "type": {
+       "correct": 395,
+       "n": 745,
+       "rate": 0.5302013422818792
+      }
+     },
+     "sq1_2": {
+      "n": 745,
+      "wrong": 411,
+      "rate": 0.5516778523489932
+     },
+     "normal_called_defective": 87,
+     "cells": {
+      "mean": 2.3461538461538463,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5342465753424658,
+       "auroc": 0.5395927601809954
+      },
+      "cable": {
+       "full_faithful": 0.6923076923076923,
+       "auroc": 0.4691358024691358
+      },
+      "capsule": {
+       "full_faithful": 0.3620689655172414,
+       "auroc": 0.5682110682110683
+      },
+      "carpet": {
+       "full_faithful": 0.5445544554455446,
+       "auroc": 0.5
+      },
+      "grid": {
+       "full_faithful": 0.5967741935483871,
+       "auroc": 0.6351351351351351
+      },
+      "hazelnut": {
+       "full_faithful": 0.7010309278350515,
+       "auroc": 0.7421399594320487
+      },
+      "leather": {
+       "full_faithful": 0.5833333333333334,
+       "auroc": 0.4984126984126984
+      },
+      "metal_nut": {
+       "full_faithful": 0.5,
+       "auroc": 0.667435601691657
+      },
+      "pill": {
+       "full_faithful": 0.07633587786259542,
+       "auroc": 0.5
+      },
+      "screw": {
+       "full_faithful": 0.4791666666666667,
+       "auroc": 0.5526570048309178
+      },
+      "tile": {
+       "full_faithful": 0.7128712871287128,
+       "auroc": 0.664272030651341
+      },
+      "toothbrush": {
+       "full_faithful": 0.6578947368421053,
+       "auroc": 0.5230769230769231
+      },
+      "transistor": {
+       "full_faithful": 0.05747126436781609,
+       "auroc": 0.4878048780487805
+      },
+      "wood": {
+       "full_faithful": 0.8,
+       "auroc": 0.5227272727272727
+      },
+      "zipper": {
+       "full_faithful": 0.45689655172413796,
+       "auroc": 0.4082060497154837
+      }
+     },
+     "auroc": {
+      "signal": "confidence",
+      "main": 0.5903275361986541,
+      "excluded": 1,
+      "ci": [
+       0.5663040968446154,
+       0.6152869008858427
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.590885673070318,
+      "by_class": {
+       "normal": 0.8803387779794314,
+       "defective": 0.3852658460169444
+      }
+     }
+    },
+    "b1": {
+     "unparsed": 4,
+     "full_faithful": {
+      "rate": 0.5780386740331491,
+      "n": 1448,
+      "ci": [
+       0.5545580110497238,
+       0.6022099447513812
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1305,
+       "n": 1444,
+       "rate": 0.9037396121883656
+      },
+      "location": {
+       "correct": 800,
+       "n": 945,
+       "rate": 0.8465608465608465
+      },
+      "type": {
+       "correct": 541,
+       "n": 945,
+       "rate": 0.5724867724867725
+      }
+     },
+     "sq1_2": {
+      "n": 945,
+      "wrong": 468,
+      "rate": 0.49523809523809526
+     },
+     "normal_called_defective": 104,
+     "cells": {
+      "mean": 1.782650142993327,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5068493150684932,
+       "auroc": 0.5
+      },
+      "cable": {
+       "full_faithful": 0.7094017094017094,
+       "auroc": 0.8132530120481928
+      },
+      "capsule": {
+       "full_faithful": 0.5086206896551724,
+       "auroc": 0.4384478144513827
+      },
+      "carpet": {
+       "full_faithful": 0.5346534653465347,
+       "auroc": 0.5
+      },
+      "grid": {
+       "full_faithful": 0.6290322580645161,
+       "auroc": 0.6043956043956044
+      },
+      "hazelnut": {
+       "full_faithful": 0.8144329896907216,
+       "auroc": 0.4247538677918425
+      },
+      "leather": {
+       "full_faithful": 0.6759259259259259,
+       "auroc": 0.4344422700587084
+      },
+      "metal_nut": {
+       "full_faithful": 0.4215686274509804,
+       "auroc": 0.5
+      },
+      "pill": {
+       "full_faithful": 0.2595419847328244,
+       "auroc": 0.521376591873863
+      },
+      "screw": {
+       "full_faithful": 0.5138888888888888,
+       "auroc": 0.5823359073359073
+      },
+      "tile": {
+       "full_faithful": 0.7425742574257426,
+       "auroc": 0.7756410256410257
+      },
+      "toothbrush": {
+       "full_faithful": 0.5789473684210527,
+       "auroc": 0.5097402597402597
+      },
+      "transistor": {
+       "full_faithful": 0.6896551724137931,
+       "auroc": 0.8595679012345679
+      },
+      "wood": {
+       "full_faithful": 0.9090909090909091,
+       "auroc": 0.324
+      },
+      "zipper": {
+       "full_faithful": 0.47413793103448276,
+       "auroc": 0.5640834575260805
+      }
+     },
+     "auroc": {
+      "signal": "confidence",
+      "main": 0.566318085104289,
+      "excluded": 4,
+      "ci": [
+       0.5447255049148176,
+       0.5885005325204743
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.5691572465766014,
+      "by_class": {
+       "normal": 0.6269497863247864,
+       "defective": 0.5391529231320671
+      }
+     },
+     "verifier_auroc": {
+      "main": 0.788103350201453,
+      "secondary_fill": 0.7892715586607144
+     }
+    },
+    "b2": {
+     "unparsed": 0,
+     "full_faithful": {
+      "rate": 0.4903314917127072,
+      "n": 1448,
+      "ci": [
+       0.4675414364640884,
+       0.5124309392265194
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1205,
+       "n": 1448,
+       "rate": 0.8321823204419889
+      },
+      "location": {
+       "correct": 609,
+       "n": 861,
+       "rate": 0.7073170731707317
+      },
+      "type": {
+       "correct": 459,
+       "n": 861,
+       "rate": 0.5331010452961672
+      }
+     },
+     "sq1_2": {
+      "n": 861,
+      "wrong": 495,
+      "rate": 0.5749128919860628
+     },
+     "normal_called_defective": 123,
+     "cells": {
+      "mean": 2.619918699186992,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.589041095890411,
+       "auroc": 0.5
+      },
+      "cable": {
+       "full_faithful": 0.6324786324786325,
+       "auroc": 0.5
+      },
+      "capsule": {
+       "full_faithful": 0.39655172413793105,
+       "auroc": 0.5571428571428572
+      },
+      "carpet": {
+       "full_faithful": 0.5544554455445545,
+       "auroc": 0.7293650793650793
+      },
+      "grid": {
+       "full_faithful": 0.6129032258064516,
+       "auroc": 0.7105263157894737
+      },
+      "hazelnut": {
+       "full_faithful": 0.6907216494845361,
+       "auroc": 0.48333333333333334
+      },
+      "leather": {
+       "full_faithful": 0.5740740740740741,
+       "auroc": 0.6290322580645161
+      },
+      "metal_nut": {
+       "full_faithful": 0.5,
+       "auroc": 0.4803921568627451
+      },
+      "pill": {
+       "full_faithful": 0.015267175572519083,
+       "auroc": 0.5
+      },
+      "screw": {
+       "full_faithful": 0.4652777777777778,
+       "auroc": 0.5495251017639078
+      },
+      "tile": {
+       "full_faithful": 0.6633663366336634,
+       "auroc": 0.5
+      },
+      "toothbrush": {
+       "full_faithful": 0.7631578947368421,
+       "auroc": 0.5862068965517241
+      },
+      "transistor": {
+       "full_faithful": 0.05747126436781609,
+       "auroc": 0.5
+      },
+      "wood": {
+       "full_faithful": 0.9090909090909091,
+       "auroc": 0.49
+      },
+      "zipper": {
+       "full_faithful": 0.45689655172413796,
+       "auroc": 0.5807127882599581
+      }
+     },
+     "auroc": {
+      "signal": "confidence",
+      "main": 0.554535478453376,
+      "excluded": 0,
+      "ci": [
+       0.5400550065100348,
+       0.5680062426682287
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.554535478453376,
+      "by_class": {
+       "normal": 0.6167635658914729,
+       "defective": 0.49989115464925143
+      }
+     },
+     "verifier_auroc": {
+      "main": 0.7894547501813046,
+      "secondary_fill": 0.7894547501813046
+     }
+    },
+    "b3": {
+     "unparsed": 1,
+     "full_faithful": {
+      "rate": 0.4930939226519337,
+      "n": 1448,
+      "ci": [
+       0.4702866022099448,
+       0.5158839779005525
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1125,
+       "n": 1447,
+       "rate": 0.7774706288873532
+      },
+      "location": {
+       "correct": 569,
+       "n": 745,
+       "rate": 0.763758389261745
+      },
+      "type": {
+       "correct": 395,
+       "n": 745,
+       "rate": 0.5302013422818792
+      }
+     },
+     "sq1_2": {
+      "n": 745,
+      "wrong": 411,
+      "rate": 0.5516778523489932
+     },
+     "normal_called_defective": 87,
+     "cells": {
+      "mean": 2.3461538461538463,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5342465753424658,
+       "auroc": 0.5294117647058824
+      },
+      "cable": {
+       "full_faithful": 0.6923076923076923,
+       "auroc": 0.5385802469135802
+      },
+      "capsule": {
+       "full_faithful": 0.3620689655172414,
+       "auroc": 0.5
+      },
+      "carpet": {
+       "full_faithful": 0.5445544554455446,
+       "auroc": 0.5108695652173914
+      },
+      "grid": {
+       "full_faithful": 0.5967741935483871,
+       "auroc": 0.5208333333333334
+      },
+      "hazelnut": {
+       "full_faithful": 0.7010309278350515,
+       "auroc": 0.5344827586206896
+      },
+      "leather": {
+       "full_faithful": 0.5833333333333334,
+       "auroc": 0.5111111111111111
+      },
+      "metal_nut": {
+       "full_faithful": 0.5,
+       "auroc": 0.5882352941176471
+      },
+      "pill": {
+       "full_faithful": 0.07633587786259542,
+       "auroc": 0.512396694214876
+      },
+      "screw": {
+       "full_faithful": 0.4791666666666667,
+       "auroc": 0.5
+      },
+      "tile": {
+       "full_faithful": 0.7128712871287128,
+       "auroc": 0.5689655172413793
+      },
+      "toothbrush": {
+       "full_faithful": 0.6578947368421053,
+       "auroc": 0.6153846153846154
+      },
+      "transistor": {
+       "full_faithful": 0.05747126436781609,
+       "auroc": 0.5121951219512195
+      },
+      "wood": {
+       "full_faithful": 0.8,
+       "auroc": 0.48863636363636365
+      },
+      "zipper": {
+       "full_faithful": 0.45689655172413796,
+       "auroc": 0.5158730158730159
+      }
+     },
+     "auroc": {
+      "signal": "self_check_score",
+      "main": 0.5089030155036094,
+      "excluded": 1,
+      "ci": [
+       0.4973738535244217,
+       0.520234277244597
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.5095415550416352,
+      "by_class": {
+       "normal": 0.45789473684210524,
+       "defective": 0.5349873009399159
+      }
+     }
+    },
+    "b4": {
+     "unparsed": 0,
+     "full_faithful": {
+      "rate": 0.6077348066298343,
+      "n": 1448,
+      "ci": [
+       0.585618093922652,
+       0.6298515193370164
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1143,
+       "n": 1448,
+       "rate": 0.789364640883978
+      },
+      "location": {
+       "correct": 670,
+       "n": 699,
+       "rate": 0.9585121602288984
+      },
+      "type": {
+       "correct": 447,
+       "n": 699,
+       "rate": 0.6394849785407726
+      }
+     },
+     "sq1_2": {
+      "n": 699,
+      "wrong": 263,
+      "rate": 0.37625178826895567
+     },
+     "normal_called_defective": 23,
+     "cells": {
+      "mean": 1.2271468144044322,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.6164383561643836,
+       "auroc": null
+      },
+      "cable": {
+       "full_faithful": 0.5470085470085471,
+       "auroc": null
+      },
+      "capsule": {
+       "full_faithful": 0.39655172413793105,
+       "auroc": null
+      },
+      "carpet": {
+       "full_faithful": 0.7821782178217822,
+       "auroc": null
+      },
+      "grid": {
+       "full_faithful": 0.6774193548387096,
+       "auroc": null
+      },
+      "hazelnut": {
+       "full_faithful": 0.7628865979381443,
+       "auroc": null
+      },
+      "leather": {
+       "full_faithful": 0.9166666666666666,
+       "auroc": null
+      },
+      "metal_nut": {
+       "full_faithful": 0.4803921568627451,
+       "auroc": null
+      },
+      "pill": {
+       "full_faithful": 0.33587786259541985,
+       "auroc": null
+      },
+      "screw": {
+       "full_faithful": 0.3194444444444444,
+       "auroc": null
+      },
+      "tile": {
+       "full_faithful": 0.900990099009901,
+       "auroc": null
+      },
+      "toothbrush": {
+       "full_faithful": 0.6052631578947368,
+       "auroc": null
+      },
+      "transistor": {
+       "full_faithful": 0.7241379310344828,
+       "auroc": null
+      },
+      "wood": {
+       "full_faithful": 0.8363636363636363,
+       "auroc": null
+      },
+      "zipper": {
+       "full_faithful": 0.5948275862068966,
+       "auroc": null
+      }
+     }
+    },
+    "p0": {
+     "unparsed": 1,
+     "full_faithful": {
+      "rate": 0.4930939226519337,
+      "n": 1448,
+      "ci": [
+       0.4702866022099448,
+       0.5158839779005525
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1125,
+       "n": 1447,
+       "rate": 0.7774706288873532
+      },
+      "location": {
+       "correct": 569,
+       "n": 745,
+       "rate": 0.763758389261745
+      },
+      "type": {
+       "correct": 395,
+       "n": 745,
+       "rate": 0.5302013422818792
+      }
+     },
+     "sq1_2": {
+      "n": 745,
+      "wrong": 411,
+      "rate": 0.5516778523489932
+     },
+     "normal_called_defective": 87,
+     "cells": {
+      "mean": 2.3461538461538463,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5342465753424658,
+       "auroc": 0.6798642533936652
+      },
+      "cable": {
+       "full_faithful": 0.6923076923076923,
+       "auroc": 0.5442386831275721
+      },
+      "capsule": {
+       "full_faithful": 0.3620689655172414,
+       "auroc": 0.680984555984556
+      },
+      "carpet": {
+       "full_faithful": 0.5445544554455446,
+       "auroc": 0.8367588932806325
+      },
+      "grid": {
+       "full_faithful": 0.5967741935483871,
+       "auroc": 0.8856981981981982
+      },
+      "hazelnut": {
+       "full_faithful": 0.7010309278350515,
+       "auroc": 0.8894523326572008
+      },
+      "leather": {
+       "full_faithful": 0.5833333333333334,
+       "auroc": 0.9350970017636684
+      },
+      "metal_nut": {
+       "full_faithful": 0.5,
+       "auroc": 0.527681660899654
+      },
+      "pill": {
+       "full_faithful": 0.07633587786259542,
+       "auroc": 0.7293388429752066
+      },
+      "screw": {
+       "full_faithful": 0.4791666666666667,
+       "auroc": 0.6117874396135266
+      },
+      "tile": {
+       "full_faithful": 0.7128712871287128,
+       "auroc": 0.9396551724137931
+      },
+      "toothbrush": {
+       "full_faithful": 0.6578947368421053,
+       "auroc": 0.6061538461538462
+      },
+      "transistor": {
+       "full_faithful": 0.05747126436781609,
+       "auroc": 0.8207317073170731
+      },
+      "wood": {
+       "full_faithful": 0.8,
+       "auroc": 0.7407024793388429
+      },
+      "zipper": {
+       "full_faithful": 0.45689655172413796,
+       "auroc": 0.8688230008984726
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.7684423018866482,
+      "excluded": 1,
+      "ci": [
+       0.7462406744936687,
+       0.790313745716551
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.7687253375464628,
+      "by_class": {
+       "normal": 0.9677858439201452,
+       "defective": 0.6313356259616989
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 654,
+       "n": 1447,
+       "rate": 0.45196959225984795
+      },
+      "secondary": {
+       "correct": 654,
+       "n": 1448,
+       "rate": 0.4516574585635359
+      },
+      "full_rate_among_pass": {
+       "correct": 492,
+       "n": 654,
+       "rate": 0.7522935779816514
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 654,
+       "full_rate": 0.7522935779816514
+      },
+      "partially_verified": {
+       "n": 561,
+       "full_rate": 0.33511586452762926
+      },
+      "withheld": {
+       "n": 232,
+       "full_rate": 0.14655172413793102
+      }
+     }
+    },
+    "p1": {
+     "unparsed": 1,
+     "full_faithful": {
+      "rate": 0.5062154696132597,
+      "n": 1448,
+      "ci": [
+       0.48342541436464087,
+       0.5303867403314917
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1056,
+       "n": 1447,
+       "rate": 0.7297857636489288
+      },
+      "location": {
+       "correct": 487,
+       "n": 623,
+       "rate": 0.7817014446227929
+      },
+      "type": {
+       "correct": 366,
+       "n": 623,
+       "rate": 0.5874799357945425
+      }
+     },
+     "sq1_2": {
+      "n": 623,
+      "wrong": 323,
+      "rate": 0.5184590690208668
+     },
+     "normal_called_defective": 34,
+     "cells": {
+      "mean": 1.547945205479452,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5342465753424658,
+       "auroc": 0.6568627450980392
+      },
+      "cable": {
+       "full_faithful": 0.5726495726495726,
+       "auroc": 0.5891044776119403
+      },
+      "capsule": {
+       "full_faithful": 0.3275862068965517,
+       "auroc": 0.722165991902834
+      },
+      "carpet": {
+       "full_faithful": 0.5643564356435643,
+       "auroc": 0.8508771929824561
+      },
+      "grid": {
+       "full_faithful": 0.6129032258064516,
+       "auroc": 0.8975972540045767
+      },
+      "hazelnut": {
+       "full_faithful": 0.6597938144329897,
+       "auroc": 0.8735795454545454
+      },
+      "leather": {
+       "full_faithful": 0.6203703703703703,
+       "auroc": 0.9293775027302512
+      },
+      "metal_nut": {
+       "full_faithful": 0.49019607843137253,
+       "auroc": 0.5396153846153846
+      },
+      "pill": {
+       "full_faithful": 0.183206106870229,
+       "auroc": 0.7032710280373832
+      },
+      "screw": {
+       "full_faithful": 0.4513888888888889,
+       "auroc": 0.6289191820837391
+      },
+      "tile": {
+       "full_faithful": 0.6633663366336634,
+       "auroc": 0.9536874451273046
+      },
+      "toothbrush": {
+       "full_faithful": 0.5526315789473685,
+       "auroc": 0.5224089635854342
+      },
+      "transistor": {
+       "full_faithful": 0.5057471264367817,
+       "auroc": 0.8364164904862579
+      },
+      "wood": {
+       "full_faithful": 0.7636363636363637,
+       "auroc": 0.8159340659340659
+      },
+      "zipper": {
+       "full_faithful": 0.43103448275862066,
+       "auroc": 0.8681818181818182
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.7476459888184469,
+      "excluded": 1,
+      "ci": [
+       0.7265597616002587,
+       0.7684489774256199
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.7479798509812152,
+      "by_class": {
+       "normal": 0.9453878549110175,
+       "defective": 0.6592843137254902
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 836,
+       "n": 1447,
+       "rate": 0.5777470628887353
+      },
+      "secondary": {
+       "correct": 836,
+       "n": 1448,
+       "rate": 0.5773480662983426
+      },
+      "full_rate_among_pass": {
+       "correct": 585,
+       "n": 836,
+       "rate": 0.6997607655502392
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 836,
+       "full_rate": 0.6997607655502392
+      },
+      "partially_verified": {
+       "n": 397,
+       "full_rate": 0.3224181360201511
+      },
+      "withheld": {
+       "n": 214,
+       "full_rate": 0.09345794392523364
+      }
+     }
+    },
+    "p1_secondary": {
+     "unparsed": 1,
+     "full_faithful": {
+      "rate": 0.5303867403314917,
+      "n": 1448,
+      "ci": [
+       0.5069060773480663,
+       0.5545580110497238
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1136,
+       "n": 1447,
+       "rate": 0.7850725639253628
+      },
+      "location": {
+       "correct": 565,
+       "n": 706,
+       "rate": 0.8002832861189801
+      },
+      "type": {
+       "correct": 393,
+       "n": 706,
+       "rate": 0.556657223796034
+      }
+     },
+     "sq1_2": {
+      "n": 706,
+      "wrong": 368,
+      "rate": 0.5212464589235127
+     },
+     "normal_called_defective": 37,
+     "cells": {
+      "mean": 1.9623149394347241,
+      "empty": 0
+     },
+     "per_category": {
+      "bottle": {
+       "full_faithful": 0.5342465753424658,
+       "auroc": 0.6470588235294118
+      },
+      "cable": {
+       "full_faithful": 0.5982905982905983,
+       "auroc": 0.5493920972644377
+      },
+      "capsule": {
+       "full_faithful": 0.3448275862068966,
+       "auroc": 0.6925986842105263
+      },
+      "carpet": {
+       "full_faithful": 0.5643564356435643,
+       "auroc": 0.8425039872408293
+      },
+      "grid": {
+       "full_faithful": 0.6612903225806451,
+       "auroc": 0.8560975609756097
+      },
+      "hazelnut": {
+       "full_faithful": 0.7216494845360825,
+       "auroc": 0.8243386243386244
+      },
+      "leather": {
+       "full_faithful": 0.6574074074074074,
+       "auroc": 0.905024743052912
+      },
+      "metal_nut": {
+       "full_faithful": 0.5,
+       "auroc": 0.4982698961937716
+      },
+      "pill": {
+       "full_faithful": 0.17557251908396945,
+       "auroc": 0.7071256038647343
+      },
+      "screw": {
+       "full_faithful": 0.4861111111111111,
+       "auroc": 0.5794401544401544
+      },
+      "tile": {
+       "full_faithful": 0.7227722772277227,
+       "auroc": 0.9334637964774951
+      },
+      "toothbrush": {
+       "full_faithful": 0.6052631578947368,
+       "auroc": 0.4681159420289855
+      },
+      "transistor": {
+       "full_faithful": 0.4942528735632184,
+       "auroc": 0.8498942917547568
+      },
+      "wood": {
+       "full_faithful": 0.8,
+       "auroc": 0.7551652892561983
+      },
+      "zipper": {
+       "full_faithful": 0.45689655172413796,
+       "auroc": 0.8566936208445642
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.713024860395189,
+      "excluded": 1,
+      "ci": [
+       0.6902116901914173,
+       0.7358929905981179
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.713430606617647,
+      "by_class": {
+       "normal": 0.9525769956002514,
+       "defective": 0.5924141458828734
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 836,
+       "n": 1447,
+       "rate": 0.5777470628887353
+      },
+      "secondary": {
+       "correct": 836,
+       "n": 1448,
+       "rate": 0.5773480662983426
+      },
+      "full_rate_among_pass": {
+       "correct": 585,
+       "n": 836,
+       "rate": 0.6997607655502392
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 836,
+       "full_rate": 0.6997607655502392
+      },
+      "partially_verified": {
+       "n": 491,
+       "full_rate": 0.3380855397148676
+      },
+      "withheld": {
+       "n": 120,
+       "full_rate": 0.14166666666666666
+      }
+     }
+    }
+   },
+   "visa": {
+    "images": 1966,
+    "small_type_images": 2,
+    "multi_type_ratio": {
+     "correct": 278,
+     "n": 1004,
+     "rate": 0.27689243027888444
+    },
+    "b0": {
+     "unparsed": 28,
+     "full_faithful": {
+      "rate": 0.5845213849287169,
+      "n": 1964,
+      "ci": [
+       0.5636456211812627,
+       0.6043788187372708
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1479,
+       "n": 1938,
+       "rate": 0.7631578947368421
+      },
+      "location": {
+       "correct": 418,
+       "n": 579,
+       "rate": 0.7219343696027634
+      },
+      "type": {
+       "correct": 341,
+       "n": 578,
+       "rate": 0.5899653979238755
+      }
+     },
+     "sq1_2": {
+      "n": 578,
+      "wrong": 330,
+      "rate": 0.5709342560553633
+     },
+     "normal_called_defective": 59,
+     "cells": {
+      "mean": 1.4200626959247649,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.632768361581921,
+       "auroc": 0.8002645502645502
+      },
+      "capsules": {
+       "full_faithful": 0.532051282051282,
+       "auroc": 0.45866800535475233
+      },
+      "cashew": {
+       "full_faithful": 0.5284552845528455,
+       "auroc": 0.5484084880636605
+      },
+      "chewinggum": {
+       "full_faithful": 0.7518248175182481,
+       "auroc": 0.538263849229012
+      },
+      "fryum": {
+       "full_faithful": 0.5669291338582677,
+       "auroc": 0.6766414141414141
+      },
+      "macaroni1": {
+       "full_faithful": 0.5869565217391305,
+       "auroc": 0.5556314511232544
+      },
+      "macaroni2": {
+       "full_faithful": 0.34615384615384615,
+       "auroc": 0.5238095238095238
+      },
+      "pcb1": {
+       "full_faithful": 0.5775401069518716,
+       "auroc": 0.5000586029067041
+      },
+      "pcb2": {
+       "full_faithful": 0.6470588235294118,
+       "auroc": 0.522038567493113
+      },
+      "pcb3": {
+       "full_faithful": 0.5425531914893617,
+       "auroc": 0.5058139534883721
+      },
+      "pcb4": {
+       "full_faithful": 0.7243243243243244,
+       "auroc": 0.5485074626865671
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.5877862595419847,
+       "auroc": 0.5
+      }
+     },
+     "auroc": {
+      "signal": "confidence",
+      "main": 0.5460412281787792,
+      "excluded": 28,
+      "ci": [
+       0.528648431461948,
+       0.5640109521364536
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.5616182448589192,
+      "by_class": {
+       "normal": 0.6774293785310734,
+       "defective": 0.40196468870304
+      }
+     }
+    },
+    "b2": {
+     "unparsed": 8,
+     "full_faithful": {
+      "rate": 0.5789205702647657,
+      "n": 1964,
+      "ci": [
+       0.5580448065173116,
+       0.5986800299594118
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1511,
+       "n": 1958,
+       "rate": 0.77170582226762
+      },
+      "location": {
+       "correct": 477,
+       "n": 691,
+       "rate": 0.6903039073806078
+      },
+      "type": {
+       "correct": 423,
+       "n": 690,
+       "rate": 0.6130434782608696
+      }
+     },
+     "sq1_2": {
+      "n": 690,
+      "wrong": 373,
+      "rate": 0.5405797101449276
+     },
+     "normal_called_defective": 139,
+     "cells": {
+      "mean": 1.5313253012048194,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.2033898305084746,
+       "auroc": 0.6995665878644602
+      },
+      "capsules": {
+       "full_faithful": 0.6730769230769231,
+       "auroc": 0.5049486461251167
+      },
+      "cashew": {
+       "full_faithful": 0.5934959349593496,
+       "auroc": 0.4931506849315068
+      },
+      "chewinggum": {
+       "full_faithful": 0.708029197080292,
+       "auroc": 0.5
+      },
+      "fryum": {
+       "full_faithful": 0.6220472440944882,
+       "auroc": 0.5461497890295358
+      },
+      "macaroni1": {
+       "full_faithful": 0.5163043478260869,
+       "auroc": 0.49473684210526314
+      },
+      "macaroni2": {
+       "full_faithful": 0.554945054945055,
+       "auroc": 0.5
+      },
+      "pcb1": {
+       "full_faithful": 0.5989304812834224,
+       "auroc": 0.5486904761904762
+      },
+      "pcb2": {
+       "full_faithful": 0.6684491978609626,
+       "auroc": 0.554258064516129
+      },
+      "pcb3": {
+       "full_faithful": 0.5797872340425532,
+       "auroc": 0.5820462199512252
+      },
+      "pcb4": {
+       "full_faithful": 0.7027027027027027,
+       "auroc": 0.7896503496503496
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.5725190839694656,
+       "auroc": 0.5357142857142857
+      }
+     },
+     "auroc": {
+      "signal": "confidence",
+      "main": 0.5650191204280914,
+      "excluded": 8,
+      "ci": [
+       0.5518804616399029,
+       0.5774007452354873
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.5692269161192344,
+      "by_class": {
+       "normal": 0.6150464993858572,
+       "defective": 0.4668073854147337
+      }
+     },
+     "verifier_auroc": {
+      "main": 0.7574895055106137,
+      "secondary_fill": 0.7594313085518543
+     }
+    },
+    "b4": {
+     "unparsed": 0,
+     "full_faithful": {
+      "rate": 0.5870672097759674,
+      "n": 1964,
+      "ci": [
+       0.5661241098677517,
+       0.6084521384928717
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1406,
+       "n": 1966,
+       "rate": 0.7151576805696847
+      },
+      "location": {
+       "correct": 437,
+       "n": 498,
+       "rate": 0.8775100401606426
+      },
+      "type": {
+       "correct": 269,
+       "n": 496,
+       "rate": 0.5423387096774194
+      }
+     },
+     "sq1_2": {
+      "n": 496,
+      "wrong": 251,
+      "rate": 0.5060483870967742
+     },
+     "normal_called_defective": 54,
+     "cells": {
+      "mean": 1.2971014492753623,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.5988700564971752,
+       "auroc": null
+      },
+      "capsules": {
+       "full_faithful": 0.5576923076923077,
+       "auroc": null
+      },
+      "cashew": {
+       "full_faithful": 0.5284552845528455,
+       "auroc": null
+      },
+      "chewinggum": {
+       "full_faithful": 0.8102189781021898,
+       "auroc": null
+      },
+      "fryum": {
+       "full_faithful": 0.5118110236220472,
+       "auroc": null
+      },
+      "macaroni1": {
+       "full_faithful": 0.5706521739130435,
+       "auroc": null
+      },
+      "macaroni2": {
+       "full_faithful": 0.521978021978022,
+       "auroc": null
+      },
+      "pcb1": {
+       "full_faithful": 0.6149732620320856,
+       "auroc": null
+      },
+      "pcb2": {
+       "full_faithful": 0.5401069518716578,
+       "auroc": null
+      },
+      "pcb3": {
+       "full_faithful": 0.5585106382978723,
+       "auroc": null
+      },
+      "pcb4": {
+       "full_faithful": 0.654054054054054,
+       "auroc": null
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.5877862595419847,
+       "auroc": null
+      }
+     }
+    },
+    "p0": {
+     "unparsed": 28,
+     "full_faithful": {
+      "rate": 0.5845213849287169,
+      "n": 1964,
+      "ci": [
+       0.5636456211812627,
+       0.6043788187372708
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1479,
+       "n": 1938,
+       "rate": 0.7631578947368421
+      },
+      "location": {
+       "correct": 418,
+       "n": 579,
+       "rate": 0.7219343696027634
+      },
+      "type": {
+       "correct": 341,
+       "n": 578,
+       "rate": 0.5899653979238755
+      }
+     },
+     "sq1_2": {
+      "n": 578,
+      "wrong": 330,
+      "rate": 0.5709342560553633
+     },
+     "normal_called_defective": 59,
+     "cells": {
+      "mean": 1.4200626959247649,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.632768361581921,
+       "auroc": 0.7864583333333334
+      },
+      "capsules": {
+       "full_faithful": 0.532051282051282,
+       "auroc": 0.6369645247657296
+      },
+      "cashew": {
+       "full_faithful": 0.5284552845528455,
+       "auroc": 0.6505305039787799
+      },
+      "chewinggum": {
+       "full_faithful": 0.7518248175182481,
+       "auroc": 0.8125356938892062
+      },
+      "fryum": {
+       "full_faithful": 0.5669291338582677,
+       "auroc": 0.7359848484848485
+      },
+      "macaroni1": {
+       "full_faithful": 0.5869565217391305,
+       "auroc": 0.7573618700667881
+      },
+      "macaroni2": {
+       "full_faithful": 0.34615384615384615,
+       "auroc": 0.8646758138283562
+      },
+      "pcb1": {
+       "full_faithful": 0.5775401069518716,
+       "auroc": 0.7012423816221285
+      },
+      "pcb2": {
+       "full_faithful": 0.6470588235294118,
+       "auroc": 0.6252817430503381
+      },
+      "pcb3": {
+       "full_faithful": 0.5425531914893617,
+       "auroc": 0.6451778385772914
+      },
+      "pcb4": {
+       "full_faithful": 0.7243243243243244,
+       "auroc": 0.7992390986245245
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.5877862595419847,
+       "auroc": 0.8293650793650794
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.7373792868639346,
+      "excluded": 28,
+      "ci": [
+       0.7169494144070342,
+       0.7584362561246367
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.7452250717360115,
+      "by_class": {
+       "normal": 0.9618832391713747,
+       "defective": 0.5601630603124031
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 1249,
+       "n": 1936,
+       "rate": 0.6451446280991735
+      },
+      "secondary": {
+       "correct": 1249,
+       "n": 1964,
+       "rate": 0.6359470468431772
+      },
+      "full_rate_among_pass": {
+       "correct": 957,
+       "n": 1249,
+       "rate": 0.7662129703763011
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 1249,
+       "full_rate": 0.7662129703763011
+      },
+      "partially_verified": {
+       "n": 378,
+       "full_rate": 0.29894179894179895
+      },
+      "withheld": {
+       "n": 309,
+       "full_rate": 0.2524271844660194
+      }
+     }
+    },
+    "p1": {
+     "unparsed": 28,
+     "full_faithful": {
+      "rate": 0.6130346232179226,
+      "n": 1964,
+      "ci": [
+       0.5921565156541034,
+       0.6338615281596011
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1499,
+       "n": 1938,
+       "rate": 0.7734778121775026
+      },
+      "location": {
+       "correct": 418,
+       "n": 570,
+       "rate": 0.7333333333333333
+      },
+      "type": {
+       "correct": 361,
+       "n": 569,
+       "rate": 0.6344463971880492
+      }
+     },
+     "sq1_2": {
+      "n": 569,
+      "wrong": 294,
+      "rate": 0.5166959578207382
+     },
+     "normal_called_defective": 30,
+     "cells": {
+      "mean": 1.18,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.6214689265536724,
+       "auroc": 0.7884740259740259
+      },
+      "capsules": {
+       "full_faithful": 0.6025641025641025,
+       "auroc": 0.531217300313917
+      },
+      "cashew": {
+       "full_faithful": 0.5447154471544715,
+       "auroc": 0.6043443496801706
+      },
+      "chewinggum": {
+       "full_faithful": 0.8029197080291971,
+       "auroc": 0.7841750841750842
+      },
+      "fryum": {
+       "full_faithful": 0.5511811023622047,
+       "auroc": 0.7286967418546366
+      },
+      "macaroni1": {
+       "full_faithful": 0.5652173913043478,
+       "auroc": 0.7684171597633136
+      },
+      "macaroni2": {
+       "full_faithful": 0.510989010989011,
+       "auroc": 0.7255620723362659
+      },
+      "pcb1": {
+       "full_faithful": 0.6096256684491979,
+       "auroc": 0.67267483777938
+      },
+      "pcb2": {
+       "full_faithful": 0.6310160427807486,
+       "auroc": 0.6223286661753868
+      },
+      "pcb3": {
+       "full_faithful": 0.574468085106383,
+       "auroc": 0.5997685185185185
+      },
+      "pcb4": {
+       "full_faithful": 0.7135135135135136,
+       "auroc": 0.7401372212692967
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.6412213740458015,
+       "auroc": 0.8078774062816616
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.6934529482780531,
+      "excluded": 28,
+      "ci": [
+       0.6712339037922879,
+       0.7152510997117155
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.7037369951040392,
+      "by_class": {
+       "normal": 0.9623250807319699,
+       "defective": 0.5307303807303807
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 1351,
+       "n": 1936,
+       "rate": 0.6978305785123967
+      },
+      "secondary": {
+       "correct": 1351,
+       "n": 1964,
+       "rate": 0.6878818737270875
+      },
+      "full_rate_among_pass": {
+       "correct": 1011,
+       "n": 1351,
+       "rate": 0.7483345669874167
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 1351,
+       "full_rate": 0.7483345669874167
+      },
+      "partially_verified": {
+       "n": 358,
+       "full_rate": 0.3547486033519553
+      },
+      "withheld": {
+       "n": 227,
+       "full_rate": 0.2907488986784141
+      }
+     }
+    },
+    "p1_secondary": {
+     "unparsed": 28,
+     "full_faithful": {
+      "rate": 0.6181262729124236,
+      "n": 1964,
+      "ci": [
+       0.5965334580321184,
+       0.6383122376406145
+      ],
+      "dropped": 0
+     },
+     "claims": {
+      "existence": {
+       "correct": 1522,
+       "n": 1938,
+       "rate": 0.7853457172342622
+      },
+      "location": {
+       "correct": 452,
+       "n": 597,
+       "rate": 0.7571189279731994
+      },
+      "type": {
+       "correct": 374,
+       "n": 596,
+       "rate": 0.62751677852349
+      }
+     },
+     "sq1_2": {
+      "n": 596,
+      "wrong": 307,
+      "rate": 0.5151006711409396
+     },
+     "normal_called_defective": 34,
+     "cells": {
+      "mean": 1.248811410459588,
+      "empty": 0
+     },
+     "per_category": {
+      "candle": {
+       "full_faithful": 0.6440677966101694,
+       "auroc": 0.7638326585695007
+      },
+      "capsules": {
+       "full_faithful": 0.5897435897435898,
+       "auroc": 0.5570220841959972
+      },
+      "cashew": {
+       "full_faithful": 0.5447154471544715,
+       "auroc": 0.6038113006396588
+      },
+      "chewinggum": {
+       "full_faithful": 0.8029197080291971,
+       "auroc": 0.7878787878787878
+      },
+      "fryum": {
+       "full_faithful": 0.5984251968503937,
+       "auroc": 0.6746646026831785
+      },
+      "macaroni1": {
+       "full_faithful": 0.5815217391304348,
+       "auroc": 0.742086222490202
+      },
+      "macaroni2": {
+       "full_faithful": 0.4945054945054945,
+       "auroc": 0.7498168498168498
+      },
+      "pcb1": {
+       "full_faithful": 0.6203208556149733,
+       "auroc": 0.6561437591063624
+      },
+      "pcb2": {
+       "full_faithful": 0.6310160427807486,
+       "auroc": 0.6295136330140014
+      },
+      "pcb3": {
+       "full_faithful": 0.574468085106383,
+       "auroc": 0.5998842592592593
+      },
+      "pcb4": {
+       "full_faithful": 0.7189189189189189,
+       "auroc": 0.7317813765182186
+      },
+      "pipe_fryum": {
+       "full_faithful": 0.6335877862595419,
+       "auroc": 0.8091114457831325
+      }
+     },
+     "auroc": {
+      "signal": "verification_score",
+      "main": 0.6855989905397326,
+      "excluded": 28,
+      "ci": [
+       0.6642632559296873,
+       0.7076974150073974
+      ],
+      "dropped": 0,
+      "secondary_fill": 0.6964448105436574,
+      "by_class": {
+       "normal": 0.963751987281399,
+       "defective": 0.5087309889756176
+      }
+     },
+     "all_pass": {
+      "main": {
+       "correct": 1351,
+       "n": 1936,
+       "rate": 0.6978305785123967
+      },
+      "secondary": {
+       "correct": 1351,
+       "n": 1964,
+       "rate": 0.6878818737270875
+      },
+      "full_rate_among_pass": {
+       "correct": 1011,
+       "n": 1351,
+       "rate": 0.7483345669874167
+      }
+     },
+     "explanation_status": {
+      "all_verified": {
+       "n": 1351,
+       "full_rate": 0.7483345669874167
+      },
+      "partially_verified": {
+       "n": 408,
+       "full_rate": 0.3553921568627451
+      },
+      "withheld": {
+       "n": 177,
+       "full_rate": 0.327683615819209
+      }
+     }
+    }
+   }
+  },
+  "a2": {
+   "seed_0": {
+    "main": {
+     "p0": {
+      "value": 0.7684423018866482,
+      "ci": [
+       0.7462406744936687,
+       0.790313745716551
+      ],
+      "dropped": 0
+     },
+     "b3": {
+      "value": 0.5089030155036094,
+      "ci": [
+       0.4973738535244217,
+       0.520234277244597
+      ],
+      "dropped": 0
+     },
+     "diff": {
+      "value": 0.2595392863830388,
+      "ci": [
+       0.23349427711666543,
+       0.28499704738328524
+      ],
+      "dropped": 0
+     },
+     "n_pairs": 1447,
+     "excluded": {
+      "p0_missing": 1,
+      "b3_missing_only": 0
+     },
+     "holds": true
+    },
+    "secondary_fill": {
+     "p0": {
+      "value": 0.7687253375464628
+     },
+     "b3": {
+      "value": 0.5095415550416352
+     },
+     "diff": {
+      "value": 0.25918378250482754
+     }
+    }
+   },
+   "seed_1": {
+    "main": {
+     "p0": {
+      "value": 0.7658869918076717
+     },
+     "b3": {
+      "value": 0.5063385269121813
+     },
+     "diff": {
+      "value": 0.25954846489549044
+     },
+     "n_pairs": 1446,
+     "excluded": {
+      "p0_missing": 1,
+      "b3_missing_only": 1
+     }
+    },
+    "secondary_fill": {
+     "p0": {
+      "value": 0.7655921901605797
+     },
+     "b3": {
+      "value": 0.5076080648732848
+     },
+     "diff": {
+      "value": 0.25798412528729486
+     }
+    }
+   },
+   "seed_2": {
+    "main": {
+     "p0": {
+      "value": 0.7644475823116131
+     },
+     "b3": {
+      "value": 0.5062106809937089
+     },
+     "diff": {
+      "value": 0.2582369013179042
+     },
+     "n_pairs": 1446,
+     "excluded": {
+      "p0_missing": 1,
+      "b3_missing_only": 1
+     }
+    },
+    "secondary_fill": {
+     "p0": {
+      "value": 0.7641601599767972
+     },
+     "b3": {
+      "value": 0.5074950961310954
+     },
+     "diff": {
+      "value": 0.25666506384570176
+     }
+    }
+   },
+   "range": {
+    "p0": [
+     0.7644475823116131,
+     0.7684423018866482
+    ],
+    "b3": [
+     0.5062106809937089,
+     0.5089030155036094
+    ],
+    "diff": [
+     0.2582369013179042,
+     0.25954846489549044
+    ]
+   }
+  },
+  "comparisons": {
+   "mvtec_ad": {
+    "full_faithful": {
+     "b1-b0": {
+      "value": 0.08494475138121543,
+      "ci": [
+       0.06146408839779005,
+       0.10842541436464093
+      ],
+      "dropped": 0
+     },
+     "b2-b0": {
+      "value": -0.0027624309392265123,
+      "ci": [
+       -0.021408839779005484,
+       0.014502762430939231
+      ],
+      "dropped": 0
+     },
+     "p1-b0": {
+      "value": 0.013121546961326003,
+      "ci": [
+       -0.004160911602209984,
+       0.03038674033149169
+      ],
+      "dropped": 0
+     },
+     "p1-b2": {
+      "value": 0.015883977900552515,
+      "ci": [
+       -0.00552486187845308,
+       0.037292817679557944
+      ],
+      "dropped": 0
+     },
+     "p1-b4": {
+      "value": -0.10151933701657456,
+      "ci": [
+       -0.12430939226519339,
+       -0.0787292817679558
+      ],
+      "dropped": 0
+     }
+    },
+    "auroc": {
+     "p0-b0": {
+      "main": {
+       "p0": {
+        "value": 0.7684423018866482,
+        "ci": [
+         0.7462406744936687,
+         0.790313745716551
+        ],
+        "dropped": 0
+       },
+       "b0": {
+        "value": 0.5903275361986541,
+        "ci": [
+         0.5663040968446154,
+         0.6152869008858427
+        ],
+        "dropped": 0
+       },
+       "diff": {
+        "value": 0.17811476568799411,
+        "ci": [
+         0.15086123943038485,
+         0.20339926724013682
+        ],
+        "dropped": 0
+       },
+       "n_pairs": 1447,
+       "excluded": {
+        "p0_missing": 1,
+        "b0_missing_only": 0
+       }
+      },
+      "secondary_fill": {
+       "p0": {
+        "value": 0.7687253375464628
+       },
+       "b0": {
+        "value": 0.590885673070318
+       },
+       "diff": {
+        "value": 0.17783966447614474
+       }
+      }
+     },
+     "p0-b2": {
+      "main": {
+       "p0": {
+        "value": 0.7684423018866482,
+        "ci": [
+         0.7462406744936687,
+         0.790313745716551
+        ],
+        "dropped": 0
+       },
+       "b2": {
+        "value": 0.5545779425535574,
+        "ci": [
+         0.5400925349527993,
+         0.5680399334339167
+        ],
+        "dropped": 0
+       },
+       "diff": {
+        "value": 0.21386435933309078,
+        "ci": [
+         0.1891617285746936,
+         0.2388554642833317
+        ],
+        "dropped": 0
+       },
+       "n_pairs": 1447,
+       "excluded": {
+        "p0_missing": 1,
+        "b2_missing_only": 0
+       }
+      },
+      "secondary_fill": {
+       "p0": {
+        "value": 0.7687253375464628
+       },
+       "b2": {
+        "value": 0.554535478453376
+       },
+       "diff": {
+        "value": 0.21418985909308674
+       }
+      }
+     }
+    }
+   },
+   "visa": {
+    "full_faithful": {
+     "b2-b0": {
+      "value": -0.005600814663951126,
+      "ci": [
+       -0.0223918575063613,
+       0.010178246606862434
+      ],
+      "dropped": 0
+     },
+     "p1-b0": {
+      "value": 0.02851323828920571,
+      "ci": [
+       0.015784114052953213,
+       0.04175152749490829
+      ],
+      "dropped": 0
+     },
+     "p1-b2": {
+      "value": 0.03411405295315684,
+      "ci": [
+       0.017829852266938447,
+       0.05089123303431228
+      ],
+      "dropped": 0
+     },
+     "p1-b4": {
+      "value": 0.02596741344195519,
+      "ci": [
+       0.007637474541751563,
+       0.044297916495907544
+      ],
+      "dropped": 0
+     }
+    },
+    "auroc": {
+     "p0-b0": {
+      "main": {
+       "p0": {
+        "value": 0.7373792868639346,
+        "ci": [
+         0.7169494144070342,
+         0.7584362561246367
+        ],
+        "dropped": 0
+       },
+       "b0": {
+        "value": 0.5460412281787792,
+        "ci": [
+         0.528648431461948,
+         0.5640109521364536
+        ],
+        "dropped": 0
+       },
+       "diff": {
+        "value": 0.1913380586851554,
+        "ci": [
+         0.16546463721454424,
+         0.21549933203529772
+        ],
+        "dropped": 0
+       },
+       "n_pairs": 1936,
+       "excluded": {
+        "p0_missing": 28,
+        "b0_missing_only": 0
+       }
+      },
+      "secondary_fill": {
+       "p0": {
+        "value": 0.7452250717360115
+       },
+       "b0": {
+        "value": 0.5616182448589192
+       },
+       "diff": {
+        "value": 0.1836068268770923
+       }
+      }
+     },
+     "p0-b2": {
+      "main": {
+       "p0": {
+        "value": 0.7373792868639346,
+        "ci": [
+         0.7169494144070342,
+         0.7584362561246367
+        ],
+        "dropped": 0
+       },
+       "b2": {
+        "value": 0.5651012460031579,
+        "ci": [
+         0.5518019909067421,
+         0.5775261317870062
+        ],
+        "dropped": 0
+       },
+       "diff": {
+        "value": 0.1722780408607767,
+        "ci": [
+         0.14964694754352148,
+         0.19731221552686778
+        ],
+        "dropped": 0
+       },
+       "n_pairs": 1936,
+       "excluded": {
+        "p0_missing": 28,
+        "b2_missing_only": 0
+       }
+      },
+      "secondary_fill": {
+       "p0": {
+        "value": 0.7452250717360115
+       },
+       "b2": {
+        "value": 0.5692269161192344
+       },
+       "diff": {
+        "value": 0.17599815561677712
+       }
+      }
+     }
+    }
+   }
+  },
+  "ablation": {
+   "mvtec_ad": {
+    "without_score": {
+     "removed": [
+      "existence"
+     ],
+     "auroc": 0.6896538248803598,
+     "auroc_full_same_images": 0.7054295024409013,
+     "excluded": 615,
+     "delta": -0.015775677560541546
+    },
+    "without_map": {
+     "removed": [
+      "location",
+      "type"
+     ],
+     "auroc": 0.64940710254088,
+     "auroc_full_same_images": 0.7684423018866482,
+     "excluded": 0,
+     "delta": -0.11903519934576823
+    },
+    "without_library": {
+     "removed": [
+      "type"
+     ],
+     "auroc": 0.6803713299781031,
+     "auroc_full_same_images": 0.7684423018866482,
+     "excluded": 0,
+     "delta": -0.08807097190854507
+    },
+    "location_only": {
+     "removed": [
+      "location"
+     ],
+     "auroc": 0.7752826915213562,
+     "auroc_full_same_images": 0.7684423018866482,
+     "excluded": 0,
+     "delta": 0.006840389634708011
+    }
+   },
+   "visa": {
+    "without_score": {
+     "removed": [
+      "existence"
+     ],
+     "auroc": 0.7016854631395638,
+     "auroc_full_same_images": 0.7162233601459491,
+     "excluded": 1299,
+     "delta": -0.014537897006385303
+    },
+    "without_map": {
+     "removed": [
+      "location",
+      "type"
+     ],
+     "auroc": 0.6592285855780965,
+     "auroc_full_same_images": 0.7373792868639346,
+     "excluded": 0,
+     "delta": -0.07815070128583812
+    },
+    "without_library": {
+     "removed": [
+      "type"
+     ],
+     "auroc": 0.7039897239073913,
+     "auroc_full_same_images": 0.7373792868639346,
+     "excluded": 0,
+     "delta": -0.03338956295654327
+    },
+    "location_only": {
+     "removed": [
+      "location"
+     ],
+     "auroc": 0.7221779435433948,
+     "auroc_full_same_images": 0.7373792868639346,
+     "excluded": 0,
+     "delta": -0.015201343320539795
+    }
+   }
+  },
+  "requery": {
+   "mvtec_ad": {
+    "requeried": 793,
+    "unparsed_kept": 0,
+    "p1": {
+     "before_full": {
+      "correct": 222,
+      "n": 793,
+      "rate": 0.27994955863808324
+     },
+     "after_full": {
+      "correct": 241,
+      "n": 793,
+      "rate": 0.30390920554854983
+     },
+     "fixed": 103,
+     "broken": 84
+    },
+    "p1_secondary": {
+     "before_full": {
+      "correct": 222,
+      "n": 793,
+      "rate": 0.27994955863808324
+     },
+     "after_full": {
+      "correct": 276,
+      "n": 793,
+      "rate": 0.3480453972257251
+     },
+     "fixed": 89,
+     "broken": 35
+    }
+   },
+   "visa": {
+    "requeried": 687,
+    "unparsed_kept": 2,
+    "p1": {
+     "before_full": {
+      "correct": 191,
+      "n": 687,
+      "rate": 0.2780203784570597
+     },
+     "after_full": {
+      "correct": 247,
+      "n": 687,
+      "rate": 0.35953420669577874
+     },
+     "fixed": 118,
+     "broken": 62
+    },
+    "p1_secondary": {
+     "before_full": {
+      "correct": 191,
+      "n": 687,
+      "rate": 0.2780203784570597
+     },
+     "after_full": {
+      "correct": 257,
+      "n": 687,
+      "rate": 0.37409024745269287
+     },
+     "fixed": 89,
+     "broken": 23
+    }
+   }
+  },
+  "cost": {
+   "mvtec_ad": {
+    "b0": {
+     "requests": 1710,
+     "calls": 1712,
+     "vlm_seconds": 16090.55357483298,
+     "vlm_seconds_per_request": 9.409680453118701
+    },
+    "b1": {
+     "requests": 1710,
+     "calls": 1720,
+     "vlm_seconds": 18583.000854563972,
+     "vlm_seconds_per_request": 10.867251961733317
+    },
+    "b2": {
+     "requests": 1710,
+     "calls": 1710,
+     "vlm_seconds": 17498.652624110895,
+     "vlm_seconds_per_request": 10.233130189538535
+    },
+    "b3": {
+     "requests": 1709,
+     "calls": 1722,
+     "vlm_seconds": 6721.261159813966,
+     "vlm_seconds_per_request": 3.9328620010614195
+    },
+    "requery": {
+     "requests": 835,
+     "calls": 835,
+     "vlm_seconds": 5783.416206755997,
+     "vlm_seconds_per_request": 6.926246954198799
+    },
+    "detector_seconds_per_image": 0.6411213589441396
+   },
+   "visa": {
+    "b0": {
+     "requests": 2150,
+     "calls": 2216,
+     "vlm_seconds": 20818.83348148108,
+     "vlm_seconds_per_request": 9.683178363479572
+    },
+    "b2": {
+     "requests": 2150,
+     "calls": 2168,
+     "vlm_seconds": 26120.88231951003,
+     "vlm_seconds_per_request": 12.149247590469782
+    },
+    "requery": {
+     "requests": 692,
+     "calls": 696,
+     "vlm_seconds": 5448.56750740701,
+     "vlm_seconds_per_request": 7.873652467351171
+    },
+    "detector_seconds_per_image": 0.6411213589441396
+   }
+  },
+  "format": {
+   "mvtec_ad": {
+    "b0": {
+     "requests": 1710,
+     "violations": 1,
+     "rate": 0.0005847953216374269,
+     "truncated_share": 0.0
+    },
+    "b1": {
+     "requests": 1710,
+     "violations": 4,
+     "rate": 0.0023391812865497076,
+     "truncated_share": 0.0
+    },
+    "b2": {
+     "requests": 1710,
+     "violations": 0,
+     "rate": 0.0,
+     "truncated_share": null
+    },
+    "b3": {
+     "requests": 1709,
+     "violations": 2,
+     "rate": 0.0011702750146284377,
+     "truncated_share": 0.0
+    },
+    "requery": {
+     "requests": 835,
+     "violations": 0,
+     "rate": 0.0,
+     "truncated_share": null
+    }
+   },
+   "visa": {
+    "b0": {
+     "requests": 2150,
+     "violations": 33,
+     "rate": 0.015348837209302326,
+     "truncated_share": 0.0
+    },
+    "b2": {
+     "requests": 2150,
+     "violations": 8,
+     "rate": 0.0037209302325581397,
+     "truncated_share": 0.0
+    },
+    "requery": {
+     "requests": 692,
+     "violations": 2,
+     "rate": 0.002890173410404624,
+     "truncated_share": 0.0
+    }
+   }
+  },
+  "unverifiable": {
+   "mvtec_ad": {
+    "types": [],
+    "claims": 0,
+    "gt_images_per_type": {},
+    "b4_cannot_answer": 0,
+    "secondary_excluding_types": {
+     "b0": {
+      "full_faithful": 0.4930939226519337,
+      "auroc": 0.5903275361986541
+     },
+     "b1": {
+      "full_faithful": 0.5780386740331491,
+      "auroc": 0.566318085104289
+     },
+     "b2": {
+      "full_faithful": 0.4903314917127072,
+      "auroc": 0.554535478453376
+     },
+     "b3": {
+      "full_faithful": 0.4930939226519337,
+      "auroc": 0.5089030155036094
+     },
+     "b4": {
+      "full_faithful": 0.6077348066298343,
+      "auroc": null
+     },
+     "p0": {
+      "full_faithful": 0.4930939226519337,
+      "auroc": 0.7684423018866482
+     },
+     "p1": {
+      "full_faithful": 0.5062154696132597,
+      "auroc": 0.7476459888184469
+     },
+     "p1_secondary": {
+      "full_faithful": 0.5303867403314917,
+      "auroc": 0.713024860395189
+     }
+    }
+   },
+   "visa": {
+    "types": [
+     "capsules/discolor",
+     "capsules/leak",
+     "capsules/misshape",
+     "capsules/scratch",
+     "chewinggum/small cracks",
+     "macaroni1/middle breakage",
+     "pcb4/dirt",
+     "pipe_fryum/middle breakage",
+     "pipe_fryum/small cracks"
+    ],
+    "claims": 84,
+    "gt_images_per_type": {
+     "capsules/discolor": 69,
+     "capsules/leak": 40,
+     "capsules/misshape": 28,
+     "capsules/scratch": 54,
+     "chewinggum/small cracks": 29,
+     "macaroni1/middle breakage": 10,
+     "pcb4/dirt": 41,
+     "pipe_fryum/middle breakage": 10,
+     "pipe_fryum/small cracks": 10
+    },
+    "b4_cannot_answer": 9,
+    "secondary_excluding_types": {
+     "b0": {
+      "full_faithful": 0.590027700831025,
+      "auroc": 0.5804901303244302
+     },
+     "b2": {
+      "full_faithful": 0.5772853185595568,
+      "auroc": 0.5710897281081975
+     },
+     "b4": {
+      "full_faithful": 0.6011080332409973,
+      "auroc": null
+     },
+     "p0": {
+      "full_faithful": 0.590027700831025,
+      "auroc": 0.7459120737496877
+     },
+     "p1": {
+      "full_faithful": 0.6166204986149585,
+      "auroc": 0.7019667915894331
+     },
+     "p1_secondary": {
+      "full_faithful": 0.621606648199446,
+      "auroc": 0.6943440583650092
+     }
+    }
+   }
+  },
+  "separate": {
+   "mvtec_ad": {
+    "combined": {
+     "b0": {
+      "images": 55,
+      "existence": {
+       "correct": 41,
+       "n": 55,
+       "rate": 0.7454545454545455
+      },
+      "location": {
+       "correct": 30,
+       "n": 41,
+       "rate": 0.7317073170731707
+      }
+     },
+     "b1": {
+      "images": 55,
+      "existence": {
+       "correct": 53,
+       "n": 55,
+       "rate": 0.9636363636363636
+      },
+      "location": {
+       "correct": 50,
+       "n": 53,
+       "rate": 0.9433962264150944
+      }
+     },
+     "b2": {
+      "images": 55,
+      "existence": {
+       "correct": 47,
+       "n": 55,
+       "rate": 0.8545454545454545
+      },
+      "location": {
+       "correct": 34,
+       "n": 47,
+       "rate": 0.723404255319149
+      }
+     },
+     "b3": {
+      "images": 55,
+      "existence": {
+       "correct": 41,
+       "n": 55,
+       "rate": 0.7454545454545455
+      },
+      "location": {
+       "correct": 30,
+       "n": 41,
+       "rate": 0.7317073170731707
+      }
+     },
+     "b4": {
+      "images": 55,
+      "existence": {
+       "correct": 39,
+       "n": 55,
+       "rate": 0.7090909090909091
+      },
+      "location": {
+       "correct": 38,
+       "n": 39,
+       "rate": 0.9743589743589743
+      }
+     },
+     "p0": {
+      "images": 55,
+      "existence": {
+       "correct": 41,
+       "n": 55,
+       "rate": 0.7454545454545455
+      },
+      "location": {
+       "correct": 30,
+       "n": 41,
+       "rate": 0.7317073170731707
+      }
+     },
+     "p1": {
+      "images": 55,
+      "existence": {
+       "correct": 25,
+       "n": 55,
+       "rate": 0.45454545454545453
+      },
+      "location": {
+       "correct": 24,
+       "n": 25,
+       "rate": 0.96
+      }
+     },
+     "p1_secondary": {
+      "images": 55,
+      "existence": {
+       "correct": 40,
+       "n": 55,
+       "rate": 0.7272727272727273
+      },
+      "location": {
+       "correct": 32,
+       "n": 40,
+       "rate": 0.8
+      }
+     }
+    }
+   },
+   "visa": {
+    "other": {
+     "b0": {
+      "images": 3,
+      "existence": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      },
+      "location": {
+       "correct": 2,
+       "n": 3,
+       "rate": 0.6666666666666666
+      }
+     },
+     "b2": {
+      "images": 3,
+      "existence": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      },
+      "location": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      }
+     },
+     "b4": {
+      "images": 3,
+      "existence": {
+       "correct": 2,
+       "n": 3,
+       "rate": 0.6666666666666666
+      },
+      "location": {
+       "correct": 2,
+       "n": 2,
+       "rate": 1.0
+      }
+     },
+     "p0": {
+      "images": 3,
+      "existence": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      },
+      "location": {
+       "correct": 2,
+       "n": 3,
+       "rate": 0.6666666666666666
+      }
+     },
+     "p1": {
+      "images": 3,
+      "existence": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      },
+      "location": {
+       "correct": 2,
+       "n": 3,
+       "rate": 0.6666666666666666
+      }
+     },
+     "p1_secondary": {
+      "images": 3,
+      "existence": {
+       "correct": 3,
+       "n": 3,
+       "rate": 1.0
+      },
+      "location": {
+       "correct": 2,
+       "n": 3,
+       "rate": 0.6666666666666666
+      }
+     }
+    }
+   }
+  },
+  "small_types": {
+   "mvtec_ad": {
+    "types": [],
+    "images": 0,
+    "methods": {
+     "b0": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "b1": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "b2": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "b3": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "b4": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "p0": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "p1": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     },
+     "p1_secondary": {
+      "type": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 0,
+       "rate": null
+      }
+     }
+    }
+   },
+   "visa": {
+    "types": [
+     "cashew/stuck together"
+    ],
+    "images": 2,
+    "methods": {
+     "b0": {
+      "type": {
+       "correct": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 2,
+       "rate": 0.0
+      }
+     },
+     "b2": {
+      "type": {
+       "correct": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 2,
+       "rate": 0.0
+      }
+     },
+     "b4": {
+      "type": {
+       "correct": 1,
+       "n": 2,
+       "rate": 0.5
+      },
+      "full_faithful": {
+       "correct": 1,
+       "n": 2,
+       "rate": 0.5
+      }
+     },
+     "p0": {
+      "type": {
+       "correct": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 2,
+       "rate": 0.0
+      }
+     },
+     "p1": {
+      "type": {
+       "correct": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 2,
+       "rate": 0.0
+      }
+     },
+     "p1_secondary": {
+      "type": {
+       "correct": 0,
+       "n": 1,
+       "rate": 0.0
+      },
+      "full_faithful": {
+       "correct": 0,
+       "n": 2,
+       "rate": 0.0
+      }
+     }
+    }
+   }
+  },
+  "library_crop_miss": {
+   "mvtec_ad": {
+    "0": {
+     "missed": 13,
+     "n": 207,
+     "rate": 0.06280193236714976
+    },
+    "1": {
+     "missed": 13,
+     "n": 207,
+     "rate": 0.06280193236714976
+    },
+    "2": {
+     "missed": 15,
+     "n": 207,
+     "rate": 0.07246376811594203
+    }
+   },
+   "visa": {
+    "0": {
+     "missed": 22,
+     "n": 181,
+     "rate": 0.12154696132596685
+    },
+    "1": {
+     "missed": 27,
+     "n": 181,
+     "rate": 0.14917127071823205
+    },
+    "2": {
+     "missed": 30,
+     "n": 181,
+     "rate": 0.16574585635359115
+    }
+   }
+  }
+ },
+ "environment": {
+  "python": "3.12.10",
+  "platform": "macOS-15.7.9-arm64-arm-64bit",
+  "torch": null,
+  "torchvision": null,
+  "transformers": null,
+  "bitsandbytes": null,
+  "accelerate": null,
+  "pillow": "12.3.0",
+  "pyyaml": "6.0.3",
+  "scipy": "1.18.1",
+  "numpy": "2.5.4",
+  "tqdm": "4.70.1",
+  "setuptools": null,
+  "packaging": "26.3",
+  "ftfy": null,
+  "wcwidth": null,
+  "regex": null,
+  "cuda": null
+ }
+}

@@ -1,0 +1,135 @@
+# Evaluation handling not covered by rules.yaml (design doc 8, 13, 13.1 A2, A6, A7).
+# Values already in rules.yaml are referenced by key name, not repeated.
+rules: configs/main_run/rules.yaml
+
+unparsed:
+  # main analysis: AUROC over parsed answers only; the number of excluded answers is reported
+  main: exclude
+  # secondary analysis: verification score, B3 score and confidence of an unparsed answer are set to this value
+  secondary_fill: 0
+  # full faithfulness ratio: an unparsed answer counts as not faithful (both analyses)
+  full_faithfulness: unfaithful
+  # P1 needs no handling: an unparsed re-query keeps the original answer (rules.yaml requery.unparsed_requery)
+
+p0_vs_b3:
+  # A2 paired comparison, MVTec AD only (VisA has no B3)
+  dataset: mvtec_ad
+  # main analysis: images where both B0 and B3 parsed
+  main: intersection
+  # secondary analysis: unparsed.secondary_fill applied to B3 too; a B3-only failure sets only the B3 score
+  secondary: fill
+
+b3_score:
+  # A6: same as the A1 verification score; a null claim is absent and leaves the denominator
+  method: share_true
+  null: absent
+
+bootstrap:
+  # settings in rules.yaml evaluation.bootstrap; a resample holding one class only is dropped and the drops are counted
+  single_class_resample: drop_and_count
+
+auroc_reporting:
+  # main analysis and A2 over all images; AUROC per normal and defective images is a secondary report
+  main: all_images
+  secondary: [normal, defective]
+
+exclusions:
+  # design doc 8: left out of the main analysis and reported separately
+  separate: [mvtec_combined, visa_with_other]
+  # A7 small types follow rules.yaml evaluation.small_type_margin and type.library_per_type
+  small_types: rules
+
+provenance:
+  # the evaluation result records the SHA-256 and entry count of this cache bundle
+  cache_bundle: cache/kaggle_data/main_run_cache/cache.jsonl
+
+b4:
+  # A6: detector-only explanation; not part of the AUROC comparison
+  # existence: the same threshold as verification (rules.yaml existence)
+  existence: verification_threshold
+  # location: cells by descending share of the top pixels (rules.yaml location.top_fraction), added until the
+  # cumulative share reaches this value
+  location_cumulative_share: 0.5
+  # type: nearest library prototype to the A4 crop embedding (rules.yaml type)
+  type: nearest_prototype
+  auroc: false
+  # cells with equal shares are taken in row-major order; the cell that reaches the cumulative share is included
+  cell_tie_order: row_major
+  # a normal B4 answer has the existence claim only
+  # a type with no library images cannot be answered (the nearest prototype is always a library type)
+
+auroc_signal:
+  # main analysis: each method's own signal
+  main: {b0: confidence, b1: confidence, b2: confidence, b3: self_check_score, p0: verification_score,
+         p1: verification_score}
+  # secondary analysis: the P0 verifier applied to the B1 and B2 answers
+  secondary: {b1: verification_score, b2: verification_score}
+
+p1_score:
+  # main analysis: p1.score when the re-query answer is final, otherwise p0.score (not re-queried, or the original
+  # answer kept because the re-query never parsed)
+  main: final_answer_score
+  # secondary analysis (rules.yaml requery.secondary_final_answer): the score of the adopted answer
+  secondary: adopted_answer_score
+
+ablation:
+  # main analysis: one tool removed at a time, with the claims it verifies
+  main: {without_score: [existence], without_map: [location, type], without_library: [type]}
+  # secondary analysis: the location claim only
+  secondary: {location_only: [location]}
+  # an answer left with no claim is excluded from the AUROC and counted
+  no_claim_left: exclude_and_count
+  # delta: P0 AUROC recomputed on the images left after the removal, ablated minus full on that same set
+  delta: same_images
+
+comparisons:
+  # A8 paired differences per dataset over the same resamples (first minus second); a pair whose method is missing
+  # in the dataset (VisA B1, B3) is skipped. No multiple-comparison correction; only A2 is judged
+  full_faithful: [[b1, b0], [b2, b0], [p1, b0], [p1, b2], [p1, b4]]
+  # every AUROC pair follows p0_vs_b3: the main analysis uses the images where both answers parsed, each method with
+  # its own main signal (auroc_signal.main) and the full faithfulness of its own answer, and reports the images left
+  # out of the intersection; the secondary analysis applies unparsed.secondary_fill to both over all images.
+  # p0 minus b3 is A2 and is reported under a2
+  auroc: [[p0, b3], [p0, b0], [p0, b2]]
+  auroc_image_set: {main: intersection, secondary: fill}
+
+small_types:
+  # A7 image count per type: test images without the format check samples, library images included
+  count_images: test_without_format_check
+  # an image whose ground truth holds a small type is left out of the type and full faithfulness counts
+  image_rule: any_small_type
+
+sq1_2:
+  # denominator: defective images the method also called defective
+  denominator: defective_called_defective
+
+all_pass:
+  # main analysis: share among parsed answers, with the unparsed count reported
+  main: parsed
+  # secondary analysis: share among all images, an unparsed answer counting as not passed
+  secondary: all_images
+
+library_crop_miss:
+  # A4: a library crop missed the defect when the crop box holds no mask pixel; reported per library seed
+  missed_if: no_mask_pixel_in_box
+  per_seed: true
+
+seeds_range:
+  # A8: A2 values of library seeds 0, 1 and 2 as point estimates with their minimum and maximum, no intervals
+  seeds: [0, 1, 2]
+  intervals: false
+
+separate_metrics:
+  # combined and Other images: existence and location point estimates with sample sizes only
+  metrics: [existence, location]
+
+cost_time:
+  # VLM generation time and detector time are reported separately; a missing detector time is marked not recorded
+  separate: [vlm, detector]
+  missing: not_recorded
+
+explanation_status:
+  # secondary report (design doc 10.5), over verifiable claims: counts and full faithfulness ratio per status
+  all_verified: all_pass
+  partially_verified: some_pass
+  withheld: none_pass

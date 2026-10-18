@@ -1,0 +1,4105 @@
+{
+ "run_id": "posthoc_20261018T004519Z",
+ "git_commit": "4001bba1b4681c6bc221302da43b504a5597bc0f",
+ "config_path": "configs/posthoc/c4_cause.yaml",
+ "config_hash": "f220c2ce170a1c5f9397999832ddb5e8daf95b5737e5d0ea8cf44fc37df851a7",
+ "dataset": "visa",
+ "seed": 0,
+ "created_at": "2026-10-18T00:45:19.486701+00:00",
+ "provenance": {
+  "targets": {
+   "path": "results/posthoc/targets_20261017T142021Z.json",
+   "sha256": "0f863b47a989633f9342cf8f3fbae08934e001b030603d63cee4bb8cd96af02e"
+  },
+  "bundle": {
+   "sha256": "51baac89db6f616cc284f3b419980a4a232214cc4c65c537848f0fdc7980446f",
+   "entries": 140
+  },
+  "shards": [
+   {
+    "shard": 0,
+    "sha256": "3c68a030c342941b156bf65f9d9964b222e2590c69539dc188f36dce65cdf1f0"
+   },
+   {
+    "shard": 1,
+    "sha256": "0e6ad5bd397bb05a431be06e2359fe36a0b5f1ceb0c9af994c47a191067899bc"
+   }
+  ]
+ },
+ "metrics": {
+  "grid_matches_claims_cell_boxes": true,
+  "e1": {
+   "violation": {
+    "n": 35,
+    "first_output": {
+     "cleared_in_grid": 33,
+     "cleared_normal": 2
+    },
+    "cleared": 35,
+    "cleared_share": 1.0,
+    "final_output_reference": {
+     "parsed": 35
+    },
+    "compliance": {
+     "requests": 35,
+     "first_ok": 35,
+     "ok_after_retry_1": 0,
+     "ok_after_retry_2": 0,
+     "violations": 0,
+     "violations_truncated": 0,
+     "violations_think_block": 0,
+     "ok_fenced": 0,
+     "ok_control_char": 29,
+     "nonfinite_requests": 0
+    }
+   },
+   "control": {
+    "n": 35,
+    "first_output": {
+     "cleared_in_grid": 15,
+     "cleared_normal": 20
+    },
+    "cleared": 35,
+    "cleared_share": 1.0,
+    "final_output_reference": {
+     "parsed": 35
+    },
+    "compliance": {
+     "requests": 35,
+     "first_ok": 35,
+     "ok_after_retry_1": 0,
+     "ok_after_retry_2": 0,
+     "violations": 0,
+     "violations_truncated": 0,
+     "violations_think_block": 0,
+     "ok_fenced": 0,
+     "ok_control_char": 15,
+     "nonfinite_requests": 0
+    },
+    "changes_vs_main_b0": {
+     "compared": 35,
+     "b0_unparsed_skipped": 0,
+     "is_defective": 5,
+     "location_cells": 10,
+     "defect_type": 7
+    }
+   }
+  },
+  "e2": {
+   "violation": {
+    "n": 35,
+    "parsed": 35,
+    "columns": {
+     "2": 34,
+     "6": 1
+    },
+    "columns_at_least_min": 1,
+    "share": 0.02857142857142857,
+    "compliance": {
+     "requests": 35,
+     "first_ok": 35,
+     "ok_after_retry_1": 0,
+     "ok_after_retry_2": 0,
+     "violations": 0,
+     "violations_truncated": 0,
+     "violations_think_block": 0,
+     "ok_fenced": 0,
+     "ok_control_char": 0,
+     "nonfinite_requests": 0
+    }
+   },
+   "control": {
+    "n": 35,
+    "parsed": 35,
+    "columns": {
+     "2": 34,
+     "6": 1
+    },
+    "columns_at_least_min": 1,
+    "share": 0.02857142857142857,
+    "compliance": {
+     "requests": 35,
+     "first_ok": 35,
+     "ok_after_retry_1": 0,
+     "ok_after_retry_2": 0,
+     "violations": 0,
+     "violations_truncated": 0,
+     "violations_think_block": 0,
+     "ok_fenced": 0,
+     "ok_control_char": 0,
+     "nonfinite_requests": 0
+    }
+   }
+  },
+  "hypotheses": {
+   "h2_grid": {
+    "value": 1.0,
+    "holds": true
+   },
+   "h1_layout": {
+    "value": 0.02857142857142857,
+    "control": 0.02857142857142857,
+    "holds": false
+   }
+  },
+  "e3": {
+   "b0": {
+    "records": 33,
+    "fixable": 33,
+    "full_faithful_after_fix": 10
+   },
+   "b2": {
+    "records": 8,
+    "fixable": 8,
+    "full_faithful_after_fix": 2
+   },
+   "requery": {
+    "records": 2,
+    "fixable": 2,
+    "full_faithful_after_fix": 1
+   }
+  }
+ },
+ "environment": {
+  "python": "3.12.10",
+  "platform": "macOS-15.7.9-arm64-arm-64bit",
+  "torch": null,
+  "torchvision": null,
+  "transformers": null,
+  "bitsandbytes": null,
+  "accelerate": null,
+  "pillow": "12.3.0",
+  "pyyaml": "6.0.3",
+  "scipy": "1.18.1",
+  "numpy": "2.5.4",
+  "tqdm": "4.70.1",
+  "setuptools": null,
+  "packaging": "26.3",
+  "ftfy": null,
+  "wcwidth": null,
+  "regex": null,
+  "cuda": null
+ },
+ "records": [
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/001.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "99033b3e6c947d33f40e739202f1019002fcc23e239bb43cbaa114f1bf2a4eb6",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 86,
+     "seconds": 13.857775691000029,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "82bbedbd188dce9152aa8bacf18a87938d8531858142a7ccc793b92132cedd06"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/001.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.403133667999953,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "c697ce4e2176c0de5d9f3ba8f38cd5acf99c61be5f91656ebb49c86652875f9a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/013.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "4f109f38f58b06bbf1a1391bb0001c84caae154629c2665740b95b8a77f85bdb",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 93,
+     "seconds": 11.028770400999974,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "b4d7175d7fc65c59c472d00169ad66fa9e558aa17a9d736da1e82591f13ee095"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/013.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.155346301000009,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "cc21cd6bd2fb9b889e330e3cb1af81435785b922887b9abd090c2178a6bec5d6"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/030.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "8accbfd282e6af1cd6550ae4c0b12914949a5dfabd62b0420e1dce79689dcb74",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 101,
+     "seconds": 12.056734170000027,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "98ab2201d842f3b77dad3ad30df754d923a5599e06a6996258492defa3b5d142"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/030.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.295110582999996,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "7ad582c6d170757fc1596fccbcdb12faa72547ec4cf76fc76911aa8da128de2d"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/048.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a9be887b5725b76478b217f31594c0378ce5dc60466730449ef3c5958af10f63",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 86,
+     "seconds": 10.865112071999988,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "da94088cca9a90427f283226e81c318f2854fc94d939530a378f0c174145fd27"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/048.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.535115941000015,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "175456ae355690eff5fc07082b3db20d9e05dcb3456783806d77c72c446f8df2"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/061.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "2028d3ec6e69cb13530f72599f3a1bd9ef5a0c7e0aecd2b42d65fa9f316f4aa6",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 88,
+     "seconds": 11.249158241999965,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "b711ebbb54d52c286b29eadb55a98581e861eba83d1fbf7549a54dca0767a041"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/061.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.742856559000018,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "48dbbc92f6e0214443bca554724c7597a659c48e116cadc7a7b84a2b61254ff1"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/075.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d469d81dd49c4519b784124b8c2133deb4e77969679f78c6346a009d05116375",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 86,
+     "seconds": 11.11345682700005,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "a610675081a3b73a201bd2db010dc64d85dcfbe2930eac407d395ff296a50c7a"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/075.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.5841396960000225,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "56b47a88e7611dce61fc642342e5dd846e69b40f094516d95458d0430f34e159"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/082.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "3d5d16d92fb9ee6cb37727d8261d1a04165432b4f364c9f324818ece02ac7c9c",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 82,
+     "seconds": 10.586714856999947,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "6625abaaae67d8d0b637ab42405053d4fe27173738e1f392d39f61bdb0e98c1f"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/082.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.512487491000002,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "034a7a2a2c434f43e2f534fb82f14b0edabfbb611960ec7e61ff581fd734095b"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c1d4a65efdb7fb986f31d1a459cd2d39411d9dc6b376138f13ab5f01a3169140",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.611709202999918,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "9dfea439e03d38136fe686da65b34cd432bfe97baa3a6cee30986d416ad8b182"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.618375548000017,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "e7592eacf0a723ca4c571bc9dc3792d64671b5fe4832f6127974fc5582e47bb2"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/010.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c1d4a65efdb7fb986f31d1a459cd2d39411d9dc6b376138f13ab5f01a3169140",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.359086468999976,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "44b447aaac52b5d6cf480bd8de8f7e3cf9678b9460303ca7f7e61bc423773d67"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/010.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.463075507000099,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "c9b188e0d18a2c51cbf1e55b32b1a7f26e60af14480ebe0a037c35cf7c029488"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/018.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "97fe7025a119690bda78536c2ee3811a81422cf0f950a4436d44f1da4a7207c1",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 111,
+     "seconds": 13.029343626000014,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "97b744e2ee44b9d64379bb6f54f4a89ab1e62a82efbf703d7c5ccb67219ef8ec"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/018.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.553060767999909,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "b0cf71bb416f3b3198056010d8208d1f605a0a1d4d2866184cd7a649dfc262a5"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/027.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a0fe66aa1fb2d2e6ae89c166f56c540f89554883c6da1f7974080695064c9fb3",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 94,
+     "seconds": 11.68184326000005,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "040e5346fe46983b08bae41440f619a6870d977d230b5a6d2c8a3527f9245d9c"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/027.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.621717186000069,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "e7b93a85f209027bc4a2220c67b2e9dd07422b711f4ef20f2ef8836e716a28e5"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9999f04ec98b540d6dc512877ba99baf484cbf496485329a73d3813af47d430d",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 85,
+     "seconds": 10.950670847999959,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "9960913667b35f4ff8255cc382eda1688041d4fe4df6f91fd3cc674a3277370e"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/034.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.555990036000026,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "f9f3e8ef99623c63b69a694e7ab9e5a958c62b5e9cfb238136e6ad06a833737c"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/043.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a31f83bb100d0f05505b66504b4062fe33ee48825f851be1815e385ef453c402",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 88,
+     "seconds": 10.885727085999974,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "3c3b418b66d7abb893d5e8ead5777f478753fa87e7e939a7684493eda05d5b61"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/043.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.462902438000015,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "1d9357fb53570dc7170badcdd180e54b0f8aede802a7afb782c99eb9b0b3028a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/059.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a4cf91fb18b4c16108d8c468c9f9e9c2c130ccbe83d78ddc1a202b0e669bbd3c",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.359584218999998,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "a1ad0ef4afc32520a80666b1d79b4f810bed75e42ba219dd4b6c15436083fee3"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/059.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.48154242999999,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "8649edfd42907b9b87eeca8f244c9475ef93bfa360ced44d985202a3a7d41955"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/073.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d1c6e049bf7fd7bd194a21bf7081afba469124e00ec0e7661cd15cc463eed83d",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 94,
+     "seconds": 11.424323967000078,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "eefded915ee1f144d6cc7319ae395f6ec5648289a8b0d9fa744d28281045b40c"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/073.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.476410956999985,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "9736647bf2be95ea9802c7886a45a37b1b3e2d2fd1243d9354664f8f92d09fa4"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/082.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "f54ecfdc2062bff6166fbd23712688bc1ad9a672c1765e01a2a405d465d44dae",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 86,
+     "seconds": 10.977119997000045,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "61273fdeb0b17a6e3217c300355d399484bf3c4e84586f8f7926d2cc37a6b5f0"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/082.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.536946206000039,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "0fd1aab45d29bbbde9055e3764e6047cf0bb60f06aa737e91e859a5741d265c0"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0694.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "ddee0639ed20318b6578e0e4374199a5c43984d5cd1c4df34d1d01809e8ef18a",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 71,
+     "seconds": 9.580974203999972,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "387912f10db1e613bfd60c25e30d1e2dd85a93633bd4c7f92760b0f56e07afac"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0694.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.538471010999956,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "d7815d7e6a5be74a19eb5ff6e081f0145ef51fa157e723b8dcec04b768991b79"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/037.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "cd87bd3641398bdcaa71c67383a0224dedf580a99e7b1530ab49308cee310759",
+   "attempts": [
+    {
+     "input_tokens": 1697,
+     "new_tokens": 89,
+     "seconds": 11.278997737000054,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "cfe838a2a0f1416ee82c2a00d51259e7b2a952e736f8029c67c53be590ac9f34"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/037.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.4640630009999995,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "937015412bdd9ed80364e2ca3f3abe131949a3d03827684d764e626df0b84cd4"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/019.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "cf8894193966017648d67c763afad00654ddf95bf8172f00fdbab7b88730f102",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 89,
+     "seconds": 11.01144912299992,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "c94e78b07ed3cfcc3e9fef8c145ce643c11b103535d5f0e8dda1cdad09f10ee6"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/019.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.467728996999995,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "26e8994377df592315f6fe95dddf1f4bf7fa11e1844dabf8b10183b70c803ff2"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/055.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c6175126d3d54e42389f94601e9655e29ddf62fb7e1e79212466c70971e375a4",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 100,
+     "seconds": 12.082797485000015,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "3147e51087ed14b8538c4952ea7e9102d8cf2abe574f6b0ea27de75656c09bd9"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/055.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.522263006999992,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "e1b0ff3feb43ce597d40cf67913a60151bd23a52cc19309cc70ea0d35a8a8e15"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/090.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "8e737c425b79a4f3c78244c3192ca6e50703c8d1ed08e31a8f1e0344227e92ca",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 67,
+     "seconds": 9.285524355000007,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "e31d9fd107f902d557524dc3ad4df76ee186cf0757ec3dbc7c4e12d9b5d9ceff"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/090.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.4934895979999965,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "792e12561bf76e51b784f1556f2d7a6afbbdbf2130a5283206aff17fa8ceecef"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0208.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "51958e7c5696ce1c2fd636a25ba98537f036829c5eb11ce8fcc4fdd5e171c301",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 95,
+     "seconds": 11.496789336000006,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "28b298e4e3b832352fc35b960aee8f0a188195f28c978d1893d725ac2e7244bb"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0208.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.5107146149999835,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "4f18525be21b8ce9af0346edb2a9d5a9acb2f49ae9b4d08a612525a775a10520"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0484.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "237c26a19124348c686a65e4cb1447893a3d489cda9414448647c83159e46cb3",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 9.374699480999993,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "c1f29aa47b629bbcbe637491278c90068fe2a8357d747ee89b06af993d447bca"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0484.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.49735479200001,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "683fcb5c92b78773eaa8e141b66c8e08e77b57569585b7fb1eed8d1823e864f1"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0690.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "2336eb2ab3a657d0ff3896ede24a7691a961e5531ed336d006553188b14909ba",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 9.313159015999986,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "f9598032d6b2a5e2007cac8d79c4f61a88ca4d6973f859ff83906f6b8ad2d731"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0690.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.529649070999994,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "cd41c53c75c8ad5e4052c4f6e09d056c511f4fec98c691e40001af4d931ad3f7"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "80d9c85cee0c1d4d8f42d9e1016c268a9df81ec6f4bcd998e405823c69e91eb1",
+   "attempts": [
+    {
+     "input_tokens": 1679,
+     "new_tokens": 79,
+     "seconds": 10.562815377999982,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "87c0134177f525e6afc12fb29f5cce12317bbc1584100f3992b9efe87306bd40"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "efc25f489db9fca8dacc4b5aea40e0c2e87e91db30daa639ed74e67b5201ee6b",
+   "attempts": [
+    {
+     "input_tokens": 1598,
+     "new_tokens": 28,
+     "seconds": 5.821971666999957,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "c7e81efefcdb31b22bf6087ad74575446013eb2f3925c0e3265d467a2caaad7c"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/015.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "675115a2d3e3874b5ff520ad40add9a73f01050f44fee51661f7dec8c8f36045",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 88,
+     "seconds": 11.001399880000008,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "7dc380b530c5d4c775c06784c7f4e2ac620a56ba430ffb1316a1a6dc170bdfd3"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/015.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.472258172000011,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "2f72ab07dfa60961713f80dd1d3fb4ff743060e23b695dac32f62ea0076ac4d0"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/039.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e3510058338c9fb8bc9b7752d840b79b80f157d40665e920bb7727f42256ba89",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 83,
+     "seconds": 10.590811354000039,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "1906a03662fd8aea3e3ea5dbcd7bb64830d10d181b253f51091d55e0e1660cc2"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/039.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.499934358000019,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "a4447b8030532c4452a2f81b13de27bb5da4fd4eeabf42106f75d689c7ef8143"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/058.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "30760b82cd10b56605d3f993b5085096dcd02816730f5d744b21a9c825c70bc9",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.465324123999949,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "cc5fb79fc6330866bcc50637334df2715044a4e2d9f953f95b50caf646694888"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/058.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.541529416000003,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "9c7a681e1154e5312cf0625ade0ab331fb3c45e194f5f22f32493d04c4301ec8"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/083.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "8fdd455f1e4bd696513c3a1a41a02acf40cf23d97afb59e0670006cb581c159a",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 83,
+     "seconds": 10.793917803,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "c936f94329b3d470893d286f90411cd82e513b9db69da80d9a08b37444de017c"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/083.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.502873873000112,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "e921deb123909c968a997e414baed13e92a4c1c1c73121c100cfd71967b32253"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0024.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e0d314a714d15c68123ab1226a8bbb26b0a44d784b81d9d0988855d555230b94",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 72,
+     "seconds": 9.706880472999956,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "cd88a91422f59a16ef78ee20341c530eb63f1921ff76fb671bfb49b32de8cad7"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0024.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.504397194000035,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "305217e60992770b60451f3ad2660c9ed5f7fbcc3f3ebeb50a57b37f3206c2da"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0215.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "66256e38425a831e842d208299c59aeabed042899cb8529d501f871ff0051e61",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 72,
+     "seconds": 9.778292102000023,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "d44f8d4f71577b3a2cab946fe83325809ed546551c489e82eafb7bf54c1e97a2"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0215.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.565024509000068,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "9309f87ae17618544c48054b15d14744f0b68ae76b5691ea556f396866d114c4"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0423.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "f1e39da7ecfa8a67abb548ead27f0d7f35a301c007ba56c4b4218bfc62e2e4d7",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 69,
+     "seconds": 9.3480691420001,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "691db6b1e6d160d470c85fe5aba85da40d4fdd0b8c451ada0163cca6a5fe2550"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0423.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.4976747119999345,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "0d176c9fab39d5b22cb5a2709deeea4dc25ed6dece70fe02ef19cbc7ad26968a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0615.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "4386ba1ebdf2762944d7f061cedd94472216253eee2b36130e6fa3960a40edca",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 71,
+     "seconds": 9.714504823000084,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "a5327df7335eefcb3382b374b267bb8eeb754ff04a970c6497a2be56ac7845f7"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0615.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.581710756999996,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "c75e4557692660c29e8c808cb095787dd363d128bc5a8bc670d98ef1e68e2a6b"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0725.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "b2f95f6cef1a5a2dccb5b7f36d4edd6cb55f48265d35e4ced9f09f5131872062",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 111,
+     "seconds": 13.262260432999938,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "7a5cd33802ec7fb37c7ca6f00d830fcfb83ba3ad009c2fa7e025c2b801c997d6"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0725.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.705049395999936,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "5f8bdf6ba7395792643ca6874f286b8208b419111e23de0a82c7e67cae4fd9e2"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0869.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "66256e38425a831e842d208299c59aeabed042899cb8529d501f871ff0051e61",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 72,
+     "seconds": 9.604737496999974,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "8ab09cf5a8e7d0586c6394cf6420a0628640e9f72976509c5009351b1cfa5abf"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0869.JPG",
+   "device": "cuda_visible_devices=0",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.508190125000056,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "b7f83260539e105191b51a02c259a43f35b7c51417547ff53e75142ac33b4c04"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/009.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c4995cf0d3077b65931eba6e320ab61c1871dca4625b0bd39e9f76e18f643ca5",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 83,
+     "seconds": 13.678929736999976,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "6ce44c2315bc44a152ad2d08d05d6f6e672b71042baa5bdc5f2627ff9622f4fa"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/009.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.328913320999959,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "a015ce85aa10281bccc26b963c9400aef6882ad92dec2db5d934e79c1a1e44d8"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/025.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "74728bca2214a258ee85574d2fbb181a4755e459e5c6e593cd55c101167b99e5",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 93,
+     "seconds": 11.10576748799997,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "e31455ad8866993823b3909daaefa65beb8abd07c67bc9bcad37a99661829088"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/025.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.121557983000002,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "4d62f52bc1761af6563837b8f56cceb9c6da45a4eab487c189d86bb70671aee3"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/038.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d394fb9a87449965d41e2e0b900d2ea556be3c4fb4345af06d935af707105be7",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 93,
+     "seconds": 11.221299174000023,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "296c33ebbd30aedda9bed58212c33917cc7110ddc240d10fdf2423171fc0ff51"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/038.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.172290394000015,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "0322a3ce7b6e7f63438a53f43ec97db9ced700ba395a3e0fbdeb35cda0799a72"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/050.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "0144f6129682b6ef7bde754d2f869a8b3bdb723f77d986e85cf0aa7ed47e49db",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 82,
+     "seconds": 10.100043970999991,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "bd45512ddf54de326079a24b4b148272e2e0987e8415c9d7f117f50c50330611"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/050.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.303175047999957,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "c266e39c3158304403df0a155b4b30cf2819ed3ad4f163ab49f0683457777320"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/070.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "d469d81dd49c4519b784124b8c2133deb4e77969679f78c6346a009d05116375",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 86,
+     "seconds": 10.75189397600002,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "42e8a5036c50208170fb2172f6d67447773d9fe0407df966f1148d7fa23656be"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/070.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.515314578000016,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "f0256a6ccc6f7dfbe1d8b97b765e8e0cd1bb4777b401506818813625483bb6ce"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/077.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "4ac59f5392b679162925dab41b4430499601163b0f6850060d12e9212c75d3a8",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 83,
+     "seconds": 10.775094647999993,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "2a45e73a51c42d5f72d67ea748a03a99ea49ffc451380ef45c7f05755cb1a79f"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/077.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.5820051050000075,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "af2a4751400c5a8be7e970130590a37c0e4bacb46c64af388c744644663d47f2"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/008.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "0c278c10ac7f07532863cf36f78050165feabcf31c7ac89b3439d2a94b442012",
+   "attempts": [
+    {
+     "input_tokens": 1679,
+     "new_tokens": 69,
+     "seconds": 9.552177860000029,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "006757a7e0ca82b69fe4bf8a531886981b45e05103399f0095a99000e7a9cdf5"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/008.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "aae4ff9229fe57c2da6e87ae763175f7752381bfcb7e6d80db48b2b0cb8b847c",
+   "attempts": [
+    {
+     "input_tokens": 1598,
+     "new_tokens": 28,
+     "seconds": 5.662563449000004,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "c15544699cdf81bd9a368d057608600fe81b02051181280ecdc739313a657406"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/005.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c1d4a65efdb7fb986f31d1a459cd2d39411d9dc6b376138f13ab5f01a3169140",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.205552098999988,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "0b4e0fb5fecee179f7638e9f47ed8da5666dc70b021d28a59333ae385ce3143d"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/005.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.574518198999954,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "985b19a08b4d9d258889e7730a89f5ccde4ccc394494393c284da1de7e1f7c59"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/013.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "54d00d2d8ea5a4d6ad8c14241427e0481acd7e2edca3bec79d101e22e01b16fe",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 88,
+     "seconds": 10.815014063000035,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "9ae956ffa7774ebb5ece8530959e4edb14d1fda72e889f3f5edabcc46d50b467"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/013.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.395428532999972,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "2ac867400afbba6cacb21c9668b7b254b1e754c2e71e7c9833dc4becf6b37946"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/020.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "488267f34fc00e597e32fd9a7615f26734ace7e82dc0f0f366f87bcadb5f9693",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.121079772999906,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "9dd2f9f9f3979654a2f74900c2c3c34035b32c56680cd0dc717e6fce38a1238e"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/020.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.451990378999994,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "f0a380a1aed8b1654a5cc791bff848e6cfd0f22776e4f0d187104f25d1d6b388"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/030.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "096134d27300e5cee21b1c3d6a3261564f066e19ad841d5b53908170c879fd5e",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 89,
+     "seconds": 10.83612808600003,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "3c7e5e5b1d54b789fab1447094208c3845f650b6d8b16266e8e01ffe80a124a2"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/030.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.44454131100008,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "cff334f72f353a708bbf46355cc25cf8fdde2309889565ede8ed12ed4d5c8e72"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/038.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "851d17ac0557e31042ca00da8523f042fa44e06b4ad275c41069239d0ab4b97a",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 88,
+     "seconds": 11.006831441999907,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "d5d57e8e2696073e01c6d0a9ee73f5af9a4f6e42ed3b4814052f7eb93013c09e"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/038.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.547073370999897,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "0ba6ad7e2683a649078c9969c29d16e7a6e5ee42e2b3eb651b492c13312382ec"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/048.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "a4cf91fb18b4c16108d8c468c9f9e9c2c130ccbe83d78ddc1a202b0e669bbd3c",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.226049077000084,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "34727e71ab4d246bbdda34ef693a2d1538c8b2c38589bf59f46c12db1a3e0305"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/048.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.41289011799995,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "692eb4f7c66b2847a0167a495710fa20c4672574f48426ae5a464e1b8b7e4382"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/065.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "30760b82cd10b56605d3f993b5085096dcd02816730f5d744b21a9c825c70bc9",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.302192791000039,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "58c8ada5f1861318ec17460aaefb1ffaa078b9582db687cbdce3a709a49d10bd"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/065.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.4883186170000045,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "ca0e3fcdf53532f9bb61ce10d4afc5498c65ef035d2d17582ccbb1b9da4ff558"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/076.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "b7363369d728695399f7f838c4ee64bfc8bd4d7f71917bbee3305d5825294888",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 90,
+     "seconds": 11.158663034000028,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "4ca80649c4b68d6fd28257bf73966cf03b437222f1849c0760eddc2e4e81f525"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/076.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.444597542999986,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "0ba6e256ec2b38c6988a501be472563adc6fd8a276d77f9df95e6defe5d6016d"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0011.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "c1d4a65efdb7fb986f31d1a459cd2d39411d9dc6b376138f13ab5f01a3169140",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.397094154000001,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "f674a798d9f16456b256987b3e6aae389556fe9714d3af8eca71522e0fd660d5"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0011.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.398423903999969,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "5031073e4913245b033b6910c4d85f5c16ae2cfbab374fa8dfeee3824523710a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0800.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e0b058f5ece15346f3f77d2ad7010bbd1eee4bdc6c7da8ce3bfd542bff4ae82f",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.446715578999942,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "4305fc0d265bd6c4742c1b3b0ba7f26c7225f37a847dcbe56aae8f8911154be9"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0800.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.490469085000086,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "violation",
+   "inputs_sha256": [
+    "ce38b57d5ed8b4f7ab0e08627adb0ee322d38d5b9ca981191b84f930b2010c0e"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/002.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "79d589d2fcec6970c8ff887dde60e2eda5e067d53fc753644ef7b0a94dbe6f0c",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 90,
+     "seconds": 11.17531335199999,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "6c084b9b8af91970c81b6460da43618bc52a3124ca0420d52fc270429bc7da50"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/002.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.448974649999968,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "2f85fe439bcfe6cd120d84cc1fea37933d827a508549b0cf3f60ee595c87367a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/039.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "f427c9672d7b3b9f5b78c8dfe75fe18a487922eed8a13b5186424905ba6aec53",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 69,
+     "seconds": 9.440478983000048,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "0569cb4b1e2a929d263a8741c915674b663d40c8447f1b54158015d8a160509a"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/039.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.44870035200006,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "12a9a69f4a3e8ec4712c8e600caf54acc28b8dce79928a0eab994dc18a8f48ae"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/073.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "feb91abb54f08a9aec0d31fc3570ab99ecaadeaa92ac91548b1415d8192fcc02",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 90,
+     "seconds": 11.190162171999987,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "e4afb27731b711b6bfba04634fd624faed583a4288db1004a9f3a7caa4c05ea4"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/073.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.43865750000009,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "cae77899078fe50c2ffab3efc6eee4b0625686802951abcbe87a4aa9c1f5bd5e"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0027.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "ee16c722d04ff754428c7f0d2223643dd94a83df53c189755d8a4b1f4091c6f5",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 69,
+     "seconds": 9.26159610700006,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "14ac5d38d84963b93e7533edf6503ea21a9c945cde6f0b8efc41b649464c6ab5"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0027.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.395521004999978,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "67552f1f17c5cd4d5a2003cdae310b4bb5f620da0bcef96782d3359701873d79"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0363.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "f427c9672d7b3b9f5b78c8dfe75fe18a487922eed8a13b5186424905ba6aec53",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 69,
+     "seconds": 9.091858634000005,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "6f07508e7567e538b33d4485d6b0850706efd5118e6802616a94e15733cce379"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0363.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.414797711999995,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "06e9891b972a28fce97037803c61a76ec49a7967f8567fa11f907770fbd27d7c"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0619.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "00f363294fd061bf3afcbe4cae29bbf35310eb04d5579039bcdd4e4b45942366",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 68,
+     "seconds": 9.155745765999995,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "97b38e32938830aa80881f5ca17d6f26f26e92d8c444b47c4052d3a245b4fc7d"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0619.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.383418310000025,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "f9914422a90cb048e288a526b48b04f5baba5ae0350dffca746480e72839a816"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0784.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "3718adde52b27a490f576b905afdf734223802832d3b110b554f9a55b70746eb",
+   "attempts": [
+    {
+     "input_tokens": 1686,
+     "new_tokens": 84,
+     "seconds": 10.442186902999993,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "04e6c1c47173c85150457050ca5cd1318bc45ed362dcd107372a77fce45a2b9a"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0784.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1581,
+     "new_tokens": 27,
+     "seconds": 5.371328643999959,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "1e1983fd2ce9c43f6434f947a30235e2809f410d2cab8d6b638bbf2201808b1b"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/002.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "675115a2d3e3874b5ff520ad40add9a73f01050f44fee51661f7dec8c8f36045",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 88,
+     "seconds": 10.990326049000032,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "203f426d975037e8fbd1c105c3fd0bd64d73f8b843e9a9db7409b9642aae5b6e"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/002.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.526429829999984,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "9fbfbf9b1814679dfe231399adfc59f788efe6138e91e0fa063ef725b7bbfd2a"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/025.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "6a18130361a14c0a20e13ae370e68044243d0dfe98ac5e41913038f174b19a6c",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 92,
+     "seconds": 11.492468966999922,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "087f1dea944cb85ccfb2fa7165a66921c4aece3e499e3f3416ceee18ca463924"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/025.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.498576166000021,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "73ee79b8b1f5e528e61ad441c76ce886d76d7041ce05c28b2829fa1545e866e3"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/049.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e0d314a714d15c68123ab1226a8bbb26b0a44d784b81d9d0988855d555230b94",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 72,
+     "seconds": 9.622317731000066,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "36d2aaefef54dfc52b77eb5d98c333c72b8b7104b2c1443fabd2c4d2b6eb4011"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/049.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.476239136000004,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "6a805346b8f28c66f5ae7cd3de1b21b298564c293e56fab19607c3927212d3dc"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/068.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e91d549060e2632d5af72084ef99d1317baa50fde373d923dd7258ad69cacf5f",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 70,
+     "seconds": 9.343707699999982,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "f9b28ced4b2ac263c9915098ff3f3742f381e924ef8ac8cf5a6b997e53c47dbd"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/068.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.423180130999981,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "1cce621d9561d3841c60b8700955be9012c9bef8ca9ed221834eede02acf9de7"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/093.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e91d549060e2632d5af72084ef99d1317baa50fde373d923dd7258ad69cacf5f",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 70,
+     "seconds": 9.347650386000055,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "cee053e206efbfbd057bdedc36837419b3d095017e795ddcf28246abf05b5a33"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/093.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.509719939999968,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "45f14c058ec3c4681f306043974cc8ea0204b417108047817f655243235e9a54"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0170.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e7e4db143fccc1d436fd81983ef2fe00400a6a27883ff6bab4da398517f16b22",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 71,
+     "seconds": 9.443105554999988,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "d44fc9177267653dd51aa719a3ce59c37403384c4cf56bc9e9dc313252ea8469"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0170.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.49192744000004,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "9dfac0b821609c09f741e2d89a4586d7d7009105986762b19692658cb371e0c3"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0320.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e7e4db143fccc1d436fd81983ef2fe00400a6a27883ff6bab4da398517f16b22",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 71,
+     "seconds": 9.435141836999946,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "af152a34f88015aa098af436ca2e10824d476a703b8f4406a2943cd58b29c747"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0320.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.448559384999953,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "e4f379517b79c7221d07f8f6c8dd13ffc8ab3c8c50440386f0ba5aa875c8d5dc"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0490.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "de42477fa3ac46da3e07c09ede993f8a856df798afa41bf0c5de5940c06afdb1",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 71,
+     "seconds": 9.60862204,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "6758dacb18ef41b368aa55b879bd457f337f36d6be1d5b8cb14b962c82e69cd5"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0490.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.426080640000009,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "f9cc026d8156ee03bc09e448dfac0276dd345c7791917b224041fe623afe343c"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0657.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "e91d549060e2632d5af72084ef99d1317baa50fde373d923dd7258ad69cacf5f",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 70,
+     "seconds": 9.449789356999986,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "87413fa837f73875622981d4860733f425c4b15d80fd903102ff0341dc5cece4"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0657.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.4698407010000665,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "197a7fe8ea7299fb74b18a679333fc3dead636926e9ac0812678b38ff3caae08"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0779.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "3302d3a220fb0e37cab76af8487b83c270069efc6e31f5957b5c3ae8edd5a7de",
+   "attempts": [
+    {
+     "input_tokens": 1693,
+     "new_tokens": 72,
+     "seconds": 9.859503788999973,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "2ef881f42bbc8ca669b26164b178c6427bb3379c9933dba57d265c3bea8dffe8"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0779.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.548224325999968,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "4f25c9feb517f6a935709dba1bfb6e4d1c2ba1134a9bd0f500b87f02919071da"
+   ]
+  },
+  {
+   "kind": "e1",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "8c3cf75d31f9161caccf3cae17b609c8deecd48602d68c12db3e332e68b8981b",
+   "attempts": [
+    {
+     "input_tokens": 1697,
+     "new_tokens": 85,
+     "seconds": 11.127241165999976,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": true,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "fdbd269edeb727a07c2211e7f19449a8e82adc950d458b3cb63e536e14b3c441"
+   ]
+  },
+  {
+   "kind": "e2",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/000.JPG",
+   "device": "cuda_visible_devices=1",
+   "ok": true,
+   "final_error": null,
+   "retries": 0,
+   "output_sha256": "9af448376c98930a9d5d42605e8298ac680e9bc9725c27ad417e908d019c8384",
+   "attempts": [
+    {
+     "input_tokens": 1606,
+     "new_tokens": 27,
+     "seconds": 5.45971118500006,
+     "truncated": false,
+     "nonfinite": false,
+     "error": null
+    }
+   ],
+   "fenced": false,
+   "control_char": false,
+   "think_block": false,
+   "role": "control",
+   "inputs_sha256": [
+    "d8d75c58c45bf68793bd2500c1b7c05f27f39c5ed90e40db28baea78e0bb865f"
+   ]
+  }
+ ]
+}

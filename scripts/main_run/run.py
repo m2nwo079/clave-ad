@@ -7,7 +7,6 @@ out of GPU memory again after an earlier session did (design doc 13.4).
 """
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -27,6 +26,7 @@ from clave_ad.data.datasets import load_image
 from clave_ad.requery.inputs import b2_inputs, requery_inputs
 from clave_ad.runinfo import file_sha256
 from clave_ad.verifiers.verify import verify
+from clave_ad.vlm.cache_key import request_key
 from clave_ad.vlm.chat import NonFiniteHook, kernel_implementations, render, request
 from clave_ad.vlm.model import load_model
 from clave_ad.vlm.parse import parse_answer, parse_check
@@ -115,16 +115,10 @@ def main() -> None:
     # requests generated in this session and requests restored from the cache, per kind and dataset
     sources = defaultdict(lambda: {"new": 0, "restored": 0})
 
-    def file_key(kind: str, hashes: list[str], prompt: str, retry: str) -> str:
-        # everything that changes the request goes into the key, as in the format check
-        spec = {"revision": vlm["model"]["revision"], "generation": gen, "kind": kind, "images": hashes,
-                "prompt": prompt, "retry": retry, "forced": None}
-        return hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()
-
     def cached(kind: str, name: str, hashes: list[str], load, prompt: str, parse, retry: str,
                may_generate: bool = True) -> dict | None:
         """Cached outcome, a new generation, or None (not generated, or out of memory)."""
-        key = file_key(kind, hashes, prompt, retry)
+        key = request_key(vlm["model"]["revision"], gen, kind, hashes, prompt, retry)
         path = cache_dir / f"{key}.json"
         group = f"{kind}/{name.split('/')[0]}"
         if path.exists():

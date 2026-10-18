@@ -1,0 +1,648 @@
+{
+ "run_id": "targets_20261017T142021Z",
+ "git_commit": "94636fd28720ca01a79f26a2506cf197fa866b48",
+ "config_path": "configs/posthoc/c4_cause.yaml",
+ "config_hash": "f220c2ce170a1c5f9397999832ddb5e8daf95b5737e5d0ea8cf44fc37df851a7",
+ "dataset": "visa",
+ "seed": 0,
+ "created_at": "2026-10-17T14:20:21.433585+00:00",
+ "metrics": {
+  "violation": {
+   "visa/candle": 13,
+   "visa/capsules": 1,
+   "visa/macaroni1": 20,
+   "visa/macaroni2": 1
+  },
+  "control": {
+   "visa/candle": 13,
+   "visa/capsules": 1,
+   "visa/macaroni1": 20,
+   "visa/macaroni2": 1
+  }
+ },
+ "environment": {
+  "python": "3.12.10",
+  "platform": "macOS-15.7.9-arm64-arm-64bit",
+  "torch": null,
+  "torchvision": null,
+  "transformers": null,
+  "bitsandbytes": null,
+  "accelerate": null,
+  "pillow": "12.3.0",
+  "pyyaml": "6.0.3",
+  "scipy": "1.18.1",
+  "numpy": "2.5.4",
+  "tqdm": "4.70.1",
+  "setuptools": null,
+  "packaging": "26.3",
+  "ftfy": null,
+  "wcwidth": null,
+  "regex": null,
+  "cuda": null
+ },
+ "images": [
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/001.JPG",
+   "sha256": "c697ce4e2176c0de5d9f3ba8f38cd5acf99c61be5f91656ebb49c86652875f9a",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/009.JPG",
+   "sha256": "a015ce85aa10281bccc26b963c9400aef6882ad92dec2db5d934e79c1a1e44d8",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/013.JPG",
+   "sha256": "cc21cd6bd2fb9b889e330e3cb1af81435785b922887b9abd090c2178a6bec5d6",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/025.JPG",
+   "sha256": "4d62f52bc1761af6563837b8f56cceb9c6da45a4eab487c189d86bb70671aee3",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/030.JPG",
+   "sha256": "7ad582c6d170757fc1596fccbcdb12faa72547ec4cf76fc76911aa8da128de2d",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/038.JPG",
+   "sha256": "0322a3ce7b6e7f63438a53f43ec97db9ced700ba395a3e0fbdeb35cda0799a72",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/048.JPG",
+   "sha256": "175456ae355690eff5fc07082b3db20d9e05dcb3456783806d77c72c446f8df2",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/050.JPG",
+   "sha256": "c266e39c3158304403df0a155b4b30cf2819ed3ad4f163ab49f0683457777320",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/061.JPG",
+   "sha256": "48dbbc92f6e0214443bca554724c7597a659c48e116cadc7a7b84a2b61254ff1",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/070.JPG",
+   "sha256": "f0256a6ccc6f7dfbe1d8b97b765e8e0cd1bb4777b401506818813625483bb6ce",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/075.JPG",
+   "sha256": "56b47a88e7611dce61fc642342e5dd846e69b40f094516d95458d0430f34e159",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/077.JPG",
+   "sha256": "af2a4751400c5a8be7e970130590a37c0e4bacb46c64af388c744644663d47f2",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/082.JPG",
+   "sha256": "034a7a2a2c434f43e2f534fb82f14b0edabfbb611960ec7e61ff581fd734095b",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/008.JPG",
+   "sha256": "c15544699cdf81bd9a368d057608600fe81b02051181280ecdc739313a657406",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/000.JPG",
+   "sha256": "e7592eacf0a723ca4c571bc9dc3792d64671b5fe4832f6127974fc5582e47bb2",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/005.JPG",
+   "sha256": "985b19a08b4d9d258889e7730a89f5ccde4ccc394494393c284da1de7e1f7c59",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/010.JPG",
+   "sha256": "c9b188e0d18a2c51cbf1e55b32b1a7f26e60af14480ebe0a037c35cf7c029488",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/013.JPG",
+   "sha256": "2ac867400afbba6cacb21c9668b7b254b1e754c2e71e7c9833dc4becf6b37946",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/018.JPG",
+   "sha256": "b0cf71bb416f3b3198056010d8208d1f605a0a1d4d2866184cd7a649dfc262a5",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/020.JPG",
+   "sha256": "f0a380a1aed8b1654a5cc791bff848e6cfd0f22776e4f0d187104f25d1d6b388",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/027.JPG",
+   "sha256": "e7b93a85f209027bc4a2220c67b2e9dd07422b711f4ef20f2ef8836e716a28e5",
+   "kinds": [
+    "requery"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/030.JPG",
+   "sha256": "cff334f72f353a708bbf46355cc25cf8fdde2309889565ede8ed12ed4d5c8e72",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/034.JPG",
+   "sha256": "f9f3e8ef99623c63b69a694e7ab9e5a958c62b5e9cfb238136e6ad06a833737c",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/038.JPG",
+   "sha256": "0ba6ad7e2683a649078c9969c29d16e7a6e5ee42e2b3eb651b492c13312382ec",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/043.JPG",
+   "sha256": "1d9357fb53570dc7170badcdd180e54b0f8aede802a7afb782c99eb9b0b3028a",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/048.JPG",
+   "sha256": "692eb4f7c66b2847a0167a495710fa20c4672574f48426ae5a464e1b8b7e4382",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/059.JPG",
+   "sha256": "8649edfd42907b9b87eeca8f244c9475ef93bfa360ced44d985202a3a7d41955",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/065.JPG",
+   "sha256": "ca0e3fcdf53532f9bb61ce10d4afc5498c65ef035d2d17582ccbb1b9da4ff558",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/073.JPG",
+   "sha256": "9736647bf2be95ea9802c7886a45a37b1b3e2d2fd1243d9354664f8f92d09fa4",
+   "kinds": [
+    "requery"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/076.JPG",
+   "sha256": "0ba6e256ec2b38c6988a501be472563adc6fd8a276d77f9df95e6defe5d6016d",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/082.JPG",
+   "sha256": "0fd1aab45d29bbbde9055e3764e6047cf0bb60f06aa737e91e859a5741d265c0",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0011.JPG",
+   "sha256": "5031073e4913245b033b6910c4d85f5c16ae2cfbab374fa8dfeee3824523710a",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0694.JPG",
+   "sha256": "d7815d7e6a5be74a19eb5ff6e081f0145ef51fa157e723b8dcec04b768991b79",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0800.JPG",
+   "sha256": "ce38b57d5ed8b4f7ab0e08627adb0ee322d38d5b9ca981191b84f930b2010c0e",
+   "kinds": [
+    "b0",
+    "b2"
+   ]
+  },
+  {
+   "role": "violation",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/037.JPG",
+   "sha256": "937015412bdd9ed80364e2ca3f3abe131949a3d03827684d764e626df0b84cd4",
+   "kinds": [
+    "b0"
+   ]
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/002.JPG",
+   "sha256": "2f85fe439bcfe6cd120d84cc1fea37933d827a508549b0cf3f60ee595c87367a"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/019.JPG",
+   "sha256": "26e8994377df592315f6fe95dddf1f4bf7fa11e1844dabf8b10183b70c803ff2"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/039.JPG",
+   "sha256": "12a9a69f4a3e8ec4712c8e600caf54acc28b8dce79928a0eab994dc18a8f48ae"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/055.JPG",
+   "sha256": "e1b0ff3feb43ce597d40cf67913a60151bd23a52cc19309cc70ea0d35a8a8e15"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/073.JPG",
+   "sha256": "cae77899078fe50c2ffab3efc6eee4b0625686802951abcbe87a4aa9c1f5bd5e"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Anomaly/090.JPG",
+   "sha256": "792e12561bf76e51b784f1556f2d7a6afbbdbf2130a5283206aff17fa8ceecef"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0027.JPG",
+   "sha256": "67552f1f17c5cd4d5a2003cdae310b4bb5f620da0bcef96782d3359701873d79"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0208.JPG",
+   "sha256": "4f18525be21b8ce9af0346edb2a9d5a9acb2f49ae9b4d08a612525a775a10520"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0363.JPG",
+   "sha256": "06e9891b972a28fce97037803c61a76ec49a7967f8567fa11f907770fbd27d7c"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0484.JPG",
+   "sha256": "683fcb5c92b78773eaa8e141b66c8e08e77b57569585b7fb1eed8d1823e864f1"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0619.JPG",
+   "sha256": "f9914422a90cb048e288a526b48b04f5baba5ae0350dffca746480e72839a816"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0690.JPG",
+   "sha256": "cd41c53c75c8ad5e4052c4f6e09d056c511f4fec98c691e40001af4d931ad3f7"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "candle",
+   "path": "candle/Data/Images/Normal/0784.JPG",
+   "sha256": "1e1983fd2ce9c43f6434f947a30235e2809f410d2cab8d6b638bbf2201808b1b"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "capsules",
+   "path": "capsules/Data/Images/Anomaly/000.JPG",
+   "sha256": "c7e81efefcdb31b22bf6087ad74575446013eb2f3925c0e3265d467a2caaad7c"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/002.JPG",
+   "sha256": "9fbfbf9b1814679dfe231399adfc59f788efe6138e91e0fa063ef725b7bbfd2a"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/015.JPG",
+   "sha256": "2f72ab07dfa60961713f80dd1d3fb4ff743060e23b695dac32f62ea0076ac4d0"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/025.JPG",
+   "sha256": "73ee79b8b1f5e528e61ad441c76ce886d76d7041ce05c28b2829fa1545e866e3"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/039.JPG",
+   "sha256": "a4447b8030532c4452a2f81b13de27bb5da4fd4eeabf42106f75d689c7ef8143"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/049.JPG",
+   "sha256": "6a805346b8f28c66f5ae7cd3de1b21b298564c293e56fab19607c3927212d3dc"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/058.JPG",
+   "sha256": "9c7a681e1154e5312cf0625ade0ab331fb3c45e194f5f22f32493d04c4301ec8"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/068.JPG",
+   "sha256": "1cce621d9561d3841c60b8700955be9012c9bef8ca9ed221834eede02acf9de7"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/083.JPG",
+   "sha256": "e921deb123909c968a997e414baed13e92a4c1c1c73121c100cfd71967b32253"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Anomaly/093.JPG",
+   "sha256": "45f14c058ec3c4681f306043974cc8ea0204b417108047817f655243235e9a54"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0024.JPG",
+   "sha256": "305217e60992770b60451f3ad2660c9ed5f7fbcc3f3ebeb50a57b37f3206c2da"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0170.JPG",
+   "sha256": "9dfac0b821609c09f741e2d89a4586d7d7009105986762b19692658cb371e0c3"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0215.JPG",
+   "sha256": "9309f87ae17618544c48054b15d14744f0b68ae76b5691ea556f396866d114c4"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0320.JPG",
+   "sha256": "e4f379517b79c7221d07f8f6c8dd13ffc8ab3c8c50440386f0ba5aa875c8d5dc"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0423.JPG",
+   "sha256": "0d176c9fab39d5b22cb5a2709deeea4dc25ed6dece70fe02ef19cbc7ad26968a"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0490.JPG",
+   "sha256": "f9cc026d8156ee03bc09e448dfac0276dd345c7791917b224041fe623afe343c"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0615.JPG",
+   "sha256": "c75e4557692660c29e8c808cb095787dd363d128bc5a8bc670d98ef1e68e2a6b"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0657.JPG",
+   "sha256": "197a7fe8ea7299fb74b18a679333fc3dead636926e9ac0812678b38ff3caae08"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0725.JPG",
+   "sha256": "5f8bdf6ba7395792643ca6874f286b8208b419111e23de0a82c7e67cae4fd9e2"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0779.JPG",
+   "sha256": "4f25c9feb517f6a935709dba1bfb6e4d1c2ba1134a9bd0f500b87f02919071da"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni1",
+   "path": "macaroni1/Data/Images/Normal/0869.JPG",
+   "sha256": "b7f83260539e105191b51a02c259a43f35b7c51417547ff53e75142ac33b4c04"
+  },
+  {
+   "role": "control",
+   "dataset": "visa",
+   "category": "macaroni2",
+   "path": "macaroni2/Data/Images/Anomaly/000.JPG",
+   "sha256": "d8d75c58c45bf68793bd2500c1b7c05f27f39c5ed90e40db28baea78e0bb865f"
+  }
+ ]
+}

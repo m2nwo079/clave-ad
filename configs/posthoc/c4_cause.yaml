@@ -1,0 +1,73 @@
+# Post-hoc experiment: why the VLM answered column-4 cells (c4) outside the 3x3 grid on VisA.
+# Post-hoc answers are never used in any main-analysis metric; the main rules, code and results stay unchanged.
+# Model, generation and prompts other than the layout prompt come from the main run settings (greedy).
+main_run: configs/main_run/run.yaml
+# sessions whose final location_cells range violations define the violation images (B0, B2 and re-query)
+sessions:
+  - results/main_run/vlm_s3_20261017T081232Z.json
+  - results/main_run/vlm_s4_20261017T125758Z.json
+violation_error: '"location_cells" must be a list of cells from "r1c1" to "r3c3"'
+
+targets:
+  # every image with such a violation in any kind, counted once
+  violation: any_kind_final_range_error
+  # per category as many controls as violation images, from the main-seed evaluation images without a violation,
+  # in path order and evenly spaced as in the smoke session: sorted(paths)[::max(1, len // n)][:n]; no ground truth
+  control: evenly_spaced_same_category
+  # the original full image for every target, re-query violations included
+  image: original
+
+conditions:
+  e1:
+    # the original image with 3x3 grid lines and the B0 prompt unchanged; format retries as in the main run
+    prompt: b0
+    grid:
+      size: 3
+      # white lines with a black border on both sides, no anti-aliasing, no cell labels
+      line: white
+      border: black
+      # line width: this share of the shorter image side, at least min_px
+      width_share: 0.003
+      min_px: 2
+      # black border width on each side of the white line
+      border_px: 1
+  e2:
+    # object, row and column counts; the category is named as in the B0 prompt ("the $category items")
+    prompt: posthoc_layout_v1.txt
+    # no output_rules fragment: its second line is about "rationale", which E2 does not have, and E2 has no format
+    # retry; the first line (JSON only) is written into the prompt file itself
+    # no format retry: an unparsed answer is only counted
+    max_retries: 0
+  e3:
+    # CPU only: the last output of each violation record, row and column numbers clipped to 1..3 and repeated cells
+    # dropped; an output with any other error is not fixed. Each record is judged with its own answer (B0, B2,
+    # re-query), against ground truth through eval/ only, and reported per kind apart from the main results
+    attempt: last
+    clip: [1, 3]
+    dedupe: true
+    other_errors: not_fixed
+
+# fixed before the run; both, either or neither may hold, and the outcome is reported as it is
+hypotheses:
+  # H2 (no grid reference): share of violation images whose first E1 output parses with no cell outside the grid
+  # (a normal answer counts as cleared)
+  h2_grid: {measure: e1_first_output_cleared_share, above: 0.5}
+  # H1 (object layout read as grid columns): share of parsed E2 answers on violation images with at least this
+  # many columns, above the threshold and above the share on control images
+  h1_layout: {measure: e2_columns_share, min_columns: 4, above: 0.5, above_control: true}
+
+reporting:
+  # cleared images split into normal answers and answers with in-grid cells; the final E1 output (after format
+  # retries) is reported for reference only
+  e1_cleared_split: [normal, in_grid]
+  e1_final_output: reference
+  # E1 on control images against their main-run B0 answer: judgement, claimed cell set and type, each counted;
+  # a control whose main-run B0 never parsed is left out
+  e1_control_changes: [is_defective, location_cells, defect_type]
+  # per-image E2 values stay in the cache; the result holds counts only (columns >= min_columns, column distribution)
+  e2_values: aggregate_only
+  # the grid cell boundaries of the experiment are checked locally against eval/claims.py cell_boxes
+  grid_check: claims_cell_boxes
+
+cache_dir: cache/posthoc
+output_dir: results/posthoc

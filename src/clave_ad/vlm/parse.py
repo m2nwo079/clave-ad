@@ -9,6 +9,8 @@ import json
 import re
 ANSWER_KEYS = {"is_defective", "defect_type", "location_cells", "confidence", "rationale"}
 CHECK_KEYS = {"existence", "location", "type"}
+# post-hoc layout question (configs/posthoc/c4_cause.yaml), not used by the main run
+LAYOUT_KEYS = {"objects", "rows", "columns"}
 CELL = re.compile(r"r[1-3]c[1-3]")
 FENCE = re.compile(r"```(?:json)?\n(.*)\n```", re.DOTALL)
 THINK_TAGS = ("<think>", "</think>")
@@ -107,6 +109,21 @@ def parse_check(text: str, answer: dict) -> tuple[dict | None, str | None]:
     return obj, None
 
 
+def parse_layout(text: str) -> tuple[dict | None, str | None]:
+    """Validate a post-hoc layout answer: object, row and column counts as integers 0 or more."""
+    obj, error = _load_object(text)
+    if error:
+        return None, error
+    if error := _key_error(obj, LAYOUT_KEYS):
+        return None, error
+    for key in sorted(LAYOUT_KEYS):
+        value = obj[key]
+        # bool is a subclass of int, so it is excluded explicitly; 3.0 is a float and fails
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            return None, f'"{key}" must be an integer 0 or more'
+    return obj, None
+
+
 def _self_check() -> None:
     cands = ["scratch", "crack"]
     ok = '{"is_defective": true, "defect_type": "scratch", "location_cells": ["r1c3"], "confidence": 0.8, "rationale": "x"}'
@@ -127,6 +144,13 @@ def _self_check() -> None:
     assert parse_answer(normal, cands)[0] is not None
     assert parse_check('{"existence": true, "location": null, "type": null}', {"is_defective": False})[0] is not None
     assert parse_check('{"existence": true, "location": null, "type": null}', {"is_defective": True})[0] is None
+    layout = '{"objects": 4, "rows": 2, "columns": 2}'
+    assert parse_layout(layout)[0] == {"objects": 4, "rows": 2, "columns": 2}
+    assert parse_layout("```json\n" + layout + "\n```")[0] is not None
+    assert parse_layout(layout.replace("2}", "2.0}"))[0] is None
+    assert parse_layout(layout.replace("4", "-1"))[0] is None
+    assert parse_layout(layout.replace("4", "true"))[0] is None
+    assert parse_layout('{"objects": 4, "rows": 2}')[0] is None
 
 
 if __name__ == "__main__":

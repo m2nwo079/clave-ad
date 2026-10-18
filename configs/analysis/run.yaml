@@ -1,0 +1,17 @@
+# Inputs and outputs of the evaluation (design doc 12, 13.3 step 7); handling rules are in eval.yaml.
+eval: configs/analysis/eval.yaml
+main_run: configs/main_run/run.yaml
+# VLM session results of the main run, in session order
+sessions:
+  - results/main_run/vlm_s1_20261014T172135Z.json
+  - results/main_run/vlm_s2_20261015T123219Z.json
+  - results/main_run/vlm_s3_20261017T081232Z.json
+  - results/main_run/vlm_s4_20261017T125758Z.json
+# smoke runs share the cache; used only to check that every cached request is accounted for
+smoke:
+  - results/main_run/vlm_smoke_20261014T132311Z.json
+  - results/main_run/vlm_smoke_20261014T134726Z.json
+# local copy of the detector kernel output (features.json, embeddings.npz, prototypes.npz)
+detector_dir: cache/main_run_detector
+visa_class_ids: configs/main_run/visa_class_ids.yaml
+output_dir: results/analysis

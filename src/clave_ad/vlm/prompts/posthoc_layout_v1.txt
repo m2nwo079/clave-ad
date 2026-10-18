@@ -1,0 +1,6 @@
+This is an image of the industrial product category "$category". Look at the $category items in the image.
+Answer with one JSON object only, with exactly these keys:
+"objects" (number of the $category items visible in the image, an integer 0 or more),
+"rows" (number of rows the items are arranged in, an integer 0 or more),
+"columns" (number of columns the items are arranged in, an integer 0 or more).
+Write only the JSON object, with no code fence, no markdown and no other text before or after it.
