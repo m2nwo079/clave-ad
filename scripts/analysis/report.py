@@ -26,6 +26,8 @@ DATASETS = {"mvtec_ad": "MVTec AD", "visa": "VisA"}
 METHODS = {"b0": "B0", "b1": "B1", "b2": "B2", "b3": "B3", "b4": "B4", "p0": "P0", "p1": "P1",
            "p1_secondary": "P1-sec"}
 REQUERY_RULES = {"p1": "re-query answer always", "p1_secondary": "re-query answer if score is higher"}
+# extension methods: GLM-4.6V-Flash blocks (x5) and the Qwen B0-grid comparison (x9)
+EXT_METHODS = {**METHODS, "b0_grid": "B0-grid", "p0_grid": "P0-grid", "requery": "re-query"}
 MARKER = re.compile(r"<!--\s*(table|figure):([a-z0-9_]+)\s*-->")
 
 
@@ -292,9 +294,110 @@ def posthoc_tables(ph: dict, cfg: dict) -> dict:
     return t
 
 
+def outcome(holds: bool | None) -> str:
+    return {True: "holds", False: "does not hold"}.get(holds, "-")
+
+
+def extension_tables(ex: dict, plan: dict, sessions: dict[str, dict]) -> dict:
+    """Tables of the extension evaluation (GLM-4.6V-Flash x5, h5, h8; Qwen B0-grid x9, h9) and its sessions."""
+    m, hyp, t = ex["metrics"], plan["hypotheses"], {}
+
+    def method_rows(block: dict) -> list[list]:
+        rows = []
+        for d, b in block.items():
+            for k in [k for k in EXT_METHODS if k in b]:
+                x, a = b[k], b[k].get("auroc", {})
+                rows.append([DATASETS[d], EXT_METHODS[k], x["unparsed"], f3(x["full_faithful"]["rate"]),
+                             ci(x["full_faithful"]["ci"]), frac(x["claims"]["existence"]),
+                             frac(x["claims"]["location"]), frac(x["claims"]["type"]), f3(a.get("main")),
+                             ci(a.get("ci")), a.get("excluded", "-"), f3(a.get("secondary_fill"))])
+        return rows
+
+    heads = ["Dataset", "Method", "Unparsed", "Full faithful", "95% CI", "Existence", "Location", "Type", "AUROC",
+             "95% CI", "Excluded (unparsed)", "AUROC (fill, secondary)"]
+    t["ext_x5"] = md(heads, method_rows(m["x5"]))
+    t["ext_x9"] = md(heads, method_rows(m["x9"]))
+
+    h1, h2, rows = hyp["h5_1"], hyp["h5_2"], []
+    for seed in sorted(k for k in m["h5_1"] if k.startswith("seed_")):
+        x, main = m["h5_1"][seed], m["h5_1"][seed]["main"]
+        judged = seed == "seed_0"
+        rows.append(["H5-1", DATASETS[h1["dataset"]], seed.split("_")[1], f3(main["p0"]["value"]), ci(main["p0"].get("ci")),
+                     "B3", f3(main["b3"]["value"]), ci(main["b3"].get("ci")), f3(main["diff"]["value"]),
+                     ci(main["diff"].get("ci")), main["n_pairs"],
+                     f"P0 CI low > {h1['p0_auroc_ci_low_above']}, P0 - B3 CI low > {h1['p0_minus_b3_auroc_ci_low_above']}"
+                     if judged else "range only", outcome(x.get("holds")) if judged else "-",
+                     f3(x["secondary_fill"]["diff"]["value"])])
+    r = m["h5_1"]["range"]
+    rows.append(["H5-1", DATASETS[h1["dataset"]], "range (0-2)", ci(r["p0"]), "-", "B3", ci(r["b3"]), "-", ci(r["diff"]),
+                 "-", "-", "-", "-", "-"])
+    for d, x in m["h5_2"].items():
+        main = x["main"]
+        rows.append(["H5-2", DATASETS[d], "0", f3(main["p0"]["value"]), ci(main["p0"]["ci"]), "B0 confidence",
+                     f3(main["b0"]["value"]), ci(main["b0"]["ci"]), f3(main["diff"]["value"]), ci(main["diff"]["ci"]),
+                     main["n_pairs"], f"P0 - B0 CI low > {h2['p0_minus_b0_confidence_auroc_ci_low_above']}",
+                     outcome(x["holds"]), f3(x["secondary_fill"]["diff"]["value"])])
+    t["ext_h5"] = md(["Hypothesis", "Dataset", "Library seed", "P0 AUROC", "95% CI", "Compared signal", "AUROC",
+                      "95% CI", "Difference", "95% CI (paired)", "Image pairs", "Criterion (plan.yaml)", "Outcome",
+                      "Difference (fill, secondary)"], rows)
+
+    h8, rows = hyp["h8"], []
+    for d, x in m["h8"].items():
+        for key, rule, diff in (("p1_secondary", "re-query answer if score is higher (main)", "main_selective_minus_b0"),
+                                ("p1", "re-query answer always (secondary)", "secondary_always_minus_b0")):
+            q, main = x["requery"][key], key == "p1_secondary"
+            rows.append([DATASETS[d], rule, f3(x[diff]["value"]), ci(x[diff]["ci"]), x["requery"]["requeried"],
+                         frac(q["before_full"]), frac(q["after_full"]), q["fixed"], q["broken"],
+                         x["requery"]["unparsed_kept"],
+                         f"CI low > {h8['p1_selective_minus_b0_full_faithful_ci_low_above']} and broken < fixed"
+                         if main else "-", outcome(x["holds"]) if main else "-"])
+    t["ext_h8"] = md(["Dataset", "Final answer rule", "Full faithful minus B0", "95% CI (paired)", "Re-queried",
+                      "Full faithful before", "Full faithful after", "Fixed", "Broken",
+                      "Unparsed re-query, original kept", "Criterion (plan.yaml)", "Outcome"], rows)
+
+    h9, rows = hyp["h9"], []
+    for d, x in m["h9"].items():
+        oog = x["out_of_grid"]
+        rows.append([DATASETS[d], "out-of-grid final answers (main set)", oog["b0_grid"]["main_set"],
+                     oog["b0"]["main_set"], "-", "-", "B0-grid count < B0 count", outcome(x["holds"]["out_of_grid_fewer"])])
+        rows.append([DATASETS[d], "out-of-grid final answers (all session images, reference)",
+                     oog["b0_grid"]["all_session_images"], oog["b0"]["all_session_images"], "-", "-", "no verdict", "-"])
+        for key, label, bound in (("location_correct", "location correct rate", "location_correct_ci_low_above"),
+                                  ("existence_correct", "existence correct rate", "existence_correct_ci_low_above"),
+                                  ("full_faithful", "full faithful rate", "full_faithful_ci_low_above")):
+            v = x[key]
+            rows.append([DATASETS[d], label + " (difference)", "-", "-", f3(v["value"]), ci(v["ci"]),
+                         f"CI low > {h9[bound]}", outcome(x["holds"][key.split("_")[0]] if key != "full_faithful"
+                                                          else x["holds"]["full_faithful"])])
+        p = x["p0_auroc"]["main"]
+        rows.append([DATASETS[d], "P0 AUROC (P0-grid minus P0)", f3(p["p0_grid"]["value"]), f3(p["p0"]["value"]),
+                     f3(p["diff"]["value"]), ci(p["diff"]["ci"]), f"CI low > {h9['p0_auroc_ci_low_above']}",
+                     outcome(x["holds"]["p0_auroc"])])
+    t["ext_h9"] = md(["Dataset", "Measure", "B0-grid", "B0", "Difference", "95% CI (paired)", "Criterion (plan.yaml)",
+                      "Outcome"], rows)
+
+    rows, cost = [], []
+    for name, s in sessions.items():
+        sm = s["metrics"]
+        for key, c in sm["compliance"].items():
+            if "/" not in key:
+                continue
+            kind, d = key.split("/")
+            rows.append([name, DATASETS[d], EXT_METHODS.get(kind, kind), c["requests"], c["first_ok"],
+                         c["ok_after_retry_1"], c["ok_after_retry_2"], c["violations"], c["violations_truncated"],
+                         c["violations_think_block"], c["ok_fenced"], c["nonfinite_requests"]])
+        cost.append([name, sm["generations"], f"{sm['generation_seconds']:.0f}",
+                     f"{sm['generation_seconds'] / sm['generations']:.2f}"])
+    t["ext_format"] = md(["Session", "Dataset", "Request kind", "Requests", "First answer ok", "Ok after retry 1",
+                          "Ok after retry 2", "Violations", "Truncated violations", "Think-block violations",
+                          "Fenced (allowed)", "NaN or inf requests"], rows)
+    t["ext_cost"] = md(["Session", "VLM generations (with retries)", "VLM seconds", "Seconds per generation"], cost)
+    return t
+
+
 # ---------- figures ----------
 
-def figures(ev: dict, ph: dict, out: Path, dpi: int) -> dict[str, str]:
+def figures(ev: dict, ph: dict, ex: dict, out: Path, dpi: int) -> dict[str, str]:
     """Write every figure as PNG and return its Markdown image line by name."""
     m = ev["metrics"]
     ds = [d for d in DATASETS if d in m["datasets"]]
@@ -448,6 +551,43 @@ def figures(ev: dict, ph: dict, out: Path, dpi: int) -> dict[str, str]:
     axes[2].legend(fontsize=7)
     save(fig, "posthoc", "Post-hoc column-4 experiment: E1 first outputs, E2 column counts, E3 repaired answers")
 
+    # extension: GLM-4.6V-Flash full faithful rate and AUROC per method, and the H9 paired differences
+    x5 = ex["metrics"]["x5"]
+    fig, axes = plt.subplots(2, len(x5), figsize=(5 * len(x5), 6.4), sharey="row")
+    for col, (d, b) in enumerate(x5.items()):
+        ks = [k for k in EXT_METHODS if k in b]
+        v = [b[k]["full_faithful"]["rate"] for k in ks]
+        axes[0][col].bar([EXT_METHODS[k] for k in ks], v, yerr=bar_err(v, [b[k]["full_faithful"]["ci"] for k in ks]),
+                         capsize=3, color="tab:blue")
+        axes[0][col].set_title(f"{DATASETS[d]}: full faithful")
+        a = [b[k]["auroc"] for k in ks]
+        axes[1][col].bar([EXT_METHODS[k] for k in ks], [x["main"] for x in a],
+                         yerr=bar_err([x["main"] for x in a], [x["ci"] for x in a]), capsize=3, color="tab:green")
+        # chance level of AUROC
+        axes[1][col].axhline(0.5, color="black", linestyle="--", linewidth=0.8)
+        axes[1][col].set_title(f"{DATASETS[d]}: AUROC of each method's own signal")
+        for row in range(2):
+            axes[row][col].set_ylim(0, 1)
+    axes[0][0].set_ylabel("Full faithful rate (95% CI)")
+    axes[1][0].set_ylabel("AUROC (95% CI)")
+    save(fig, "ext_x5", "Extension, GLM-4.6V-Flash: full faithful rate and AUROC by method with 95% CI")
+
+    h9, bounds = ex["metrics"]["h9"], {"location_correct": "location", "existence_correct": "existence",
+                                       "full_faithful": "full faithful"}
+    fig, axes = plt.subplots(1, len(h9), figsize=(5 * len(h9), 3.2), sharex=True)
+    for ax, (d, x) in zip(axes, h9.items()):
+        items = [(label, x[key]) for key, label in bounds.items()] + [("P0 AUROC", x["p0_auroc"]["main"]["diff"])]
+        for i, (label, v) in enumerate(items):
+            ax.errorbar([v["value"]], [i], xerr=[[v["value"] - v["ci"][0]], [v["ci"][1] - v["value"]]], fmt="o",
+                        color="tab:blue", capsize=4)
+        ax.axvline(0, color="black", linewidth=0.8)
+        ax.set_yticks(range(len(items)), [label for label, _ in items])
+        ax.invert_yaxis()
+        ax.set_title(DATASETS[d])
+    axes[0].set_xlabel("B0-grid minus B0 (paired 95% CI)")
+    axes[-1].set_xlabel(axes[0].get_xlabel())
+    save(fig, "ext_h9", "Extension, Qwen B0-grid minus B0 on the same images (exploratory H9)")
+
     return {name: f"![{cap}](report/figures/{name}.png)\n\n*{cap}*" for name, cap in captions.items()}
 
 
@@ -465,10 +605,14 @@ def main() -> None:
     if issues:
         sys.exit("result numbers in the source:\n" + "\n".join(issues))
 
-    paths = [cfg["eval"], cfg["posthoc"], *cfg["sessions"]]
+    paths = [cfg["eval"], cfg["posthoc"], *cfg["sessions"], cfg["extension"], *cfg["extension_sessions"].values()]
     loaded = {p: json.loads(Path(p).read_text()) for p in paths}
-    ev, ph = loaded[cfg["eval"]], loaded[cfg["posthoc"]]
+    ev, ph, ex = loaded[cfg["eval"]], loaded[cfg["posthoc"]], loaded[cfg["extension"]]
     ph_cfg = yaml.safe_load(Path(ph["config_path"]).read_text())
+    # the hypotheses must be read from the plan the extension evaluation was run with
+    if file_sha256(Path(cfg["extension_plan"])) != ex["provenance"]["inputs"][cfg["extension_plan"]]:
+        sys.exit(f"{cfg['extension_plan']} differs from the plan recorded in {cfg['extension']}")
+    plan = yaml.safe_load(Path(cfg["extension_plan"]).read_text())
     inputs = {p: (file_sha256(Path(p)), loaded[p]) for p in paths}
     dirty = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True).stdout
     commit = git_commit()[:7] + (" (uncommitted changes)" if dirty.strip() else "")
@@ -477,9 +621,10 @@ def main() -> None:
     (gen / "tables").mkdir(parents=True, exist_ok=True)
     (gen / "figures").mkdir(parents=True, exist_ok=True)
     tabs = tables(ev, ph, ph_cfg, [loaded[p] for p in cfg["sessions"]], inputs, commit)
+    tabs.update(extension_tables(ex, plan, {k: loaded[p] for k, p in cfg["extension_sessions"].items()}))
     for name, text in tabs.items():
         (gen / "tables" / f"{name}.md").write_text(text + "\n")
-    figs = figures(ev, ph, gen / "figures", cfg["figure_dpi"])
+    figs = figures(ev, ph, ex, gen / "figures", cfg["figure_dpi"])
 
     parts = {f"table:{k}": v for k, v in tabs.items()} | {f"figure:{k}": v for k, v in figs.items()}
     note = (f"<!-- Generated by scripts/analysis/report.py from {cfg['source']} at git commit {commit}; "
@@ -534,6 +679,10 @@ def _self_check() -> None:
 
     fake_sessions = [{"metrics": {"compliance": {"b0/visa": {"first_ok": 1}}}}, {"metrics": {"compliance": {}}}]
     assert session_compliance(fake_sessions, "b0/visa") == {"first_ok": 1}
+    assert outcome(True) == "holds" and outcome(False) == "does not hold" and outcome(None) == "-"
+    # the GLM model name is allowed, a decimal right after it is still blocked
+    assert number_issues("GLM-4.6V-Flash and InternVL3.5", blocked, allowed) == []
+    assert len(number_issues("GLM-4.6V-Flash 0.31", blocked, allowed)) == 1
     print("report self-check ok")
 
 

@@ -7,6 +7,16 @@ sessions:
   - results/main_run/vlm_s2_20261015T123219Z.json
   - results/main_run/vlm_s3_20261017T081232Z.json
   - results/main_run/vlm_s4_20261017T125758Z.json
+# extension experiments: evaluation result, the plan it was judged against (its hash must match the one the
+# evaluation recorded), and the session results used only for format compliance and generation time
+extension: results/extension/eval_extension_20261019T110149Z.json
+extension_plan: configs/extension/plan.yaml
+extension_sessions:
+  X0: results/extension/format_check_20261018T233130Z.json
+  X1: results/extension/vlm_x1_20261018T210225Z.json
+  X2: results/extension/vlm_x2_20261019T030145Z.json
+  X3: results/extension/vlm_x3_20261019T062121Z.json
+  X4: results/extension/vlm_x4_20261019T103042Z.json
 # human-written source with table and figure markers, the assembled report and the generated tables and figures
 source: docs/report_ko.src.md
 output: docs/report_ko.md
@@ -23,5 +33,7 @@ number_check:
     - '\b(?:BQ|SQ)\d+(?:\.\d+)*'
     - '\bv\d+(?:\.\d+)*'
     - '\bQwen\d+(?:\.\d+)*'
+    - '\bGLM-\d+(?:\.\d+)*V'
+    - '\bInternVL\d+(?:\.\d+)*'
     - '\b[A-Z]\d+\b'
     - '\br\d+c\d+\b'
