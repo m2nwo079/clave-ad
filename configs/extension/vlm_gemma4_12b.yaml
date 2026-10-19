@@ -1,0 +1,52 @@
+# Extension VLM settings, second candidate (configs/extension/plan.yaml models.candidates): the main-run settings
+# (configs/main_run/vlm.yaml) with this model's loading, template and end tokens.
+seed: 0
+
+data:
+  mvtec_root: data/mvtec_ad
+  visa_root: data/visa
+  visa_split_csv: data/visa/split_csv/1cls.csv
+  type_names: configs/format_check/type_names.yaml
+
+model:
+  name: google/gemma-4-12B-it
+  revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: float16
+  processor_use_fast: true
+  # vision embedder and projector stay float16, only the language model is nf4 (checkpoint modules
+  # model.vision_embedder, model.embed_vision; lm_head is tied to the embeddings). Checked in X0 through the
+  # memory test record linear_layers
+  skip_4bit_modules: ['.*vision_embedder', '.*embed_vision', '.*lm_head']
+  # grouped-query attention (16 query heads; 8 key-value heads in the sliding layers, 1 in the full layers): repeated
+  # first, as for Ministral (src/clave_ad/vlm/model.py sdpa_repeat_kv)
+  attn_implementation: sdpa_repeat_kv
+  # visual token budget: the repo default of processor_config.json (max_soft_tokens 280), kept as is
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  # generation_config.json eos_token_id
+  eos_token_ids: [1, 106, 50]
+  chat_template_kwargs: {enable_thinking: false}
+  # with thinking off the model still writes an empty thought block: only an empty leading block is removed
+  # with the processor's parse_response; a block with content stays a think_block violation
+  thought_block: strip_leading_empty
+
+prompts:
+  dir: src/clave_ad/vlm/prompts
+  b0: b0_v2.txt
+  b1: b1_v2.txt
+  b2: b2_v1.txt
+  b3: b3_v1.txt
+  requery: requery_v1.txt
+  retry: retry_v2.txt
+  output_rules: output_rules_v1.txt
+
+detector:
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+runtime:
+  pytorch_cuda_alloc_conf: "expandable_segments:True"

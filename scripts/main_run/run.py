@@ -21,9 +21,11 @@ import torch
 import yaml
 from PIL import Image
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+ROOT = Path(__file__).resolve().parents[2]
+# the post-hoc grid drawing is reused as it is for the B0-grid extension
+sys.path[:0] = [str(ROOT / "src"), str(ROOT / "scripts" / "posthoc")]
 from clave_ad.data.datasets import load_image
-from clave_ad.requery.inputs import b2_inputs, requery_inputs
+from clave_ad.requery.inputs import b2_inputs, image_sha256, requery_inputs
 from clave_ad.runinfo import file_sha256
 from clave_ad.verifiers.verify import verify
 from clave_ad.vlm.cache_key import request_key
@@ -31,6 +33,7 @@ from clave_ad.vlm.chat import NonFiniteHook, kernel_implementations, render, req
 from clave_ad.vlm.model import load_model
 from clave_ad.vlm.parse import parse_answer, parse_check
 from clave_ad.vlm.records import summarize
+from grid import draw_grid
 
 
 def load_detector(root: Path, cfg: dict, main_seed: int) -> dict:
@@ -82,11 +85,15 @@ def main() -> None:
     parser.add_argument("--num-shards", type=int, default=1)
     args = parser.parse_args()
     cfg = yaml.safe_load(Path(args.config).read_text())
-    vlm = yaml.safe_load(Path(cfg["vlm"]).read_text())
+    session = cfg["sessions"][cfg["session"]]
+    # a session may name its own VLM config (extension); the main-run sessions use the run-wide one
+    vlm = yaml.safe_load(Path(session.get("vlm", cfg["vlm"])).read_text())
     rules = yaml.safe_load(Path(cfg["rules"]).read_text())
     split = json.loads(Path(cfg["split_result"]).read_text())
     types = yaml.safe_load(Path(vlm["data"]["type_names"]).read_text())
-    session = cfg["sessions"][cfg["session"]]
+    # B0-grid draws the post-hoc E1 grid (configs/posthoc/c4_cause.yaml conditions.e1.grid)
+    grid = (yaml.safe_load(Path(cfg["grid_config"]).read_text())["conditions"]["e1"]["grid"]
+            if "grid_config" in cfg else None)
     gen = {**vlm["generation"], "max_retries": rules["format"]["max_retries"]}
     prompt_dir = Path(vlm["prompts"]["dir"])
     templates = {k: (prompt_dir / v).read_text() for k, v in vlm["prompts"].items() if k not in ("dir", "output_rules")}
@@ -180,6 +187,13 @@ def main() -> None:
                         answer_parse, retry, may_generate="b0" in kinds)
             if b0 is not None and "b0" in kinds:
                 records.append(summarize("b0", row, b0, device))
+        if "b0_grid" in kinds:
+            gridded = draw_grid(load_original(), grid["size"], grid["width_share"], grid["min_px"], grid["border_px"])
+            grid_sha = image_sha256(gridded)
+            b0_grid = cached("b0_grid", name, [grid_sha], lambda: [gridded], render(templates["b0"], **values),
+                             answer_parse, retry)
+            if b0_grid is not None:
+                records.append({**summarize("b0_grid", row, b0_grid, device), "inputs_sha256": [grid_sha]})
         if "b3" in kinds and b0 is not None and b0["parsed"] is not None:
             b3 = cached("b3", name, [row["sha256"]], lambda: [load_original()],
                         render(templates["b3"], category=values["category"], answer=json.dumps(b0["parsed"])),

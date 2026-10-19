@@ -1,0 +1,49 @@
+# X0 memory test of the new model (configs/extension/plan.yaml replacement), same rule as design doc 13.4:
+# heaviest input, full-length generation, per-device max_memory_reserved within the threshold and no OOM.
+seed: 0
+# model and generation; switching to the next candidate changes this line (and the same line in
+# configs/extension/format_check.yaml and the new-model sessions of configs/extension/run.yaml)
+vlm: configs/extension/vlm_glm4_6v_flash.yaml
+
+generation:
+  # equal to max_new_tokens so every run generates the full length
+  min_new_tokens: 512
+
+# the main-run memory test input (configs/memory_test/qwen3_5_9b_1gpu.yaml) with the image size recomputed for this
+# model: two images of the dataset image size with the most image tokens in its processor, the longest candidate
+# list, and a full-length previous output with its parse error
+test_input:
+  num_images: 2
+  image_size: heaviest_from_sizes_file
+  # main-run image folders (one per dataset); scripts/memory_test/sizes.py reads their headers locally
+  size_root: cache/kaggle_data/main_run
+  # the committed sizes result of that run; exactly one file must match
+  sizes_file: results/extension/image_sizes_*.json
+  prompt: |
+    Picture 1 is a defect-free reference image of the product category "candle".
+    Picture 2 is the image to inspect. Compare Picture 2 with Picture 1.
+    Picture 2 is divided into a 3x3 grid. Rows are r1 (top) to r3 (bottom), columns are c1 (left) to c3 (right).
+    Candidate defect types: Chunk Of Wax Missing, Damaged Corner of Packaging, weird candle wick, Different Colour Spot, Extra Wax in Candle, Foreign Particals on Candle, Wax Melded out of the candle.
+    Answer with one JSON object only, with these keys:
+    "is_defective" (true or false),
+    "defect_type" (one candidate defect type, or null if not defective),
+    "location_cells" (list of grid cells such as "r1c3", empty if not defective),
+    "confidence" (number between 0 and 1),
+    "rationale" (one short sentence).
+  previous_output_tokens: 512
+  retry_template: |
+
+    Your previous output was:
+    {previous_output}
+    It could not be parsed: {error}
+    Answer again with one JSON object only.
+  retry_error: "Unterminated string starting at: line 6 column 16 (char 151)"
+
+# model loading included; past this the test stops, writes what it recorded and fails (plan.yaml replacement)
+time_limit_minutes: 20
+
+pass_threshold:
+  # max_memory_reserved / total_memory, per device
+  reserved_ratio: 0.95
+
+output_dir: results/extension

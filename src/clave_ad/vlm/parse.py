@@ -13,7 +13,8 @@ CHECK_KEYS = {"existence", "location", "type"}
 LAYOUT_KEYS = {"objects", "rows", "columns"}
 CELL = re.compile(r"r[1-3]c[1-3]")
 FENCE = re.compile(r"```(?:json)?\n(.*)\n```", re.DOTALL)
-THINK_TAGS = ("<think>", "</think>")
+# Qwen think tags, and the Gemma 4 thought channel markers kept when a thought block has content
+THINK_TAGS = ("<think>", "</think>", "<|channel>", "<channel|>")
 
 
 def unwrap(text: str) -> tuple[str, bool]:
@@ -134,6 +135,7 @@ def _self_check() -> None:
     assert parse_answer("```json\n" + ok + "\n```\n```json\n" + ok + "\n```", cands)[0] is None
     assert parse_answer(ok + "\n" + ok, cands)[0] is None
     assert parse_answer("<think>\n\n</think>\n\n" + ok, cands)[0] is None
+    assert parse_answer("<|channel>thought\nlook<channel|>" + ok, cands)[0] is None
     raw_newline = ok.replace('"x"}', '"x.\n"}')
     assert parse_answer(raw_newline, cands)[0] is not None
     assert has_control_char(raw_newline) and not has_control_char(ok)

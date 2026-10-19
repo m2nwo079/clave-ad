@@ -1,0 +1,34 @@
+# X0 format check of the new model on the 54 format-check images (configs/extension/plan.yaml): B0, B3 and the
+# forced re-query in one run, with the forced retry and device consistency checks of the format check. Prompts are
+# not changed after this check; more than models.replacement.max_final_unparsed_share of final unparsed answers in
+# a request kind replaces the model.
+seed: 0
+# model, generation and prompts; switching to the next candidate changes this line
+vlm: configs/extension/vlm_glm4_6v_flash.yaml
+# re-query crop and format retry count of the frozen main-run rules
+rules: configs/main_run/rules.yaml
+
+data:
+  type_names: configs/format_check/type_names.yaml
+
+kinds: [b0, b3, requery]
+
+# per worker, model loading included; past this the worker stops between images and saves its shard with
+# complete false, which replaces the model (plan.yaml replacement)
+time_budget_hours: 1.5
+
+detector:
+  # anomaly maps packed with the format-check sample (cache/kaggle_data/format_check)
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+runtime:
+  pytorch_cuda_alloc_conf: "expandable_segments:True"
+
+# same checks as configs/format_check/qwen3_5_9b.yaml
+checks:
+  forced_retry_images: 6
+  device_consistency_images: 4
+  broken_output: '{"is_defective": true, "defect_type": "scratch", "location_cells": ["r1c'
+
+cache_dir: cache/extension/format_check
+output_dir: results/extension

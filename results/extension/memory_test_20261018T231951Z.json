@@ -1,0 +1,145 @@
+{
+  "run_id": "memory_test_20261018T231951Z",
+  "git_commit": "dd98516ec7bb935c6d369c7e4ce357ef9dbbf855",
+  "config_path": "configs/extension/memory_test.yaml",
+  "config_hash": "2677a8a8a1332c3dff438d740472519d5a1cbd9bde4cbb4909cd7d7302e1982a",
+  "dataset": "synthetic",
+  "seed": 0,
+  "created_at": "2026-10-18T23:19:51.931093+00:00",
+  "metrics": {
+    "pass": true,
+    "oom": false,
+    "timed_out": false,
+    "error": null,
+    "devices": [
+      {
+        "device": 0,
+        "name": "Tesla T4",
+        "total_memory": 15636037632,
+        "max_memory_reserved": 9758048256,
+        "max_memory_allocated": 9540575232,
+        "mem_get_info_used": 9901572096,
+        "reserved_ratio": 0.624074237070754,
+        "pass": true
+      }
+    ],
+    "last_stage": "prefill 8.6s",
+    "after_load": {
+      "memory_allocated": 8478662656,
+      "memory_reserved": 8579448832
+    },
+    "device_map": [
+      "cuda:0"
+    ],
+    "processor_size": {
+      "longest_edge": 9633792,
+      "shortest_edge": 12544
+    },
+    "max_soft_tokens": null,
+    "eos_tokens": {
+      "151329": "<|endoftext|>",
+      "151336": "<|user|>",
+      "151338": "<|observation|>",
+      "151348": "<|code_middle|>"
+    },
+    "sizes_file": {
+      "path": "results/extension/image_sizes_20261018T060807Z.json",
+      "sha256": "df99c521303bc7267a5194c4662b01fc3d387b93384b4b93a63b1e4f90c9fb66"
+    },
+    "size_candidates": {
+      "700x700": {
+        "images": 334,
+        "image_tokens": 627
+      },
+      "800x800": {
+        "images": 433,
+        "image_tokens": 843
+      },
+      "840x840": {
+        "images": 346,
+        "image_tokens": 902
+      },
+      "900x900": {
+        "images": 291,
+        "image_tokens": 1026
+      },
+      "1000x1000": {
+        "images": 350,
+        "image_tokens": 1298
+      },
+      "1024x1024": {
+        "images": 3585,
+        "image_tokens": 1371
+      },
+      "1274x1176": {
+        "images": 599,
+        "image_tokens": 1934
+      },
+      "1284x1168": {
+        "images": 1099,
+        "image_tokens": 1934
+      },
+      "1300x1154": {
+        "images": 599,
+        "image_tokens": 1888
+      },
+      "1342x1118": {
+        "images": 602,
+        "image_tokens": 1922
+      },
+      "1358x1104": {
+        "images": 1104,
+        "image_tokens": 1874
+      },
+      "1404x1070": {
+        "images": 2203,
+        "image_tokens": 1902
+      },
+      "1500x1000": {
+        "images": 3498,
+        "image_tokens": 1946
+      },
+      "1562x960": {
+        "images": 1105,
+        "image_tokens": 1906
+      }
+    },
+    "chosen_size": "1500x1000",
+    "size_seconds": 0.4464198169999918,
+    "linear_layers": {
+      "model.visual:Linear": 124,
+      "model.language_model:Linear4bit": 240,
+      "lm_head:Linear": 1
+    },
+    "previous_output_tokens": 512,
+    "template_head": "[gMASK]<sop><|user|>\n<|begin_of_image|><|image|><|end_of_image|><|begin_of_image|><|image|><|end_of_image|>x/nothink<|assistant|>\n<think></think>\n",
+    "input_tokens": 4649,
+    "image_tokens": [
+      1944,
+      1944
+    ],
+    "sdpa_backends": {
+      "q12 kv12 d128 mask=False gqa=False: EFFICIENT_ATTENTION": 48,
+      "q32 kv32 d128 mask=False gqa=False: EFFICIENT_ATTENTION": 40
+    },
+    "generate_seconds": 56.71090148100001,
+    "new_tokens": 512,
+    "full_length": true,
+    "nonfinite_logits": true,
+    "generated_text": "```json\n{\n    \"is_defective\": false,\n    \"defect_type\": null,\n    \"location_cells\": [],\n    \"confidence\": 1.0,\n    \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"\n}\n```</think>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location_cells\": [], \"confidence\": 1.0, \"rationale\": \"Picture 2 is identical to Picture 1, showing no visible defects in the candle.\"}<|end_of_box|>\n<|begin_of_box|>{\"is_defective\": false, \"defect_type\": null, \"location",
+    "prefill_seconds": 8.612884248,
+    "seconds": 234.76761611999996
+  },
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "torchvision": "0.26.0+cu128",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39"
+  }
+}

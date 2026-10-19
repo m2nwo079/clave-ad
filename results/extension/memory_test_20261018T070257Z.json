@@ -1,0 +1,138 @@
+{
+  "run_id": "memory_test_20261018T070257Z",
+  "git_commit": "e89f45f9bb90f7fbb1daf0945f21a84c81e2e748",
+  "config_path": "configs/extension/memory_test.yaml",
+  "config_hash": "d6ccc314a6338e58941b0c80d4c518071fffe47369739b000bada2db66452777",
+  "dataset": "synthetic",
+  "seed": 0,
+  "created_at": "2026-10-18T07:02:57.998444+00:00",
+  "metrics": {
+    "pass": true,
+    "oom": false,
+    "timed_out": false,
+    "error": null,
+    "devices": [
+      {
+        "device": 0,
+        "name": "Tesla T4",
+        "total_memory": 15636037632,
+        "max_memory_reserved": 9248440320,
+        "max_memory_allocated": 9003466240,
+        "mem_get_info_used": 9391964160,
+        "reserved_ratio": 0.5914823523494575,
+        "pass": true
+      }
+    ],
+    "last_stage": "prefill 8.8s",
+    "after_load": {
+      "memory_allocated": 6830926848,
+      "memory_reserved": 6874464256
+    },
+    "device_map": [
+      "cuda:0"
+    ],
+    "processor_size": {
+      "longest_edge": 1540
+    },
+    "max_soft_tokens": null,
+    "eos_tokens": {
+      "2": "</s>"
+    },
+    "sizes_file": {
+      "path": "results/extension/image_sizes_20261018T060807Z.json",
+      "sha256": "df99c521303bc7267a5194c4662b01fc3d387b93384b4b93a63b1e4f90c9fb66"
+    },
+    "size_candidates": {
+      "700x700": {
+        "images": 334,
+        "image_tokens": 650
+      },
+      "800x800": {
+        "images": 433,
+        "image_tokens": 870
+      },
+      "840x840": {
+        "images": 346,
+        "image_tokens": 930
+      },
+      "900x900": {
+        "images": 291,
+        "image_tokens": 1122
+      },
+      "1000x1000": {
+        "images": 350,
+        "image_tokens": 1332
+      },
+      "1024x1024": {
+        "images": 3585,
+        "image_tokens": 1406
+      },
+      "1274x1176": {
+        "images": 599,
+        "image_tokens": 1974
+      },
+      "1284x1168": {
+        "images": 1099,
+        "image_tokens": 1974
+      },
+      "1300x1154": {
+        "images": 599,
+        "image_tokens": 2016
+      },
+      "1342x1118": {
+        "images": 602,
+        "image_tokens": 1960
+      },
+      "1358x1104": {
+        "images": 1104,
+        "image_tokens": 2000
+      },
+      "1404x1070": {
+        "images": 2203,
+        "image_tokens": 2028
+      },
+      "1500x1000": {
+        "images": 3498,
+        "image_tokens": 1980
+      },
+      "1562x960": {
+        "images": 1105,
+        "image_tokens": 1904
+      }
+    },
+    "chosen_size": "1404x1070",
+    "size_seconds": 0.47609882900002276,
+    "linear_layers": {
+      "model.vision_tower:Linear": 168,
+      "model.multi_modal_projector:Linear": 3,
+      "model.language_model:Linear4bit": 238,
+      "lm_head:Linear": 1
+    },
+    "previous_output_tokens": 512,
+    "template_head": "<s>[INST][IMG][IMG]x[/INST]",
+    "input_tokens": 4821,
+    "sdpa_backends": {
+      "q16 kv16 d64 mask=True gqa=False: EFFICIENT_ATTENTION": 24,
+      "q32 kv32 d128 mask=False gqa=False: EFFICIENT_ATTENTION": 34
+    },
+    "generate_seconds": 51.85676438799999,
+    "new_tokens": 512,
+    "full_length": true,
+    "nonfinite_logits": true,
+    "generated_text": "```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The image appears visually consistent with the reference candle image and does not show any clear signs of defects such as missing wax, damaged packaging, foreign particles, or color anomalies.\"\n}\n```[ARGS]json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The pixelated nature of the image makes it difficult to discern specific details, but there are no obvious defects visible that match the candidate defect types.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.3,\n  \"rationale\": \"The image quality is too poor to confidently identify any defects. No distinct visual anomalies are discernible compared to the reference.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The image is too pixelated and lacks clarity to determine any defects.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The image resolution is insufficient to detect any specific defects or differences from the reference candle.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The image is too blurred and pixelated to identify any defects.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The lack of clarity in the image prevents any accurate assessment of defects.\"\n}\n```json\n{\n  \"is_defective\": false,\n  \"defect_type\": null,\n  \"location_cells\": [],\n  \"confidence\": 0.0,\n  \"rationale\": \"The image quality is too degraded to determine any defects.\"\n}\n```json",
+    "prefill_seconds": 8.829800588000012,
+    "seconds": 219.687073848
+  },
+  "environment": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "torchvision": "0.26.0+cu128",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39"
+  }
+}

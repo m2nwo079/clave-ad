@@ -1,0 +1,42 @@
+{
+  "run_id": "format_check_20261018T064744Z",
+  "git_commit": "047d34139ea2a7b49669702becf126d8d0f8f2df",
+  "config_path": "configs/extension/format_check.yaml",
+  "config_hash": "5a3751524403e21e757ba02ed18e5af24c99577d0c816e0f6b8ba117b75ea434",
+  "dataset": "mvtec_ad+visa",
+  "seed": 0,
+  "created_at": "2026-10-18T06:47:44.207777+00:00",
+  "detector": null,
+  "metrics": {
+    "compliance": {},
+    "forced_retry": {},
+    "device_consistency": [],
+    "generations": 0,
+    "generation_seconds": 0,
+    "input_tokens": 0,
+    "new_tokens": 0,
+    "complete": false,
+    "shards": []
+  },
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "transformers": "5.19.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "scipy": "1.16.3",
+    "numpy": "2.1.3",
+    "tqdm": "4.67.3",
+    "setuptools": "81.0.0",
+    "packaging": "26.3",
+    "ftfy": null,
+    "wcwidth": "0.8.3",
+    "regex": "2025.11.3",
+    "cuda": "12.8"
+  },
+  "records": []
+}

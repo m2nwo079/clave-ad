@@ -10,6 +10,9 @@ CLAUDE.local.md
 
 # Temporary result files (final results/*.json are tracked)
 results/tmp/
+# Per-worker shard records: the merged report holds them, and a committed shard would be merged again by report.py
+results/**/shards/
+results/**/vlm_shards/
 
 # Model weights and checkpoints
 models/

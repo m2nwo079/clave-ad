@@ -1,0 +1,52 @@
+# Extension VLM settings, second candidate after the Gemma 4 replacement (configs/extension/plan.yaml
+# models.candidates): the main-run settings (configs/main_run/vlm.yaml) with this model's loading, template and end
+# tokens.
+seed: 0
+
+data:
+  mvtec_root: data/mvtec_ad
+  visa_root: data/visa
+  visa_split_csv: data/visa/split_csv/1cls.csv
+  type_names: configs/format_check/type_names.yaml
+
+model:
+  name: zai-org/GLM-4.6V-Flash
+  revision: 411bb4d77144a3f03accbf4b780f5acb8b7cde4e
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: float16
+  processor_use_fast: true
+  # vision encoder and its merger (the projector) stay float16, only the language model is nf4 (checkpoint modules
+  # model.visual, lm_head; lm_head is not tied to the embeddings and is listed because this list replaces the
+  # transformers default). Checked in X0 through the memory test record linear_layers
+  skip_4bit_modules: ['.*visual', '.*lm_head']
+  # grouped-query attention (32 query, 2 key-value heads, no sliding window): repeated first, as for the other
+  # candidates (src/clave_ad/vlm/model.py sdpa_repeat_kv)
+  attn_implementation: sdpa_repeat_kv
+  # visual token budget: the repo default of preprocessor_config.json, kept as is
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  # generation_config.json eos_token_id: <|endoftext|>, <|user|>, <|observation|>, <|code_middle|>
+  eos_token_ids: [151329, 151336, 151338, 151348]
+  # thinking off, as Qwen's enable_thinking false: the template appends /nothink to every user turn and puts an
+  # empty think block at the start of generation; no system prompt is inserted
+  chat_template_kwargs: {enable_thinking: false}
+
+prompts:
+  dir: src/clave_ad/vlm/prompts
+  b0: b0_v2.txt
+  b1: b1_v2.txt
+  b2: b2_v1.txt
+  b3: b3_v1.txt
+  requery: requery_v1.txt
+  retry: retry_v2.txt
+  output_rules: output_rules_v1.txt
+
+detector:
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+runtime:
+  pytorch_cuda_alloc_conf: "expandable_segments:True"

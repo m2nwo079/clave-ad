@@ -1,0 +1,20 @@
+# Inputs and outputs of the extension evaluation (scripts/extension/evaluate.py); hypotheses are in plan.yaml and the
+# handling rules in configs/analysis/eval.yaml, both unchanged here.
+plan: configs/extension/plan.yaml
+eval: configs/analysis/eval.yaml
+main_run: configs/main_run/run.yaml
+# main-run evaluation inputs: Qwen B0 for x9, and the reproduction check against the main evaluation result
+analysis_run: configs/analysis/run.yaml
+reproduce: results/analysis/eval_20261017T135021Z.json
+new_model_vlm: configs/extension/vlm_glm4_6v_flash.yaml
+sessions:
+  x1: results/extension/vlm_x1_20261018T210225Z.json
+  x2: results/extension/vlm_x2_20261019T030145Z.json
+  x3: results/extension/vlm_x3_20261019T062121Z.json
+  x4: results/extension/vlm_x4_20261019T103042Z.json
+# merged request cache of X1 to X4 (scripts/main_run/pack_cache.py) and the bundle it was staged from
+cache_dir: cache/extension/vlm
+cache_bundle: cache/kaggle_data/extension_cache/cache.jsonl
+detector_dir: cache/main_run_detector
+visa_class_ids: configs/main_run/visa_class_ids.yaml
+output_dir: results/extension

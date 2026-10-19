@@ -8,6 +8,8 @@ from typing import Any, Callable
 import torch
 from PIL import Image
 
+from clave_ad.vlm.template import decode_output, template_kwargs
+
 
 class NonFiniteHook:
     """Flags NaN or inf in lm_head outputs, before any logits processor masks tokens with -inf."""
@@ -33,8 +35,7 @@ def render(template: str, **values: str) -> str:
 
 def generate(model: Any, processor: Any, images: list[Image.Image], messages: list[dict], gen: dict, hook: NonFiniteHook) -> dict:
     """Run one greedy generation for a chat whose first user turn holds all images."""
-    text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True,
-                                         enable_thinking=gen["enable_thinking"], add_vision_id=gen["add_vision_id"])
+    text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, **template_kwargs(gen))
     inputs = processor(text=[text], images=images or None, return_tensors="pt").to(model.device)
     hook.seen = False
     torch.cuda.synchronize()
@@ -45,7 +46,7 @@ def generate(model: Any, processor: Any, images: list[Image.Image], messages: li
     new_ids = output[0, inputs["input_ids"].shape[1]:]
     ended = bool(new_ids.numel()) and int(new_ids[-1]) in gen["eos_token_ids"]
     return {
-        "text": processor.decode(new_ids, skip_special_tokens=True),
+        "text": decode_output(processor, new_ids, inputs["input_ids"][0], gen),
         "input_tokens": int(inputs["input_ids"].shape[1]),
         "new_tokens": int(new_ids.numel()),
         "seconds": time.perf_counter() - start,

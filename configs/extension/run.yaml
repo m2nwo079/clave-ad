@@ -1,0 +1,46 @@
+# Extension VLM sessions (configs/extension/plan.yaml), run by scripts/main_run/run.py and report.py with the
+# main-run images, detector output and rules. X0 (memory test and format check) uses memory_test.yaml and
+# format_check.yaml instead.
+seed: 0
+# Qwen, as in the main run (B0-grid); the new-model sessions name their own VLM config
+vlm: configs/main_run/vlm.yaml
+# the new model; switching to the next candidate changes this line and the vlm line of memory_test.yaml and
+# format_check.yaml
+new_model: &new_model configs/extension/vlm_glm4_6v_flash.yaml
+rules: configs/main_run/rules.yaml
+split_result: results/main_run/library_20261014T091345Z.json
+references: results/format_check/samples_20261014T035726Z.json
+# B0-grid draws conditions.e1.grid of this file with scripts/posthoc/grid.py
+grid_config: configs/posthoc/c4_cause.yaml
+
+detector:
+  result: results/main_run/detector_20261014T115713Z.json
+  run_id: detector_20261014T115713Z
+  kernel: clave-ad-main-run-detector
+  kernel_version: 1
+  maps_json_sha256: b1bb98701a70f1334a335b09e584ec80eedf7f6882976343fee7e292e21fbf45
+
+sessions:
+  x0:
+    # memory test and format check of the new model (notebooks/kaggle/extension.py runs memory_test.yaml and
+    # format_check.yaml instead of run.py)
+    mode: memory_and_format_check
+  x1:
+    kinds: {mvtec_ad: [b0_grid], visa: [b0_grid]}
+  x2:
+    vlm: *new_model
+    kinds: {mvtec_ad: [b0, b3]}
+  x3:
+    vlm: *new_model
+    kinds: {visa: [b0]}
+  x4:
+    vlm: *new_model
+    kinds: {mvtec_ad: [p1], visa: [p1]}
+session: x4
+
+time_budget_hours: 10
+# one cache for every extension request; the keys hold the model revision, so models never share entries
+cache_dir: cache/extension/vlm
+bundle_dir: cache/extension_bundle
+cache_dataset_dir: cache/kaggle_data/extension_cache
+output_dir: results/extension

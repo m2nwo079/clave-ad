@@ -38,8 +38,12 @@ def metrics(records: list[dict], shards: list[dict]) -> dict:
         "generation_seconds": sum(a["seconds"] for a in attempts),
         "input_tokens": sum(a["input_tokens"] for a in attempts),
         "new_tokens": sum(a["new_tokens"] for a in attempts),
-        "shards": [{k: s.get(k) for k in ("shard", "device", "gpu", "kernels", "pytorch_cuda_alloc_conf", "prompts", "kinds",
-                                      "max_memory_reserved", "max_memory_allocated", "total_memory")}
+        # every worker saved its shard and none stopped at the time budget (shards without the field ran to the end)
+        "complete": bool(shards) and len(shards) == shards[0].get("num_shards", len(shards))
+                    and all(s.get("complete", True) for s in shards),
+        "shards": [{k: s.get(k) for k in ("shard", "complete", "seconds", "device", "gpu", "kernels",
+                                          "pytorch_cuda_alloc_conf", "prompts", "kinds", "max_memory_reserved",
+                                          "max_memory_allocated", "total_memory")}
                    for s in shards],
     }
     if by_kind["b0"]:

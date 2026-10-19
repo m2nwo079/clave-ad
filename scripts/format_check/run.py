@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import sys
+import time
 from functools import partial
 from pathlib import Path
 from string import Template
@@ -22,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from clave_ad.data.datasets import load_image
 from clave_ad.requery.inputs import b2_inputs, requery_inputs
 from clave_ad.vlm.chat import NonFiniteHook, kernel_implementations, render, request
-from clave_ad.vlm.model import load_model
+from clave_ad.vlm.model import build_inputs, load_model
 from clave_ad.vlm.parse import parse_answer, parse_check
 from clave_ad.vlm.records import summarize
 
@@ -40,6 +41,16 @@ def main() -> None:
     args = parser.parse_args()
 
     cfg = yaml.safe_load(Path(args.config).read_text())
+    start_time = time.monotonic()
+    # no budget in the main-run format check configs
+    deadline = start_time + cfg.get("time_budget_hours", float("inf")) * 3600
+    if "vlm" in cfg:
+        # extension: model, generation and prompts of a VLM config, re-query crop and format retries of the frozen
+        # main-run rules
+        vlm = yaml.safe_load(Path(cfg["vlm"]).read_text())
+        rules = yaml.safe_load(Path(cfg["rules"]).read_text())
+        cfg = {**cfg, "model": vlm["model"], "prompts": vlm["prompts"], "requery": rules["requery"],
+               "generation": {**vlm["generation"], "max_retries": rules["format"]["max_retries"]}}
     types = yaml.safe_load(Path(cfg["data"]["type_names"]).read_text())
     gen, checks = cfg["generation"], cfg["checks"]
     prompt_dir = Path(cfg["prompts"]["dir"])
@@ -69,6 +80,14 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     model, processor = load_model(cfg["model"])
+    # two images of different sizes in one request (the re-query input) must batch in this processor; checked on
+    # synthetic images before any request, so a processor setting problem stops the worker at once
+    try:
+        build_inputs(processor, [Image.new("RGB", (96, 72)), Image.new("RGB", (56, 56))], "x", gen)
+    except Exception as e:
+        lines = str(e).splitlines()
+        sys.exit(f"processor check failed for two images of different sizes: {type(e).__name__}: "
+                 f"{lines[0][:300] if lines else ''}")
     hook = NonFiniteHook(model)
     device = f"cuda_visible_devices={os.environ.get('CUDA_VISIBLE_DEVICES', '')}"
     torch.cuda.reset_peak_memory_stats()
@@ -109,11 +128,23 @@ def main() -> None:
         return outcome
 
     records = []
+    # images this worker runs: its share plus the device consistency images
+    todo = [i for i in range(len(samples))
+            if i % args.num_shards == args.shard or i < checks["device_consistency_images"]]
+    complete = True
     for index, image in enumerate(samples):
         mine = index % args.num_shards == args.shard
         consistency = index < checks["device_consistency_images"]
         if not (mine or consistency):
             continue
+        done = todo.index(index)
+        if done % 5 == 0:
+            print(f"shard {args.shard}: {done}/{len(todo)} images, {len(records)} records, "
+                  f"{time.monotonic() - start_time:.0f}s", flush=True)
+        if time.monotonic() > deadline:
+            complete = False
+            print(f"shard {args.shard}: time budget reached at {done}/{len(todo)} images", flush=True)
+            break
         names = list(types[image["dataset"]]["categories"][image["category"]])
         # category names such as "metal_nut" are shown with spaces, like the defect types
         values = {"category": image["category"].replace("_", " "), "candidates": ", ".join(names),
@@ -150,7 +181,8 @@ def main() -> None:
                 records.append({**summarize(kind, image, outcome, device, forced_retry=True), **fields})
 
     shard = {
-        "shard": args.shard, "device": device, "gpu": torch.cuda.get_device_name(0),
+        "shard": args.shard, "num_shards": args.num_shards, "complete": complete,
+        "seconds": time.monotonic() - start_time, "device": device, "gpu": torch.cuda.get_device_name(0),
         "kernels": kernel_implementations(),
         "max_memory_reserved": torch.cuda.max_memory_reserved(0),
         "max_memory_allocated": torch.cuda.max_memory_allocated(0),
@@ -162,7 +194,7 @@ def main() -> None:
         "records": records,
     }
     (out_dir / f"shard_{args.shard}.json").write_text(json.dumps(shard, indent=2) + "\n")
-    print(f"shard {args.shard}: {len(records)} records")
+    print(f"shard {args.shard}: {len(records)} records, complete={complete}")
 
 
 if __name__ == "__main__":

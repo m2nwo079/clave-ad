@@ -1,0 +1,268 @@
+# Extension experiments (stage/extension), fixed before any extension run.
+#   x5 generalization: repeat the core conclusions (A2, verification score against confidence) with a VLM of
+#      another family
+#   x8 selective re-query: adopt the re-query answer only when the re-verification score is higher, fixed as the
+#      main analysis for the new model before its results are seen
+#   x9 B0-grid: Qwen B0 on the original image with the post-hoc 3x3 grid lines, both datasets, paired with B0.
+#      This extension was chosen after seeing the post-hoc c4 experiment (results/posthoc/), so it is exploratory
+#      and reported apart from the frozen main results.
+# Ground truth is read only through src/clave_ad/eval/. The main-run rules, code and results stay unchanged.
+
+main_run: configs/main_run/run.yaml
+# evaluation handling (unparsed answers, AUROC signals, bootstrap, paired comparisons) follows the frozen rules
+eval: configs/analysis/eval.yaml
+# detector outputs and example library of the main run are reused as they are (no new detector run)
+detector_dir: cache/main_run_detector
+library: results/main_run/library_20261014T091345Z.json
+
+# ---------- new model (x5, x8) ----------
+models:
+  # tried in this order; the first one that passes the replacement conditions is used for every new-model session
+  candidates:
+    - id: ministral3_8b
+      name: mistralai/Ministral-3-8B-Instruct-2512-BF16
+      # BF16 checkpoint; the repo without the suffix is the FP8 one
+      revision: f6fae9795746f63c9be8344932f01275f3c63734
+      architecture: Mistral3ForConditionalGeneration
+      license: apache-2.0
+      # replaced after X0 version 4 (commit e89f45f): final unparsed share 1.0 in B0 and re-query
+    - id: gemma4_12b
+      name: google/gemma-4-12B-it
+      revision: 707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7
+      architecture: Gemma4UnifiedForConditionalGeneration
+      license: apache-2.0
+      # the repo generation_config suppresses <image|> and <audio|> (not set for Qwen or Ministral); its sampling
+      # values are not used because generation is greedy
+      # replaced after X0 version 7 (commit 25ab455): the vision embedder patch_dense output exceeds the fp16
+      # maximum on all 81 format-check images (CPU fp32 computation with the committed weights), as in an external
+      # report (vLLM issue 48231); no format-check or ground-truth result was looked at
+    # GLM-4.6V-Flash is placed before InternVL3.5-8B: its language model is not of the Qwen family; its total size
+    # is close to Qwen3.5-9B (safetensors totals, see the extension research log), so the model size differs little;
+    # it is supported natively by transformers (no remote code), so little compatibility work is needed.
+    # Phi-4-multimodal is not used: the transformers 5.19.0 vision encoder runs causally under sdpa when crops have
+    # no padding, and its vision LoRA needs peft. The order was decided before the fp16 checks of either model;
+    # after it, only feasibility checks were looked at (fp16 headroom, attention comparison against transformers
+    # sdpa, template rendering); no format-check or ground-truth result of either model was seen
+    - id: glm4_6v_flash
+      name: zai-org/GLM-4.6V-Flash
+      # read from the Hugging Face API on 2026-10-19
+      revision: 411bb4d77144a3f03accbf4b780f5acb8b7cde4e
+      architecture: Glm4vForConditionalGeneration
+      license: mit
+    # last choice: its language model is Qwen3 (text_config.model_type qwen3), so if it is used the result is
+    # reported as a partial generalization (different vision encoder, language model of the Qwen3 family)
+    - id: internvl3_5_8b
+      name: OpenGVLab/InternVL3_5-8B-HF
+      revision: 741a7d03020411e666c6109218ab71e08151ef86
+      architecture: InternVLForConditionalGeneration
+      license: apache-2.0
+      generalization: partial
+  # revisions were read from the Hugging Face API on 2026-10-18; the licence is the Hub metadata (the LICENSE file
+  # text is not checked yet)
+
+  replacement:
+    # same memory rule as design doc 13.4, per device: no out-of-memory error and max_memory_reserved at most this
+    # share of total_memory, on the heaviest input of the memory test
+    max_reserved_share: 0.95
+    # heaviest input per model: the image headers of both datasets (main-run image folders, no ground truth) are
+    # read locally beforehand and fixed in a result file of distinct sizes and counts
+    # (scripts/memory_test/sizes.py, results/extension/image_sizes_*.json); in the X0 kernel the model's processor
+    # counts the image tokens of each size, and the memory test uses the size with the most tokens; candidate sizes,
+    # tokens per size and the chosen size go into the result file
+    heaviest_size: per_model_processor
+    # a model that fails to load (missing architecture, processor or tokenizer error) is replaced as well.
+    # An input handling setting problem after loading (a repo config value overriding a class default, so that a
+    # certain input fails) is not a load failure: after checking that the fix does not change the results, it is
+    # fixed and X0 is run again. Decided after X0 version 3 (commit 047d341: do_pad null in the Ministral repo)
+    load_failure: replace
+    # X0 format check on the 54 images: in any request kind, final unparsed answers (after the format retries)
+    # above this share of that kind's requests replace the model; the denominator is the kind's own request count
+    # (B3 runs only on parsed B0 answers, so it can be below 54); forced retry tests are not counted, as in the
+    # format check
+    max_final_unparsed_share: 0.10
+    # the memory test (model loading included) stops at this limit, keeps what it recorded so far and counts as
+    # failing the memory rule, so the model is replaced
+    memory_test_time_limit_minutes: 20
+    # a format check that has not finished within this budget replaces the model: the main sessions could not finish
+    # within the quota
+    format_check_time_budget_hours: 1.5
+    # out-of-memory in X0: when the cause is found to be a setting that did not work as intended (quantization or
+    # the attention implementation), the setting is fixed once and X0 is run again; a second out-of-memory error
+    # replaces the model with the next candidate (gemma4_12b) whatever its cause. Decided after reading the X0
+    # version 2 memory record (commit b09b743: quantization as intended, grouped-query sdpa fell back to the
+    # float32 math kernel on T4); no ground-truth result was looked at
+    # a defect where our code behaves differently from the reference implementation is fixed without counting
+    # against the model's one fix, once a test shows the fixed code gives the reference output; prompts, parser,
+    # generation settings and judging rules are not changed. Failures caused by the model's behavior (format
+    # compliance, memory needs) follow the replacement rules above. Decided after X0 version 6 (commit 8bfb61d):
+    # sdpa_repeat_kv was not registered in the mask function table, so Gemma ran without its sliding window and
+    # image bidirectional masks. Evidence: the sdpa record, the transformers source and a model-level test (no
+    # difference after the fix); no ground-truth result was looked at; the Ministral results are not affected
+    code_defect: fix_and_test
+    # the memory-test nonfinite_logits flag is also set when min_new_tokens masks the end tokens with -inf
+    # (Ministral X0 version 4 shows true with a valid answer), so it is not used for the fp16 check; the
+    # format-check lm_head hook is used instead
+
+  quantization:
+    # same BitsAndBytes settings as configs/main_run/vlm.yaml (4-bit nf4, double quant); T4 has no BF16 or FP8,
+    # so compute runs in float16 for every candidate
+    reuse: configs/main_run/vlm.yaml
+    load_in_4bit: true
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_use_double_quant: true
+    compute_dtype: float16
+    # every candidate: only the language model is nf4; the vision encoder and the multimodal projector stay
+    # float16. The module names per model are written into its VLM config in step 1 and checked in X0
+    skip_4bit: [vision_encoder, projector]
+
+  generation:
+    # same as the main run: greedy, the same maximum new tokens, the same format retry rule and prompt files
+    reuse: configs/main_run/vlm.yaml
+    max_new_tokens: 512
+    do_sample: false
+    max_retries_from: configs/main_run/rules.yaml
+    prompts: [b0, b3, requery, retry, output_rules]
+    # format violations found in X0 are reported; prompts are not changed for any model
+    prompt_changes: none
+    # end-of-turn token ids are read from each model's generation_config and written into its VLM config in
+    # step 1, before X0
+    # they are used as they are; the X0 memory test writes the decoded string of every id to its result and log
+
+  # chat template handling per model, fixed before X0; every request puts all images before the text
+  # (src/clave_ad/vlm/model.py build_inputs)
+  templates:
+    ministral3_8b:
+      # Hugging Face tokenizer, loaded with fix_mistral_regex true: PixtralProcessor always loads TokenizersBackend
+      # in transformers 5.19.0, so mistral-common is not used. The flag only silences a false warning (config.json
+      # transformers_version 5.0.0.dev0): the repo tokenizer.json split regex equals the transformers fix, and the
+      # prompt files, the memory test prompt, the type names and an example answer tokenize the same either way
+      tokenizer: hf
+      # the repo's default system prompt (assistant persona, date) is not used: no system prompt, as for Qwen
+      system_prompt: none
+      # found in the source before any X0 result was seen (X0 version 1 stopped in the memory test with no
+      # output): with no system message, chat_template.jinja inserts its default system prompt. The template's
+      # default message condition is turned off at load (vlm config chat_template_replace), the memory test records
+      # the start of the rendered chat (template_head) to confirm, and X0 is run again as a whole
+      default_system_message: template_condition_off_rerun_x0
+      # processor default image size, recorded in the result files
+      image_size: processor_default
+    gemma4_12b:
+      enable_thinking: false
+      # with thinking off the model still writes an empty thought block: only an empty leading block is removed
+      # with the processor's parse_response before the format check; a block with content stays a think_block
+      # violation
+      empty_thought_block: strip_leading_empty
+      # repo default (processor_config max_soft_tokens), as design doc 13.4 keeps the preprocessor settings
+      max_soft_tokens: 280
+    glm4_6v_flash:
+      # prompt files are the same as in the main run; thinking is turned off with enable_thinking false, the same
+      # kind of setting as Qwen's: the template appends /nothink to the end of every user turn and puts an empty
+      # think block at the start of generation; earlier assistant turns of a format retry are rendered with an
+      # empty think block as well
+      enable_thinking: false
+      # processor default image size, recorded in the result files
+      image_size: processor_default
+    internvl3_5_8b:
+      # the thinking-mode system prompt (R1_SYSTEM_PROMPT) is not used
+      system_prompt: none
+      # processor default image size, recorded in the result files
+      image_size: processor_default
+
+  # Kaggle kernel packages per model, pinned with ==. transformers 5.19.0 (already pinned for Qwen in
+  # notebooks/kaggle/main_run.py) has gemma4_unified, mistral3, glm4v and internvl; loading is confirmed only in X0
+  kernel_packages:
+    common: {transformers: "5.19.0", bitsandbytes: "0.50.2"}
+    ministral3_8b: {}
+    gemma4_12b: {}
+    glm4_6v_flash: {}
+    internvl3_5_8b: {}
+
+# ---------- sessions ----------
+sessions:
+  # memory test (heaviest input as in 13.4) and format check on the 54 format-check images:
+  # B0, B3, forced retry and forced re-query as in the format check; B1 and B2 are not run for the new model
+  x0: {model: new, purpose: [memory_test, format_check]}
+  # Qwen (main-run model and settings), B0-grid on every main-run image of both datasets
+  x1: {model: qwen, kinds: {mvtec_ad: [b0_grid], visa: [b0_grid]}}
+  x2: {model: new, kinds: {mvtec_ad: [b0, b3]}}
+  x3: {model: new, kinds: {visa: [b0]}}
+  # P1 re-query on the new model's failed verifications; both adoption rules are evaluated from the same requests
+  x4: {model: new, kinds: {mvtec_ad: [p1], visa: [p1]}}
+  # images: the main-run image lists (evaluation and library images, combined and Other included), as in the
+  # main run; caches are kept apart per model
+  cache_dir: cache/extension
+  output_dir: results/extension
+
+# ---------- B0-grid (x9) ----------
+grid:
+  # the post-hoc E1 grid, referenced and not copied; drawn by scripts/posthoc/grid.py, imported as it is (the
+  # post-hoc code is not changed)
+  from: configs/posthoc/c4_cause.yaml
+  key: conditions.e1.grid
+  # B0 prompt unchanged (the grid is not mentioned in the prompt), format retries as in the main run
+  prompt: b0
+  # no separate format check: post-hoc E1 already ran this exact request (grid, B0 prompt, Qwen) on 70 images
+  # and every first answer parsed (results/posthoc/posthoc_20261018T004519Z.json)
+  format_check: none
+
+# ---------- hypotheses ----------
+# fixed before the extension results are seen; each holds or not and is reported as it is
+hypotheses:
+  # x5, new model, MVTec AD, library seed 0: both A2 conditions
+  h5_1:
+    dataset: mvtec_ad
+    p0_auroc_ci_low_above: 0.5
+    p0_minus_b3_auroc_ci_low_above: 0.0
+    # library seeds 1 and 2: point values and their range only (A8), on CPU from the cache
+    seeds_range: [1, 2]
+  # x5, new model, each dataset: P0 verification AUROC minus B0 confidence AUROC, paired, lower bound above 0
+  h5_2:
+    datasets: [mvtec_ad, visa]
+    p0_minus_b0_confidence_auroc_ci_low_above: 0.0
+  # x8, new model, each dataset: selective adoption is the main P1 here; always adopting is the secondary analysis
+  h8:
+    # the H8 main analysis uses configs/analysis/eval.yaml p1_score.secondary (adopted_answer_score,
+    # configs/main_run/rules.yaml requery.secondary_final_answer: requery_if_higher_score) and the H8 secondary
+    # analysis uses p1_score.main (final_answer_score, requery.final_answer: always_requery); this only maps the
+    # decision already stated in this file (x8 above) to the eval.yaml keys and was fixed before any X4 result
+    datasets: [mvtec_ad, visa]
+    p1_selective_minus_b0_full_faithful_ci_low_above: 0.0
+    broken_below_fixed: true
+  # x9, Qwen, each dataset, B0-grid minus B0 paired on the same evaluation images
+  h9:
+    # fixed before any evaluation of X1 to X4 (only format and run records were looked at):
+    # location and existence correct rates are compared as in the main evaluation A8: on the same bootstrap
+    # resample, each method uses its own denominator, and the difference of the two rates is reported.
+    # The out-of-grid count is the number of final answers left unparsed by the location_cells range error, counted
+    # on the main image set (evaluation images without combined and Other); the count over all session images is
+    # reported for reference only, without a verdict.
+    # P0 verification of B0-grid answers uses the detector features of the original images (the verifier does not
+    # depend on the VLM input). The drawn lines sit at floor(k * side / 3), the same split as the ground-truth cells
+    # (src/clave_ad/eval/claims.py cell_boxes); the cell shares split the 518x518 anomaly map at the same k/3
+    # fractions by pixel centre, so their boundary is within one map pixel of the drawn line
+    datasets: [mvtec_ad, visa]
+    # final location_cells range violations: B0-grid count below the B0 count (point counts, no interval)
+    out_of_grid_violations_fewer: count
+    # location correct rate: paired difference lower bound above this
+    location_correct_ci_low_above: 0.0
+    # non-inferiority: paired difference lower bound above the margin
+    full_faithful_ci_low_above: -0.02
+    existence_correct_ci_low_above: -0.02
+    # P0 verification AUROC kept: P0 on B0-grid answers minus P0 on B0 answers, same images, paired lower bound
+    # above this
+    p0_auroc_ci_low_above: -0.03
+
+# evaluation of the extension: a new script that imports and reuses the functions of scripts/analysis/evaluate.py
+# and src/clave_ad/eval/stats.py; evaluate.py itself is not changed
+evaluation: new_script
+
+# ---------- quota ----------
+quota:
+  # remaining Kaggle GPU hours at planning time
+  remaining_hours: 21
+  # estimates only: Qwen seconds per request from results/analysis/eval_20261017T135021Z.json (cost), two T4
+  # workers in parallel, plus model download and loading; new-model sessions are re-estimated after X0
+  # x2 to x4 re-estimated before the X0 rerun: Qwen memory-test seconds per input and per new token applied to the
+  # main-run session token counts, image tokens scaled by the Pixtral count of the main-run image sizes, same
+  # answer lengths and decoding speed as Qwen assumed (generation, not image tokens, takes most of the time)
+  estimated_hours: {x0: 0.5, x1: 5.3, x2: 3.5, x3: 3.1, x4: 1.7}

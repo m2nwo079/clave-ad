@@ -1,0 +1,59 @@
+# Extension VLM settings, first candidate (configs/extension/plan.yaml models.candidates): the main-run settings
+# (configs/main_run/vlm.yaml) with this model's loading, template and end tokens.
+seed: 0
+
+data:
+  mvtec_root: data/mvtec_ad
+  visa_root: data/visa
+  visa_split_csv: data/visa/split_csv/1cls.csv
+  type_names: configs/format_check/type_names.yaml
+
+model:
+  name: mistralai/Ministral-3-8B-Instruct-2512-BF16
+  revision: f6fae9795746f63c9be8344932f01275f3c63734
+  device_map: {"": 0}
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: float16
+  processor_use_fast: true
+  # vision encoder and projector stay float16, only the language model is nf4 (checkpoint modules vision_tower,
+  # multi_modal_projector); lm_head is listed because this list replaces the transformers default. Checked in X0
+  # through the memory test record linear_layers
+  skip_4bit_modules: ['.*vision_tower', '.*multi_modal_projector', '.*lm_head']
+  # Hugging Face tokenizer: PixtralProcessor always loads TokenizersBackend in transformers 5.19.0. The flag only
+  # silences a false warning (config.json says transformers_version 5.0.0.dev0); the repo regex already equals the fix.
+  # do_pad: the repo processor_config.json sets it to null, which overrides the PixtralImageProcessor default (true),
+  # so the two re-query images of different sizes could not be batched (X0 version 3); the padding is cut off again
+  # through image_sizes in the vision encoder
+  processor_kwargs: {fix_mistral_regex: true, do_pad: true}
+  # the template inserts a long default system prompt (assistant persona) when no system message is given; turning
+  # that condition off sends no system prompt, as for Qwen (configs/extension/plan.yaml templates)
+  chat_template_replace: {"messages[0]['role'] != 'system' and default_system_message != ''": "false"}
+  # grouped-query attention (32 query, 8 key-value heads): on T4 a grouped-query sdpa call falls back to the float32
+  # math kernel (X0 version 2 out of memory), so the key and value heads are repeated first
+  # (src/clave_ad/vlm/model.py sdpa_repeat_kv)
+  attn_implementation: sdpa_repeat_kv
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  # </s> (generation_config.json eos_token_id)
+  eos_token_ids: [2]
+  # no system prompt; the memory test records the start of the rendered chat to check that none is inserted
+  chat_template_kwargs: {}
+
+prompts:
+  dir: src/clave_ad/vlm/prompts
+  b0: b0_v2.txt
+  b1: b1_v2.txt
+  b2: b2_v1.txt
+  b3: b3_v1.txt
+  requery: requery_v1.txt
+  retry: retry_v2.txt
+  output_rules: output_rules_v1.txt
+
+detector:
+  result: results/format_check/anomalyclip_20261014T045625Z.json
+
+runtime:
+  pytorch_cuda_alloc_conf: "expandable_segments:True"

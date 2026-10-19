@@ -1,0 +1,114 @@
+{
+  "run_id": "image_sizes_20261018T060807Z",
+  "git_commit": "a332ee2854b304746015531315dd45c89e871e61",
+  "config_path": "configs/extension/memory_test.yaml",
+  "config_hash": "d6ccc314a6338e58941b0c80d4c518071fffe47369739b000bada2db66452777",
+  "dataset": "mvtec_ad+visa",
+  "seed": 0,
+  "created_at": "2026-10-18T06:08:07.221073+00:00",
+  "input_folder": "cache/kaggle_data/main_run",
+  "metrics": {
+    "datasets": {
+      "mvtec_ad": {
+        "images": 5339,
+        "sizes": [
+          {
+            "width": 700,
+            "height": 700,
+            "images": 334
+          },
+          {
+            "width": 800,
+            "height": 800,
+            "images": 433
+          },
+          {
+            "width": 840,
+            "height": 840,
+            "images": 346
+          },
+          {
+            "width": 900,
+            "height": 900,
+            "images": 291
+          },
+          {
+            "width": 1000,
+            "height": 1000,
+            "images": 350
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "images": 3585
+          }
+        ]
+      },
+      "visa": {
+        "images": 10809,
+        "sizes": [
+          {
+            "width": 1274,
+            "height": 1176,
+            "images": 599
+          },
+          {
+            "width": 1284,
+            "height": 1168,
+            "images": 1099
+          },
+          {
+            "width": 1300,
+            "height": 1154,
+            "images": 599
+          },
+          {
+            "width": 1342,
+            "height": 1118,
+            "images": 602
+          },
+          {
+            "width": 1358,
+            "height": 1104,
+            "images": 1104
+          },
+          {
+            "width": 1404,
+            "height": 1070,
+            "images": 2203
+          },
+          {
+            "width": 1500,
+            "height": 1000,
+            "images": 3498
+          },
+          {
+            "width": 1562,
+            "height": 960,
+            "images": 1105
+          }
+        ]
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "macOS-15.7.9-arm64-arm-64bit",
+    "torch": null,
+    "torchvision": null,
+    "transformers": null,
+    "bitsandbytes": null,
+    "accelerate": null,
+    "pillow": "12.3.0",
+    "pyyaml": "6.0.3",
+    "scipy": "1.18.1",
+    "numpy": "2.5.4",
+    "tqdm": "4.70.1",
+    "setuptools": null,
+    "packaging": "26.3",
+    "ftfy": null,
+    "wcwidth": null,
+    "regex": null,
+    "cuda": null
+  }
+}
